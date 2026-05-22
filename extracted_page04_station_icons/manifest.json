@@ -1,0 +1,112 @@
+[
+  {
+    "file": "P04_icon_北京站.png",
+    "station_label": "北京站",
+    "source_pdf_page": 4,
+    "source_kind": "embedded jpeg bitmap converted to PNG",
+    "display_bbox_pdf_points": "563.6,58.4,665.6,121.3",
+    "source_width_px": 655,
+    "source_height_px": 404,
+    "output_width_px": 655,
+    "output_height_px": 404
+  },
+  {
+    "file": "P04_icon_北京西站.png",
+    "station_label": "北京西站",
+    "source_pdf_page": 4,
+    "source_kind": "embedded jpeg bitmap converted to PNG",
+    "display_bbox_pdf_points": "710.2,65.6,812.2,114.2",
+    "source_width_px": 745,
+    "source_height_px": 355,
+    "output_width_px": 745,
+    "output_height_px": 355
+  },
+  {
+    "file": "P04_icon_北京南站.png",
+    "station_label": "北京南站",
+    "source_pdf_page": 4,
+    "source_kind": "embedded jpeg bitmap converted to PNG",
+    "display_bbox_pdf_points": "563.6,156.0,665.6,217.6",
+    "source_width_px": 629,
+    "source_height_px": 379,
+    "output_width_px": 629,
+    "output_height_px": 379
+  },
+  {
+    "file": "P04_icon_北京北站.png",
+    "station_label": "北京北站",
+    "source_pdf_page": 4,
+    "source_kind": "embedded jpeg bitmap converted to PNG",
+    "display_bbox_pdf_points": "710.2,156.5,812.2,217.1",
+    "source_width_px": 643,
+    "source_height_px": 381,
+    "output_width_px": 643,
+    "output_height_px": 381
+  },
+  {
+    "file": "P04_icon_清河站.png",
+    "station_label": "清河站",
+    "source_pdf_page": 4,
+    "source_kind": "embedded jpeg bitmap converted to PNG",
+    "display_bbox_pdf_points": "710.2,249.5,812.2,318.0",
+    "source_width_px": 640,
+    "source_height_px": 429,
+    "output_width_px": 640,
+    "output_height_px": 429
+  },
+  {
+    "file": "P04_icon_朝阳站.png",
+    "station_label": "朝阳站",
+    "source_pdf_page": 4,
+    "source_kind": "embedded jpeg bitmap converted to PNG",
+    "display_bbox_pdf_points": "563.6,256.2,665.6,311.2",
+    "source_width_px": 761,
+    "source_height_px": 410,
+    "output_width_px": 761,
+    "output_height_px": 410
+  },
+  {
+    "file": "P04_icon_亦庄站.png",
+    "station_label": "亦庄站",
+    "source_pdf_page": 4,
+    "source_kind": "embedded jpeg bitmap converted to PNG",
+    "display_bbox_pdf_points": "563.6,348.2,665.6,413.0",
+    "source_width_px": 645,
+    "source_height_px": 409,
+    "output_width_px": 645,
+    "output_height_px": 409
+  },
+  {
+    "file": "P04_icon_通州站.png",
+    "station_label": "通州站",
+    "source_pdf_page": 4,
+    "source_kind": "embedded jpeg bitmap converted to PNG",
+    "display_bbox_pdf_points": "710.2,352.2,812.2,409.1",
+    "source_width_px": 770,
+    "source_height_px": 429,
+    "output_width_px": 770,
+    "output_height_px": 429
+  },
+  {
+    "file": "P04_icon_大兴机场.png",
+    "station_label": "大兴机场",
+    "source_pdf_page": 4,
+    "source_kind": "embedded jpeg bitmap converted to PNG",
+    "display_bbox_pdf_points": "710.2,445.4,812.2,509.5",
+    "source_width_px": 648,
+    "source_height_px": 407,
+    "output_width_px": 648,
+    "output_height_px": 407
+  },
+  {
+    "file": "P04_icon_首都机场.png",
+    "station_label": "首都机场",
+    "source_pdf_page": 4,
+    "source_kind": "embedded jpeg bitmap converted to PNG",
+    "display_bbox_pdf_points": "563.6,451.7,665.6,503.4",
+    "source_width_px": 1280,
+    "source_height_px": 649,
+    "output_width_px": 1280,
+    "output_height_px": 649
+  }
+]

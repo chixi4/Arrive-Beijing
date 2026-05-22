@@ -1,0 +1,434 @@
+[
+  {
+    "file": "P02-01_京通首页.png",
+    "page": 2,
+    "sequence_on_page": 1,
+    "label_from_pdf": "京通首页",
+    "crop_box_pdf_points": "174.5,0.0,423.0,540.0",
+    "output_width_px": 497,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P02-02_全部服务页.png",
+    "page": 2,
+    "sequence_on_page": 2,
+    "label_from_pdf": "全部服务页",
+    "crop_box_pdf_points": "535.2,0.0,783.7,540.0",
+    "output_width_px": 498,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P04-01_开屏页.png",
+    "page": 4,
+    "sequence_on_page": 1,
+    "label_from_pdf": "开屏页",
+    "crop_box_pdf_points": "119.4,0.0,422.8,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P04-02_站区切换页.png",
+    "page": 4,
+    "sequence_on_page": 2,
+    "label_from_pdf": "站区切换页",
+    "crop_box_pdf_points": "536.0,0.0,840.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P05-01_首页.png",
+    "page": 5,
+    "sequence_on_page": 1,
+    "label_from_pdf": "首页",
+    "crop_box_pdf_points": "119.0,0.0,423.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P05-02_站区切换页.png",
+    "page": 5,
+    "sequence_on_page": 2,
+    "label_from_pdf": "站区切换页",
+    "crop_box_pdf_points": "536.0,0.0,840.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P06-01_站区切换页.png",
+    "page": 6,
+    "sequence_on_page": 1,
+    "label_from_pdf": "站区切换页",
+    "crop_box_pdf_points": "119.0,0.0,423.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P06-02_站区切换页.png",
+    "page": 6,
+    "sequence_on_page": 2,
+    "label_from_pdf": "站区切换页",
+    "crop_box_pdf_points": "536.0,0.0,840.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P07-01_导航指引页.png",
+    "page": 7,
+    "sequence_on_page": 1,
+    "label_from_pdf": "导航指引页",
+    "crop_box_pdf_points": "119.0,0.0,423.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P07-02_导航指引页.png",
+    "page": 7,
+    "sequence_on_page": 2,
+    "label_from_pdf": "导航指引页",
+    "crop_box_pdf_points": "536.0,0.0,840.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P08-01_导航指引页.png",
+    "page": 8,
+    "sequence_on_page": 1,
+    "label_from_pdf": "导航指引页",
+    "crop_box_pdf_points": "119.0,0.0,423.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P08-02_导航指引页.png",
+    "page": 8,
+    "sequence_on_page": 2,
+    "label_from_pdf": "导航指引页",
+    "crop_box_pdf_points": "536.0,0.0,840.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P09-01_站区公告页.png",
+    "page": 9,
+    "sequence_on_page": 1,
+    "label_from_pdf": "站区公告页",
+    "crop_box_pdf_points": "119.0,0.0,423.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P09-02_站区公告页.png",
+    "page": 9,
+    "sequence_on_page": 2,
+    "label_from_pdf": "站区公告页",
+    "crop_box_pdf_points": "536.0,0.0,840.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P10-01_出租接驳页.png",
+    "page": 10,
+    "sequence_on_page": 1,
+    "label_from_pdf": "出租接驳页",
+    "crop_box_pdf_points": "119.0,0.0,423.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P10-02_网约接驳页.png",
+    "page": 10,
+    "sequence_on_page": 2,
+    "label_from_pdf": "网约接驳页",
+    "crop_box_pdf_points": "536.0,0.0,840.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P11-01_地铁接驳页.png",
+    "page": 11,
+    "sequence_on_page": 1,
+    "label_from_pdf": "地铁接驳页",
+    "crop_box_pdf_points": "119.0,0.0,423.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P11-02_公交接驳页.png",
+    "page": 11,
+    "sequence_on_page": 2,
+    "label_from_pdf": "公交接驳页",
+    "crop_box_pdf_points": "536.0,0.0,840.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P12-01_综合推荐页.png",
+    "page": 12,
+    "sequence_on_page": 1,
+    "label_from_pdf": "综合推荐页",
+    "crop_box_pdf_points": "119.0,0.0,423.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P12-02_其他交通页.png",
+    "page": 12,
+    "sequence_on_page": 2,
+    "label_from_pdf": "其他交通页",
+    "crop_box_pdf_points": "536.0,0.0,840.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P13-01_停车指引页.png",
+    "page": 13,
+    "sequence_on_page": 1,
+    "label_from_pdf": "停车指引页",
+    "crop_box_pdf_points": "119.0,0.0,423.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P13-02_停车指引页.png",
+    "page": 13,
+    "sequence_on_page": 2,
+    "label_from_pdf": "停车指引页",
+    "crop_box_pdf_points": "536.0,0.0,840.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P14-01_停车指引页.png",
+    "page": 14,
+    "sequence_on_page": 1,
+    "label_from_pdf": "停车指引页",
+    "crop_box_pdf_points": "119.0,0.0,423.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P15-01_投诉建议页.png",
+    "page": 15,
+    "sequence_on_page": 1,
+    "label_from_pdf": "投诉建议页",
+    "crop_box_pdf_points": "119.0,0.0,423.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P15-02_投诉建议页.png",
+    "page": 15,
+    "sequence_on_page": 2,
+    "label_from_pdf": "投诉建议页",
+    "crop_box_pdf_points": "536.0,0.0,840.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P16-01_投诉建议页.png",
+    "page": 16,
+    "sequence_on_page": 1,
+    "label_from_pdf": "投诉建议页",
+    "crop_box_pdf_points": "119.0,0.0,423.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P16-02_投诉建议页.png",
+    "page": 16,
+    "sequence_on_page": 2,
+    "label_from_pdf": "投诉建议页",
+    "crop_box_pdf_points": "536.0,0.0,840.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P17-01_旅客设置页.png",
+    "page": 17,
+    "sequence_on_page": 1,
+    "label_from_pdf": "旅客设置页",
+    "crop_box_pdf_points": "119.0,0.0,423.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P17-02_旅客设置页.png",
+    "page": 17,
+    "sequence_on_page": 2,
+    "label_from_pdf": "旅客设置页",
+    "crop_box_pdf_points": "536.0,0.0,840.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P19-01_车站排队情况-左.png",
+    "page": 19,
+    "sequence_on_page": 1,
+    "label_from_pdf": "车站排队情况-左",
+    "crop_box_pdf_points": "0.0,0.0,304.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P19-02_车站排队情况-中.png",
+    "page": 19,
+    "sequence_on_page": 2,
+    "label_from_pdf": "车站排队情况-中",
+    "crop_box_pdf_points": "328.0,0.0,632.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P19-03_车站排队情况-右.png",
+    "page": 19,
+    "sequence_on_page": 3,
+    "label_from_pdf": "车站排队情况-右",
+    "crop_box_pdf_points": "656.0,0.0,960.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P20-01_场站详情页.png",
+    "page": 20,
+    "sequence_on_page": 1,
+    "label_from_pdf": "场站详情页",
+    "crop_box_pdf_points": "119.0,0.0,423.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P20-02_场站详情页.png",
+    "page": 20,
+    "sequence_on_page": 2,
+    "label_from_pdf": "场站详情页",
+    "crop_box_pdf_points": "536.0,0.0,840.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P21-01_场站详情页.png",
+    "page": 21,
+    "sequence_on_page": 1,
+    "label_from_pdf": "场站详情页",
+    "crop_box_pdf_points": "119.0,0.0,423.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P21-02_短途复载页.png",
+    "page": 21,
+    "sequence_on_page": 2,
+    "label_from_pdf": "短途复载页",
+    "crop_box_pdf_points": "536.0,0.0,840.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P22-01_短途复载页.png",
+    "page": 22,
+    "sequence_on_page": 1,
+    "label_from_pdf": "短途复载页",
+    "crop_box_pdf_points": "119.0,0.0,423.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P22-02_短途复载页.png",
+    "page": 22,
+    "sequence_on_page": 2,
+    "label_from_pdf": "短途复载页",
+    "crop_box_pdf_points": "536.0,0.0,840.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P23-01_短途复载页.png",
+    "page": 23,
+    "sequence_on_page": 1,
+    "label_from_pdf": "短途复载页",
+    "crop_box_pdf_points": "119.0,0.0,423.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P23-02_短途复载页.png",
+    "page": 23,
+    "sequence_on_page": 2,
+    "label_from_pdf": "短途复载页",
+    "crop_box_pdf_points": "536.0,0.0,840.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P24-01_的士之家页.png",
+    "page": 24,
+    "sequence_on_page": 1,
+    "label_from_pdf": "的士之家页",
+    "crop_box_pdf_points": "119.0,0.0,423.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P24-02_的士之家页.png",
+    "page": 24,
+    "sequence_on_page": 2,
+    "label_from_pdf": "的士之家页",
+    "crop_box_pdf_points": "536.0,0.0,840.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P25-01_的士之家页.png",
+    "page": 25,
+    "sequence_on_page": 1,
+    "label_from_pdf": "的士之家页",
+    "crop_box_pdf_points": "119.0,0.0,423.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P25-02_的士之家页.png",
+    "page": 25,
+    "sequence_on_page": 2,
+    "label_from_pdf": "的士之家页",
+    "crop_box_pdf_points": "536.0,0.0,840.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P26-01_的士之家页.png",
+    "page": 26,
+    "sequence_on_page": 1,
+    "label_from_pdf": "的士之家页",
+    "crop_box_pdf_points": "119.0,0.0,423.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P26-02_个人中心页.png",
+    "page": 26,
+    "sequence_on_page": 2,
+    "label_from_pdf": "个人中心页",
+    "crop_box_pdf_points": "536.0,0.0,840.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P27-01_个人中心页.png",
+    "page": 27,
+    "sequence_on_page": 1,
+    "label_from_pdf": "个人中心页",
+    "crop_box_pdf_points": "119.0,0.0,423.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  },
+  {
+    "file": "P27-02_个人中心页.png",
+    "page": 27,
+    "sequence_on_page": 2,
+    "label_from_pdf": "个人中心页",
+    "crop_box_pdf_points": "536.0,0.0,840.0,540.0",
+    "output_width_px": 608,
+    "output_height_px": 1080
+  }
+]
