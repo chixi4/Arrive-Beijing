@@ -1,0 +1,11 @@
+﻿file,station_label,source_pdf_page,source_kind,display_bbox_pdf_points,source_width_px,source_height_px,output_width_px,output_height_px
+P04_icon_北京站.png,北京站,4,embedded jpeg bitmap converted to PNG,"563.6,58.4,665.6,121.3",655,404,655,404
+P04_icon_北京西站.png,北京西站,4,embedded jpeg bitmap converted to PNG,"710.2,65.6,812.2,114.2",745,355,745,355
+P04_icon_北京南站.png,北京南站,4,embedded jpeg bitmap converted to PNG,"563.6,156.0,665.6,217.6",629,379,629,379
+P04_icon_北京北站.png,北京北站,4,embedded jpeg bitmap converted to PNG,"710.2,156.5,812.2,217.1",643,381,643,381
+P04_icon_清河站.png,清河站,4,embedded jpeg bitmap converted to PNG,"710.2,249.5,812.2,318.0",640,429,640,429
+P04_icon_朝阳站.png,朝阳站,4,embedded jpeg bitmap converted to PNG,"563.6,256.2,665.6,311.2",761,410,761,410
+P04_icon_亦庄站.png,亦庄站,4,embedded jpeg bitmap converted to PNG,"563.6,348.2,665.6,413.0",645,409,645,409
+P04_icon_通州站.png,通州站,4,embedded jpeg bitmap converted to PNG,"710.2,352.2,812.2,409.1",770,429,770,429
+P04_icon_大兴机场.png,大兴机场,4,embedded jpeg bitmap converted to PNG,"710.2,445.4,812.2,509.5",648,407,648,407
+P04_icon_首都机场.png,首都机场,4,embedded jpeg bitmap converted to PNG,"563.6,451.7,665.6,503.4",1280,649,1280,649

@@ -1,0 +1,14 @@
+{
+  "pdf": "/Users/yuookie/Documents/dev/Arrive-Beijing/到站北京小程页面展示.pdf",
+  "screenshots_export_dir": "/Users/yuookie/Documents/dev/Arrive-Beijing/extracted_screenshots",
+  "screenshots_count": 48,
+  "page04_station_icons_export_dir": "/Users/yuookie/Documents/dev/Arrive-Beijing/extracted_page04_station_icons",
+  "page04_station_icons_count": 10,
+  "page04_right_screen_analysis": {
+    "overall_screen": "background/header is one embedded PNG plus separate bitmap station-icon images and text labels",
+    "station_icons": "10 separate embedded JPEG bitmap images; converted to PNG for export",
+    "editable_vector": false,
+    "single_flat_screenshot_only": false,
+    "station_labels": "PDF text layer, not part of the icon bitmaps"
+  }
+}
