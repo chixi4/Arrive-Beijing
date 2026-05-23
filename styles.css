@@ -2575,8 +2575,17 @@ body.desktop-preview #app {
 
 #app.anchor-app {
   --page-w: 864px;
-  min-height: 100vh;
+  width: min(100vw, var(--page-w));
+  height: min(200vw, calc(var(--page-w) + var(--page-w)));
+  min-height: 0;
   background: #f5f7fb;
+  overflow: hidden;
+  aspect-ratio: 1 / 2;
+}
+
+#app.anchor-app .anchor-page {
+  height: 100%;
+  min-height: 0;
 }
 
 .anchor-page {
@@ -2905,6 +2914,15 @@ body.desktop-preview #app {
   background: rgba(255, 255, 255, 0.98);
   border-top: 1px solid #dce1e8;
   z-index: 40;
+}
+
+#app.anchor-app .anchor-bottom-nav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: none;
+  width: 100%;
 }
 
 .anchor-bottom-nav.four {
@@ -3518,6 +3536,14 @@ body.desktop-preview #app {
   box-shadow: 0 9px 18px rgba(31, 110, 226, 0.17);
 }
 
+#app.anchor-app .anchor-submit-button {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  transform: none;
+  width: auto;
+}
+
 .anchor-success-page {
   background: #f6f8fb;
 }
@@ -3894,6 +3920,7 @@ body.desktop-preview #app {
 }
 
 .anchor-user-card {
+  width: calc(100% - 64px);
   height: 190px;
   margin: 0 32px 30px;
   padding: 0 34px;
@@ -4009,6 +4036,7 @@ body.desktop-preview #app {
 }
 
 .anchor-logout {
+  width: calc(100% - 64px);
   height: 86px;
   margin: 0 32px;
   border: 1px solid #dfe4ec;
