@@ -1,0 +1,56 @@
+samples:
+  - id: traveler-home
+    route: "#/station/home"
+    archetype: home_workbench
+    calibration: true
+    anchor_route: "#/style-anchor/02-list"
+    reason: "首页决定旅客端第一屏的信息密度、头图卡片和服务入口图标节奏。"
+
+  - id: driver-queue
+    route: "#/driver/queue"
+    archetype: list_filter_page
+    calibration: true
+    anchor_route: "#/style-anchor/02-list"
+    reason: "司机端列表/筛选页决定全项目列表真实感。"
+
+  - id: driver-station-detail
+    route: "#/driver/station/beijing"
+    archetype: detail_status_page
+    calibration: true
+    anchor_route: "#/style-anchor/03-detail"
+    reason: "场站详情页覆盖状态摘要、地图入口、预约动作和司机端重点场景。"
+
+  - id: feedback-submit
+    route: "#/feedback/submit"
+    archetype: form_create_page
+    calibration: true
+    anchor_route: "#/style-anchor/04-form"
+    reason: "投诉建议页覆盖表单、选项、上传入口和底部主按钮。"
+
+  - id: short-haul-booking
+    route: "#/driver/short-haul/booking"
+    archetype: form_create_page
+    calibration: true
+    anchor_route: "#/style-anchor/04-form"
+    reason: "司机预约页同属表单，但业务密度和底部动作不同。"
+
+  - id: traveler-profile
+    route: "#/profile"
+    archetype: profile_settings
+    calibration: true
+    anchor_route: "#/style-anchor/07-profile"
+    reason: "设置页检验 cell 图标、分组标题和退出登录的真实感。"
+
+  - id: driver-profile
+    route: "#/driver/profile"
+    archetype: profile_settings
+    calibration: true
+    anchor_route: "#/style-anchor/07-profile"
+    reason: "司机个人中心比旅客端更复杂，用来检查 recipe 是否能延展。"
+
+  - id: station-switch
+    route: "#/station/switch"
+    archetype: modal_action
+    calibration: true
+    anchor_route: "#/style-anchor/08-modal"
+    reason: "站区切换页承担滚动选择和确认更改，是用户特别强调的交互页。"

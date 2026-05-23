@@ -50,6 +50,12 @@
 - 这轮把 `#/splash`、`#/station/select`、`#/station/switch` 也接进了同一套 `mobile-preview-app` 固定画布，开屏页和站点选择页不再继续走旧的自适应壳；同时把 `ab-info-row` 统一改成真正的左右分栏，解决多个列表卡片底部那条 `›` 跑到左下角的问题。
 - 首页头图再收了一版：外层改成留白包裹的卡片容器，主视觉不再贴边，背景图位置也上移了一点，避免站点图像像被屏幕边缘硬切出来。
 - 继续微调首页头图外边距：`ab-home-hero` 的左右留白已经收掉，让头图卡片和下面公告、服务区保持同一条内容边线，不再显得上面那张卡片偏窄。
+- 2026-05-24 进入 v2 视觉校准和图标系统化阶段：已读取新的 Obsidian 工作流与参考文档，确认新增 `Style Recipe` 层，用少量校准页驱动全局 token/component/recipe 返修。
+- 图标层先完成基础重构：`ICONS` 与 `ANCHOR_ICONS` 合并为统一 `ICON_LIBRARY`，`iconMarkup()` 和 `anchorIcon()` 都从同一个 SVG/currentColor 图标库输出。
+- 已替换第一批明显语义误用图标：积分不再用扫码，邮箱不再用扫码，场站接驳不再复用公交，自驾停车不再复用小汽车，退出登录不再复用扫码。
+- 新增 `docs/ui/icon-inventory.json`、`docs/ui/icon-style.md`、`docs/ui/style-recipes.yaml`、`docs/ui/visual-calibration/sample-set.yaml` 与 `docs/ui/visual-thresholds.json`，把图标清单、3x3 生图校准规则和页面 recipe 规则落盘。
+- 新增 `scripts/icon_inventory.mjs` 用于扫描图标定义和使用情况；新增 `scripts/icon_sheet_tools.py` 用于 3x3 图标板切片、CSV alpha 模拟和像素 diff 检查。
+- 图标重构后复跑锚点检查，MAE 结果保持稳定：`02-list` 4.97%，`03-detail` 7.18%，`04-form` 3.31%，`05-completion` 2.62%，`06-loading` 2.84%，`07-profile` 3.47%，`08-modal` 3.37%。
 
 ## 设计判断
 

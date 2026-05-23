@@ -18,6 +18,9 @@
 - 做成精修后的政务/交通服务移动网页原型，不复刻原图中过重的 AI 感。
 - 避免毛玻璃、强渐变、漂浮装饰、大圆角气泡、随机彩色卡片、无意义插画。
 - 使用统一 token、统一卡片、统一列表、统一按钮和统一底栏。
+- 视觉校准阶段优先读取 `docs/ui/style-recipes.yaml`、`docs/ui/icon-style.md`、`docs/ui/icon-inventory.json`、`docs/ui/visual-calibration/sample-set.yaml`。
+- 生图 target 只作为视觉校准参考，不作为业务文案或功能事实源；改动优先沉淀为 token、组件、style recipe。
+- 图标必须走统一 SVG/currentColor 图标库，不允许页面级随意画图标、随意改大小或复用语义错误的图标。
 
 ## 交互规则
 - 旅客端与司机端都要完整可点。

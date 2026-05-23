@@ -73,6 +73,13 @@
 | `--ds-font-3xl` | `28px` | 大标题 |
 | `--ds-font-4xl` | `32px` | 首屏主标题 |
 | `--ds-touch-target` | `44px` | 最小触控目标 |
+| `--ds-icon-xs` | `12px` | 徽标、轻提示图标 |
+| `--ds-icon-sm` | `16px` | cell 行内图标 |
+| `--ds-icon-md` | `20px` | 常规按钮、正文旁图标 |
+| `--ds-icon-lg` | `24px` | 底部导航图标 |
+| `--ds-icon-xl` | `44px` | 功能入口图标容器 |
+| `--ds-icon-empty` | `48px` | 空状态图标 |
+| `--ds-icon-stroke` | `1.85` | 线性图标统一线宽 |
 
 ## 组件约定
 

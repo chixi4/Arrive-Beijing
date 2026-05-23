@@ -1,0 +1,147 @@
+recipes:
+  home_workbench:
+    applies_to:
+      routes:
+        - "#/station/home"
+      archetype: home
+    layout:
+      first_screen_goal: "站名、客流、天气、公告和核心服务在首屏建立可操作感"
+      page_padding: var(--ds-page-pad)
+      hero_to_section_gap: 18px
+      section_gap: 18px
+      card_gap: 10px
+    composition:
+      hero_card:
+        radius: 26px
+        image_inside_card: true
+        overlay_strength: restrained
+        avoid: [edge_cropped_image, decorative_gradient_only, large_empty_hero_area]
+      announcements:
+        max_visible_items: 3
+        row_density: compact
+        right_chevron: fixed_right
+      service_grid:
+        columns: 4
+        icon_container: soft_square
+        icon_semantics: unique_per_service
+    visual_rules:
+      avoid: [random_color_cards, glassmorphism, oversized_icon, floating_decoration]
+
+  list_filter_page:
+    applies_to:
+      routes:
+        - "#/driver/queue"
+        - "#/announcements"
+        - "#/parking/list"
+      archetype: list
+    layout:
+      search_top_gap: 12px
+      filter_gap: 10px
+      list_card_gap: 10px
+    composition:
+      search_bar:
+        height: 40px
+        radius: 12px
+      filter_chips:
+        active_style: brand_soft
+      list_item:
+        min_height: 72px
+        title_weight: 800
+        meta_rows: 1_to_2
+        icon_usage: semantic_small
+    visual_rules:
+      prefer: subtle_card_or_cell_group
+      avoid: [same_weight_every_row, status_color_noise, overlarge_empty_header]
+
+  detail_status_page:
+    applies_to:
+      routes:
+        - "#/driver/station/beijing"
+        - "#/driver/station/beijing-map"
+        - "#/driver/taxi-house/info"
+      archetype: detail
+    layout:
+      first_card_top_gap: 14px
+      section_gap: 16px
+      card_inner_density: compact
+    composition:
+      summary_card:
+        title_max_lines: 2
+        status_badge_position: top_right
+        icon_usage: optional_small_line_icon
+      info_sections:
+        component: ab-info-list
+        divider: false
+        row_height: 64px
+      map_preview:
+        tags: semantic_pills
+    visual_rules:
+      avoid: [dashboard_like_metrics, decorative_map_only, huge_status_icon]
+
+  form_create_page:
+    applies_to:
+      routes:
+        - "#/feedback/submit"
+        - "#/driver/short-haul/booking"
+      archetype: form
+    layout:
+      section_gap: 16px
+      field_gap: 0
+      footer_action: sticky
+    composition:
+      form_section:
+        component: ab-panel
+        label_position: top_or_left_by_density
+      select_grid:
+        active_style: brand_soft
+      submit_area:
+        primary_button_height: 46px
+    visual_rules:
+      avoid: [floating_labels, decorative_section_headers, multiple_primary_buttons]
+
+  result_page:
+    applies_to:
+      routes:
+        - "#/style-anchor/05-completion"
+      archetype: result
+    composition:
+      icon: success_check_or_status
+      icon_size: var(--ds-icon-empty)
+      title: one_line
+      description: one_to_two_lines
+      primary_action: below_description
+    visual_rules:
+      center_vertically: true
+      avoid: [confetti, celebration_art, oversized_illustration]
+
+  profile_settings:
+    applies_to:
+      routes:
+        - "#/profile"
+        - "#/driver/profile"
+      archetype: profile
+    layout:
+      section_gap: 16px
+      card_gap: 10px
+    composition:
+      avatar_area:
+        layout: compact_left_aligned
+      menu_sections:
+        component: ab-info-list
+        icon: semantic_small
+      logout:
+        full_width: true
+    visual_rules:
+      avoid: [membership_poster_header, too_many_colored_icons, decorative_background]
+
+  modal_action:
+    applies_to:
+      routes:
+        - "#/style-anchor/08-modal"
+      archetype: modal
+    composition:
+      overlay: restrained
+      sheet_radius: 24px
+      action_grid_icon_size: var(--ds-icon-md)
+    visual_rules:
+      avoid: [floating_glass, excessive_blur, random_shortcuts]
