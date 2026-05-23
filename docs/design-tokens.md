@@ -1,5 +1,89 @@
 # Design Tokens
 
+本项目现在有两层 token：
+- `--ds-*` 是全局设计系统 token，给后续新页面、组件库和开发预览页共用。
+- `--a-*` 是 `#/style-anchor/02-list` 到 `#/style-anchor/08-modal` 的锚点复刻 token，保留给像素比对页。
+
+## 全局设计系统 Token
+
+### 颜色
+
+| Token | Value | 用途 |
+| --- | --- | --- |
+| `--ds-color-bg` | `#f5f7fb` | 页面底色 |
+| `--ds-color-surface` | `#ffffff` | 主卡片/面板底色 |
+| `--ds-color-surface-soft` | `#f8fafc` | 次级表面 |
+| `--ds-color-surface-quiet` | `#eef3f9` | 弱分区背景 |
+| `--ds-color-border` | `#dfe6ef` | 常规边线 |
+| `--ds-color-border-strong` | `#cfd8e4` | 输入框/强边线 |
+| `--ds-color-text` | `#1d2733` | 主正文 |
+| `--ds-color-text-strong` | `#090d14` | 强标题 |
+| `--ds-color-text-muted` | `#5f6b78` | 次级文字 |
+| `--ds-color-text-subtle` | `#6c7683` | 占位/弱提示 |
+| `--ds-color-primary` | `#206fd8` | 主操作/选中态 |
+| `--ds-color-primary-strong` | `#165ec6` | 强按钮/高对比主色 |
+| `--ds-color-primary-soft` | `#eaf2ff` | 蓝色浅底 |
+| `--ds-color-primary-soft-strong` | `#d8e8ff` | 描边浅蓝 |
+| `--ds-color-success` | `#0b7a50` | 成功/畅通 |
+| `--ds-color-success-soft` | `#e5f7ef` | 绿色浅底 |
+| `--ds-color-warning` | `#a16207` | 提示/正常 |
+| `--ds-color-warning-soft` | `#fff4d8` | 黄色浅底 |
+| `--ds-color-danger` | `#d92d20` | 紧急/拥挤 |
+| `--ds-color-danger-soft` | `#fdecef` | 红色浅底 |
+| `--ds-color-overlay` | `rgba(9, 13, 20, 0.56)` | 蒙层 |
+| `--ds-color-focus` | `#1c70ff` | 键盘焦点 |
+
+### 间距
+
+| Token | Value |
+| --- | --- |
+| `--ds-space-1` | `4px` |
+| `--ds-space-2` | `8px` |
+| `--ds-space-3` | `12px` |
+| `--ds-space-4` | `16px` |
+| `--ds-space-5` | `20px` |
+| `--ds-space-6` | `24px` |
+| `--ds-space-7` | `28px` |
+| `--ds-space-8` | `32px` |
+| `--ds-space-9` | `36px` |
+| `--ds-space-10` | `40px` |
+| `--ds-space-12` | `48px` |
+| `--ds-space-14` | `56px` |
+| `--ds-space-16` | `64px` |
+
+### 圆角、阴影、字号
+
+| Token | Value | 用途 |
+| --- | --- | --- |
+| `--ds-radius-sm` | `8px` | 紧凑控件 |
+| `--ds-radius-md` | `12px` | 常规卡片/输入框 |
+| `--ds-radius-lg` | `16px` | 大卡片/横幅 |
+| `--ds-radius-xl` | `20px` | 强调面板 |
+| `--ds-radius-pill` | `999px` | 胶囊按钮/标签 |
+| `--ds-shadow-xs` | `0 1px 2px rgba(29, 39, 51, 0.04)` | 极轻边界 |
+| `--ds-shadow-sm` | `0 4px 12px rgba(29, 39, 51, 0.05)` | 轻卡片 |
+| `--ds-shadow-md` | `0 8px 24px rgba(29, 39, 51, 0.06)` | 默认卡片 |
+| `--ds-shadow-lg` | `0 16px 40px rgba(29, 39, 51, 0.1)` | 悬浮层 |
+| `--ds-font-xs` | `12px` | 辅助文字 |
+| `--ds-font-sm` | `14px` | 正文 |
+| `--ds-font-md` | `16px` | 重点正文 |
+| `--ds-font-lg` | `18px` | 分区标题 |
+| `--ds-font-xl` | `20px` | 页面标题 |
+| `--ds-font-2xl` | `24px` | 强标题 |
+| `--ds-font-3xl` | `28px` | 大标题 |
+| `--ds-font-4xl` | `32px` | 首屏主标题 |
+| `--ds-touch-target` | `44px` | 最小触控目标 |
+
+## 组件约定
+
+- `button`、`button-secondary`、`button-ghost` 是基础按钮层。
+- `card`、`soft-card`、`entry-card` 是卡片层。
+- `chip`、`tab`、`pill`、`ds-badge` 是标签/状态层。
+- `topbar`、`bottom-nav` 是全局导航层。
+- `ds-list-row`、`ds-field`、`ds-callout` 是后续页面最常用的复用块。
+
+## 锚点复刻 Token（保留）
+
 来源：`#/style-anchor/02-list` 到 `#/style-anchor/08-modal` 的 18x9 复刻页。
 这份记录是当前页面群的统一设计规范草稿，后续还会跟着页面细调。
 

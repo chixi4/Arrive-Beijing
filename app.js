@@ -140,6 +140,8 @@ const styleAnchorRoutes = {
   "#/style-anchor/08-modal": "modal",
 };
 
+const designSystemRoute = "#/design-system";
+
 const anchorQueueStations = [
   { type: "train", name: "北京站", status: "畅通", tone: "green", passengers: "128 人", vehicles: "2,350 人", wait: "12 分钟" },
   { type: "train", name: "北京西站", status: "正常", tone: "amber", passengers: "356 人", vehicles: "4,120 人", wait: "25 分钟" },
@@ -191,6 +193,7 @@ const ANCHOR_ICONS = {
 };
 
 const ICONS = {
+  back: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"></path></svg>`,
   search: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-3.5-3.5"></path></svg>`,
   pin: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.3 6-11a6 6 0 0 0-12 0c0 5.7 6 11 6 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>`,
   more: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.4"></circle><circle cx="12" cy="12" r="1.4"></circle><circle cx="19" cy="12" r="1.4"></circle></svg>`,
@@ -889,6 +892,164 @@ function renderServices() {
   `;
 }
 
+function renderDesignSystem() {
+  const colorTokens = [
+    ["页面背景", "--ds-color-bg", "#f5f7fb"],
+    ["表面底色", "--ds-color-surface", "#ffffff"],
+    ["次级表面", "--ds-color-surface-soft", "#f8fafc"],
+    ["主文字", "--ds-color-text", "#1d2733"],
+    ["强调文字", "--ds-color-text-strong", "#090d14"],
+    ["主色", "--ds-color-primary", "#206fd8"],
+    ["成功", "--ds-color-success", "#0b7a50"],
+    ["警示", "--ds-color-warning", "#a16207"],
+    ["危险", "--ds-color-danger", "#d92d20"],
+    ["边线", "--ds-color-border", "#dfe6ef"],
+    ["强边线", "--ds-color-border-strong", "#cfd8e4"],
+    ["悬浮阴影", "--ds-shadow-md", "0 8px 24px rgba(29, 39, 51, 0.06)"],
+  ];
+
+  const typeRows = [
+    ["页面标题", "38px / 1.12 / 800", "设计系统"],
+    ["分区标题", "18px / 1.12 / 850", "组件库"],
+    ["正文", "14px / 1.42 / 400", "这些组件可以直接用于新页面"],
+    ["辅助文字", "12px / 1.6 / 700", "用于说明、计数和弱提示"],
+  ];
+
+  const buttons = [
+    ["button", "主按钮", ""],
+    ["button-secondary", "次按钮", ""],
+    ["button-ghost", "幽灵按钮", ""],
+    ["button green", "成功操作", ""],
+    ["button red", "危险操作", ""],
+    ["button-secondary", "带图标", "search"],
+  ];
+
+  const badges = [
+    ["primary", "进行中"],
+    ["success", "畅通"],
+    ["warning", "正常"],
+    ["danger", "拥挤"],
+  ];
+
+  const rows = [
+    ["bus", "列表行组件", "标题 + 说明 + 右侧动作"],
+    ["map", "信息条目", "可放在设置、反馈、公告页"],
+    ["user", "个人资料", "支持图标、文字、右箭头"],
+  ];
+
+  return `
+    <div class="screen ds-page no-nav">
+      <header class="topbar filled">
+        <button class="icon-btn" data-to="#/portal" aria-label="返回">${iconMarkup("back")}</button>
+        <div class="topbar-title">设计系统</div>
+        <button class="icon-btn" data-toast="设计系统预览" aria-label="更多">${iconMarkup("more")}</button>
+      </header>
+
+      <div class="page ds-shell">
+        <section class="ds-section">
+          <div class="ds-section-title">
+            <h2>颜色 Token</h2>
+            <span>基础色</span>
+          </div>
+          <div class="ds-token-grid">
+            ${colorTokens
+              .map(
+                ([label, token, value]) => `
+                  <article class="card padded ds-swatch" style="--swatch:${token.includes("--ds-shadow") ? "#ffffff" : value}">
+                    <span class="ds-swatch-chip ${token.includes("--ds-shadow") ? "shadow" : ""}" aria-hidden="true"></span>
+                    <div>
+                      <strong>${label}</strong>
+                      <code>${token}</code>
+                    </div>
+                  </article>
+                `
+              )
+              .join("")}
+          </div>
+        </section>
+
+        <section class="ds-section">
+          <div class="ds-section-title">
+            <h2>排版</h2>
+            <span>字号 / 行高</span>
+          </div>
+          <div class="card padded ds-type-card">
+            ${typeRows
+              .map(([label, spec, sample]) => {
+                const [size, lineHeight, weight] = spec.split(" / ");
+                return `
+                  <div class="ds-type-line">
+                    <strong style="font-size:${size}; line-height:${lineHeight}; font-weight:${weight};">${sample}</strong>
+                    <span>${label} · ${spec}</span>
+                  </div>
+                `;
+              })
+              .join("")}
+          </div>
+        </section>
+
+        <section class="ds-section">
+          <div class="ds-section-title">
+            <h2>组件</h2>
+            <span>按钮 / 徽标</span>
+          </div>
+          <div class="card padded ds-component-panel">
+            <div class="ds-button-grid">
+              ${buttons
+                .map(([cls, label, icon]) => `<button class="${cls}" data-toast="${label}（原型演示）">${icon ? iconMarkup(icon) : ""}<span>${label}</span></button>`)
+                .join("")}
+            </div>
+
+            <div class="ds-badge-row">
+              ${badges
+                .map(([tone, label]) => `<span class="ds-badge ${tone}">${label}</span>`)
+                .join("")}
+            </div>
+
+            <div class="ds-callout">
+              <span class="ds-callout-icon">${iconMarkup("notice")}</span>
+              <div>
+                <h3>信息提示组件</h3>
+                <p>适合公告、说明、引导文案和状态提醒，后续新页面可以直接复用。</p>
+              </div>
+            </div>
+
+            <div class="ds-field" data-toast="搜索框（原型演示）">
+              ${iconMarkup("search")}
+              <span>搜索服务、事项、站点名称</span>
+            </div>
+
+            <div class="ds-textarea-box">多行文本输入区域示例。这里会沿用统一的边框、圆角、字色和空白节奏。</div>
+          </div>
+        </section>
+
+        <section class="ds-section">
+          <div class="ds-section-title">
+            <h2>列表</h2>
+            <span>条目 / 图标</span>
+          </div>
+          <div class="ds-list-card">
+            ${rows
+              .map(
+                ([icon, title, meta]) => `
+                  <button class="ds-list-row" data-toast="${title}（原型演示）">
+                    <span class="ds-list-row-icon">${iconMarkup(icon)}</span>
+                    <span>
+                      <strong>${title}</strong>
+                      <em>${meta}</em>
+                    </span>
+                    <i>›</i>
+                  </button>
+                `
+              )
+              .join("")}
+          </div>
+        </section>
+      </div>
+    </div>
+  `;
+}
+
 function renderSplash() {
   return `
     <div class="splash-shell">
@@ -1450,10 +1611,21 @@ function renderStyleAnchorPage(kind) {
 function render() {
   const current = route();
   const styleAnchorKind = styleAnchorRoutes[current];
-  app.className = styleAnchorKind ? "app-shell anchor-app" : "app-shell";
+  app.className = styleAnchorKind
+    ? "app-shell anchor-app"
+    : current === designSystemRoute
+    ? "app-shell design-system-app"
+    : "app-shell";
   if (styleAnchorKind) {
     state.currentSurface = current;
     app.innerHTML = renderStyleAnchorPage(styleAnchorKind);
+    syncDesktopPreviewFrame();
+    requestAnimationFrame(() => window.scrollTo(0, 0));
+    return;
+  }
+  if (current === designSystemRoute) {
+    state.currentSurface = current;
+    app.innerHTML = renderDesignSystem();
     syncDesktopPreviewFrame();
     requestAnimationFrame(() => window.scrollTo(0, 0));
     return;

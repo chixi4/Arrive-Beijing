@@ -11,6 +11,7 @@
 - `#/station/select` 和 `#/station/switch` 是自定义 HTML 页面，复用 `extracted_page04_station_icons/` 的 10 个站点图标。
 - `#/feedback/submit-more` 保留截图文字，但上传图片区按用户要求简化为 1 个“添加”入口。
 - 司机端上层入口 `#/driver/splash` 点击后进入 `#/driver/short-haul/booking`，与首页第 8 个“短途复载”入口效果一致。
+- `#/design-system` 是开发辅助页，用来检查全局 token、按钮、徽标、列表和表单组件是否足够统一。
 
 ## 自定义或覆盖页面
 
@@ -22,6 +23,7 @@
 | `#/station/switch` | P05-02/P06-01/P06-02 站区切换页 | 自定义横向滚动选站，包含“确认更改”，删除底部多余站名胶囊。 |
 | `#/station/home` | P05-01 首页 | 默认保持截图；当用户切换到非北京西站时，顶部站名胶囊用动态覆盖层显示当前站点。 |
 | `#/feedback/submit-more` | P15-02 投诉建议页 | 覆盖原 4 个上传图片入口，只保留 1 个“添加”。 |
+| `#/design-system` | 设计系统组件库 | 预览全局 token、排版、按钮、徽标、列表、表单和提示横幅。 |
 
 ## 明确可选项
 
