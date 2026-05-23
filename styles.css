@@ -4947,15 +4947,19 @@ body.desktop-preview #app {
 
 .ab-home-hero {
   margin: 0;
-  min-height: 286px;
-  border-radius: 0 0 24px 24px;
+  padding: 12px 16px 2px;
+}
+
+.ab-home-hero-card {
+  border-radius: 26px;
   overflow: hidden;
   background: #d8e8ff;
-  box-shadow: 0 8px 24px rgba(29, 39, 51, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow: 0 10px 26px rgba(29, 39, 51, 0.08);
 }
 
 .ab-home-hero-cover {
-  min-height: 286px;
+  min-height: 284px;
   padding: 14px 16px 16px;
   display: grid;
   gap: 14px;
@@ -4963,7 +4967,7 @@ body.desktop-preview #app {
   color: #fff;
   background:
     linear-gradient(180deg, rgba(30, 83, 157, 0.1), rgba(15, 54, 111, 0.26) 52%, rgba(255, 255, 255, 0.84)),
-    var(--ab-home-image) center center / cover no-repeat;
+    var(--ab-home-image) center 26% / cover no-repeat;
 }
 
 .ab-home-hero-top {

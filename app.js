@@ -1418,28 +1418,30 @@ function renderStationHome() {
     className: "ab-home-page",
     body: `
       <section class="ab-home-hero" style="--ab-home-image:url('${stationSrc}')">
-        <div class="ab-home-hero-cover">
-          <div class="ab-home-hero-top">
-            <button class="ab-station-chip" data-to="#/station/switch">
-              <span class="ab-station-chip-pin">${iconMarkup("pin")}</span>
-              <span>${stationName}</span>
-            </button>
-            <div class="ab-home-hero-actions">
-              <button class="ab-icon-btn ab-icon-btn--soft" data-to="#/announcements" aria-label="站区公告">${iconMarkup("notice")}</button>
-              <button class="ab-icon-btn ab-icon-btn--soft" data-toast="搜索功能暂未接入" aria-label="搜索">${iconMarkup("search")}</button>
+        <div class="ab-home-hero-card">
+          <div class="ab-home-hero-cover">
+            <div class="ab-home-hero-top">
+              <button class="ab-station-chip" data-to="#/station/switch">
+                <span class="ab-station-chip-pin">${iconMarkup("pin")}</span>
+                <span>${stationName}</span>
+              </button>
+              <div class="ab-home-hero-actions">
+                <button class="ab-icon-btn ab-icon-btn--soft" data-to="#/announcements" aria-label="站区公告">${iconMarkup("notice")}</button>
+                <button class="ab-icon-btn ab-icon-btn--soft" data-toast="搜索功能暂未接入" aria-label="搜索">${iconMarkup("search")}</button>
+              </div>
             </div>
-          </div>
-          <div class="ab-home-hero-copy">
-            <p>站区畅行服务</p>
-            <h1>${stationName}</h1>
-            <div class="ab-home-hero-flow">实时客流：<strong>正常</strong></div>
-          </div>
-          <div class="ab-home-hero-meta">
-            <div class="ab-home-weather">
-              <strong>31°C</strong>
-              <span>晴</span>
+            <div class="ab-home-hero-copy">
+              <p>站区畅行服务</p>
+              <h1>${stationName}</h1>
+              <div class="ab-home-hero-flow">实时客流：<strong>正常</strong></div>
             </div>
-            <span class="ab-home-badge">今日更新 14:32</span>
+            <div class="ab-home-hero-meta">
+              <div class="ab-home-weather">
+                <strong>31°C</strong>
+                <span>晴</span>
+              </div>
+              <span class="ab-home-badge">今日更新 14:32</span>
+            </div>
           </div>
         </div>
       </section>
