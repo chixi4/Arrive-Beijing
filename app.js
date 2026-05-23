@@ -800,10 +800,12 @@ function go(to) {
 }
 
 function syncDesktopPreviewFrame() {
-  const isDesktopPreview = app.classList.contains("anchor-app") && window.innerWidth >= 1000;
-  const scale = isDesktopPreview
-    ? Math.min((window.innerWidth - 32) / 864, (window.innerHeight - 32) / 1728, 1)
-    : 1;
+  const isAnchorPreview = app.classList.contains("anchor-app");
+  const isMobilePreview = app.classList.contains("mobile-preview-app");
+  const isDesktopPreview = (isAnchorPreview || isMobilePreview) && window.innerWidth >= 1000;
+  const baseWidth = isAnchorPreview ? 864 : 430;
+  const baseHeight = isAnchorPreview ? 1728 : 860;
+  const scale = isDesktopPreview ? Math.min((window.innerWidth - 32) / baseWidth, (window.innerHeight - 32) / baseHeight) : 1;
   app.style.setProperty("--desktop-preview-scale", String(scale));
   document.body.classList.toggle("desktop-preview", isDesktopPreview);
 }
@@ -3531,6 +3533,7 @@ function render() {
   const featurePage = renderFeatureRoute(current);
   if (featurePage) {
     state.currentSurface = current;
+    app.className = "app-shell mobile-preview-app";
     app.innerHTML = featurePage;
     syncDesktopPreviewFrame();
     requestAnimationFrame(() => {
