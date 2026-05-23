@@ -130,6 +130,66 @@ const servicesSections = [
   },
 ];
 
+const styleAnchorRoutes = {
+  "#/style-anchor/02-list": "list",
+  "#/style-anchor/03-detail": "detail",
+  "#/style-anchor/04-form": "form",
+  "#/style-anchor/05-completion": "completion",
+  "#/style-anchor/06-loading": "loading",
+  "#/style-anchor/07-profile": "profile",
+  "#/style-anchor/08-modal": "modal",
+};
+
+const anchorQueueStations = [
+  { type: "train", name: "北京站", status: "畅通", tone: "green", passengers: "128 人", vehicles: "2,350 人", wait: "12 分钟" },
+  { type: "train", name: "北京西站", status: "正常", tone: "amber", passengers: "356 人", vehicles: "4,120 人", wait: "25 分钟" },
+  { type: "train", name: "北京南站", status: "正常", tone: "amber", passengers: "482 人", vehicles: "5,630 人", wait: "28 分钟" },
+  { type: "train", name: "北京北站", status: "畅通", tone: "green", passengers: "82 人", vehicles: "1,680 人", wait: "8 分钟" },
+  { type: "train", name: "朝阳站", status: "拥挤", tone: "red", passengers: "692 人", vehicles: "6,980 人", wait: "45 分钟" },
+  { type: "train", name: "清河站", status: "正常", tone: "amber", passengers: "215 人", vehicles: "3,210 人", wait: "18 分钟" },
+  { type: "train", name: "亦庄站", status: "畅通", tone: "green", passengers: "96 人", vehicles: "1,450 人", wait: "9 分钟" },
+  { type: "train", name: "通州站", status: "正常", tone: "amber", passengers: "243 人", vehicles: "2,980 人", wait: "20 分钟" },
+  { type: "plane", name: "首都机场", status: "正常", tone: "amber", passengers: "378 人", vehicles: "4,850 人", wait: "30 分钟" },
+  { type: "plane", name: "大兴机场", status: "畅通", tone: "green", passengers: "154 人", vehicles: "2,120 人", wait: "15 分钟" },
+];
+
+const ANCHOR_ICONS = {
+  back: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 4.5 7.5 12l8 7.5"></path></svg>`,
+  refresh: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6v5h-5"></path><path d="M19 11a7 7 0 1 0-2 5"></path></svg>`,
+  search: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.2"></circle><path d="m16 16 4 4"></path></svg>`,
+  people: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="3"></circle><circle cx="16" cy="8" r="3"></circle><path d="M3 19c.6-3.4 2.7-5 5-5s4.4 1.6 5 5"></path><path d="M11 19c.6-3.4 2.7-5 5-5s4.4 1.6 5 5"></path></svg>`,
+  train: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3.5" width="14" height="15" rx="3"></rect><path d="M8 8h8"></path><path d="M8 12h3"></path><path d="M13 12h3"></path><circle cx="9" cy="16" r="1.2"></circle><circle cx="15" cy="16" r="1.2"></circle><path d="m8 21 2-2.5"></path><path d="m16 21-2-2.5"></path></svg>`,
+  plane: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 15 18-9-7 14-3-6-8 1z"></path><path d="m11 14-4 6"></path></svg>`,
+  car: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13h14l-1.2-4.4A2.3 2.3 0 0 0 15.6 7H8.4a2.3 2.3 0 0 0-2.2 1.6L5 13z"></path><path d="M4.5 13v5"></path><path d="M19.5 13v5"></path><circle cx="8" cy="17.5" r="1.4"></circle><circle cx="16" cy="17.5" r="1.4"></circle></svg>`,
+  clock: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>`,
+  pin: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.1 7-12a7 7 0 0 0-14 0c0 5.9 7 12 7 12z"></path><circle cx="12" cy="9" r="2.3"></circle></svg>`,
+  calendar: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5.5" width="16" height="15" rx="2"></rect><path d="M8 3.5v4"></path><path d="M16 3.5v4"></path><path d="M4 10h16"></path></svg>`,
+  check: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 12.5 4 4L18.5 8"></path></svg>`,
+  home: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11.5 12 4l8.5 7.5"></path><path d="M6 10.5V20h12v-9.5"></path></svg>`,
+  taxi: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 13.5h12l-1-4.5a2 2 0 0 0-2-1.5H9a2 2 0 0 0-2 1.5z"></path><path d="M8 5.5h8"></path><circle cx="8" cy="17.5" r="1.4"></circle><circle cx="16" cy="17.5" r="1.4"></circle></svg>`,
+  handshake: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 12 3-3 3 3 3-3 4 4-5 5-5-5-2 2-4-4 3-3"></path></svg>`,
+  user: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4.5 20c1.2-4.2 4-6 7.5-6s6.3 1.8 7.5 6"></path></svg>`,
+  settings: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.4-2.4 1a7 7 0 0 0-1.8-1L14.4 3h-4.8l-.4 3.1a7 7 0 0 0-1.8 1L5 6.1l-2 3.4L5 11a7 7 0 0 0 0 2l-2 1.5 2 3.4 2.4-1a7 7 0 0 0 1.8 1l.4 3.1h4.8l.4-3.1a7 7 0 0 0 1.8-1l2.4 1 2-3.4-2-1.5c.1-.3.1-.7.1-1z"></path></svg>`,
+  megaphone: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13h4l9-6v12l-9-6H4z"></path><path d="M8 13l2 6"></path></svg>`,
+  map: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 20 4 18V5l5 2 6-2 5 2v13l-5-2-6 2V7"></path><path d="M15 5v13"></path></svg>`,
+  bus: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="13" rx="2"></rect><path d="M8 9h8"></path><path d="M8 13h8"></path><circle cx="8.5" cy="16" r="1"></circle><circle cx="15.5" cy="16" r="1"></circle></svg>`,
+  message: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14v9H9l-4 4z"></path><path d="M8 10h.1M12 10h.1M16 10h.1"></path></svg>`,
+  globe: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M4 12h16"></path><path d="M12 4a12 12 0 0 1 0 16"></path><path d="M12 4a12 12 0 0 0 0 16"></path></svg>`,
+  accessibility: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2"></circle><path d="M5 10h14"></path><path d="M12 7v7"></path><path d="m8 21 4-7 4 7"></path></svg>`,
+  shield: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 2.8 8 7 10 4.2-2 7-5.5 7-10V6z"></path><path d="m9 12 2 2 4-5"></path></svg>`,
+  lock: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"></rect><path d="M8 10V8a4 4 0 0 1 8 0v2"></path></svg>`,
+  ear: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 11a6 6 0 1 1 10 4.5c-1.2 1-1.8 2-1.8 3.2A2.3 2.3 0 0 1 12 21c-1.7 0-2.4-1.4-3.2-2.4"></path><path d="M9 11a3 3 0 1 1 5 2.2"></path></svg>`,
+  angry: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="m8 9 2 1"></path><path d="m16 9-2 1"></path><path d="M8.5 16c1.8-1.4 5.2-1.4 7 0"></path></svg>`,
+  edit: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16"></path><path d="m6 16 2-6 7-7 4 4-7 7z"></path></svg>`,
+  question: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M9.5 9a2.7 2.7 0 0 1 5 1.5c0 2-2.5 2-2.5 4"></path><path d="M12 17.6h.1"></path></svg>`,
+  thumb: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21H5a2 2 0 0 1-2-2v-7h5"></path><path d="M8 12 12 3c1.8.4 2.3 1.8 1.8 4l-.5 2H19a2 2 0 0 1 2 2.4l-1.2 6A3 3 0 0 1 16.8 20H8z"></path></svg>`,
+  scan: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3H4v4"></path><path d="M17 3h3v4"></path><path d="M7 21H4v-4"></path><path d="M17 21h3v-4"></path><path d="M7 12h10"></path></svg>`,
+  id: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v10l7 5 7-5V6z"></path><circle cx="12" cy="10" r="2.5"></circle><path d="M8.5 16a4.5 4.5 0 0 1 7 0"></path></svg>`,
+  qr: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4z"></path><path d="M14 14h2v2h-2zM18 14h2v6h-4v-2"></path></svg>`,
+  chat: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14v10H9l-4 4z"></path><path d="M8 11h.1M12 11h.1M16 11h.1"></path></svg>`,
+  grid: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"></rect><rect x="14" y="4" width="6" height="6" rx="1"></rect><rect x="4" y="14" width="6" height="6" rx="1"></rect><rect x="14" y="14" width="6" height="6" rx="1"></rect></svg>`,
+};
+
 const ICONS = {
   search: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-3.5-3.5"></path></svg>`,
   pin: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.3 6-11a6 6 0 0 0-12 0c0 5.7 6 11 6 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>`,
@@ -146,6 +206,12 @@ const ICONS = {
 
 function iconMarkup(name) {
   return ICONS[name] || ICONS.more;
+}
+
+function anchorIcon(name, className = "") {
+  const svg = ANCHOR_ICONS[name] || ANCHOR_ICONS.grid;
+  if (!className) return svg;
+  return svg.replace('class="anchor-icon"', `class="anchor-icon ${className}"`);
 }
 
 function stationHeroImage(id) {
@@ -978,8 +1044,410 @@ function renderStationSelect(kind) {
   `;
 }
 
+function renderAnchorTopbar({ title, refresh = false, settings = false, backTo = "#/driver/queue" }) {
+  return `
+    <header class="anchor-topbar">
+      <button class="anchor-back" data-to="${backTo}" aria-label="返回">${anchorIcon("back")}</button>
+      <h1>${title}</h1>
+      ${
+        refresh
+          ? `<button class="anchor-refresh" data-toast="已刷新">${anchorIcon("refresh")}<span>刷新</span></button>`
+          : settings
+          ? `<button class="anchor-settings" data-toast="设置功能暂未接入" aria-label="设置">${anchorIcon("settings")}</button>`
+          : `<span class="anchor-topbar-spacer"></span>`
+      }
+    </header>
+  `;
+}
+
+function renderAnchorBottomNav(kind, activeKey) {
+  const items =
+    kind === "driver"
+      ? [
+          ["home", "首页", "home"],
+          ["short", "短途复载", "taxi"],
+          ["house", "的士之家", "handshake"],
+          ["profile", "身份", "user"],
+        ]
+      : [
+          ["home", "首页", "home"],
+          ["notice", "公告", "megaphone"],
+          ["nav", "导航", "map"],
+          ["traffic", "交通", "bus"],
+          ["profile", "身份", "user"],
+        ];
+
+  return `
+    <nav class="anchor-bottom-nav ${kind === "traveler" ? "five" : "four"}" aria-label="底部导航">
+      ${items
+        .map(
+          ([key, label, icon]) => `
+            <button class="anchor-nav-item ${activeKey === key ? "active" : ""}" data-toast="${label}（原型演示）">
+              ${anchorIcon(icon)}
+              <span>${label}</span>
+            </button>
+          `
+        )
+        .join("")}
+    </nav>
+  `;
+}
+
+function renderAnchorStatus(status, tone) {
+  return `<span class="anchor-status ${tone}">${status}</span>`;
+}
+
+function renderStyleAnchorList() {
+  return `
+    <div class="anchor-page anchor-list-page with-nav">
+      ${renderAnchorTopbar({ title: "车站排队情况", refresh: true })}
+      <section class="anchor-search-box">${anchorIcon("search")}<span>搜索车站名称</span></section>
+      <section class="anchor-status-grid" aria-label="拥堵状态">
+        <button class="anchor-status-filter green">${anchorIcon("people")}<span>畅通</span></button>
+        <button class="anchor-status-filter amber">${anchorIcon("people")}<span>正常</span></button>
+        <button class="anchor-status-filter red">${anchorIcon("people")}<span>拥挤</span></button>
+      </section>
+      <section class="anchor-segment-grid" aria-label="站点类型">
+        <button class="anchor-segment active">全部</button>
+        <button class="anchor-segment">火车站</button>
+        <button class="anchor-segment">机场</button>
+      </section>
+      <section class="anchor-table-head">
+        <strong>10个站点</strong>
+        <span>排队旅客</span>
+        <span>候车数量</span>
+        <span>预计等候</span>
+      </section>
+      <section class="anchor-list-card">
+        ${anchorQueueStations
+          .map(
+            (item) => `
+              <button class="anchor-queue-row" data-to="#/style-anchor/03-detail">
+                <span class="anchor-station-icon ${item.type}">${anchorIcon(item.type)}</span>
+                <strong>${item.name}</strong>
+                ${renderAnchorStatus(item.status, item.tone)}
+                <span>${item.passengers}</span>
+                <span>${item.vehicles}</span>
+                <span>${item.wait}</span>
+                <span class="anchor-chevron">›</span>
+              </button>
+            `
+          )
+          .join("")}
+      </section>
+      ${renderAnchorBottomNav("driver", "home")}
+    </div>
+  `;
+}
+
+function renderQueueBlock({ title, tone, amount, wait, filled }) {
+  return `
+    <button class="anchor-yard-card" data-toast="${title}（原型演示）">
+      <div class="anchor-yard-top">
+        <div>
+          <h3>${title}</h3>
+          <p><span class="anchor-dot ${tone}"></span>排队中</p>
+        </div>
+        <div class="anchor-yard-metric ${tone}">
+          <strong>${amount}</strong><span>辆</span>
+          <small>预计等候 ${wait}</small>
+        </div>
+      </div>
+      <div class="anchor-car-meter ${tone}">
+        ${Array.from({ length: 12 })
+          .map((_, index) => `<span class="${index < filled ? "filled" : ""}"></span>`)
+          .join("")}
+      </div>
+      <div class="anchor-yard-foot">
+        <span>${anchorIcon("car")}</span>
+        <p>排队车辆较多，请耐心等候</p>
+        <strong>›</strong>
+      </div>
+    </button>
+  `;
+}
+
+function renderStyleAnchorDetail() {
+  return `
+    <div class="anchor-page anchor-detail-page with-nav">
+      <header class="anchor-detail-hero">
+        <button class="anchor-back detail-back" data-to="#/style-anchor/02-list" aria-label="返回">${anchorIcon("back")}</button>
+        <div>
+          <h1>北京站</h1>
+          <p>${anchorIcon("pin")}<span>东城区毛家湾胡同甲13号</span></p>
+        </div>
+        <button class="anchor-nav-button" data-toast="导航功能暂未接入">${anchorIcon("pin")}<span>导航</span></button>
+      </header>
+
+      <section class="anchor-stat-card">
+        <div class="anchor-stat-item blue">
+          <div class="anchor-stat-head">${anchorIcon("user")}<span>候乘旅客</span></div>
+          <div class="anchor-stat-value"><strong>286</strong><em>人</em></div>
+        </div>
+        <div class="anchor-stat-item green">
+          <div class="anchor-stat-head">${anchorIcon("car")}<span>排队车辆</span></div>
+          <div class="anchor-stat-value"><strong>48</strong><em>辆</em></div>
+        </div>
+        <div class="anchor-stat-item amber">
+          <div class="anchor-stat-head">${anchorIcon("clock")}<span>最长等候</span></div>
+          <div class="anchor-stat-value"><strong>28</strong><em>分钟</em></div>
+        </div>
+      </section>
+
+      <section class="anchor-tabs-card">
+        <div class="anchor-large-tabs">
+          <button class="active">实时排队</button>
+          <button data-toast="场区地图（原型演示）">场区地图</button>
+        </div>
+        <div class="anchor-yard-list">
+          ${renderQueueBlock({ title: "出租车蓄车区A", tone: "green", amount: "18", wait: "22 分钟", filled: 8 })}
+          ${renderQueueBlock({ title: "出租车蓄车区B", tone: "amber", amount: "30", wait: "35 分钟", filled: 8 })}
+          <button class="anchor-booking-banner" data-to="#/style-anchor/05-completion">
+            <span class="anchor-calendar-badge">${anchorIcon("calendar")}</span>
+            <span><strong>短途复载免排队</strong><em>提前预约，免排队快速进场</em></span>
+            <b>立即预约</b>
+            <i>›</i>
+          </button>
+          <button class="anchor-house-row" data-toast="的士之家（原型演示）">
+            <span>${anchorIcon("home")}</span>
+            <span><strong>的士之家</strong><em>休息、餐饮、积分兑换</em></span>
+            <i>›</i>
+          </button>
+        </div>
+      </section>
+      ${renderAnchorBottomNav("driver", "home")}
+    </div>
+  `;
+}
+
+function renderStyleAnchorForm() {
+  const feedbackTypes = [
+    ["angry", "投诉", "active"],
+    ["edit", "建议", ""],
+    ["question", "咨询", ""],
+    ["thumb", "表扬", ""],
+  ];
+  const categories = ["站内设施", "出租车", "网约车", "地铁", "停车场", "工作人员", "安全问题", "其他"];
+  return `
+    <div class="anchor-page anchor-form-page with-nav">
+      ${renderAnchorTopbar({ title: "投诉与建议", backTo: "#/station/home" })}
+      <section class="anchor-two-tabs">
+        <button class="active">提交反馈</button>
+        <button data-toast="我的反馈（原型演示）">我的反馈</button>
+      </section>
+      <section class="anchor-form-card">
+        <div class="anchor-form-block">
+          <h2>反馈类型</h2>
+          <div class="anchor-type-grid">
+            ${feedbackTypes
+              .map(
+                ([icon, label, active]) => `
+                  <button class="${active}" data-toast="${label}（原型演示）">${anchorIcon(icon)}<span>${label}</span></button>
+                `
+              )
+              .join("")}
+          </div>
+        </div>
+        <div class="anchor-form-block">
+          <h2>问题分类</h2>
+          <div class="anchor-category-grid">
+            ${categories
+              .map((label) => `<button class="${label === "出租车" ? "active" : ""}" data-toast="${label}（原型演示）">${label}</button>`)
+              .join("")}
+          </div>
+        </div>
+        <div class="anchor-form-block">
+          <h2>反馈内容</h2>
+          <div class="anchor-textarea">
+            <span>请详细描述您遇到的问题或建议（必填，至少20字）</span>
+            <em>0/500</em>
+          </div>
+        </div>
+        <div class="anchor-upload-head">
+          <h2>请上传图片</h2>
+          <span>最多4张</span>
+        </div>
+        <button class="anchor-upload-box" data-toast="图片上传（原型演示）">+</button>
+      </section>
+      <button class="anchor-submit-button" data-toast="提交反馈（原型演示）">提交反馈</button>
+      ${renderAnchorBottomNav("traveler", "home")}
+    </div>
+  `;
+}
+
+function renderStyleAnchorCompletion() {
+  return `
+    <div class="anchor-page anchor-success-page with-nav">
+      <section class="anchor-success-card">
+        <span class="anchor-success-icon">${anchorIcon("check")}</span>
+        <h1>预约成功</h1>
+        <div class="anchor-success-list">
+          <button>${anchorIcon("pin")}<span>北京西站</span><i>›</i></button>
+          <button>${anchorIcon("calendar")}<span>今天</span><i>›</i></button>
+          <button>${anchorIcon("clock")}<span>09:00</span><i>›</i></button>
+        </div>
+        <p class="anchor-consume">${anchorIcon("check")}<span>已消耗2分</span></p>
+        <div class="anchor-success-actions">
+          <button class="outline" data-to="#/style-anchor/02-list">返回首页</button>
+          <button class="primary" data-to="#/style-anchor/03-detail">继续预约</button>
+        </div>
+      </section>
+      ${renderAnchorBottomNav("driver", "home")}
+    </div>
+  `;
+}
+
+function renderStyleAnchorLoading() {
+  return `
+    <div class="anchor-page anchor-loading-page with-nav">
+      <section class="anchor-loader-brand">
+        <span class="anchor-app-logo">${anchorIcon("plane")}${anchorIcon("train")}</span>
+        <h1>到站北京</h1>
+        <p>站区畅行服务</p>
+        <div class="anchor-loading-state">
+          <span></span>
+          <strong>加载中</strong>
+          <em>请稍候</em>
+        </div>
+      </section>
+      <section class="anchor-skeleton-card" aria-label="加载骨架屏">
+        <div class="sk-line long"></div>
+        <div class="sk-mini-grid">
+          ${Array.from({ length: 4 })
+            .map(() => `<div class="sk-mini"><span></span><i></i><b></b></div>`)
+            .join("")}
+        </div>
+        <div class="sk-banner"><span></span><i></i><b></b></div>
+        <div class="sk-title"></div>
+        <div class="sk-list">
+          ${Array.from({ length: 3 })
+            .map(() => `<div class="sk-row"><span></span><i></i><b></b></div>`)
+            .join("")}
+        </div>
+        <div class="sk-foot"></div>
+      </section>
+      ${renderAnchorBottomNav("traveler", "home")}
+    </div>
+  `;
+}
+
+function renderStyleAnchorProfile() {
+  const groups = [
+    [
+      ["message", "消息通知", ""],
+      ["globe", "语言 / Language", "简体中文"],
+      ["accessibility", "无障碍模式", ""],
+    ],
+    [["shield", "账号安全", ""]],
+    [["lock", "隐私设置", ""]],
+    [["ear", "无障碍辅助", ""]],
+  ];
+
+  return `
+    <div class="anchor-page anchor-profile-page with-nav">
+      ${renderAnchorTopbar({ title: "个人中心", settings: true, backTo: "#/station/home" })}
+      <button class="anchor-user-card" data-toast="个人资料（原型演示）">
+        <span class="anchor-avatar"></span>
+        <span><strong>杜**</strong><em>138****5678</em></span>
+        <i>›</i>
+      </button>
+      ${groups
+        .map(
+          (group, groupIndex) => `
+            <section class="anchor-menu-card">
+              ${groupIndex > 0 ? `<h2>${groupIndex === 1 ? "安全" : groupIndex === 2 ? "隐私设置" : "无障碍辅助"}</h2>` : ""}
+              ${group
+                .map(
+                  ([icon, label, value]) => `
+                    <button class="anchor-menu-row" data-toast="${label}（原型演示）">
+                      <span class="anchor-menu-left">${anchorIcon(icon)}<b>${label}</b></span>
+                      <span class="anchor-menu-right">${value ? `<em>${value}</em>` : ""}<i>›</i></span>
+                    </button>
+                  `
+                )
+                .join("")}
+            </section>
+          `
+        )
+        .join("")}
+      <button class="anchor-logout" data-toast="退出登录（原型演示）">${anchorIcon("scan")}<span>退出登录</span></button>
+      <p class="anchor-version">到站北京 · 旅客端 v1.1.0<br>北京市重点站区管委会</p>
+      ${renderAnchorBottomNav("traveler", "profile")}
+    </div>
+  `;
+}
+
+function renderStyleAnchorModal() {
+  return `
+    <div class="anchor-page anchor-modal-page">
+      <section class="anchor-modal-underlay">
+        <header>
+          <h1>杜**，您好！</h1>
+          <button>${anchorIcon("pin")}<span>选择地区</span><i>⌄</i></button>
+        </header>
+        <div class="anchor-modal-search">
+          <span>${anchorIcon("search")}<em>搜索服务、事项</em></span>
+          <button>${anchorIcon("scan")}<b>扫一扫</b></button>
+        </div>
+        <div class="anchor-modal-shortcuts">
+          ${[
+            ["id", "亮证"],
+            ["qr", "京通码"],
+            ["chat", "消息"],
+            ["grid", "全部服务"],
+          ]
+            .map(([icon, label]) => `<span>${anchorIcon(icon)}<b>${label}</b></span>`)
+            .join("")}
+        </div>
+        <div class="anchor-modal-recommend">
+          <h2>为您推荐</h2><span>我的定制 ›</span>
+          <div></div><div></div><div></div>
+        </div>
+      </section>
+      <section class="anchor-station-sheet">
+        <span class="anchor-sheet-handle"></span>
+        <h1>选择出行站点</h1>
+        <div class="anchor-sheet-grid">
+          ${anchorQueueStations
+            .map(
+              (item, index) => `
+                <button class="${index === 0 ? "active" : ""}" data-toast="${item.name}（原型演示）">
+                  ${anchorIcon(item.type)}
+                  <span>${item.name}</span>
+                  ${index === 0 ? `<i>${anchorIcon("check")}</i>` : ""}
+                </button>
+              `
+            )
+            .join("")}
+        </div>
+        <button class="anchor-sheet-confirm" data-toast="确认更改（原型演示）">确认更改</button>
+        <button class="anchor-sheet-cancel" data-toast="取消（原型演示）">取消</button>
+      </section>
+    </div>
+  `;
+}
+
+function renderStyleAnchorPage(kind) {
+  if (kind === "list") return renderStyleAnchorList();
+  if (kind === "detail") return renderStyleAnchorDetail();
+  if (kind === "form") return renderStyleAnchorForm();
+  if (kind === "completion") return renderStyleAnchorCompletion();
+  if (kind === "loading") return renderStyleAnchorLoading();
+  if (kind === "profile") return renderStyleAnchorProfile();
+  if (kind === "modal") return renderStyleAnchorModal();
+  return renderStyleAnchorList();
+}
+
 function render() {
   const current = route();
+  const styleAnchorKind = styleAnchorRoutes[current];
+  app.className = styleAnchorKind ? "app-shell anchor-app" : "app-shell";
+  if (styleAnchorKind) {
+    state.currentSurface = current;
+    app.innerHTML = renderStyleAnchorPage(styleAnchorKind);
+    requestAnimationFrame(() => window.scrollTo(0, 0));
+    return;
+  }
   if (current === "#/splash") {
     state.currentSurface = current;
     app.innerHTML = renderSplash();

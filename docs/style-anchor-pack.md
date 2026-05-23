@@ -21,6 +21,14 @@
 - `assets/style-anchors/variants/18_5x9/`
 - `assets/style-anchors/variants/18x9/`
 
+## 18x9 复刻核查
+
+`#/style-anchor/02-list` 到 `#/style-anchor/08-modal` 已用真实 HTML/CSS 页面重建，并用 `scripts/style_anchor_check.py` 与 18x9 参考图做过逐张比对。
+
+- `02-list` 已压到 5% 内。
+- `03-detail` 仍是当前最大偏差页。
+- `04-form`、`05-completion`、`06-loading`、`07-profile`、`08-modal` 均已稳定低于 5%。
+
 ## 生成原则
 
 - 只用文字，不上传参考图。
