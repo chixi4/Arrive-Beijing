@@ -1,6 +1,10 @@
 const app = document.getElementById("app");
 const modalRoot = document.getElementById("modal-root");
 
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
 const IMG = "extracted_screenshots/";
 const ICON = "extracted_page04_station_icons/";
 
@@ -17,6 +21,19 @@ const stations = [
   ["daxing", "大兴机场", `${ICON}P04_icon_大兴机场.png`],
 ];
 
+const stationHeroAssets = {
+  beijing: "assets/bitmap/stations/beijing-station.png",
+  west: "assets/bitmap/stations/beijing-west-station.png",
+  south: "assets/bitmap/stations/beijing-south-station.png",
+  north: "assets/bitmap/stations/beijing-north-station.png",
+  chaoyang: "assets/bitmap/stations/chaoyang-station.png",
+  qinghe: "assets/bitmap/stations/qinghe-station.png",
+  yizhuang: "assets/bitmap/stations/yizhuang-station.png",
+  tongzhou: "assets/bitmap/stations/tongzhou-station.png",
+  capital: "assets/bitmap/stations/capital-airport.png",
+  daxing: "assets/bitmap/stations/daxing-airport.png",
+};
+
 const state = {
   station: localStorage.getItem("arrive-beijing.station") || "west",
   draftStation: localStorage.getItem("arrive-beijing.station") || "west",
@@ -28,6 +45,8 @@ const state = {
     feedbackCategory: "出租车",
     bookingDate: "今天",
     bookingTime: "09:00",
+    servicesCategory: "vehicle",
+    servicesSection: "traffic",
   },
   counters: {
     braisedRice: 0,
@@ -36,6 +55,102 @@ const state = {
     steamedEgg: 0,
   },
 };
+
+const travelerBottomNavItems = [
+  { key: "home", label: "首页", icon: "home", to: "#/station/home" },
+  { key: "announcements", label: "公告", icon: "notice", to: "#/announcements" },
+  { key: "nav", label: "导航", icon: "map", to: "#/nav/map" },
+  { key: "traffic", label: "交通", icon: "bus", to: "#/traffic/taxi" },
+  { key: "profile", label: "身份", icon: "user", to: "#/profile" },
+];
+
+const stationHomeAnnouncements = [
+  { tag: "紧急", text: "北京西站南广场施工，请绕行南广场进站", to: "#/announcements" },
+  { tag: "通知", text: "春运期间地铁2号线延时至次日02:00", to: "#/announcements" },
+  { tag: "提醒", text: "12306实名核验通道升级，请提前准备证件", to: "#/announcements" },
+];
+
+const stationHomeServices = [
+  { label: "导航指引", icon: "map", to: "#/nav/map", bg: "#dceeff", fg: "#2e7de1" },
+  { label: "站区公告", icon: "notice", to: "#/announcements", bg: "#ffe8b8", fg: "#f0a423" },
+  { label: "市内交通", icon: "bus", to: "#/traffic/taxi", bg: "#efddff", fg: "#a24ac2" },
+  { label: "场站接驳", icon: "bus", to: "#/traffic/ride", bg: "#e6eb9f", fg: "#8f9f1b" },
+  { label: "投诉建议", icon: "chat", to: "#/feedback/submit", bg: "#f6ddd9", fg: "#e5474d" },
+  { label: "自驾停车", icon: "car", to: "#/parking/list", bg: "#e4f2d6", fg: "#6aa84f" },
+  { label: "个人中心", icon: "user", to: "#/profile", bg: "#fdeacc", fg: "#f08a24" },
+  { label: "短途复载", icon: "taxi", to: "#/driver/short-haul/booking", bg: "#d7f3f9", fg: "#1fa7c2" },
+];
+
+const servicesSidebarItems = [
+  { key: "traffic", label: "交通出行", section: "traffic" },
+  { key: "entry", label: "进京证办...", section: "traffic" },
+  { key: "police", label: "交警随手...", section: "traffic" },
+  { key: "drive", label: "驾车出行", section: "traffic" },
+  { key: "small-car", label: "小客车指...", section: "traffic" },
+  { key: "12123", label: "交管12...", section: "traffic" },
+  { key: "public", label: "公共出行", section: "traffic" },
+  { key: "passenger", label: "客运服务", section: "traffic" },
+  { key: "vehicle", label: "机动车业...", section: "traffic" },
+  { key: "airport", label: "机场服务", section: "airport" },
+  { key: "freight", label: "货运服务", section: "airport" },
+  { key: "household", label: "户政档案", section: "station" },
+  { key: "housing", label: "住房服务", section: "station" },
+];
+
+const servicesSections = [
+  {
+    key: "traffic",
+    title: "交通出行",
+    links: [
+      { label: "机动车检测收费计算器", toast: "机动车检测收费计算器（原型演示）" },
+      { label: "机动车检测场地图查询", toast: "机动车检测场地图查询（原型演示）" },
+      { label: "机动车检验机构详情查询", toast: "机动车检验机构详情查询（原型演示）" },
+    ],
+  },
+  {
+    key: "airport",
+    title: "机场服务",
+    links: [
+      { label: "大兴机场地铁信息", toast: "大兴机场地铁信息（原型演示）" },
+      { label: "大兴机场出租车信息", toast: "大兴机场出租车信息（原型演示）" },
+      { label: "大兴机场网约车信息", toast: "大兴机场网约车信息（原型演示）" },
+      { label: "大兴机场城市航站楼", toast: "大兴机场城市航站楼（原型演示）" },
+      { label: "大兴机场公交信息", toast: "大兴机场公交信息（原型演示）" },
+      { label: "大兴机场展览·景点·花园", toast: "大兴机场展览·景点·花园（原型演示）" },
+      { label: "首都机场礼迎礼送风景线", toast: "首都机场礼迎礼送风景线（原型演示）" },
+    ],
+  },
+  {
+    key: "station",
+    title: "到站北京畅行服务",
+    links: [
+      { label: "到站北京（旅客端）", to: "#/splash" },
+      { label: "短途复载（司机端）", to: "#/driver/splash" },
+    ],
+  },
+];
+
+const ICONS = {
+  search: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-3.5-3.5"></path></svg>`,
+  pin: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.3 6-11a6 6 0 0 0-12 0c0 5.7 6 11 6 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>`,
+  more: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.4"></circle><circle cx="12" cy="12" r="1.4"></circle><circle cx="19" cy="12" r="1.4"></circle></svg>`,
+  home: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"></path><path d="M5 10.5V21h14v-10.5"></path></svg>`,
+  notice: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13l9-7v14z"></path><path d="M13 7h5l2-2v14l-2-2h-5"></path></svg>`,
+  map: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 20 3 18V4l6 2 6-2 6 2v14l-6-2-6 2V6"></path><path d="M9 6v14"></path><path d="M15 4v14"></path></svg>`,
+  bus: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12v9H6z"></path><path d="M8 16v2"></path><path d="M16 16v2"></path><path d="M8 4h8v3H8z"></path><path d="M6 11h12"></path></svg>`,
+  user: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"></circle><path d="M4.5 20a7.5 7.5 0 0 1 15 0"></path></svg>`,
+  car: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 14h14l-1.2-5.2a2 2 0 0 0-1.9-1.4H8.1a2 2 0 0 0-1.9 1.4z"></path><path d="M4 14v4"></path><path d="M20 14v4"></path><circle cx="7.5" cy="18.5" r="1.5"></circle><circle cx="16.5" cy="18.5" r="1.5"></circle></svg>`,
+  chat: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14v9H9l-4 4z"></path></svg>`,
+  taxi: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 13.5h12l-1-4.5a2 2 0 0 0-2-1.5H9a2 2 0 0 0-2 1.5z"></path><path d="M4.5 13.5H19.5"></path><circle cx="7.5" cy="17.5" r="1.5"></circle><circle cx="16.5" cy="17.5" r="1.5"></circle></svg>`,
+};
+
+function iconMarkup(name) {
+  return ICONS[name] || ICONS.more;
+}
+
+function stationHeroImage(id) {
+  return stationHeroAssets[id] || stationHeroAssets.west;
+}
 
 const travelerNav = [
   { x: 0, y: 90.4, w: 20, h: 9.6, to: "#/station/home" },
@@ -58,14 +173,6 @@ const pages = {
     hotspots: [
       { x: 78, y: 50, w: 17, h: 10, to: "#/services" },
       { x: 0, y: 64, w: 100, h: 18, to: "#/services" },
-    ],
-  },
-  "#/services": {
-    src: "P02-02_全部服务页.png",
-    hotspots: [
-      { x: 0, y: 0, w: 11, h: 9, to: "#/portal" },
-      { x: 38, y: 83, w: 55, h: 5, to: "#/splash" },
-      { x: 38, y: 88, w: 55, h: 6, to: "#/driver/splash" },
     ],
   },
   "#/splash": {
@@ -591,6 +698,213 @@ function renderOverlays(page) {
     .join("");
 }
 
+function renderBottomNav(activeKey) {
+  return `
+    <nav class="bottom-nav five" aria-label="底部导航">
+      ${travelerBottomNavItems
+        .map((item) => {
+          const active = item.key === activeKey ? "active" : "";
+          return `
+            <button class="nav-item ${active}" data-to="${item.to}" aria-label="${item.label}">
+              ${iconMarkup(item.icon)}
+              <span>${item.label}</span>
+            </button>
+          `;
+        })
+        .join("")}
+    </nav>
+  `;
+}
+
+let toastTimer = null;
+
+function showToast(message) {
+  if (!modalRoot) return;
+  window.clearTimeout(toastTimer);
+  modalRoot.classList.remove("open");
+  modalRoot.innerHTML = `<div class="toast">${message}</div>`;
+  toastTimer = window.setTimeout(() => {
+    modalRoot.innerHTML = "";
+    modalRoot.classList.remove("open");
+  }, 1800);
+}
+
+function scrollServicesSection(sectionKey) {
+  const target = document.querySelector(`[data-services-section="${sectionKey}"]`);
+  if (target) {
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
+function renderServices() {
+  const activeCategory = state.selected.servicesCategory || "vehicle";
+  return `
+    <div class="services-shell">
+      <header class="services-header">
+        <div class="services-topline">
+          <button class="services-back" data-to="#/portal" aria-label="返回上一页">‹</button>
+          <button class="services-search" data-toast="搜索功能暂未接入" aria-label="搜索服务">
+            ${iconMarkup("search")}
+            <span>请输入关键字搜索</span>
+          </button>
+          <div class="services-actions">
+            <button class="services-action" data-toast="更多功能暂未接入" aria-label="更多功能">
+              ${iconMarkup("more")}
+            </button>
+            <span class="services-action ring" aria-hidden="true"></span>
+          </div>
+        </div>
+      </header>
+
+      <section class="services-title-band">
+        <h1>全部服务</h1>
+      </section>
+
+      <section class="services-layout" aria-label="服务目录">
+        <aside class="services-sidebar">
+          ${servicesSidebarItems
+            .map(
+              (item) => `
+                <button
+                  class="services-sidebar-item ${item.key === activeCategory ? "active" : ""}"
+                  data-service-category="${item.key}"
+                  data-service-section="${item.section}"
+                >
+                  <span>${item.label}</span>
+                </button>
+              `
+            )
+            .join("")}
+        </aside>
+
+        <div class="services-main">
+          ${servicesSections
+            .map(
+              (section) => `
+                <section class="services-section" data-services-section="${section.key}">
+                  <div class="services-section-head">
+                    <span class="services-section-bar"></span>
+                    <h2>${section.title}</h2>
+                  </div>
+                  <div class="services-link-list">
+                    ${section.links
+                      .map((link) => {
+                        if (link.to) {
+                          return `
+                            <button class="services-link" data-to="${link.to}">
+                              ${link.label}
+                            </button>
+                          `;
+                        }
+                        return `
+                          <button class="services-link" data-toast="${link.toast || link.label}">
+                            ${link.label}
+                          </button>
+                        `;
+                      })
+                      .join("")}
+                  </div>
+                </section>
+              `
+            )
+            .join("")}
+        </div>
+      </section>
+    </div>
+  `;
+}
+
+function renderSplash() {
+  return `
+    <div class="splash-shell">
+      <button class="splash-trigger" data-to="#/station/select" aria-label="进入站区选择">
+        <img class="splash-full-image" src="${IMG}P04-01_开屏页.png" alt="到站北京">
+      </button>
+    </div>
+  `;
+}
+
+function renderStationHome() {
+  const [, stationName] = stationById(state.station);
+  const stationSrc = stationHeroImage(state.station);
+  return `
+    <div class="screen station-home-screen">
+      <section class="station-home-hero" style="--station-hero-image:url('${stationSrc}')">
+        <div class="station-home-hero-inner">
+          <div class="hero-topline">
+            <button class="station-chip" data-to="#/station/switch" aria-label="切换站点">
+              <span class="station-chip-pin" aria-hidden="true">${iconMarkup("pin")}</span>
+              <span>${stationName}</span>
+            </button>
+            <div class="hero-search" aria-hidden="true">
+              ${iconMarkup("search")}
+              <span>搜索站区服务、设施等</span>
+            </div>
+          </div>
+          <div class="station-home-hero-meta">
+            <div class="station-home-flow">
+              实时客流：<span>正常</span>
+            </div>
+            <div class="station-home-weather">
+              <strong>31°C</strong>
+              <span>晴</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="announcements">
+        <div class="section-head">
+          <div class="section-head-title">
+            <span class="section-icon blue">${iconMarkup("notice")}</span>
+            <span>站区公告</span>
+          </div>
+          <button class="more" data-to="#/announcements">更多 &gt;</button>
+        </div>
+        <div class="announcement-list">
+          ${stationHomeAnnouncements
+            .map(
+              (item) => `
+                <button class="list-card clickable announcement-card" data-to="${item.to}">
+                  <div class="row">
+                    <span class="tag ${item.tag === "紧急" ? "red" : item.tag === "通知" ? "blue" : "blue"}">${item.tag}</span>
+                    <div class="announcement-text">${item.text}</div>
+                  </div>
+                </button>
+              `
+            )
+            .join("")}
+        </div>
+      </section>
+
+      <section class="station-services">
+        <div class="section-head">
+          <div class="section-head-title">
+            <span class="section-icon blue">${iconMarkup("map")}</span>
+            <span>站区服务</span>
+          </div>
+        </div>
+        <div class="station-service-card">
+          <div class="station-service-grid">
+            ${stationHomeServices
+              .map(
+                (item) => `
+                  <button class="station-service-item" data-to="${item.to}" style="--tile-bg:${item.bg};--tile-fg:${item.fg};">
+                    <span class="glyph">${iconMarkup(item.icon)}</span>
+                    <span class="label">${item.label}</span>
+                  </button>
+                `
+              )
+              .join("")}
+          </div>
+        </div>
+      </section>
+
+      ${renderBottomNav("home")}
+    </div>
+  `;
+}
+
 function renderSourcePage(page) {
   const source = `${IMG}${page.src}`;
   return `
@@ -666,6 +980,22 @@ function renderStationSelect(kind) {
 
 function render() {
   const current = route();
+  if (current === "#/splash") {
+    state.currentSurface = current;
+    app.innerHTML = renderSplash();
+    return;
+  }
+  if (current === "#/services") {
+    state.currentSurface = current;
+    app.innerHTML = renderServices();
+    requestAnimationFrame(() => window.scrollTo(0, 0));
+    return;
+  }
+  if (current === "#/station/home") {
+    state.currentSurface = current;
+    app.innerHTML = renderStationHome();
+    return;
+  }
   if (current === "#/station/select") {
     state.currentSurface = current;
     app.innerHTML = renderStationSelect("select");
@@ -690,6 +1020,23 @@ document.addEventListener("click", (event) => {
     event.preventDefault();
     state.selected[selectionButton.dataset.selectKey] = selectionButton.dataset.selectValue;
     render();
+    return;
+  }
+
+  const serviceCategoryButton = event.target.closest("[data-service-category]");
+  if (serviceCategoryButton) {
+    event.preventDefault();
+    state.selected.servicesCategory = serviceCategoryButton.dataset.serviceCategory;
+    state.selected.servicesSection = serviceCategoryButton.dataset.serviceSection || "traffic";
+    render();
+    requestAnimationFrame(() => scrollServicesSection(state.selected.servicesSection || "traffic"));
+    return;
+  }
+
+  const toastButton = event.target.closest("[data-toast]");
+  if (toastButton) {
+    event.preventDefault();
+    showToast(toastButton.dataset.toast || "原型功能暂未接入");
     return;
   }
 
