@@ -20,6 +20,7 @@ const stations = [
 const state = {
   station: localStorage.getItem("arrive-beijing.station") || "west",
   draftStation: localStorage.getItem("arrive-beijing.station") || "west",
+  currentSurface: null,
   selected: {
     navFloor: "F1",
     announcementCategory: "全部",
@@ -73,6 +74,7 @@ const pages = {
   },
   "#/station/home": {
     src: "P05-01_首页.png",
+    overlays: [{ kind: "stationBadge" }],
     hotspots: [
       { x: 4, y: 2, w: 29, h: 6, to: "#/station/switch" },
       { x: 76, y: 29, w: 19, h: 7, to: "#/announcements" },
@@ -565,6 +567,16 @@ function renderCounterMarkers(page) {
 function renderOverlays(page) {
   return (page.overlays || [])
     .map((overlay) => {
+      if (overlay.kind === "stationBadge") {
+        if (state.station === "west") return "";
+        const [, name] = stationById(state.station);
+        return `
+          <span class="dynamic-station-badge">
+            <span class="station-badge-pin" aria-hidden="true"></span>
+            <span>${name}</span>
+          </span>
+        `;
+      }
       if (overlay.kind === "singleUploadCard") {
         return `
           <span class="upload-mask"></span>
@@ -655,14 +667,19 @@ function renderStationSelect(kind) {
 function render() {
   const current = route();
   if (current === "#/station/select") {
+    state.currentSurface = current;
     app.innerHTML = renderStationSelect("select");
     return;
   }
   if (current === "#/station/switch") {
-    state.draftStation = state.station;
+    if (state.currentSurface !== current) {
+      state.draftStation = state.station;
+    }
+    state.currentSurface = current;
     app.innerHTML = renderStationSelect("switch");
     return;
   }
+  state.currentSurface = current;
   const page = pages[current] || pages["#/portal"];
   app.innerHTML = renderSourcePage(page);
 }

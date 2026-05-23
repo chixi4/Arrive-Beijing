@@ -158,6 +158,56 @@ button {
   pointer-events: none;
 }
 
+.dynamic-station-badge {
+  position: absolute;
+  left: 3.8%;
+  top: 1.78%;
+  width: 28.8%;
+  height: 3.9%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #2674df;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 3px 10px rgba(60, 117, 174, 0.14);
+  pointer-events: none;
+}
+
+.station-badge-pin {
+  width: 19px;
+  height: 19px;
+  position: relative;
+  flex: none;
+}
+
+.station-badge-pin::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 1px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #2674df;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+}
+
+.station-badge-pin::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 5px;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: #2674df;
+}
+
 .upload-icon {
   width: 24px;
   height: 20px;
