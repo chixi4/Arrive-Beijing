@@ -699,6 +699,15 @@ function go(to) {
   location.hash = to;
 }
 
+function syncDesktopPreviewFrame() {
+  const isDesktopPreview = app.classList.contains("anchor-app") && window.innerWidth >= 1000;
+  const scale = isDesktopPreview
+    ? Math.min((window.innerWidth - 32) / 864, (window.innerHeight - 32) / 1728, 1)
+    : 1;
+  app.style.setProperty("--desktop-preview-scale", String(scale));
+  document.body.classList.toggle("desktop-preview", isDesktopPreview);
+}
+
 function boxStyle(box) {
   return `left:${box.x}%;top:${box.y}%;width:${box.w}%;height:${box.h}%`;
 }
@@ -1445,28 +1454,33 @@ function render() {
   if (styleAnchorKind) {
     state.currentSurface = current;
     app.innerHTML = renderStyleAnchorPage(styleAnchorKind);
+    syncDesktopPreviewFrame();
     requestAnimationFrame(() => window.scrollTo(0, 0));
     return;
   }
   if (current === "#/splash") {
     state.currentSurface = current;
     app.innerHTML = renderSplash();
+    syncDesktopPreviewFrame();
     return;
   }
   if (current === "#/services") {
     state.currentSurface = current;
     app.innerHTML = renderServices();
+    syncDesktopPreviewFrame();
     requestAnimationFrame(() => window.scrollTo(0, 0));
     return;
   }
   if (current === "#/station/home") {
     state.currentSurface = current;
     app.innerHTML = renderStationHome();
+    syncDesktopPreviewFrame();
     return;
   }
   if (current === "#/station/select") {
     state.currentSurface = current;
     app.innerHTML = renderStationSelect("select");
+    syncDesktopPreviewFrame();
     return;
   }
   if (current === "#/station/switch") {
@@ -1475,11 +1489,13 @@ function render() {
     }
     state.currentSurface = current;
     app.innerHTML = renderStationSelect("switch");
+    syncDesktopPreviewFrame();
     return;
   }
   state.currentSurface = current;
   const page = pages[current] || pages["#/portal"];
   app.innerHTML = renderSourcePage(page);
+  syncDesktopPreviewFrame();
 }
 
 document.addEventListener("click", (event) => {
@@ -1541,6 +1557,7 @@ document.addEventListener("click", (event) => {
 });
 
 window.addEventListener("hashchange", render);
+window.addEventListener("resize", syncDesktopPreviewFrame);
 window.addEventListener("load", () => {
   if (!location.hash) location.hash = "#/portal";
   render();
