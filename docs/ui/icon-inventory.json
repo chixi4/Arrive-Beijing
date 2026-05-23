@@ -1,0 +1,1709 @@
+{
+  "generated_at": "2026-05-23T18:12:17.875Z",
+  "source_file": "app.js",
+  "rules": {
+    "text_extraction": "No OCR or bitmap-to-text extraction is used.",
+    "final_asset_policy": "Final UI icons are SVG/currentColor. Generated 3x3 boards are calibration references, not page text sources.",
+    "renderer": "iconMarkup(name) and anchorIcon(name) both resolve through ICON_LIBRARY."
+  },
+  "summary": {
+    "library_count": 52,
+    "alias_count": 5,
+    "used_semantic_count": 49,
+    "missing_count": 0,
+    "unused_library_count": 3
+  },
+  "aliases": {
+    "airport": "plane",
+    "announcement": "megaphone",
+    "license": "id",
+    "notice": "megaphone",
+    "station": "train"
+  },
+  "missing": [],
+  "unused_library_icons": [
+    "gift",
+    "grid",
+    "qr"
+  ],
+  "icons": [
+    {
+      "semantic_name": "pin",
+      "resolved_icon": "pin",
+      "usage_count": 9,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page",
+        "style-anchor"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 1433,
+          "type": "iconMarkup",
+          "text": "<span class=\"ab-station-chip-pin\">${iconMarkup(\"pin\")}</span>"
+        },
+        {
+          "file": "app.js",
+          "line": 2048,
+          "type": "iconMarkup",
+          "text": "<span class=\"ab-traffic-stop-icon\">${iconMarkup(\"pin\")}</span>"
+        },
+        {
+          "file": "app.js",
+          "line": 2786,
+          "type": "iconMarkup",
+          "text": "<span class=\"ab-target-icon\">${iconMarkup(\"pin\")}</span>"
+        },
+        {
+          "file": "app.js",
+          "line": 2894,
+          "type": "iconMarkup",
+          "text": "<span class=\"ab-house-location-icon\">${iconMarkup(\"pin\")}</span>"
+        },
+        {
+          "file": "app.js",
+          "line": 3257,
+          "type": "anchorIcon",
+          "text": "<p>${anchorIcon(\"pin\")}<span>东城区毛家湾胡同甲13号</span></p>"
+        },
+        {
+          "file": "app.js",
+          "line": 3259,
+          "type": "anchorIcon",
+          "text": "<button class=\"anchor-nav-button\" data-toast=\"导航功能暂未接入\">${anchorIcon(\"pin\")}<span>导航</span></button>"
+        },
+        {
+          "file": "app.js",
+          "line": 3365,
+          "type": "anchorIcon",
+          "text": "<button>${anchorIcon(\"pin\")}<span>北京西站</span><i>›</i></button>"
+        },
+        {
+          "file": "app.js",
+          "line": 3466,
+          "type": "anchorIcon",
+          "text": "<button>${anchorIcon(\"pin\")}<span>选择地区</span><i>⌄</i></button>"
+        },
+        {
+          "file": "app.js",
+          "line": 2902,
+          "type": "icon-property",
+          "text": "{ icon: \"pin\", label: \"地址：北京西站出租车候客区服务楼2F\", toast: \"地址\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "high",
+      "status": "available"
+    },
+    {
+      "semantic_name": "user",
+      "resolved_icon": "user",
+      "usage_count": 7,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page",
+        "style-anchor"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 3264,
+          "type": "anchorIcon",
+          "text": "<div class=\"anchor-stat-head\">${anchorIcon(\"user\")}<span>候乘旅客</span></div>"
+        },
+        {
+          "file": "app.js",
+          "line": 65,
+          "type": "icon-property",
+          "text": "{ key: \"profile\", label: \"身份\", icon: \"user\", to: \"#/profile\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 81,
+          "type": "icon-property",
+          "text": "{ label: \"个人中心\", icon: \"user\", to: \"#/profile\", bg: \"#fdeacc\", fg: \"#f08a24\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1211,
+          "type": "icon-property",
+          "text": "{ key: \"profile\", label: \"身份\", icon: \"user\", to: \"#/driver/profile\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1218,
+          "type": "icon-property",
+          "text": "{ key: \"profile\", label: \"身份\", icon: \"user\", to: \"#/profile\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1421,
+          "type": "icon-property",
+          "text": "{ label: \"个人中心\", icon: \"user\", to: \"#/profile\", bg: \"#fdeacc\", fg: \"#f08a24\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 2904,
+          "type": "icon-property",
+          "text": "{ icon: \"user\", label: \"可容纳：约50名司机同时休息\", toast: \"容纳量\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "high",
+      "status": "available"
+    },
+    {
+      "semantic_name": "map",
+      "resolved_icon": "map",
+      "usage_count": 6,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 2265,
+          "type": "iconMarkup",
+          "text": "<span class=\"ab-map-shell-icon\">${iconMarkup(\"map\")}</span>"
+        },
+        {
+          "file": "app.js",
+          "line": 63,
+          "type": "icon-property",
+          "text": "{ key: \"nav\", label: \"导航\", icon: \"map\", to: \"#/nav/map\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 75,
+          "type": "icon-property",
+          "text": "{ label: \"导航指引\", icon: \"map\", to: \"#/nav/map\", bg: \"#dceeff\", fg: \"#2e7de1\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1216,
+          "type": "icon-property",
+          "text": "{ key: \"nav\", label: \"导航\", icon: \"map\", to: \"#/nav/map\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1415,
+          "type": "icon-property",
+          "text": "{ label: \"导航指引\", icon: \"map\", to: \"#/nav/map\", bg: \"#dceeff\", fg: \"#2e7de1\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 2461,
+          "type": "icon-property",
+          "text": "{ label: \"查看路线\", icon: \"map\", toast: \"查看路线（原型演示）\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "high",
+      "status": "available"
+    },
+    {
+      "semantic_name": "notice",
+      "resolved_icon": "megaphone",
+      "usage_count": 6,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "button",
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 1117,
+          "type": "iconMarkup",
+          "text": "<span class=\"ds-callout-icon\">${iconMarkup(\"notice\")}</span>"
+        },
+        {
+          "file": "app.js",
+          "line": 1437,
+          "type": "iconMarkup",
+          "text": "<button class=\"ab-icon-btn ab-icon-btn--soft\" data-to=\"#/announcements\" aria-label=\"站区公告\">${iconMarkup(\"notice\")}</button>"
+        },
+        {
+          "file": "app.js",
+          "line": 62,
+          "type": "icon-property",
+          "text": "{ key: \"announcements\", label: \"公告\", icon: \"notice\", to: \"#/announcements\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 76,
+          "type": "icon-property",
+          "text": "{ label: \"站区公告\", icon: \"notice\", to: \"#/announcements\", bg: \"#ffe8b8\", fg: \"#f0a423\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1215,
+          "type": "icon-property",
+          "text": "{ key: \"notice\", label: \"公告\", icon: \"notice\", to: \"#/announcements\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1416,
+          "type": "icon-property",
+          "text": "{ label: \"站区公告\", icon: \"notice\", to: \"#/announcements\", bg: \"#ffe8b8\", fg: \"#f0a423\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "high",
+      "status": "available"
+    },
+    {
+      "semantic_name": "search",
+      "resolved_icon": "search",
+      "usage_count": 6,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "button",
+        "page",
+        "style-anchor"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 932,
+          "type": "iconMarkup",
+          "text": "${iconMarkup(\"search\")}"
+        },
+        {
+          "file": "app.js",
+          "line": 1125,
+          "type": "iconMarkup",
+          "text": "${iconMarkup(\"search\")}"
+        },
+        {
+          "file": "app.js",
+          "line": 1438,
+          "type": "iconMarkup",
+          "text": "<button class=\"ab-icon-btn ab-icon-btn--soft\" data-toast=\"搜索功能暂未接入\" aria-label=\"搜索\">${iconMarkup(\"search\")}</button>"
+        },
+        {
+          "file": "app.js",
+          "line": 2610,
+          "type": "iconMarkup",
+          "text": "${iconMarkup(\"search\")}"
+        },
+        {
+          "file": "app.js",
+          "line": 3184,
+          "type": "anchorIcon",
+          "text": "<section class=\"anchor-search-box\">${anchorIcon(\"search\")}<span>搜索车站名称</span></section>"
+        },
+        {
+          "file": "app.js",
+          "line": 3469,
+          "type": "anchorIcon",
+          "text": "<span>${anchorIcon(\"search\")}<em>搜索服务、事项</em></span>"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "high",
+      "status": "available"
+    },
+    {
+      "semantic_name": "car",
+      "resolved_icon": "car",
+      "usage_count": 5,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page",
+        "style-anchor"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 3242,
+          "type": "anchorIcon",
+          "text": "<span>${anchorIcon(\"car\")}</span>"
+        },
+        {
+          "file": "app.js",
+          "line": 3268,
+          "type": "anchorIcon",
+          "text": "<div class=\"anchor-stat-head\">${anchorIcon(\"car\")}<span>排队车辆</span></div>"
+        },
+        {
+          "file": "app.js",
+          "line": 1411,
+          "type": "icon-property",
+          "text": "{ icon: \"car\", label: \"网约车\", meta: \"推荐上车点 · 200m\", to: \"#/traffic/ride\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1847,
+          "type": "icon-property",
+          "text": "{ icon: \"car\", label: \"出租车\", toast: \"出租车（原型演示）\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 2462,
+          "type": "icon-property",
+          "text": "{ label: \"继续比价\", icon: \"car\", toast: \"继续比价（原型演示）\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "high",
+      "status": "available"
+    },
+    {
+      "semantic_name": "home",
+      "resolved_icon": "home",
+      "usage_count": 5,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page",
+        "style-anchor"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 2732,
+          "type": "iconMarkup",
+          "text": "<span class=\"ab-station-house-icon\">${iconMarkup(\"home\")}</span>"
+        },
+        {
+          "file": "app.js",
+          "line": 3292,
+          "type": "anchorIcon",
+          "text": "<span>${anchorIcon(\"home\")}</span>"
+        },
+        {
+          "file": "app.js",
+          "line": 61,
+          "type": "icon-property",
+          "text": "{ key: \"home\", label: \"首页\", icon: \"home\", to: \"#/station/home\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1208,
+          "type": "icon-property",
+          "text": "{ key: \"home\", label: \"首页\", icon: \"home\", to: \"#/driver/queue\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1214,
+          "type": "icon-property",
+          "text": "{ key: \"home\", label: \"首页\", icon: \"home\", to: \"#/station/home\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "high",
+      "status": "available"
+    },
+    {
+      "semantic_name": "taxi",
+      "resolved_icon": "taxi",
+      "usage_count": 5,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 2065,
+          "type": "iconMarkup",
+          "text": "<span class=\"ab-traffic-ride-icon\">${iconMarkup(\"taxi\")}</span>"
+        },
+        {
+          "file": "app.js",
+          "line": 82,
+          "type": "icon-property",
+          "text": "{ label: \"短途复载\", icon: \"taxi\", to: \"#/driver/short-haul/booking\", bg: \"#d7f3f9\", fg: \"#1fa7c2\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1209,
+          "type": "icon-property",
+          "text": "{ key: \"short\", label: \"短途复载\", icon: \"taxi\", to: \"#/driver/short-haul/booking\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1410,
+          "type": "icon-property",
+          "text": "{ icon: \"taxi\", label: \"出租车\", meta: \"南广场出口 · 8-12分钟\", to: \"#/traffic/taxi\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1422,
+          "type": "icon-property",
+          "text": "{ label: \"短途复载\", icon: \"taxi\", to: \"#/driver/short-haul/booking\", bg: \"#d7f3f9\", fg: \"#1fa7c2\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "high",
+      "status": "available"
+    },
+    {
+      "semantic_name": "back",
+      "resolved_icon": "back",
+      "usage_count": 4,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "button",
+        "style-anchor"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 1050,
+          "type": "iconMarkup",
+          "text": "<button class=\"icon-btn\" data-to=\"#/portal\" aria-label=\"返回\">${iconMarkup(\"back\")}</button>"
+        },
+        {
+          "file": "app.js",
+          "line": 1192,
+          "type": "iconMarkup",
+          "text": "<button class=\"ab-icon-btn\" data-to=\"${backTo}\" aria-label=\"返回\">${iconMarkup(\"back\")}</button>"
+        },
+        {
+          "file": "app.js",
+          "line": 3130,
+          "type": "anchorIcon",
+          "text": "<button class=\"anchor-back\" data-to=\"${backTo}\" aria-label=\"返回\">${anchorIcon(\"back\")}</button>"
+        },
+        {
+          "file": "app.js",
+          "line": 3254,
+          "type": "anchorIcon",
+          "text": "<button class=\"anchor-back detail-back\" data-to=\"#/style-anchor/02-list\" aria-label=\"返回\">${anchorIcon(\"back\")}</button>"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "high",
+      "status": "available"
+    },
+    {
+      "semantic_name": "calendar",
+      "resolved_icon": "calendar",
+      "usage_count": 4,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page",
+        "style-anchor"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 3286,
+          "type": "anchorIcon",
+          "text": "<span class=\"anchor-calendar-badge\">${anchorIcon(\"calendar\")}</span>"
+        },
+        {
+          "file": "app.js",
+          "line": 3366,
+          "type": "anchorIcon",
+          "text": "<button>${anchorIcon(\"calendar\")}<span>今天</span><i>›</i></button>"
+        },
+        {
+          "file": "app.js",
+          "line": 162,
+          "type": "icon-property",
+          "text": "{ icon: \"calendar\", label: \"预约记录\", value: \"\", to: \"#/driver/short-haul/booking\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1745,
+          "type": "icon-property",
+          "text": "{ label: \"预约记录\", icon: \"calendar\", to: \"#/driver/short-haul/booking\", bg: \"#fdecef\", fg: \"#d92d20\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "high",
+      "status": "available"
+    },
+    {
+      "semantic_name": "phone",
+      "resolved_icon": "phone",
+      "usage_count": 4,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 1567,
+          "type": "icon-property",
+          "text": "{ icon: \"phone\", label: \"旅客服务热线\", value: \"12328\", toast: \"旅客服务热线\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1568,
+          "type": "icon-property",
+          "text": "{ icon: \"phone\", label: \"投诉举报电话\", value: \"010-12345\", toast: \"投诉举报电话\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1646,
+          "type": "icon-property",
+          "text": "{ icon: \"phone\", label: \"旅客服务热线\", value: \"12328\", toast: \"旅客服务热线\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1647,
+          "type": "icon-property",
+          "text": "{ icon: \"phone\", label: \"投诉举报电话\", value: \"010-12345\", toast: \"投诉举报电话\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "high",
+      "status": "available"
+    },
+    {
+      "semantic_name": "route",
+      "resolved_icon": "route",
+      "usage_count": 4,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 64,
+          "type": "icon-property",
+          "text": "{ key: \"traffic\", label: \"交通\", icon: \"route\", to: \"#/traffic/taxi\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 77,
+          "type": "icon-property",
+          "text": "{ label: \"市内交通\", icon: \"route\", to: \"#/traffic/taxi\", bg: \"#efddff\", fg: \"#a24ac2\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1217,
+          "type": "icon-property",
+          "text": "{ key: \"traffic\", label: \"交通\", icon: \"route\", to: \"#/traffic/taxi\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1417,
+          "type": "icon-property",
+          "text": "{ label: \"市内交通\", icon: \"route\", to: \"#/traffic/taxi\", bg: \"#efddff\", fg: \"#a24ac2\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "high",
+      "status": "available"
+    },
+    {
+      "semantic_name": "check",
+      "resolved_icon": "check",
+      "usage_count": 3,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "style-anchor"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 3362,
+          "type": "anchorIcon",
+          "text": "<span class=\"anchor-success-icon\">${anchorIcon(\"check\")}</span>"
+        },
+        {
+          "file": "app.js",
+          "line": 3369,
+          "type": "anchorIcon",
+          "text": "<p class=\"anchor-consume\">${anchorIcon(\"check\")}<span>已消耗2分</span></p>"
+        },
+        {
+          "file": "app.js",
+          "line": 3497,
+          "type": "anchorIcon",
+          "text": "${index === 0 ? `<i>${anchorIcon(\"check\")}</i>` : \"\"}"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "medium",
+      "status": "available"
+    },
+    {
+      "semantic_name": "clock",
+      "resolved_icon": "clock",
+      "usage_count": 3,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page",
+        "style-anchor"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 3272,
+          "type": "anchorIcon",
+          "text": "<div class=\"anchor-stat-head\">${anchorIcon(\"clock\")}<span>最长等候</span></div>"
+        },
+        {
+          "file": "app.js",
+          "line": 3367,
+          "type": "anchorIcon",
+          "text": "<button>${anchorIcon(\"clock\")}<span>09:00</span><i>›</i></button>"
+        },
+        {
+          "file": "app.js",
+          "line": 2903,
+          "type": "icon-property",
+          "text": "{ icon: \"clock\", label: \"开放时间：06:00 - 22:00（全年无休）\", toast: \"开放时间\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "medium",
+      "status": "available"
+    },
+    {
+      "semantic_name": "message",
+      "resolved_icon": "message",
+      "usage_count": 3,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 130,
+          "type": "icon-property",
+          "text": "{ icon: \"message\", label: \"消息通知\", value: \"\", to: \"#/announcements\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 159,
+          "type": "icon-property",
+          "text": "{ icon: \"message\", label: \"消息通知\", value: \"\", toast: \"消息通知（原型演示）\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1742,
+          "type": "icon-property",
+          "text": "{ label: \"消息通知\", icon: \"message\", toast: \"消息通知（原型演示）\", bg: \"#eaf2ff\", fg: \"#206fd8\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "medium",
+      "status": "available"
+    },
+    {
+      "semantic_name": "people",
+      "resolved_icon": "people",
+      "usage_count": 3,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "style-anchor"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 3186,
+          "type": "anchorIcon",
+          "text": "<button class=\"anchor-status-filter green\">${anchorIcon(\"people\")}<span>畅通</span></button>"
+        },
+        {
+          "file": "app.js",
+          "line": 3187,
+          "type": "anchorIcon",
+          "text": "<button class=\"anchor-status-filter amber\">${anchorIcon(\"people\")}<span>正常</span></button>"
+        },
+        {
+          "file": "app.js",
+          "line": 3188,
+          "type": "anchorIcon",
+          "text": "<button class=\"anchor-status-filter red\">${anchorIcon(\"people\")}<span>拥挤</span></button>"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "medium",
+      "status": "available"
+    },
+    {
+      "semantic_name": "points",
+      "resolved_icon": "points",
+      "usage_count": 3,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "cell",
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 2840,
+          "type": "iconMarkup",
+          "text": "<span class=\"ab-info-icon\">${iconMarkup(\"points\")}</span>"
+        },
+        {
+          "file": "app.js",
+          "line": 160,
+          "type": "icon-property",
+          "text": "{ icon: \"points\", label: \"我的积分\", value: \"\", to: \"#/driver/short-haul/points\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1743,
+          "type": "icon-property",
+          "text": "{ label: \"我的积分\", icon: \"points\", to: \"#/driver/short-haul/points\", bg: \"#e5f7ef\", fg: \"#0b7a50\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_sm",
+      "color_token": "currentColor",
+      "replacement_priority": "medium",
+      "status": "available"
+    },
+    {
+      "semantic_name": "train",
+      "resolved_icon": "train",
+      "usage_count": 3,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page",
+        "style-anchor"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 2691,
+          "type": "iconMarkup",
+          "text": "<span class=\"ab-map-shell-icon\">${iconMarkup(\"train\")}</span>"
+        },
+        {
+          "file": "app.js",
+          "line": 3384,
+          "type": "anchorIcon",
+          "text": "<span class=\"anchor-app-logo\">${anchorIcon(\"plane\")}${anchorIcon(\"train\")}</span>"
+        },
+        {
+          "file": "app.js",
+          "line": 1412,
+          "type": "icon-property",
+          "text": "{ icon: \"train\", label: \"地铁\", meta: \"2号线 · 延时至次日02:00\", to: \"#/traffic/metro\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "medium",
+      "status": "available"
+    },
+    {
+      "semantic_name": "history",
+      "resolved_icon": "history",
+      "usage_count": 2,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 161,
+          "type": "icon-property",
+          "text": "{ icon: \"history\", label: \"行程历史\", value: \"\", to: \"#/driver/short-haul/history\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1744,
+          "type": "icon-property",
+          "text": "{ label: \"行程历史\", icon: \"history\", to: \"#/driver/short-haul/history\", bg: \"#fff4d8\", fg: \"#a16207\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "medium",
+      "status": "available"
+    },
+    {
+      "semantic_name": "mail",
+      "resolved_icon": "mail",
+      "usage_count": 2,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 1569,
+          "type": "icon-property",
+          "text": "{ icon: \"mail\", label: \"监督投诉邮箱\", value: \"service@arrive-beijing.cn\", toast: \"监督投诉邮箱\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1648,
+          "type": "icon-property",
+          "text": "{ icon: \"mail\", label: \"监督投诉邮箱\", value: \"service@arrive-beijing.cn\", toast: \"监督投诉邮箱\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "medium",
+      "status": "available"
+    },
+    {
+      "semantic_name": "more",
+      "resolved_icon": "more",
+      "usage_count": 2,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "button",
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 937,
+          "type": "iconMarkup",
+          "text": "${iconMarkup(\"more\")}"
+        },
+        {
+          "file": "app.js",
+          "line": 1052,
+          "type": "iconMarkup",
+          "text": "<button class=\"icon-btn\" data-toast=\"设计系统预览\" aria-label=\"更多\">${iconMarkup(\"more\")}</button>"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "medium",
+      "status": "available"
+    },
+    {
+      "semantic_name": "parking",
+      "resolved_icon": "parking",
+      "usage_count": 2,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 80,
+          "type": "icon-property",
+          "text": "{ label: \"自驾停车\", icon: \"parking\", to: \"#/parking/list\", bg: \"#e4f2d6\", fg: \"#6aa84f\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1420,
+          "type": "icon-property",
+          "text": "{ label: \"自驾停车\", icon: \"parking\", to: \"#/parking/list\", bg: \"#e4f2d6\", fg: \"#6aa84f\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "medium",
+      "status": "available"
+    },
+    {
+      "semantic_name": "plane",
+      "resolved_icon": "plane",
+      "usage_count": 2,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page",
+        "style-anchor"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 3384,
+          "type": "anchorIcon",
+          "text": "<span class=\"anchor-app-logo\">${anchorIcon(\"plane\")}${anchorIcon(\"train\")}</span>"
+        },
+        {
+          "file": "app.js",
+          "line": 1846,
+          "type": "icon-property",
+          "text": "{ icon: \"plane\", label: \"机场巴士\", toast: \"机场巴士（原型演示）\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "medium",
+      "status": "available"
+    },
+    {
+      "semantic_name": "question",
+      "resolved_icon": "question",
+      "usage_count": 2,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 88,
+          "type": "icon-property",
+          "text": "{ key: \"咨询\", icon: \"question\", tone: \"warning\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 169,
+          "type": "icon-property",
+          "text": "{ icon: \"question\", label: \"帮助中心\", value: \"\", toast: \"帮助中心（原型演示）\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "medium",
+      "status": "available"
+    },
+    {
+      "semantic_name": "refresh",
+      "resolved_icon": "refresh",
+      "usage_count": 2,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page",
+        "style-anchor"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 2612,
+          "type": "iconMarkup",
+          "text": "<button data-toast=\"刷新（原型演示）\">${iconMarkup(\"refresh\")}</button>"
+        },
+        {
+          "file": "app.js",
+          "line": 3134,
+          "type": "anchorIcon",
+          "text": "? `<button class=\"anchor-refresh\" data-toast=\"已刷新\">${anchorIcon(\"refresh\")}<span>刷新</span></button>`"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "medium",
+      "status": "available"
+    },
+    {
+      "semantic_name": "transfer",
+      "resolved_icon": "transfer",
+      "usage_count": 2,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 78,
+          "type": "icon-property",
+          "text": "{ label: \"场站接驳\", icon: \"transfer\", to: \"#/traffic/ride\", bg: \"#e6eb9f\", fg: \"#8f9f1b\" },"
+        },
+        {
+          "file": "app.js",
+          "line": 1418,
+          "type": "icon-property",
+          "text": "{ label: \"场站接驳\", icon: \"transfer\", to: \"#/traffic/ride\", bg: \"#e6eb9f\", fg: \"#8f9f1b\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "medium",
+      "status": "available"
+    },
+    {
+      "semantic_name": "accessibility",
+      "resolved_icon": "accessibility",
+      "usage_count": 1,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 132,
+          "type": "icon-property",
+          "text": "{ icon: \"accessibility\", label: \"无障碍模式\", value: \"\", toast: \"无障碍模式（原型演示）\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "low",
+      "status": "available"
+    },
+    {
+      "semantic_name": "angry",
+      "resolved_icon": "angry",
+      "usage_count": 1,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 86,
+          "type": "icon-property",
+          "text": "{ key: \"投诉\", icon: \"angry\", tone: \"danger\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "low",
+      "status": "available"
+    },
+    {
+      "semantic_name": "bike",
+      "resolved_icon": "bike",
+      "usage_count": 1,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 1845,
+          "type": "icon-property",
+          "text": "{ icon: \"bike\", label: \"共享单车\", toast: \"共享单车（原型演示）\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "low",
+      "status": "available"
+    },
+    {
+      "semantic_name": "bus",
+      "resolved_icon": "bus",
+      "usage_count": 1,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 1844,
+          "type": "icon-property",
+          "text": "{ icon: \"bus\", label: \"公共汽车\", toast: \"公共汽车（原型演示）\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "low",
+      "status": "available"
+    },
+    {
+      "semantic_name": "camera",
+      "resolved_icon": "camera",
+      "usage_count": 1,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 2029,
+          "type": "icon-property",
+          "text": "{ icon: \"camera\", name: \"行车记录仪贴纸\", points: \"5积分\", stock: \"库存300件\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "low",
+      "status": "available"
+    },
+    {
+      "semantic_name": "chat",
+      "resolved_icon": "chat",
+      "usage_count": 1,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 79,
+          "type": "icon-property",
+          "text": "{ label: \"投诉建议\", icon: \"chat\", to: \"#/feedback/submit\", bg: \"#f6ddd9\", fg: \"#e5474d\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "low",
+      "status": "available"
+    },
+    {
+      "semantic_name": "cup",
+      "resolved_icon": "cup",
+      "usage_count": 1,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 2024,
+          "type": "icon-property",
+          "text": "{ icon: \"cup\", name: \"保温水杯\", points: \"30积分\", stock: \"库存50件\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "low",
+      "status": "available"
+    },
+    {
+      "semantic_name": "ear",
+      "resolved_icon": "ear",
+      "usage_count": 1,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 144,
+          "type": "icon-property",
+          "text": "rows: [{ icon: \"ear\", label: \"无障碍辅助\", value: \"\", toast: \"无障碍辅助（原型演示）\" }],"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "low",
+      "status": "available"
+    },
+    {
+      "semantic_name": "edit",
+      "resolved_icon": "edit",
+      "usage_count": 1,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 87,
+          "type": "icon-property",
+          "text": "{ key: \"建议\", icon: \"edit\", tone: \"primary\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "low",
+      "status": "available"
+    },
+    {
+      "semantic_name": "feedback",
+      "resolved_icon": "feedback",
+      "usage_count": 1,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 1419,
+          "type": "icon-property",
+          "text": "{ label: \"投诉建议\", icon: \"feedback\", to: \"#/feedback/submit\", bg: \"#f6ddd9\", fg: \"#e5474d\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "low",
+      "status": "available"
+    },
+    {
+      "semantic_name": "globe",
+      "resolved_icon": "globe",
+      "usage_count": 1,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 131,
+          "type": "icon-property",
+          "text": "{ icon: \"globe\", label: \"语言 / Language\", value: \"简体中文\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "low",
+      "status": "available"
+    },
+    {
+      "semantic_name": "glove",
+      "resolved_icon": "glove",
+      "usage_count": 1,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 2026,
+          "type": "icon-property",
+          "text": "{ icon: \"glove\", name: \"驾驶员手套\", points: \"20积分\", stock: \"库存80件\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "low",
+      "status": "available"
+    },
+    {
+      "semantic_name": "handshake",
+      "resolved_icon": "handshake",
+      "usage_count": 1,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 1210,
+          "type": "icon-property",
+          "text": "{ key: \"house\", label: \"的士之家\", icon: \"handshake\", to: \"#/driver/taxi-house/info\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "low",
+      "status": "available"
+    },
+    {
+      "semantic_name": "id",
+      "resolved_icon": "id",
+      "usage_count": 1,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 168,
+          "type": "icon-property",
+          "text": "{ icon: \"id\", label: \"驾驶证信息\", value: \"\", toast: \"驾驶证信息（原型演示）\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "low",
+      "status": "available"
+    },
+    {
+      "semantic_name": "leaf",
+      "resolved_icon": "leaf",
+      "usage_count": 1,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 2027,
+          "type": "icon-property",
+          "text": "{ icon: \"leaf\", name: \"车载空气清新剂\", points: \"15积分\", stock: \"库存120件\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "low",
+      "status": "available"
+    },
+    {
+      "semantic_name": "lock",
+      "resolved_icon": "lock",
+      "usage_count": 1,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 139,
+          "type": "icon-property",
+          "text": "{ icon: \"lock\", label: \"隐私设置\", value: \"\", toast: \"隐私设置（原型演示）\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "low",
+      "status": "available"
+    },
+    {
+      "semantic_name": "logout",
+      "resolved_icon": "logout",
+      "usage_count": 1,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "style-anchor"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 3453,
+          "type": "anchorIcon",
+          "text": "<button class=\"anchor-logout\" data-toast=\"退出登录（原型演示）\">${anchorIcon(\"logout\")}<span>退出登录</span></button>"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "low",
+      "status": "available"
+    },
+    {
+      "semantic_name": "paper",
+      "resolved_icon": "paper",
+      "usage_count": 1,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 2025,
+          "type": "icon-property",
+          "text": "{ icon: \"paper\", name: \"车用纸巾（3包）\", points: \"10积分\", stock: \"库存200件\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "low",
+      "status": "available"
+    },
+    {
+      "semantic_name": "pillow",
+      "resolved_icon": "pillow",
+      "usage_count": 1,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 2028,
+          "type": "icon-property",
+          "text": "{ icon: \"pillow\", name: \"颈部枕头\", points: \"25积分\", stock: \"库存40件\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "low",
+      "status": "available"
+    },
+    {
+      "semantic_name": "scan",
+      "resolved_icon": "scan",
+      "usage_count": 1,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "style-anchor"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 3470,
+          "type": "anchorIcon",
+          "text": "<button>${anchorIcon(\"scan\")}<b>扫一扫</b></button>"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "low",
+      "status": "available"
+    },
+    {
+      "semantic_name": "settings",
+      "resolved_icon": "settings",
+      "usage_count": 1,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "style-anchor"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 3136,
+          "type": "anchorIcon",
+          "text": "? `<button class=\"anchor-settings\" data-toast=\"设置功能暂未接入\" aria-label=\"设置\">${anchorIcon(\"settings\")}</button>`"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "low",
+      "status": "available"
+    },
+    {
+      "semantic_name": "shield",
+      "resolved_icon": "shield",
+      "usage_count": 1,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 138,
+          "type": "icon-property",
+          "text": "{ icon: \"shield\", label: \"账号安全\", value: \"\", toast: \"账号安全（原型演示）\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "low",
+      "status": "available"
+    },
+    {
+      "semantic_name": "thumb",
+      "resolved_icon": "thumb",
+      "usage_count": 1,
+      "current_source": "inline-svg",
+      "component_contexts": [
+        "page"
+      ],
+      "current_usage_files": [
+        "app.js"
+      ],
+      "usage_locations": [
+        {
+          "file": "app.js",
+          "line": 89,
+          "type": "icon-property",
+          "text": "{ key: \"表扬\", icon: \"thumb\", tone: \"success\" },"
+        }
+      ],
+      "recommended_library_icon": "custom_svg_currentColor",
+      "size_token": "icon_md",
+      "color_token": "currentColor",
+      "replacement_priority": "low",
+      "status": "available"
+    }
+  ]
+}

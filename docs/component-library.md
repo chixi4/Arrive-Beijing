@@ -32,6 +32,7 @@
 - `ab-target-card` / `ab-meal-card` / `ab-reward-card`：短途复载目标、今日餐饮和积分兑换卡。
 - `ab-review-card` / `ab-journey-card`：司机评价和行程记录卡。
 - `ab-bottom-nav`：新页面底部导航。
+- `ICON_LIBRARY` / `iconMarkup(name)` / `anchorIcon(name)`：统一图标组件层，所有图标都从同一个 SVG/currentColor 图标库渲染。
 
 ## 组件使用规则
 
@@ -40,6 +41,7 @@
 - 状态色只表达状态，不兼做装饰色。
 - 需要继续延展的页面优先用卡片、列表和分区标题，不要直接堆大面积插画或大圆角气泡。
 - 新增业务页优先从 `renderAppShell`、`renderAppTopbar`、`renderActionGrid`、`renderInfoRows` 和 `renderAbFooterNav` 这些底座函数开始，不再复用旧截图壳组件。
+- 新增图标先查 `docs/ui/icon-inventory.json` 和 `docs/ui/icon-style.md`，不要在页面函数里临时手画；如果需要新图标，先补 `ICON_LIBRARY`，再使用语义名引用。
 
 ## 设计系统预览页
 

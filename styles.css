@@ -61,6 +61,13 @@
   --ds-control-h-md: 44px;
   --ds-control-h-lg: 52px;
   --ds-touch-target: 44px;
+  --ds-icon-xs: 12px;
+  --ds-icon-sm: 16px;
+  --ds-icon-md: 20px;
+  --ds-icon-lg: 24px;
+  --ds-icon-xl: 44px;
+  --ds-icon-empty: 48px;
+  --ds-icon-stroke: 1.85;
   --ds-page-w: 430px;
   --ds-page-pad: 16px;
   --ds-nav-h: 76px;
@@ -528,9 +535,10 @@ body.desktop-preview #app {
   height: 20px;
   stroke: currentColor;
   fill: none;
-  stroke-width: 1.9;
+  stroke-width: var(--ds-icon-stroke, 1.85);
   stroke-linecap: round;
   stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
   flex: none;
 }
 
@@ -3149,9 +3157,10 @@ body.desktop-preview #app {
   height: 1em;
   stroke: currentColor;
   fill: none;
-  stroke-width: 2;
+  stroke-width: var(--ds-icon-stroke, 1.85);
   stroke-linecap: round;
   stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
   flex: none;
 }
 

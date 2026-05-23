@@ -1,0 +1,19 @@
+{
+  "golden_anchor_replica": {
+    "diffRatio": 0.05,
+    "note": "锚点复刻页继续用 5% 作为像素差异门槛。"
+  },
+  "icon_csv_simulation": {
+    "diffRatio": 0.05,
+    "note": "3x3 生图板切片后，目标 cell 与 CSV 模拟 PNG 的差异必须小于等于 5%。"
+  },
+  "calibration_target_replica": {
+    "diffRatio": 0.05,
+    "must_extract_to_recipe": true,
+    "note": "只对样本页做强视觉校准，改动必须沉淀到 recipe/component/token。"
+  },
+  "ordinary_pages": {
+    "diffRatio": null,
+    "note": "普通页面不做逐像素复刻，使用 recipe + 组件 + 人工审查。"
+  }
+}

@@ -61,7 +61,7 @@ const travelerBottomNavItems = [
   { key: "home", label: "首页", icon: "home", to: "#/station/home" },
   { key: "announcements", label: "公告", icon: "notice", to: "#/announcements" },
   { key: "nav", label: "导航", icon: "map", to: "#/nav/map" },
-  { key: "traffic", label: "交通", icon: "bus", to: "#/traffic/taxi" },
+  { key: "traffic", label: "交通", icon: "route", to: "#/traffic/taxi" },
   { key: "profile", label: "身份", icon: "user", to: "#/profile" },
 ];
 
@@ -74,10 +74,10 @@ const stationHomeAnnouncements = [
 const stationHomeServices = [
   { label: "导航指引", icon: "map", to: "#/nav/map", bg: "#dceeff", fg: "#2e7de1" },
   { label: "站区公告", icon: "notice", to: "#/announcements", bg: "#ffe8b8", fg: "#f0a423" },
-  { label: "市内交通", icon: "bus", to: "#/traffic/taxi", bg: "#efddff", fg: "#a24ac2" },
-  { label: "场站接驳", icon: "bus", to: "#/traffic/ride", bg: "#e6eb9f", fg: "#8f9f1b" },
+  { label: "市内交通", icon: "route", to: "#/traffic/taxi", bg: "#efddff", fg: "#a24ac2" },
+  { label: "场站接驳", icon: "transfer", to: "#/traffic/ride", bg: "#e6eb9f", fg: "#8f9f1b" },
   { label: "投诉建议", icon: "chat", to: "#/feedback/submit", bg: "#f6ddd9", fg: "#e5474d" },
-  { label: "自驾停车", icon: "car", to: "#/parking/list", bg: "#e4f2d6", fg: "#6aa84f" },
+  { label: "自驾停车", icon: "parking", to: "#/parking/list", bg: "#e4f2d6", fg: "#6aa84f" },
   { label: "个人中心", icon: "user", to: "#/profile", bg: "#fdeacc", fg: "#f08a24" },
   { label: "短途复载", icon: "taxi", to: "#/driver/short-haul/booking", bg: "#d7f3f9", fg: "#1fa7c2" },
 ];
@@ -157,8 +157,8 @@ const driverProfileSections = [
     title: "常用功能",
     rows: [
       { icon: "message", label: "消息通知", value: "", toast: "消息通知（原型演示）" },
-      { icon: "scan", label: "我的积分", value: "", to: "#/driver/short-haul/points" },
-      { icon: "home", label: "行程历史", value: "", to: "#/driver/short-haul/history" },
+      { icon: "points", label: "我的积分", value: "", to: "#/driver/short-haul/points" },
+      { icon: "history", label: "行程历史", value: "", to: "#/driver/short-haul/history" },
       { icon: "calendar", label: "预约记录", value: "", to: "#/driver/short-haul/booking" },
     ],
   },
@@ -245,73 +245,81 @@ const anchorQueueStations = [
   { type: "plane", name: "大兴机场", status: "畅通", tone: "green", passengers: "154 人", vehicles: "2,120 人", wait: "15 分钟" },
 ];
 
-const ANCHOR_ICONS = {
-  back: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 4.5 7.5 12l8 7.5"></path></svg>`,
-  refresh: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6v5h-5"></path><path d="M19 11a7 7 0 1 0-2 5"></path></svg>`,
-  search: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.2"></circle><path d="m16 16 4 4"></path></svg>`,
-  people: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="3"></circle><circle cx="16" cy="8" r="3"></circle><path d="M3 19c.6-3.4 2.7-5 5-5s4.4 1.6 5 5"></path><path d="M11 19c.6-3.4 2.7-5 5-5s4.4 1.6 5 5"></path></svg>`,
-  train: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3.5" width="14" height="15" rx="3"></rect><path d="M8 8h8"></path><path d="M8 12h3"></path><path d="M13 12h3"></path><circle cx="9" cy="16" r="1.2"></circle><circle cx="15" cy="16" r="1.2"></circle><path d="m8 21 2-2.5"></path><path d="m16 21-2-2.5"></path></svg>`,
-  plane: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 15 18-9-7 14-3-6-8 1z"></path><path d="m11 14-4 6"></path></svg>`,
-  car: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13h14l-1.2-4.4A2.3 2.3 0 0 0 15.6 7H8.4a2.3 2.3 0 0 0-2.2 1.6L5 13z"></path><path d="M4.5 13v5"></path><path d="M19.5 13v5"></path><circle cx="8" cy="17.5" r="1.4"></circle><circle cx="16" cy="17.5" r="1.4"></circle></svg>`,
-  clock: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>`,
-  pin: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.1 7-12a7 7 0 0 0-14 0c0 5.9 7 12 7 12z"></path><circle cx="12" cy="9" r="2.3"></circle></svg>`,
-  calendar: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5.5" width="16" height="15" rx="2"></rect><path d="M8 3.5v4"></path><path d="M16 3.5v4"></path><path d="M4 10h16"></path></svg>`,
-  check: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 12.5 4 4L18.5 8"></path></svg>`,
-  home: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11.5 12 4l8.5 7.5"></path><path d="M6 10.5V20h12v-9.5"></path></svg>`,
-  taxi: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 13.5h12l-1-4.5a2 2 0 0 0-2-1.5H9a2 2 0 0 0-2 1.5z"></path><path d="M8 5.5h8"></path><circle cx="8" cy="17.5" r="1.4"></circle><circle cx="16" cy="17.5" r="1.4"></circle></svg>`,
-  handshake: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 12 3-3 3 3 3-3 4 4-5 5-5-5-2 2-4-4 3-3"></path></svg>`,
-  user: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4.5 20c1.2-4.2 4-6 7.5-6s6.3 1.8 7.5 6"></path></svg>`,
-  settings: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.4-2.4 1a7 7 0 0 0-1.8-1L14.4 3h-4.8l-.4 3.1a7 7 0 0 0-1.8 1L5 6.1l-2 3.4L5 11a7 7 0 0 0 0 2l-2 1.5 2 3.4 2.4-1a7 7 0 0 0 1.8 1l.4 3.1h4.8l.4-3.1a7 7 0 0 0 1.8-1l2.4 1 2-3.4-2-1.5c.1-.3.1-.7.1-1z"></path></svg>`,
-  megaphone: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13h4l9-6v12l-9-6H4z"></path><path d="M8 13l2 6"></path></svg>`,
-  map: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 20 4 18V5l5 2 6-2 5 2v13l-5-2-6 2V7"></path><path d="M15 5v13"></path></svg>`,
-  bus: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="13" rx="2"></rect><path d="M8 9h8"></path><path d="M8 13h8"></path><circle cx="8.5" cy="16" r="1"></circle><circle cx="15.5" cy="16" r="1"></circle></svg>`,
-  message: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14v9H9l-4 4z"></path><path d="M8 10h.1M12 10h.1M16 10h.1"></path></svg>`,
-  globe: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M4 12h16"></path><path d="M12 4a12 12 0 0 1 0 16"></path><path d="M12 4a12 12 0 0 0 0 16"></path></svg>`,
-  accessibility: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2"></circle><path d="M5 10h14"></path><path d="M12 7v7"></path><path d="m8 21 4-7 4 7"></path></svg>`,
-  shield: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 2.8 8 7 10 4.2-2 7-5.5 7-10V6z"></path><path d="m9 12 2 2 4-5"></path></svg>`,
-  lock: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"></rect><path d="M8 10V8a4 4 0 0 1 8 0v2"></path></svg>`,
-  ear: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 11a6 6 0 1 1 10 4.5c-1.2 1-1.8 2-1.8 3.2A2.3 2.3 0 0 1 12 21c-1.7 0-2.4-1.4-3.2-2.4"></path><path d="M9 11a3 3 0 1 1 5 2.2"></path></svg>`,
-  angry: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="m8 9 2 1"></path><path d="m16 9-2 1"></path><path d="M8.5 16c1.8-1.4 5.2-1.4 7 0"></path></svg>`,
-  edit: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16"></path><path d="m6 16 2-6 7-7 4 4-7 7z"></path></svg>`,
-  question: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M9.5 9a2.7 2.7 0 0 1 5 1.5c0 2-2.5 2-2.5 4"></path><path d="M12 17.6h.1"></path></svg>`,
-  thumb: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21H5a2 2 0 0 1-2-2v-7h5"></path><path d="M8 12 12 3c1.8.4 2.3 1.8 1.8 4l-.5 2H19a2 2 0 0 1 2 2.4l-1.2 6A3 3 0 0 1 16.8 20H8z"></path></svg>`,
-  scan: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3H4v4"></path><path d="M17 3h3v4"></path><path d="M7 21H4v-4"></path><path d="M17 21h3v-4"></path><path d="M7 12h10"></path></svg>`,
-  id: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v10l7 5 7-5V6z"></path><circle cx="12" cy="10" r="2.5"></circle><path d="M8.5 16a4.5 4.5 0 0 1 7 0"></path></svg>`,
-  qr: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4z"></path><path d="M14 14h2v2h-2zM18 14h2v6h-4v-2"></path></svg>`,
-  chat: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14v10H9l-4 4z"></path><path d="M8 11h.1M12 11h.1M16 11h.1"></path></svg>`,
-  grid: `<svg class="anchor-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"></rect><rect x="14" y="4" width="6" height="6" rx="1"></rect><rect x="4" y="14" width="6" height="6" rx="1"></rect><rect x="14" y="14" width="6" height="6" rx="1"></rect></svg>`,
+const ICON_LIBRARY = {
+  accessibility: `<circle cx="12" cy="5" r="1.8"></circle><path d="M5 9.4h14"></path><path d="M12 7v6.2"></path><path d="m8.2 20.5 3.8-7.3 3.8 7.3"></path>`,
+  angry: `<circle cx="12" cy="12" r="8"></circle><path d="m8.2 8.6 2.2 1.1"></path><path d="m15.8 8.6-2.2 1.1"></path><path d="M8.4 16.4c2.1-1.5 5.1-1.5 7.2 0"></path>`,
+  back: `<path d="M15.5 5 8.5 12l7 7"></path>`,
+  bike: `<circle cx="6.5" cy="17" r="3"></circle><circle cx="17.5" cy="17" r="3"></circle><path d="m9.5 17 2.5-6 2.5 6"></path><path d="M10 11h4.8l2.7 6"></path><path d="M8.5 8.5h3"></path>`,
+  bus: `<rect x="5" y="4.8" width="14" height="13.5" rx="2.2"></rect><path d="M8 8.6h8"></path><path d="M8 12.2h8"></path><path d="M7.8 18.3v1.5"></path><path d="M16.2 18.3v1.5"></path>`,
+  calendar: `<rect x="4.5" y="5.5" width="15" height="14" rx="2.2"></rect><path d="M8.2 3.8v4"></path><path d="M15.8 3.8v4"></path><path d="M4.5 10h15"></path><path d="M8 14h3"></path><path d="M13 14h3"></path>`,
+  camera: `<rect x="4" y="7" width="16" height="11" rx="2.2"></rect><path d="M8.6 7 10 4.8h4l1.4 2.2"></path><circle cx="12" cy="12.7" r="3"></circle>`,
+  car: `<path d="M5.2 13.5h13.6l-1.1-4.3a2.3 2.3 0 0 0-2.2-1.7h-7a2.3 2.3 0 0 0-2.2 1.7z"></path><path d="M4.5 13.5v4.3"></path><path d="M19.5 13.5v4.3"></path><circle cx="8" cy="17.5" r="1.35"></circle><circle cx="16" cy="17.5" r="1.35"></circle>`,
+  chat: `<path d="M5 6h14v9.2H9.2L5 19z"></path><path d="M8.2 10.6h.1"></path><path d="M12 10.6h.1"></path><path d="M15.8 10.6h.1"></path>`,
+  check: `<path d="m5.8 12.5 4.1 4.1 8.3-8.6"></path>`,
+  clock: `<circle cx="12" cy="12" r="8"></circle><path d="M12 7.5v4.8l3.2 1.9"></path>`,
+  cup: `<path d="M6.2 8.8h9.5v5.4a4.1 4.1 0 0 1-4.1 4.1H10a3.8 3.8 0 0 1-3.8-3.8z"></path><path d="M15.7 10h2a2.1 2.1 0 0 1 0 4.2h-2"></path><path d="M7.5 21h7"></path>`,
+  edit: `<path d="M4.5 19.5h15"></path><path d="m6.5 16 2-5.8 7-7 4 4-7 7z"></path><path d="m14.4 4.3 4 4"></path>`,
+  ear: `<path d="M6.4 11a5.6 5.6 0 1 1 9.4 4.1c-1.3 1.2-1.9 2.1-1.9 3.4a2.4 2.4 0 0 1-2.4 2.4c-1.6 0-2.3-1.2-3.1-2.3"></path><path d="M9 11.2a3 3 0 1 1 4.9 2.2"></path>`,
+  feedback: `<path d="M5 6h14v9.5H9.6L5 19.5z"></path><path d="M8.5 9.7h7"></path><path d="M8.5 13h4.7"></path>`,
+  gift: `<rect x="4.5" y="9" width="15" height="10.5" rx="1.8"></rect><path d="M4.5 12.2h15"></path><path d="M12 9v10.5"></path><path d="M12 9s-3.7-.2-3.7-2.2c0-1 .8-1.7 1.8-1.7 1.5 0 1.9 1.5 1.9 3.9z"></path><path d="M12 9s3.7-.2 3.7-2.2c0-1-.8-1.7-1.8-1.7-1.5 0-1.9 1.5-1.9 3.9z"></path>`,
+  globe: `<circle cx="12" cy="12" r="8"></circle><path d="M4 12h16"></path><path d="M12 4c2 2.2 3 4.9 3 8s-1 5.8-3 8"></path><path d="M12 4c-2 2.2-3 4.9-3 8s1 5.8 3 8"></path>`,
+  glove: `<path d="M6.4 11V8.5a1.8 1.8 0 0 1 3.6 0V11"></path><path d="M10 10V7.3a1.8 1.8 0 0 1 3.6 0V11"></path><path d="M13.6 11V8.8a1.8 1.8 0 0 1 3.6 0v5.6a4.8 4.8 0 0 1-4.8 4.8H9.8a4.1 4.1 0 0 1-4.1-4.1v-4a1.7 1.7 0 0 1 3.4 0v1.4"></path>`,
+  grid: `<rect x="4.5" y="4.5" width="5.8" height="5.8" rx="1.5"></rect><rect x="13.7" y="4.5" width="5.8" height="5.8" rx="1.5"></rect><rect x="4.5" y="13.7" width="5.8" height="5.8" rx="1.5"></rect><rect x="13.7" y="13.7" width="5.8" height="5.8" rx="1.5"></rect>`,
+  handshake: `<path d="m7.2 12 2.8-2.8 3.2 3.2 2.8-2.8 4.1 4.1-5.4 5.4-4.7-4.7-2 2-4.1-4.1z"></path><path d="m13.2 12.4 3.4 3.4"></path><path d="m10 14.4 3.2 3.2"></path>`,
+  history: `<path d="M4.5 12a7.5 7.5 0 1 0 2-5.1"></path><path d="M4.5 5.2v4h4"></path><path d="M12 8v4.4l3 1.8"></path>`,
+  home: `<path d="M3.8 11.6 12 4.5l8.2 7.1"></path><path d="M6.2 10.4v9.1h11.6v-9.1"></path><path d="M10 19.5v-5.2h4v5.2"></path>`,
+  id: `<rect x="4.5" y="5.5" width="15" height="13" rx="2.2"></rect><circle cx="10" cy="11" r="2.2"></circle><path d="M7.2 16c1.2-1.8 4.3-1.8 5.6 0"></path><path d="M14.5 10h2.5"></path><path d="M14.5 14h2.5"></path>`,
+  leaf: `<path d="M20 4.5c-7.2 0-12.2 3.6-14 9.6 1.3 3.5 4.2 5.4 7.6 5.4 4.2 0 7.2-3.2 7.2-8.4V4.5z"></path><path d="M6 18c3.8-4.2 7.5-7 13.2-9.8"></path>`,
+  lock: `<rect x="5" y="10" width="14" height="10" rx="2.2"></rect><path d="M8.5 10V8a3.5 3.5 0 0 1 7 0v2"></path><path d="M12 14v2.4"></path>`,
+  logout: `<path d="M10 5H6.5A1.5 1.5 0 0 0 5 6.5v11A1.5 1.5 0 0 0 6.5 19H10"></path><path d="M13 8l4 4-4 4"></path><path d="M17 12H9"></path>`,
+  mail: `<rect x="4.5" y="6.5" width="15" height="11" rx="2.2"></rect><path d="m5.4 8 6.6 5 6.6-5"></path>`,
+  map: `<path d="M9 19.5 4.2 17.6V5l4.8 1.9 6-1.9 4.8 1.9v12.6L15 17.6z"></path><path d="M9 6.9v12.6"></path><path d="M15 5v12.6"></path>`,
+  megaphone: `<path d="M4.5 13.2h4l8.7-6v11.6l-8.7-5.6h-4z"></path><path d="M8.5 13.2 10.2 19"></path><path d="M19.5 10.4c.8.7 1.2 1.6 1.2 2.6s-.4 1.9-1.2 2.6"></path>`,
+  message: `<path d="M5 6.2h14v9.3H9.2L5 19.4z"></path><path d="M8.4 10.8h7.2"></path><path d="M8.4 13.4h4.5"></path>`,
+  more: `<circle cx="5.2" cy="12" r="1.2"></circle><circle cx="12" cy="12" r="1.2"></circle><circle cx="18.8" cy="12" r="1.2"></circle>`,
+  paper: `<path d="M7 3.8h8l4 4v12.4H7z"></path><path d="M15 3.8v4h4"></path><path d="M10 12h4.5"></path><path d="M10 15.5h4.5"></path>`,
+  parking: `<rect x="5" y="4.5" width="14" height="15" rx="2.6"></rect><path d="M9.2 17V8h4a2.8 2.8 0 0 1 0 5.6h-4"></path>`,
+  people: `<circle cx="8.4" cy="8.2" r="2.6"></circle><circle cx="15.8" cy="8.4" r="2.4"></circle><path d="M3.8 19c.7-3.4 2.8-5.1 5.1-5.1 2.2 0 4.3 1.7 5 5.1"></path><path d="M13.2 14.4c2.8-.6 5.6 1 6.5 4.6"></path>`,
+  phone: `<path d="M7.4 4.5 10 7.1 8.2 9.3c.9 1.9 2.6 3.6 4.5 4.5L15 12l2.6 2.6-1.3 3.3c-.2.5-.8.9-1.4.8-5.2-.7-9.4-4.8-10.1-10.1-.1-.6.3-1.2.8-1.4z"></path>`,
+  pin: `<path d="M12 21s6.5-5.7 6.5-11.3a6.5 6.5 0 0 0-13 0C5.5 15.3 12 21 12 21z"></path><circle cx="12" cy="9.8" r="2.2"></circle>`,
+  pillow: `<rect x="4.5" y="7.2" width="15" height="9.6" rx="3"></rect><path d="M8.2 7.2v9.6"></path><path d="M15.8 7.2v9.6"></path>`,
+  plane: `<path d="m3.8 14.8 16.4-8-6.2 13-3-5.7z"></path><path d="m11 14.1-4 5.1"></path>`,
+  points: `<circle cx="12" cy="12" r="8"></circle><path d="M12 7.5v9"></path><path d="M8.8 10.2c1.4-1.4 5-1.4 6.4 0"></path><path d="M8.8 13.8c1.4 1.4 5 1.4 6.4 0"></path>`,
+  qr: `<path d="M4.5 4.5h5v5h-5z"></path><path d="M14.5 4.5h5v5h-5z"></path><path d="M4.5 14.5h5v5h-5z"></path><path d="M14.5 14.5h2v2h-2z"></path><path d="M18.5 14.5v5h-4"></path>`,
+  question: `<circle cx="12" cy="12" r="8"></circle><path d="M9.5 9.2A2.8 2.8 0 0 1 12 7.8c1.7 0 3 1 3 2.6 0 2-2.7 2.1-2.7 4.1"></path><path d="M12.3 17.2h.1"></path>`,
+  refresh: `<path d="M20 6.5v5h-5"></path><path d="M19 11.5a7 7 0 1 0-2.1 5"></path>`,
+  route: `<path d="M6 18.5c2.5-3 9.5-.7 12-3.8 1.3-1.6.8-4-1.2-5"></path><circle cx="5.5" cy="18.5" r="2"></circle><circle cx="16.8" cy="7.5" r="2"></circle>`,
+  scan: `<path d="M7.2 3.8H4v3.4"></path><path d="M16.8 3.8H20v3.4"></path><path d="M7.2 20.2H4v-3.4"></path><path d="M16.8 20.2H20v-3.4"></path><path d="M7.5 12h9"></path>`,
+  search: `<circle cx="10.8" cy="10.8" r="5.9"></circle><path d="m15.2 15.2 4.4 4.4"></path>`,
+  settings: `<circle cx="12" cy="12" r="2.8"></circle><path d="M19.2 12.8a7.8 7.8 0 0 0 0-1.6l1.8-1.4-2-3.4-2.2.9a7.1 7.1 0 0 0-1.4-.8L15 4h-6l-.4 2.5c-.5.2-1 .5-1.4.8L5 6.4l-2 3.4 1.8 1.4a7.8 7.8 0 0 0 0 1.6L3 14.2l2 3.4 2.2-.9c.4.3.9.6 1.4.8L9 20h6l.4-2.5c.5-.2 1-.5 1.4-.8l2.2.9 2-3.4z"></path>`,
+  shield: `<path d="M12 3.8 5.5 6.6v4.7c0 4.3 2.7 7.4 6.5 9 3.8-1.6 6.5-4.7 6.5-9V6.6z"></path><path d="m9.2 12 2 2 4-4.6"></path>`,
+  taxi: `<path d="M5.7 13.5h12.6l-1-4a2.2 2.2 0 0 0-2.1-1.6H8.8a2.2 2.2 0 0 0-2.1 1.6z"></path><path d="M8.8 5.7h6.4"></path><path d="M4.8 13.5h14.4"></path><circle cx="8" cy="17.4" r="1.3"></circle><circle cx="16" cy="17.4" r="1.3"></circle>`,
+  thumb: `<path d="M8.2 20.2H5.5a2 2 0 0 1-2-2v-6.4h4.7"></path><path d="M8.2 11.8 12.1 3.7c1.8.4 2.4 1.7 1.9 3.8l-.4 1.8h5.2a2 2 0 0 1 2 2.4l-1.1 5.1a3.2 3.2 0 0 1-3.1 2.5H8.2z"></path>`,
+  train: `<rect x="5.5" y="4" width="13" height="14.2" rx="2.6"></rect><path d="M8.4 8.2h7.2"></path><path d="M8.4 12h2.7"></path><path d="M12.9 12h2.7"></path><circle cx="9" cy="15.6" r="1"></circle><circle cx="15" cy="15.6" r="1"></circle><path d="m8.8 21 2-2.8"></path><path d="m15.2 18.2 2 2.8"></path>`,
+  transfer: `<path d="M6 8h10.5"></path><path d="m13.8 5.2 2.8 2.8-2.8 2.8"></path><path d="M18 16H7.5"></path><path d="m10.2 13.2-2.8 2.8 2.8 2.8"></path>`,
+  user: `<circle cx="12" cy="8" r="3.5"></circle><path d="M5 20c1.2-4.3 4-6.2 7-6.2s5.8 1.9 7 6.2"></path>`,
 };
 
-const ICONS = {
-  back: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"></path></svg>`,
-  search: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-3.5-3.5"></path></svg>`,
-  pin: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.3 6-11a6 6 0 0 0-12 0c0 5.7 6 11 6 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>`,
-  more: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.4"></circle><circle cx="12" cy="12" r="1.4"></circle><circle cx="19" cy="12" r="1.4"></circle></svg>`,
-  home: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"></path><path d="M5 10.5V21h14v-10.5"></path></svg>`,
-  notice: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13l9-7v14z"></path><path d="M13 7h5l2-2v14l-2-2h-5"></path></svg>`,
-  map: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 20 3 18V4l6 2 6-2 6 2v14l-6-2-6 2V6"></path><path d="M9 6v14"></path><path d="M15 4v14"></path></svg>`,
-  bus: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12v9H6z"></path><path d="M8 16v2"></path><path d="M16 16v2"></path><path d="M8 4h8v3H8z"></path><path d="M6 11h12"></path></svg>`,
-  user: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"></circle><path d="M4.5 20a7.5 7.5 0 0 1 15 0"></path></svg>`,
-  car: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 14h14l-1.2-5.2a2 2 0 0 0-1.9-1.4H8.1a2 2 0 0 0-1.9 1.4z"></path><path d="M4 14v4"></path><path d="M20 14v4"></path><circle cx="7.5" cy="18.5" r="1.5"></circle><circle cx="16.5" cy="18.5" r="1.5"></circle></svg>`,
-  chat: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14v9H9l-4 4z"></path></svg>`,
-  taxi: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 13.5h12l-1-4.5a2 2 0 0 0-2-1.5H9a2 2 0 0 0-2 1.5z"></path><path d="M4.5 13.5H19.5"></path><circle cx="7.5" cy="17.5" r="1.5"></circle><circle cx="16.5" cy="17.5" r="1.5"></circle></svg>`,
-  cup: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9h10v5a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4z"></path><path d="M16 10h2a2 2 0 0 1 0 4h-2"></path><path d="M7 21h8"></path></svg>`,
-  paper: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h8l4 4v14H7z"></path><path d="M15 3v4h4"></path><path d="M10 11h4"></path><path d="M10 15h4"></path></svg>`,
-  glove: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10v-2a2 2 0 0 1 4 0v2"></path><path d="M11 10V7a2 2 0 0 1 4 0v3"></path><path d="M15 11V9a2 2 0 0 1 4 0v5a5 5 0 0 1-5 5H9a4 4 0 0 1-4-4v-5a2 2 0 0 1 4 0v2"></path></svg>`,
-  leaf: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4c-7 0-12 4-14 10 1 3 4 6 8 6 4 0 8-3 8-10V4z"></path><path d="M6 18c4-4 7-7 13-10"></path></svg>`,
-  pillow: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="7" width="16" height="10" rx="3"></rect><path d="M8 7v10"></path></svg>`,
-  camera: `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="7" width="16" height="11" rx="2"></rect><path d="M9 7l1.5-2h3L15 7"></path><circle cx="12" cy="12.5" r="3"></circle></svg>`,
+const ICON_ALIASES = {
+  airport: "plane",
+  announcement: "megaphone",
+  license: "id",
+  notice: "megaphone",
+  station: "train",
 };
+
+function renderIcon(name, className) {
+  const resolvedName = ICON_ALIASES[name] || name;
+  const svgBody = ICON_LIBRARY[resolvedName] || ICON_LIBRARY.grid;
+  return `<svg class="${className}" viewBox="0 0 24 24" aria-hidden="true" data-icon="${resolvedName}">${svgBody}</svg>`;
+}
 
 function iconMarkup(name) {
-  if (ICONS[name]) return ICONS[name];
-  return (ANCHOR_ICONS[name] || ANCHOR_ICONS.grid).replace(/anchor-icon/g, "icon");
+  return renderIcon(name, "icon");
 }
 
 function anchorIcon(name, className = "") {
-  const svg = ANCHOR_ICONS[name] || ANCHOR_ICONS.grid;
-  if (!className) return svg;
-  return svg.replace('class="anchor-icon"', `class="anchor-icon ${className}"`);
+  return renderIcon(name, className ? `anchor-icon ${className}` : "anchor-icon");
 }
 
 function stationHeroImage(id) {
@@ -1206,7 +1214,7 @@ function renderAbFooterNav(kind, activeKey) {
           { key: "home", label: "首页", icon: "home", to: "#/station/home" },
           { key: "notice", label: "公告", icon: "notice", to: "#/announcements" },
           { key: "nav", label: "导航", icon: "map", to: "#/nav/map" },
-          { key: "traffic", label: "交通", icon: "bus", to: "#/traffic/taxi" },
+          { key: "traffic", label: "交通", icon: "route", to: "#/traffic/taxi" },
           { key: "profile", label: "身份", icon: "user", to: "#/profile" },
         ];
 
@@ -1400,16 +1408,16 @@ function renderStationHome() {
   ];
   const trafficCards = [
     { icon: "taxi", label: "出租车", meta: "南广场出口 · 8-12分钟", to: "#/traffic/taxi" },
-    { icon: "bus", label: "网约车", meta: "推荐上车点 · 200m", to: "#/traffic/ride" },
-    { icon: "map", label: "地铁", meta: "2号线 · 延时至次日02:00", to: "#/traffic/metro" },
+    { icon: "car", label: "网约车", meta: "推荐上车点 · 200m", to: "#/traffic/ride" },
+    { icon: "train", label: "地铁", meta: "2号线 · 延时至次日02:00", to: "#/traffic/metro" },
   ];
   const serviceTiles = [
     { label: "导航指引", icon: "map", to: "#/nav/map", bg: "#dceeff", fg: "#2e7de1" },
     { label: "站区公告", icon: "notice", to: "#/announcements", bg: "#ffe8b8", fg: "#f0a423" },
-    { label: "市内交通", icon: "bus", to: "#/traffic/taxi", bg: "#efddff", fg: "#a24ac2" },
-    { label: "场站接驳", icon: "bus", to: "#/traffic/ride", bg: "#e6eb9f", fg: "#8f9f1b" },
-    { label: "投诉建议", icon: "chat", to: "#/feedback/submit", bg: "#f6ddd9", fg: "#e5474d" },
-    { label: "自驾停车", icon: "car", to: "#/parking/list", bg: "#e4f2d6", fg: "#6aa84f" },
+    { label: "市内交通", icon: "route", to: "#/traffic/taxi", bg: "#efddff", fg: "#a24ac2" },
+    { label: "场站接驳", icon: "transfer", to: "#/traffic/ride", bg: "#e6eb9f", fg: "#8f9f1b" },
+    { label: "投诉建议", icon: "feedback", to: "#/feedback/submit", bg: "#f6ddd9", fg: "#e5474d" },
+    { label: "自驾停车", icon: "parking", to: "#/parking/list", bg: "#e4f2d6", fg: "#6aa84f" },
     { label: "个人中心", icon: "user", to: "#/profile", bg: "#fdeacc", fg: "#f08a24" },
     { label: "短途复载", icon: "taxi", to: "#/driver/short-haul/booking", bg: "#d7f3f9", fg: "#1fa7c2" },
   ];
@@ -1556,9 +1564,9 @@ function renderFeedbackSubmitPage(variant = "top") {
       ${renderSectionTitle("联系信息")}
       <div class="ab-info-list">
         ${[
-          { icon: "message", label: "旅客服务热线", value: "12328", toast: "旅客服务热线" },
-          { icon: "message", label: "投诉举报电话", value: "010-12345", toast: "投诉举报电话" },
-          { icon: "scan", label: "监督投诉邮箱", value: "service@arrive-beijing.cn", toast: "监督投诉邮箱" },
+          { icon: "phone", label: "旅客服务热线", value: "12328", toast: "旅客服务热线" },
+          { icon: "phone", label: "投诉举报电话", value: "010-12345", toast: "投诉举报电话" },
+          { icon: "mail", label: "监督投诉邮箱", value: "service@arrive-beijing.cn", toast: "监督投诉邮箱" },
         ]
           .map(
             (row) => `
@@ -1635,9 +1643,9 @@ function renderFeedbackMinePage() {
         </div>
         <div class="ab-info-list">
           ${[
-            { icon: "message", label: "旅客服务热线", value: "12328", toast: "旅客服务热线" },
-            { icon: "shield", label: "投诉举报电话", value: "010-12345", toast: "投诉举报电话" },
-            { icon: "scan", label: "监督投诉邮箱", value: "service@arrive-beijing.cn", toast: "监督投诉邮箱" },
+            { icon: "phone", label: "旅客服务热线", value: "12328", toast: "旅客服务热线" },
+            { icon: "phone", label: "投诉举报电话", value: "010-12345", toast: "投诉举报电话" },
+            { icon: "mail", label: "监督投诉邮箱", value: "service@arrive-beijing.cn", toast: "监督投诉邮箱" },
           ]
             .map(
               (row) => `
@@ -1732,8 +1740,8 @@ function renderDriverProfilePage() {
           ${renderActionGrid(
             [
               { label: "消息通知", icon: "message", toast: "消息通知（原型演示）", bg: "#eaf2ff", fg: "#206fd8" },
-              { label: "我的积分", icon: "scan", to: "#/driver/short-haul/points", bg: "#e5f7ef", fg: "#0b7a50" },
-              { label: "行程历史", icon: "home", to: "#/driver/short-haul/history", bg: "#fff4d8", fg: "#a16207" },
+              { label: "我的积分", icon: "points", to: "#/driver/short-haul/points", bg: "#e5f7ef", fg: "#0b7a50" },
+              { label: "行程历史", icon: "history", to: "#/driver/short-haul/history", bg: "#fff4d8", fg: "#a16207" },
               { label: "预约记录", icon: "calendar", to: "#/driver/short-haul/booking", bg: "#fdecef", fg: "#d92d20" },
             ],
             "ab-driver-quick-grid"
@@ -1834,8 +1842,8 @@ const trafficMixedRows = [
 
 const trafficOtherOptions = [
   { icon: "bus", label: "公共汽车", toast: "公共汽车（原型演示）" },
-  { icon: "map", label: "共享单车", toast: "共享单车（原型演示）" },
-  { icon: "taxi", label: "机场巴士", toast: "机场巴士（原型演示）" },
+  { icon: "bike", label: "共享单车", toast: "共享单车（原型演示）" },
+  { icon: "plane", label: "机场巴士", toast: "机场巴士（原型演示）" },
   { icon: "car", label: "出租车", toast: "出租车（原型演示）" },
 ];
 
@@ -2829,7 +2837,7 @@ function renderShortHaulPage(variant = "booking") {
               (label) => `
                 <button class="ab-info-row" data-toast="${label}（原型演示）">
                   <span class="ab-info-row-left">
-                    <span class="ab-info-icon">${iconMarkup("scan")}</span>
+                    <span class="ab-info-icon">${iconMarkup("points")}</span>
                     <span><strong>${label}</strong></span>
                   </span>
                   <span class="ab-info-row-right"><i>›</i></span>
@@ -3442,7 +3450,7 @@ function renderStyleAnchorProfile() {
           `
         )
         .join("")}
-      <button class="anchor-logout" data-toast="退出登录（原型演示）">${anchorIcon("scan")}<span>退出登录</span></button>
+      <button class="anchor-logout" data-toast="退出登录（原型演示）">${anchorIcon("logout")}<span>退出登录</span></button>
       <p class="anchor-version">到站北京 · 旅客端 v1.1.0<br>北京市重点站区管委会</p>
       ${renderAnchorBottomNav("traveler", "profile")}
     </div>
