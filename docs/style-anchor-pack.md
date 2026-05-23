@@ -13,6 +13,14 @@
 - `assets/style-anchors/07-profile.png`
 - `assets/style-anchors/08-modal.png`
 
+## 后期比例版本
+
+为修正画幅偏长的问题，已基于现有 8 张锚点做非等比拉伸，输出三套短一点的比例版本：
+
+- `assets/style-anchors/variants/19x9/`
+- `assets/style-anchors/variants/18_5x9/`
+- `assets/style-anchors/variants/18x9/`
+
 ## 生成原则
 
 - 只用文字，不上传参考图。
