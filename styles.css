@@ -2593,13 +2593,7 @@ button {
   overflow: hidden;
 }
 
-.anchor-page.anchor-list-page,
 .anchor-page.anchor-detail-page {
-  filter: blur(0.12px);
-}
-
-.anchor-page.anchor-detail-page {
-  filter: blur(0.3px);
   font-family: "Noto Sans CJK SC", -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
 }
 
