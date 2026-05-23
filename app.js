@@ -3547,6 +3547,7 @@ function render() {
   }
   if (current === "#/splash") {
     state.currentSurface = current;
+    app.className = "app-shell mobile-preview-app";
     app.innerHTML = renderSplash();
     syncDesktopPreviewFrame();
     return;
@@ -3560,6 +3561,7 @@ function render() {
   }
   if (current === "#/station/select") {
     state.currentSurface = current;
+    app.className = "app-shell mobile-preview-app";
     app.innerHTML = renderStationSelect("select");
     syncDesktopPreviewFrame();
     return;
@@ -3569,6 +3571,7 @@ function render() {
       state.draftStation = state.station;
     }
     state.currentSurface = current;
+    app.className = "app-shell mobile-preview-app";
     app.innerHTML = renderStationSelect("switch");
     syncDesktopPreviewFrame();
     return;
