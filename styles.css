@@ -50,6 +50,14 @@ body {
   min-height: 100vh;
 }
 
+body.desktop-preview {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 16px 0 24px;
+  overflow: auto;
+}
+
 button,
 input,
 textarea,
@@ -77,6 +85,14 @@ button {
   background: var(--bg);
   position: relative;
   overflow-x: hidden;
+}
+
+#app.anchor-app {
+  zoom: var(--desktop-preview-scale, 1);
+}
+
+body.desktop-preview #app {
+  margin: 0;
 }
 
 .source-screen {
