@@ -58,6 +58,7 @@
 - 图标重构后复跑锚点检查，MAE 结果保持稳定：`02-list` 4.97%，`03-detail` 7.18%，`04-form` 3.31%，`05-completion` 2.62%，`06-loading` 2.84%，`07-profile` 3.47%，`08-modal` 3.37%。
 - 第一批 3x3 图标生图校准完成：覆盖 `pin/map/route/megaphone/search/user/taxi/car/transfer`，第二轮生图经阈值化后得到纯黑白校准板，路径为 `assets/icons/calibration/board-01-high-frequency/board-clean.png`。
 - 第一批图标板已用 `scripts/icon_sheet_tools.py extract` 切片并生成 CSV 模拟图，`maxDiffRatio = 0.0`，满足 `diffRatio <= 5%`；记录落在 `docs/ui/icon-calibration-log.md`。
+- 第一批图标已经进入 `#/design-system` 的“图标系统”集中预览区；业务页里最完整的查看入口是 `#/station/home`，能同时看到定位、公告、搜索、导航、交通、接驳、身份、出租车、网约车这些语义图标。
 
 ## 设计判断
 

@@ -1044,6 +1044,18 @@ function renderDesignSystem() {
     ["user", "个人资料", "支持图标、文字、右箭头"],
   ];
 
+  const calibrationIcons = [
+    ["pin", "定位"],
+    ["map", "导航地图"],
+    ["route", "交通路线"],
+    ["notice", "站区公告"],
+    ["search", "搜索"],
+    ["user", "身份"],
+    ["taxi", "出租车"],
+    ["car", "网约车"],
+    ["transfer", "场站接驳"],
+  ];
+
   return `
     <div class="screen ds-page no-nav">
       <header class="topbar filled">
@@ -1053,6 +1065,27 @@ function renderDesignSystem() {
       </header>
 
       <div class="page ds-shell">
+        <section class="ds-section">
+          <div class="ds-section-title">
+            <h2>图标系统</h2>
+            <span>第一批校准</span>
+          </div>
+          <div class="card padded ds-icon-panel">
+            <div class="ds-icon-grid">
+              ${calibrationIcons
+                .map(
+                  ([icon, label]) => `
+                    <span class="ds-icon-sample" data-toast="${label}图标">
+                      <span>${iconMarkup(icon)}</span>
+                      <strong>${label}</strong>
+                    </span>
+                  `
+                )
+                .join("")}
+            </div>
+          </div>
+        </section>
+
         <section class="ds-section">
           <div class="ds-section-title">
             <h2>颜色 Token</h2>

@@ -59,6 +59,27 @@ python3 scripts/icon_sheet_tools.py extract \
 
 当前 `ICON_LIBRARY` 已经包含这 9 个语义，并且页面引用已经改为这些语义名。后续不再让页面临时手写图标；如果某个页面需要新语义，先更新 `ICON_LIBRARY` 和 `docs/ui/icon-inventory.json`。
 
+### 当前可见页面
+
+这批图标已经应用到真实页面和设计系统预览页。最集中查看的位置是：
+
+- `http://127.0.0.1:4174/#/design-system`：新增“图标系统 / 第一批校准”区块，一次能看到 9 个图标。
+- `http://127.0.0.1:4174/#/station/home`：首页首屏能看到 `pin`、`megaphone`、`search`、`map`、`route`、`transfer`、`user`、`taxi`、`car`，是当前最完整的业务页验证入口。
+
+按图标拆开看：
+
+| 图标 | 主要可见页面 |
+| --- | --- |
+| `pin` | `#/station/home`、`#/traffic/taxi`、`#/driver/short-haul/booking`、`#/driver/taxi-house/info`、`#/style-anchor/03-detail`、`#/style-anchor/05-completion` |
+| `map` | `#/station/home`、`#/nav/map`、`#/traffic/mixed`、`#/design-system` |
+| `route` | `#/station/home`、旅客端底栏的“交通”入口、`#/profile`、`#/design-system` |
+| `megaphone` | `#/station/home`、旅客端底栏的“公告”入口、`#/announcements`、`#/design-system` |
+| `search` | `#/station/home`、`#/driver/queue`、`#/design-system`、`#/style-anchor/02-list` |
+| `user` | `#/station/home`、`#/profile`、`#/driver/profile`、`#/driver/station/beijing`、`#/design-system` |
+| `taxi` | `#/station/home`、`#/traffic/taxi`、`#/driver/short-haul/booking`、司机端底栏“短途复载”入口 |
+| `car` | `#/station/home`、`#/traffic/ride`、`#/traffic/mixed`、`#/style-anchor/03-detail` |
+| `transfer` | `#/station/home` 的“场站接驳”入口、`#/design-system` |
+
 ### 下一批
 
 第二批建议覆盖设置与表单类图标：`message`、`globe`、`accessibility`、`shield`、`lock`、`ear`、`feedback`、`phone`、`mail`。
