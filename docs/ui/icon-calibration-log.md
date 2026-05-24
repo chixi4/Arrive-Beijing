@@ -271,6 +271,72 @@ CSV 模拟检查：
 
 第四批已经进入 `#/design-system` 的“图标系统 / 的士之家”区块。业务页里主要能在 `#/driver/taxi-house/info`、`#/driver/taxi-house/meal`、`#/driver/taxi-house/redeem` 和司机端底栏看到。
 
+## Board 05 - 控件补齐图标
+
+![board-05](../../assets/icons/calibration/board-05-interface-controls/board-clean.png)
+
+### 覆盖图标
+
+第五批补齐界面里最容易被忽略的控制语义：
+
+1. `check` 确认
+2. `more` 更多
+3. `question` 问号
+4. `refresh` 刷新
+5. `settings` 设置
+6. `edit` 编辑
+7. `scan` 扫码
+8. `camera` 相机
+9. `id` 证件
+
+### 结果
+
+CSV 模拟与单图 SVG mask 复刻均通过，`maxDiffRatio <= 5%`。
+
+## Board 06 - 出行反馈图标
+
+![board-06](../../assets/icons/calibration/board-06-mobility-feedback/board-clean.png)
+
+### 覆盖图标
+
+第六批补齐出行、情绪和信息反馈语义：
+
+1. `angry` 情绪
+2. `bike` 骑行
+3. `bus` 公交
+4. `chat` 沟通
+5. `cup` 杯子
+6. `glove` 手套
+7. `leaf` 绿色
+8. `logout` 退出
+9. `paper` 文档
+
+### 结果
+
+CSV 模拟与单图 SVG mask 复刻均通过，`maxDiffRatio <= 5%`。
+
+## Board 07 - 剩余杂项图标
+
+![board-07](../../assets/icons/calibration/board-07-remaining-utility/board-clean.png)
+
+### 覆盖图标
+
+第七批补齐剩余库项：
+
+1. `pillow` 枕头
+2. `plane` 飞机
+3. `grid` 九宫格
+4. `handshake` 握手
+5. `qr` 二维码
+6. `thumb` 点赞
+7. `grid` 九宫格（复用占位）
+8. `qr` 二维码（复用占位）
+9. `handshake` 握手（复用占位）
+
+### 结果
+
+CSV 模拟与单图 SVG mask 复刻均通过，`maxDiffRatio <= 5%`。
+
 ## 当前组件库结论
 
-四批合计 36 个图标已经进入统一复刻库，四批 CSV 模拟与单图 SVG mask 复刻结果全部为 `maxDiffRatio = 0.0`。运行 `node scripts/icon_inventory.mjs` 后，当前状态为：60 个基础 SVG、36 个复刻 SVG mask、56 个已使用语义、0 个缺失。后续新增图标必须继续先进入 `ICON_LIBRARY` 和清单，再按 3x3 组补充校准，不允许页面局部临时画图标。
+七批合计 60 个图标已经进入统一复刻库。运行 `node scripts/icon_inventory.mjs` 后，当前状态为：60 个基础 SVG、60 个复刻 SVG mask、所有已用语义均已覆盖、0 个缺失、0 个未覆盖库项。后续新增图标必须继续先进入 `ICON_LIBRARY` 和清单，再按 3x3 组补充校准，不允许页面局部临时画图标。

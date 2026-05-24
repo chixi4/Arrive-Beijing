@@ -1,0 +1,245 @@
+{
+  "source": "assets/icons/calibration/board-05-interface-controls/board-clean.png",
+  "out": "assets/icons/calibration/board-05-interface-controls/single-svg-replica",
+  "threshold": 128,
+  "cropPaddingRatio": 0.06,
+  "diffThreshold": 0.05,
+  "pass": true,
+  "maxDiffRatio": 0.008722,
+  "icons": [
+    {
+      "name": "check",
+      "target": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/targets/01-check.png",
+      "enlarged": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/enlarged-3x/01-check@3x.png",
+      "replicaPng": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/replica-png/01-check.png",
+      "svg": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/svg/01-check.svg",
+      "diff": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/diff/01-check.png",
+      "inkBBox": [
+        131,
+        155,
+        287,
+        270
+      ],
+      "displayViewBox": [
+        122,
+        146,
+        174,
+        133
+      ],
+      "rectangles": 154,
+      "pathLength": 3234,
+      "diffPixels": 372,
+      "totalPixels": 174724,
+      "diffRatio": 0.002129,
+      "pass": true
+    },
+    {
+      "name": "more",
+      "target": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/targets/02-more.png",
+      "enlarged": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/enlarged-3x/02-more@3x.png",
+      "replicaPng": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/replica-png/02-more.png",
+      "svg": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/svg/02-more.svg",
+      "diff": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/diff/02-more.png",
+      "inkBBox": [
+        111,
+        185,
+        307,
+        233
+      ],
+      "displayViewBox": [
+        99,
+        173,
+        220,
+        72
+      ],
+      "rectangles": 106,
+      "pathLength": 2226,
+      "diffPixels": 417,
+      "totalPixels": 174724,
+      "diffRatio": 0.002387,
+      "pass": true
+    },
+    {
+      "name": "question",
+      "target": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/targets/03-question.png",
+      "enlarged": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/enlarged-3x/03-question@3x.png",
+      "replicaPng": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/replica-png/03-question.png",
+      "svg": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/svg/03-question.svg",
+      "diff": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/diff/03-question.png",
+      "inkBBox": [
+        111,
+        112,
+        307,
+        307
+      ],
+      "displayViewBox": [
+        99,
+        100,
+        220,
+        219
+      ],
+      "rectangles": 355,
+      "pathLength": 7455,
+      "diffPixels": 1316,
+      "totalPixels": 174724,
+      "diffRatio": 0.007532,
+      "pass": true
+    },
+    {
+      "name": "refresh",
+      "target": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/targets/04-refresh.png",
+      "enlarged": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/enlarged-3x/04-refresh@3x.png",
+      "replicaPng": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/replica-png/04-refresh.png",
+      "svg": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/svg/04-refresh.svg",
+      "diff": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/diff/04-refresh.png",
+      "inkBBox": [
+        122,
+        117,
+        307,
+        290
+      ],
+      "displayViewBox": [
+        111,
+        106,
+        207,
+        195
+      ],
+      "rectangles": 213,
+      "pathLength": 4473,
+      "diffPixels": 889,
+      "totalPixels": 174724,
+      "diffRatio": 0.005088,
+      "pass": true
+    },
+    {
+      "name": "settings",
+      "target": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/targets/05-settings.png",
+      "enlarged": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/enlarged-3x/05-settings@3x.png",
+      "replicaPng": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/replica-png/05-settings.png",
+      "svg": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/svg/05-settings.svg",
+      "diff": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/diff/05-settings.png",
+      "inkBBox": [
+        101,
+        111,
+        317,
+        307
+      ],
+      "displayViewBox": [
+        88,
+        98,
+        242,
+        222
+      ],
+      "rectangles": 405,
+      "pathLength": 8505,
+      "diffPixels": 1524,
+      "totalPixels": 174724,
+      "diffRatio": 0.008722,
+      "pass": true
+    },
+    {
+      "name": "edit",
+      "target": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/targets/06-edit.png",
+      "enlarged": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/enlarged-3x/06-edit@3x.png",
+      "replicaPng": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/replica-png/06-edit.png",
+      "svg": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/svg/06-edit.svg",
+      "diff": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/diff/06-edit.png",
+      "inkBBox": [
+        117,
+        103,
+        301,
+        301
+      ],
+      "displayViewBox": [
+        105,
+        91,
+        208,
+        222
+      ],
+      "rectangles": 255,
+      "pathLength": 5355,
+      "diffPixels": 836,
+      "totalPixels": 174724,
+      "diffRatio": 0.004785,
+      "pass": true
+    },
+    {
+      "name": "scan",
+      "target": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/targets/07-scan.png",
+      "enlarged": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/enlarged-3x/07-scan@3x.png",
+      "replicaPng": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/replica-png/07-scan.png",
+      "svg": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/svg/07-scan.svg",
+      "diff": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/diff/07-scan.png",
+      "inkBBox": [
+        111,
+        109,
+        307,
+        309
+      ],
+      "displayViewBox": [
+        99,
+        97,
+        220,
+        224
+      ],
+      "rectangles": 115,
+      "pathLength": 2415,
+      "diffPixels": 1066,
+      "totalPixels": 174724,
+      "diffRatio": 0.006101,
+      "pass": true
+    },
+    {
+      "name": "camera",
+      "target": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/targets/08-camera.png",
+      "enlarged": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/enlarged-3x/08-camera@3x.png",
+      "replicaPng": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/replica-png/08-camera.png",
+      "svg": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/svg/08-camera.svg",
+      "diff": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/diff/08-camera.png",
+      "inkBBox": [
+        111,
+        120,
+        307,
+        285
+      ],
+      "displayViewBox": [
+        99,
+        108,
+        220,
+        189
+      ],
+      "rectangles": 184,
+      "pathLength": 3864,
+      "diffPixels": 1144,
+      "totalPixels": 174724,
+      "diffRatio": 0.006547,
+      "pass": true
+    },
+    {
+      "name": "id",
+      "target": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/targets/09-id.png",
+      "enlarged": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/enlarged-3x/09-id@3x.png",
+      "replicaPng": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/replica-png/09-id.png",
+      "svg": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/svg/09-id.svg",
+      "diff": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/diff/09-id.png",
+      "inkBBox": [
+        117,
+        127,
+        301,
+        291
+      ],
+      "displayViewBox": [
+        106,
+        116,
+        206,
+        186
+      ],
+      "rectangles": 219,
+      "pathLength": 4599,
+      "diffPixels": 1491,
+      "totalPixels": 174724,
+      "diffRatio": 0.008533,
+      "pass": true
+    }
+  ]
+}

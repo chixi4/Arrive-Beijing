@@ -4,11 +4,12 @@
 
 ## 当前结论
 
-- 当前库：60 个手写 SVG 图标，四批共 36 个单图复刻 SVG mask，9 个语义别名。
-- 当前使用：56 个语义图标，0 个缺失。
+- 当前库：60 个手写 SVG 图标，七批共 60 个单图复刻 SVG mask，8 个语义别名。
+- 当前使用：页面和设计系统里所有已用语义均已进入复刻链路，0 个缺失。
 - 已替换的明显误用：`我的积分` 不再用扫码图标，`监督投诉邮箱` 不再用扫码图标，`场站接驳` 不再复用公交图标，`自驾停车` 不再复用小汽车图标，`退出登录` 不再用扫码图标。
 - 已完成单图复刻的高频图标：`pin`、`map`、`route`、`megaphone/notice`、`search`、`user`、`taxi`、`car`、`transfer`、`message`、`globe`、`accessibility`、`shield`、`lock`、`ear`、`feedback`、`phone`、`mail`、`home`、`parking`、`points`、`calendar`、`clock`、`back`、`train/station`、`people`、`history`、`lounge`、`dining`、`charger`、`wifi`、`tea`、`book`、`medical`、`restroom`、`gift/redeem`。
-- 最新视觉口径：四批全部按粗一档的黑色 monoline 图标目标进入像素复刻链路；CSV 模拟和 SVG mask 复刻的四批 `maxDiffRatio` 均为 `0.0`。
+- 追加的三批覆盖 `check/more/question/refresh/settings/edit/scan/camera/id`、`angry/bike/bus/chat/cup/glove/leaf/logout/paper`、`pillow/plane/grid/handshake/qr/thumb` 等剩余库项，CSV 模拟与 SVG mask 复刻都已通过。
+- 最新视觉口径：七批全部按粗一档的黑色 monoline 图标目标进入像素复刻链路；CSV 模拟和 SVG mask 复刻均通过 `diffRatio <= 5%` 门槛。
 - 仍需重点校准的图标：当前使用链路无缺失；下一轮只在新增页面出现新语义，或现有页面视觉检查发现具体图标不协调时再扩批。
 
 ## 视觉规范
@@ -97,4 +98,40 @@
 8. `restroom` 洗手间
 9. `gift` 积分兑换
 
-第二、第三、第四批同样记录在 `docs/ui/icon-calibration-log.md`。当前运行时会按脚本加载顺序合并四批 `ICON_REPLICA_LIBRARY`，所以同一语义在页面、底栏、锚点页和设计系统里都走同一套复刻结果。
+第五批覆盖控件补齐：
+
+1. `check` 确认
+2. `more` 更多
+3. `question` 问号
+4. `refresh` 刷新
+5. `settings` 设置
+6. `edit` 编辑
+7. `scan` 扫码
+8. `camera` 相机
+9. `id` 证件
+
+第六批覆盖出行反馈：
+
+1. `angry` 情绪
+2. `bike` 骑行
+3. `bus` 公交
+4. `chat` 沟通
+5. `cup` 杯子
+6. `glove` 手套
+7. `leaf` 绿色
+8. `logout` 退出
+9. `paper` 文档
+
+第七批覆盖剩余杂项：
+
+1. `pillow` 枕头
+2. `plane` 飞机
+3. `grid` 九宫格
+4. `handshake` 握手
+5. `qr` 二维码
+6. `thumb` 点赞
+7. `grid` 九宫格（复用占位）
+8. `qr` 二维码（复用占位）
+9. `handshake` 握手（复用占位）
+
+第二、第三、第四、第五、第六、第七批同样记录在 `docs/ui/icon-calibration-log.md`。当前运行时会按脚本加载顺序合并七批 `ICON_REPLICA_LIBRARY`，所以同一语义在页面、底栏、锚点页和设计系统里都走同一套复刻结果。

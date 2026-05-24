@@ -311,7 +311,6 @@ const ICON_LIBRARY = {
 const ICON_ALIASES = {
   airport: "plane",
   announcement: "megaphone",
-  handshake: "lounge",
   house: "lounge",
   license: "id",
   meal: "dining",
@@ -1127,6 +1126,48 @@ function renderDesignSystem() {
         ["gift", "兑换"],
       ],
     },
+    {
+      title: "控件补齐",
+      icons: [
+        ["check", "确认"],
+        ["more", "更多"],
+        ["question", "问号"],
+        ["refresh", "刷新"],
+        ["settings", "设置"],
+        ["edit", "编辑"],
+        ["scan", "扫码"],
+        ["camera", "相机"],
+        ["id", "证件"],
+      ],
+    },
+    {
+      title: "出行反馈",
+      icons: [
+        ["angry", "情绪"],
+        ["bike", "骑行"],
+        ["bus", "公交"],
+        ["chat", "沟通"],
+        ["cup", "杯子"],
+        ["glove", "手套"],
+        ["leaf", "绿色"],
+        ["logout", "退出"],
+        ["paper", "文档"],
+      ],
+    },
+    {
+      title: "补齐杂项",
+      icons: [
+        ["pillow", "枕头"],
+        ["plane", "飞机"],
+        ["grid", "九宫格"],
+        ["handshake", "握手"],
+        ["qr", "二维码"],
+        ["thumb", "点赞"],
+        ["gift", "礼品"],
+        ["scan", "扫码"],
+        ["camera", "相机"],
+      ],
+    },
   ];
 
   return `
@@ -1141,7 +1182,7 @@ function renderDesignSystem() {
         <section class="ds-section">
           <div class="ds-section-title">
             <h2>图标系统</h2>
-            <span>四批复刻</span>
+            <span>七批复刻</span>
           </div>
           ${calibrationIconGroups
             .map(
@@ -1910,11 +1951,11 @@ function renderDriverProfilePage() {
 const announcementItems = [
   { tag: "紧急", tone: "danger", title: "北京西站北广场临时施工通告", meta: "2025-01-20 10:30" },
   { tag: "通知", tone: "primary", title: "春运期间候车室延时开放公告", meta: "2025-01-19 14:00" },
-  { tag: "提醒", tone: "warning", title: "12306实名核验系统升级提醒", meta: "2025-01-18 09:00" },
+  { tag: "提示", tone: "warning", title: "12306实名核验系统升级提醒", meta: "2025-01-18 09:00" },
   { tag: "活动", tone: "primary", title: "春节期间文化展览活动预告", meta: "2025-01-17 16:00" },
   { tag: "通知", tone: "primary", title: "自助售票机系统维护通知", meta: "2025-01-16 11:20" },
   {
-    tag: "提醒",
+    tag: "提示",
     tone: "warning",
     title: "行李托运服务操作流程更新",
     meta: "2025-01-15 08:00",
@@ -1924,11 +1965,11 @@ const announcementItems = [
 ];
 
 const announcementTabs = [
-  { key: "全部", label: "全部", to: "#/announcements" },
-  { key: "紧急", label: "紧急", to: "#/announcements" },
-  { key: "通知", label: "通知", to: "#/announcements" },
-  { key: "提示", label: "提示", to: "#/announcements" },
-  { key: "活动", label: "活动", to: "#/announcements" },
+  { key: "全部", label: "全部" },
+  { key: "紧急", label: "紧急" },
+  { key: "通知", label: "通知" },
+  { key: "提示", label: "提示" },
+  { key: "活动", label: "活动" },
 ];
 
 const trafficTabs = [
@@ -2438,6 +2479,18 @@ function renderNavigationPage(mode) {
 }
 
 function renderAnnouncementsPage(variant = "top") {
+  const activeCategory = state.selected.announcementCategory || "全部";
+  const filteredItems =
+    activeCategory === "全部"
+      ? announcementItems
+      : announcementItems.filter((item) => item.tag === activeCategory);
+  const topItems = filteredItems.slice(0, 4);
+  const lowerItems = filteredItems.slice(4);
+  const summaryText =
+    activeCategory === "全部"
+      ? "当前有1条紧急公告"
+      : `当前显示${filteredItems.length}条${activeCategory}公告`;
+
   return renderAppShell({
     className: "ab-announcements-page",
     topbar: renderAppTopbar({
@@ -2452,21 +2505,20 @@ function renderAnnouncementsPage(variant = "top") {
 
       <section class="ab-page-section">
         <div class="ab-tip-card ab-tip-card--alert">
-          <strong>当前有1条紧急公告</strong>
+          <strong>${summaryText}</strong>
           <p>请旅客注意查看并遵守相关规定</p>
         </div>
       </section>
 
       <section class="ab-page-section">
         <div class="ab-record-list">
-          ${announcementItems.slice(0, 4).map((item) => renderRecordCard(item)).join("")}
+          ${topItems.map((item) => renderRecordCard(item)).join("")}
         </div>
       </section>
 
       <section class="ab-page-section" id="announcements-lower">
         <div class="ab-record-list">
-          ${announcementItems
-            .slice(4)
+          ${lowerItems
             .map((item) => renderRecordCard(item))
             .join("")}
         </div>

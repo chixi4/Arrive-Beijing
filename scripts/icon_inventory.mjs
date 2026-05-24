@@ -84,6 +84,14 @@ for (const match of source.matchAll(/\bicon\s*:\s*(["'`])([^"'`]+)\1/g)) {
   addUse(match[2], "icon-property", match.index);
 }
 
+for (const match of source.matchAll(/\[\s*(["'`])([^"'`]+)\1\s*,\s*(["'`])([^"'`]+)\3/g)) {
+  const rawName = match[2];
+  const resolvedName = aliases[rawName] || rawName;
+  if (library.includes(resolvedName)) {
+    addUse(rawName, "icon-array", match.index);
+  }
+}
+
 const icons = [...usage.values()]
   .map((item) => {
     const contexts = [...item.component_contexts].sort();
