@@ -4,11 +4,12 @@
 
 ## 当前结论
 
-- 当前库：52 个手写 SVG 图标，第一批 9 个单图复刻 SVG mask，5 个语义别名。
+- 当前库：52 个手写 SVG 图标，三批共 27 个单图复刻 SVG mask，5 个语义别名。
 - 当前使用：49 个语义图标，0 个缺失。
 - 已替换的明显误用：`我的积分` 不再用扫码图标，`监督投诉邮箱` 不再用扫码图标，`场站接驳` 不再复用公交图标，`自驾停车` 不再复用小汽车图标，`退出登录` 不再用扫码图标。
-- 已完成单图复刻的高频图标：`pin`、`map`、`route`、`megaphone/notice`、`search`、`user`、`taxi`、`car`、`transfer`。
-- 仍需重点校准的高频图标：`home`、`feedback`、`parking`、`points`、`message`、`phone`、`mail`。
+- 已完成单图复刻的高频图标：`pin`、`map`、`route`、`megaphone/notice`、`search`、`user`、`taxi`、`car`、`transfer`、`message`、`globe`、`accessibility`、`shield`、`lock`、`ear`、`feedback`、`phone`、`mail`、`home`、`parking`、`points`、`calendar`、`clock`、`back`、`train/station`、`people`、`history`。
+- 最新视觉口径：三批全部用加粗生图 target 重做，目标为粗一档的黑色 monoline 图标；CSV 模拟和 SVG mask 复刻的三批 `maxDiffRatio` 均为 `0.0`。
+- 仍需重点校准的图标：当前使用链路无缺失；下一轮只在新增页面出现新语义，或现有页面视觉检查发现具体图标不协调时再扩批。
 
 ## 视觉规范
 
@@ -33,7 +34,7 @@
 
 ## 3x3 生图校准流程
 
-每次只生成一张 1:1 的 3x3 图标风格板，9 个图标为一组。生成图必须是白底、纯黑/深灰线性图标、无文字标签、无手机外框、无阴影、无渐变。
+每次只生成一张 1:1 的 3x3 图标风格板，9 个图标为一组。生成图必须是白底、纯黑线性图标、无文字标签、无手机外框、无阴影、无渐变。当前推荐提示词方向为 `bold monoline outline`，在 1254px 图标板上约束为 `16-20px stroke`，再通过后期阈值化得到纯黑白 target。
 
 生成后执行三步：
 
@@ -44,7 +45,7 @@
 
 注意：CSV 是像素校准中间产物，不直接作为页面文字或业务事实源。最终页面仍使用可维护的 SVG 组件。
 
-## 第一批 3x3 图标组
+## 已完成 3x3 图标组
 
 第一批覆盖最高频且会影响主页面质感的图标：
 
@@ -60,4 +61,28 @@
 
 已完成第一批校准，记录见 `docs/ui/icon-calibration-log.md`。清理后的图标板位于 `assets/icons/calibration/board-01-high-frequency/board-clean.png`，CSV 模拟比对与单图 SVG mask 复刻都已通过，`maxDiffRatio = 0.0`。
 
-第二批再覆盖设置、反馈、停车、积分、表单和司机端专属图标。
+第二批覆盖设置和反馈链路：
+
+1. `message` 消息
+2. `globe` 语言
+3. `accessibility` 无障碍
+4. `shield` 账号安全
+5. `lock` 隐私
+6. `ear` 辅助
+7. `feedback` 反馈
+8. `phone` 电话
+9. `mail` 邮箱
+
+第三批覆盖服务工具和司机端高频信息：
+
+1. `home` 首页
+2. `parking` 停车
+3. `points` 积分
+4. `calendar` 日期
+5. `clock` 时间
+6. `back` 返回
+7. `train` 车站
+8. `people` 人群
+9. `history` 历史
+
+第二、第三批同样记录在 `docs/ui/icon-calibration-log.md`。当前运行时会按脚本加载顺序合并三批 `ICON_REPLICA_LIBRARY`，所以同一语义在页面、底栏、锚点页和设计系统里都走同一套复刻结果。

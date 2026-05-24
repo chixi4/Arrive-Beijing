@@ -815,7 +815,8 @@ function go(to) {
 function syncDesktopPreviewFrame() {
   const isAnchorPreview = app.classList.contains("anchor-app");
   const isMobilePreview = app.classList.contains("mobile-preview-app");
-  const isDesktopPreview = (isAnchorPreview || isMobilePreview) && window.innerWidth >= 1000;
+  const isDesignPreview = app.classList.contains("design-system-app");
+  const isDesktopPreview = (isAnchorPreview || isMobilePreview || isDesignPreview) && window.innerWidth >= 1000;
   const baseWidth = isAnchorPreview ? 864 : 430;
   const baseHeight = isAnchorPreview ? 1728 : 860;
   const scale = isDesktopPreview ? Math.min((window.innerWidth - 32) / baseWidth, (window.innerHeight - 32) / baseHeight) : 1;
@@ -1049,16 +1050,49 @@ function renderDesignSystem() {
     ["user", "个人资料", "支持图标、文字、右箭头"],
   ];
 
-  const calibrationIcons = [
-    ["pin", "定位"],
-    ["map", "导航地图"],
-    ["route", "交通路线"],
-    ["notice", "站区公告"],
-    ["search", "搜索"],
-    ["user", "身份"],
-    ["taxi", "出租车"],
-    ["car", "网约车"],
-    ["transfer", "场站接驳"],
+  const calibrationIconGroups = [
+    {
+      title: "第一批校准",
+      icons: [
+        ["pin", "定位"],
+        ["map", "导航地图"],
+        ["route", "交通路线"],
+        ["notice", "站区公告"],
+        ["search", "搜索"],
+        ["user", "身份"],
+        ["taxi", "出租车"],
+        ["car", "网约车"],
+        ["transfer", "场站接驳"],
+      ],
+    },
+    {
+      title: "设置反馈",
+      icons: [
+        ["message", "消息"],
+        ["globe", "语言"],
+        ["accessibility", "无障碍"],
+        ["shield", "账号安全"],
+        ["lock", "隐私"],
+        ["ear", "辅助"],
+        ["feedback", "反馈"],
+        ["phone", "电话"],
+        ["mail", "邮箱"],
+      ],
+    },
+    {
+      title: "服务工具",
+      icons: [
+        ["home", "首页"],
+        ["parking", "停车"],
+        ["points", "积分"],
+        ["calendar", "日期"],
+        ["clock", "时间"],
+        ["back", "返回"],
+        ["train", "车站"],
+        ["people", "人群"],
+        ["history", "历史"],
+      ],
+    },
   ];
 
   return `
@@ -1073,22 +1107,29 @@ function renderDesignSystem() {
         <section class="ds-section">
           <div class="ds-section-title">
             <h2>图标系统</h2>
-            <span>第一批校准</span>
+            <span>三批复刻</span>
           </div>
-          <div class="card padded ds-icon-panel">
-            <div class="ds-icon-grid">
-              ${calibrationIcons
-                .map(
-                  ([icon, label]) => `
-                    <span class="ds-icon-sample" data-toast="${label}图标">
-                      <span>${iconMarkup(icon)}</span>
-                      <strong>${label}</strong>
-                    </span>
-                  `
-                )
-                .join("")}
-            </div>
-          </div>
+          ${calibrationIconGroups
+            .map(
+              (group) => `
+                <div class="card padded ds-icon-panel">
+                  <div class="ds-icon-panel-title">${group.title}</div>
+                  <div class="ds-icon-grid">
+                    ${group.icons
+                      .map(
+                        ([icon, label]) => `
+                          <span class="ds-icon-sample" data-toast="${label}图标">
+                            <span>${iconMarkup(icon)}</span>
+                            <strong>${label}</strong>
+                          </span>
+                        `
+                      )
+                      .join("")}
+                  </div>
+                </div>
+              `
+            )
+            .join("")}
         </section>
 
         <section class="ds-section">

@@ -62,6 +62,14 @@
 - 按用户反馈进一步校准图标：新增 `scripts/icon_svg_replica.py`，把九宫格拆成 9 张单独目标图和 3 倍放大图，再生成 `currentColor` SVG mask；第一批 9 个图标的单图复刻 `maxDiffRatio = 0.0`，页面优先从 `ICON_REPLICA_LIBRARY` 取这批图标，手写 `ICON_LIBRARY` 只作为兜底。
 - 继续修正第一批复刻图标偏小的问题：页面 viewBox 改为按每个图标真实黑色线条的 `inkBBox` 裁边并加 6% padding，不再强行塞进统一方形裁框；浏览器负责在方形 icon 盒子里居中显示。
 - 追加两处图标光学校正：`search` 图标统一右移 `1px`，修正斜柄造成的小尺寸视觉偏左；`car` 图标统一放大 `1.18`，修正横向车身放进方形 icon 盒后显小的问题。
+- 继续补齐剩余高频图标：新增 `scripts/icon_svg_board.mjs`，把统一 `ICON_LIBRARY` 里的语义图标生成同规格 3x3 SVG 校准板，再用 Chrome headless 输出 PNG target。
+- 第二批 `board-02-settings-feedback` 覆盖 `message/globe/accessibility/shield/lock/ear/feedback/phone/mail`，CSV 模拟 `maxDiffRatio = 0.007515`，SVG mask 复刻 `maxDiffRatio = 0.006313`，通过 5% 门槛。
+- 第三批 `board-03-service-utility` 覆盖 `home/parking/points/calendar/clock/back/train/people/history`，CSV 模拟 `maxDiffRatio = 0.008287`，SVG mask 复刻 `maxDiffRatio = 0.007652`，通过 5% 门槛。
+- `index.html` 现在按顺序加载三批 `icon-replicas-board-01/02/03.js`，`renderIcon()` 仍统一优先走 `ICON_REPLICA_LIBRARY`，再回落到基础 `ICON_LIBRARY`。
+- `#/design-system` 的图标系统区按“第一批校准 / 设置反馈 / 服务工具”分组展示 27 个复刻图标；`docs/ui/icon-inventory.json` 刷新后显示 49 个已用语义、0 个缺失。
+- 按用户指出“三批感觉不一样”和“线条再粗一些”，旧的第二、第三批 SVG target 已废弃；三批全部重新用加粗生图提示词生成 3x3 target，再阈值化成纯黑白校准板。
+- 新加粗版三批重新跑完 CSV 模拟和单图 SVG mask 复刻，`board-01/02/03` 的两类检查 `maxDiffRatio` 均为 `0.0`；页面仍加载同一套 `ICON_REPLICA_LIBRARY`，只是内部形状换成粗线版本。
+- 设计系统图标预览格收紧了列间距并补 `min-width: 0`，避免 430px 预览下第三列边缘被挤出。
 
 ## 设计判断
 

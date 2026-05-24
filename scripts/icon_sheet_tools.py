@@ -36,7 +36,7 @@ def luminance_to_alpha(pixel: tuple[int, int, int, int]) -> int:
 def write_alpha_csv(image: Image.Image, out_path: Path) -> None:
     rgba = image.convert("RGBA")
     with out_path.open("w", newline="") as handle:
-        writer = csv.writer(handle)
+        writer = csv.writer(handle, lineterminator="\n")
         for y in range(rgba.height):
             row = [luminance_to_alpha(rgba.getpixel((x, y))) for x in range(rgba.width)]
             writer.writerow(row)
