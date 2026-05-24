@@ -70,6 +70,9 @@
 - `assets/bitmap/navigation/crops/three-d-map-crop.png`：3D 导览页面内嵌用裁切图。
 - `assets/bitmap/navigation/crops/flat-map-crop.png`：平面地图页面内嵌用裁切图。
 - `assets/bitmap/navigation/crops/ar-demo-crop.png`：AR 指引页面内嵌用裁切图。
+- `assets/bitmap/navigation/v2/nav-flat-b1.png`、`nav-flat-f1.png`、`nav-flat-f2.png`、`nav-flat-f3.png`：二次生图生成的四层平面站内图，替换旧的 SVG 感地图素材。
+- `assets/bitmap/navigation/v2/nav-3d-overview.png`：二次生图生成的四层 3D 总览。
+- `assets/bitmap/navigation/v2/nav-ar-guide.png`：二次生图生成的 AR 实景指引。
 - `assets/bitmap/splash/passenger-01.png`、`assets/bitmap/splash/passenger-02.png`：旅客端随机开屏图池。
 - `assets/bitmap/splash/driver-01.png`、`assets/bitmap/splash/driver-02.png`：司机端随机开屏图池。
 - `assets/bitmap/traffic/taxi-pickup.png`：出租车上车点。
