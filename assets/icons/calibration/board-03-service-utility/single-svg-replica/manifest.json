@@ -1,0 +1,245 @@
+{
+  "source": "assets/icons/calibration/board-03-service-utility/board-clean.png",
+  "out": "assets/icons/calibration/board-03-service-utility/single-svg-replica",
+  "threshold": 128,
+  "cropPaddingRatio": 0.06,
+  "diffThreshold": 0.05,
+  "pass": true,
+  "maxDiffRatio": 0.0,
+  "icons": [
+    {
+      "name": "home",
+      "target": "assets/icons/calibration/board-03-service-utility/single-svg-replica/targets/01-home.png",
+      "enlarged": "assets/icons/calibration/board-03-service-utility/single-svg-replica/enlarged-3x/01-home@3x.png",
+      "replicaPng": "assets/icons/calibration/board-03-service-utility/single-svg-replica/replica-png/01-home.png",
+      "svg": "assets/icons/calibration/board-03-service-utility/single-svg-replica/svg/01-home.svg",
+      "diff": "assets/icons/calibration/board-03-service-utility/single-svg-replica/diff/01-home.png",
+      "inkBBox": [
+        119,
+        124,
+        364,
+        363
+      ],
+      "displayViewBox": [
+        104,
+        109,
+        275,
+        269
+      ],
+      "rectangles": 303,
+      "pathLength": 6363,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "parking",
+      "target": "assets/icons/calibration/board-03-service-utility/single-svg-replica/targets/02-parking.png",
+      "enlarged": "assets/icons/calibration/board-03-service-utility/single-svg-replica/enlarged-3x/02-parking@3x.png",
+      "replicaPng": "assets/icons/calibration/board-03-service-utility/single-svg-replica/replica-png/02-parking.png",
+      "svg": "assets/icons/calibration/board-03-service-utility/single-svg-replica/svg/02-parking.svg",
+      "diff": "assets/icons/calibration/board-03-service-utility/single-svg-replica/diff/02-parking.png",
+      "inkBBox": [
+        95,
+        135,
+        323,
+        367
+      ],
+      "displayViewBox": [
+        81,
+        121,
+        256,
+        260
+      ],
+      "rectangles": 167,
+      "pathLength": 3463,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "points",
+      "target": "assets/icons/calibration/board-03-service-utility/single-svg-replica/targets/03-points.png",
+      "enlarged": "assets/icons/calibration/board-03-service-utility/single-svg-replica/enlarged-3x/03-points@3x.png",
+      "replicaPng": "assets/icons/calibration/board-03-service-utility/single-svg-replica/replica-png/03-points.png",
+      "svg": "assets/icons/calibration/board-03-service-utility/single-svg-replica/svg/03-points.svg",
+      "diff": "assets/icons/calibration/board-03-service-utility/single-svg-replica/diff/03-points.png",
+      "inkBBox": [
+        64,
+        131,
+        305,
+        371
+      ],
+      "displayViewBox": [
+        50,
+        117,
+        269,
+        268
+      ],
+      "rectangles": 521,
+      "pathLength": 10678,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "calendar",
+      "target": "assets/icons/calibration/board-03-service-utility/single-svg-replica/targets/04-calendar.png",
+      "enlarged": "assets/icons/calibration/board-03-service-utility/single-svg-replica/enlarged-3x/04-calendar@3x.png",
+      "replicaPng": "assets/icons/calibration/board-03-service-utility/single-svg-replica/replica-png/04-calendar.png",
+      "svg": "assets/icons/calibration/board-03-service-utility/single-svg-replica/svg/04-calendar.svg",
+      "diff": "assets/icons/calibration/board-03-service-utility/single-svg-replica/diff/04-calendar.png",
+      "inkBBox": [
+        115,
+        75,
+        361,
+        322
+      ],
+      "displayViewBox": [
+        100,
+        60,
+        276,
+        277
+      ],
+      "rectangles": 184,
+      "pathLength": 3833,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "clock",
+      "target": "assets/icons/calibration/board-03-service-utility/single-svg-replica/targets/05-clock.png",
+      "enlarged": "assets/icons/calibration/board-03-service-utility/single-svg-replica/enlarged-3x/05-clock@3x.png",
+      "replicaPng": "assets/icons/calibration/board-03-service-utility/single-svg-replica/replica-png/05-clock.png",
+      "svg": "assets/icons/calibration/board-03-service-utility/single-svg-replica/svg/05-clock.svg",
+      "diff": "assets/icons/calibration/board-03-service-utility/single-svg-replica/diff/05-clock.png",
+      "inkBBox": [
+        91,
+        86,
+        324,
+        324
+      ],
+      "displayViewBox": [
+        77,
+        72,
+        261,
+        266
+      ],
+      "rectangles": 365,
+      "pathLength": 7574,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "back",
+      "target": "assets/icons/calibration/board-03-service-utility/single-svg-replica/targets/06-back.png",
+      "enlarged": "assets/icons/calibration/board-03-service-utility/single-svg-replica/enlarged-3x/06-back@3x.png",
+      "replicaPng": "assets/icons/calibration/board-03-service-utility/single-svg-replica/replica-png/06-back.png",
+      "svg": "assets/icons/calibration/board-03-service-utility/single-svg-replica/svg/06-back.svg",
+      "diff": "assets/icons/calibration/board-03-service-utility/single-svg-replica/diff/06-back.png",
+      "inkBBox": [
+        73,
+        111,
+        291,
+        287
+      ],
+      "displayViewBox": [
+        60,
+        98,
+        244,
+        202
+      ],
+      "rectangles": 171,
+      "pathLength": 3469,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "train",
+      "target": "assets/icons/calibration/board-03-service-utility/single-svg-replica/targets/07-train.png",
+      "enlarged": "assets/icons/calibration/board-03-service-utility/single-svg-replica/enlarged-3x/07-train@3x.png",
+      "replicaPng": "assets/icons/calibration/board-03-service-utility/single-svg-replica/replica-png/07-train.png",
+      "svg": "assets/icons/calibration/board-03-service-utility/single-svg-replica/svg/07-train.svg",
+      "diff": "assets/icons/calibration/board-03-service-utility/single-svg-replica/diff/07-train.png",
+      "inkBBox": [
+        130,
+        32,
+        337,
+        281
+      ],
+      "displayViewBox": [
+        115,
+        17,
+        237,
+        279
+      ],
+      "rectangles": 327,
+      "pathLength": 6661,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "people",
+      "target": "assets/icons/calibration/board-03-service-utility/single-svg-replica/targets/08-people.png",
+      "enlarged": "assets/icons/calibration/board-03-service-utility/single-svg-replica/enlarged-3x/08-people@3x.png",
+      "replicaPng": "assets/icons/calibration/board-03-service-utility/single-svg-replica/replica-png/08-people.png",
+      "svg": "assets/icons/calibration/board-03-service-utility/single-svg-replica/svg/08-people.svg",
+      "diff": "assets/icons/calibration/board-03-service-utility/single-svg-replica/diff/08-people.png",
+      "inkBBox": [
+        65,
+        65,
+        351,
+        265
+      ],
+      "displayViewBox": [
+        48,
+        48,
+        320,
+        234
+      ],
+      "rectangles": 494,
+      "pathLength": 10045,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "history",
+      "target": "assets/icons/calibration/board-03-service-utility/single-svg-replica/targets/09-history.png",
+      "enlarged": "assets/icons/calibration/board-03-service-utility/single-svg-replica/enlarged-3x/09-history@3x.png",
+      "replicaPng": "assets/icons/calibration/board-03-service-utility/single-svg-replica/replica-png/09-history.png",
+      "svg": "assets/icons/calibration/board-03-service-utility/single-svg-replica/svg/09-history.svg",
+      "diff": "assets/icons/calibration/board-03-service-utility/single-svg-replica/diff/09-history.png",
+      "inkBBox": [
+        77,
+        45,
+        299,
+        271
+      ],
+      "displayViewBox": [
+        63,
+        31,
+        250,
+        254
+      ],
+      "rectangles": 341,
+      "pathLength": 6794,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    }
+  ]
+}

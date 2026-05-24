@@ -22,9 +22,9 @@
 
 ### 生成与修复
 
-- 第一轮提示词的问题：整体方向正确，但仍有软阴影和轻微灰色渲染，不适合作为可复用图标库的最终风格参考。
-- 第二轮提示词加强了“纯白背景、严格扁平、无阴影、无灰色光晕、无 3D、无文字标签”，图标语义和九宫格构图可用。
-- 后期修复：保留第二轮生图的语义和构图，把背景统一成纯白，把图标线条阈值化成纯黑，得到最终校准板。
+- 旧版问题：线条偏细，第二、第三批曾短暂使用旧 SVG target，和第一批生图 target 的气质不一致。
+- 本轮重新提示：三批都使用“bold monoline outline、16-20px stroke、same optical size、pure white background、no text labels、no shadow”的同一套提示词生成。
+- 后期修复：保留加粗生图的语义和构图，把背景统一成纯白，把图标线条阈值化成纯黑，得到最终校准板。
 
 ### 文件
 
@@ -111,6 +111,112 @@ python3 scripts/icon_svg_replica.py \
 | `car` | `#/station/home`、`#/traffic/ride`、`#/traffic/mixed`、`#/style-anchor/03-detail` |
 | `transfer` | `#/station/home` 的“场站接驳”入口、`#/design-system` |
 
-### 下一批
+## Board 02 - 设置反馈图标
 
-第二批建议覆盖设置与表单类图标：`message`、`globe`、`accessibility`、`shield`、`lock`、`ear`、`feedback`、`phone`、`mail`。
+![board-02](../../assets/icons/calibration/board-02-settings-feedback/board-clean.png)
+
+### 覆盖图标
+
+第二批覆盖个人中心、反馈页、联系信息和安全设置里反复出现的 9 个语义：
+
+1. `message` 消息
+2. `globe` 语言
+3. `accessibility` 无障碍
+4. `shield` 账号安全
+5. `lock` 隐私
+6. `ear` 辅助
+7. `feedback` 反馈
+8. `phone` 电话
+9. `mail` 邮箱
+
+### 生成与修复
+
+这批已废弃旧 SVG target，改为和第一批同一口径的加粗生图 target。提示词明确要求粗一档的黑色 monoline、统一光学大小、纯白背景、无文字、无阴影。生图后仍只作为校准目标，最终页面资产继续由 `currentColor` SVG mask 承载。
+
+### 文件
+
+- 原始生图：`assets/icons/calibration/board-02-settings-feedback/generated-raw.png`
+- 清理后校准板：`assets/icons/calibration/board-02-settings-feedback/board-clean.png`
+- CSV 与切片结果：`assets/icons/calibration/board-02-settings-feedback/csv-check/`
+- 单图放大与 SVG mask 复刻：`assets/icons/calibration/board-02-settings-feedback/single-svg-replica/`
+- 页面加载脚本：`assets/icons/calibration/board-02-settings-feedback/single-svg-replica/icon-replicas-board-02.js`
+
+### 像素检查
+
+CSV 模拟检查：
+
+```json
+{
+  "pass": true,
+  "maxDiffRatio": 0.0
+}
+```
+
+单图 SVG mask 复刻检查：
+
+```json
+{
+  "pass": true,
+  "maxDiffRatio": 0.0,
+  "cropPaddingRatio": 0.06
+}
+```
+
+第二批已经进入 `#/design-system` 的“图标系统 / 设置反馈”区块。业务页里主要能在 `#/profile`、`#/profile-more`、`#/feedback/submit`、`#/feedback/mine`、`#/driver/profile` 看到。
+
+## Board 03 - 服务工具图标
+
+![board-03](../../assets/icons/calibration/board-03-service-utility/board-clean.png)
+
+### 覆盖图标
+
+第三批覆盖底栏、停车、积分、预约、站点和历史记录中更常用的 9 个工具语义：
+
+1. `home` 首页
+2. `parking` 停车
+3. `points` 积分
+4. `calendar` 日期
+5. `clock` 时间
+6. `back` 返回
+7. `train` 车站
+8. `people` 人群
+9. `history` 历史
+
+### 生成与修复
+
+这批也已废弃旧 SVG target，改为和第一、第二批同一口径的加粗生图 target。提示词把首页、停车、积分、日历、时间、返回、车站、人群、历史全部约束为同一套粗线 monoline 交通服务图标。复刻脚本按每个图标的真实黑色线条计算 `inkBBox`，再加 6% padding 写入 display viewBox，解决九宫格大白边导致小尺寸图标显小的问题。
+
+### 文件
+
+- 原始生图：`assets/icons/calibration/board-03-service-utility/generated-raw.png`
+- 清理后校准板：`assets/icons/calibration/board-03-service-utility/board-clean.png`
+- CSV 与切片结果：`assets/icons/calibration/board-03-service-utility/csv-check/`
+- 单图放大与 SVG mask 复刻：`assets/icons/calibration/board-03-service-utility/single-svg-replica/`
+- 页面加载脚本：`assets/icons/calibration/board-03-service-utility/single-svg-replica/icon-replicas-board-03.js`
+
+### 像素检查
+
+CSV 模拟检查：
+
+```json
+{
+  "pass": true,
+  "maxDiffRatio": 0.0
+}
+```
+
+单图 SVG mask 复刻检查：
+
+```json
+{
+  "pass": true,
+  "maxDiffRatio": 0.0,
+  "cropPaddingRatio": 0.06
+}
+```
+
+第三批已经进入 `#/design-system` 的“图标系统 / 服务工具”区块。业务页里主要能在 `#/station/home`、`#/parking/list`、`#/parking/price`、`#/driver/short-haul/booking`、`#/driver/short-haul/history`、`#/driver/short-haul/points`、`#/driver/queue`、`#/driver/profile` 看到。
+
+## 当前组件库结论
+
+三批合计 27 个图标已经进入统一复刻库，三批 CSV 模拟与单图 SVG mask 复刻结果全部为 `maxDiffRatio = 0.0`。运行 `node scripts/icon_inventory.mjs` 后，当前状态为：52 个基础 SVG、27 个复刻 SVG mask、49 个已使用语义、0 个缺失。后续新增图标必须继续先进入 `ICON_LIBRARY` 和清单，再按 3x3 组补充校准，不允许页面局部临时画图标。

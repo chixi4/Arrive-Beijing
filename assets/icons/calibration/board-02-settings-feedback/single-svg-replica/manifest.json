@@ -1,0 +1,245 @@
+{
+  "source": "assets/icons/calibration/board-02-settings-feedback/board-clean.png",
+  "out": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica",
+  "threshold": 128,
+  "cropPaddingRatio": 0.06,
+  "diffThreshold": 0.05,
+  "pass": true,
+  "maxDiffRatio": 0.0,
+  "icons": [
+    {
+      "name": "message",
+      "target": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/targets/01-message.png",
+      "enlarged": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/enlarged-3x/01-message@3x.png",
+      "replicaPng": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/replica-png/01-message.png",
+      "svg": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/svg/01-message.svg",
+      "diff": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/diff/01-message.png",
+      "inkBBox": [
+        123,
+        144,
+        370,
+        368
+      ],
+      "displayViewBox": [
+        108,
+        129,
+        277,
+        254
+      ],
+      "rectangles": 127,
+      "pathLength": 2667,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "globe",
+      "target": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/targets/02-globe.png",
+      "enlarged": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/enlarged-3x/02-globe@3x.png",
+      "replicaPng": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/replica-png/02-globe.png",
+      "svg": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/svg/02-globe.svg",
+      "diff": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/diff/02-globe.png",
+      "inkBBox": [
+        93,
+        135,
+        324,
+        364
+      ],
+      "displayViewBox": [
+        79,
+        121,
+        259,
+        257
+      ],
+      "rectangles": 449,
+      "pathLength": 9373,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "accessibility",
+      "target": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/targets/03-accessibility.png",
+      "enlarged": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/enlarged-3x/03-accessibility@3x.png",
+      "replicaPng": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/replica-png/03-accessibility.png",
+      "svg": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/svg/03-accessibility.svg",
+      "diff": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/diff/03-accessibility.png",
+      "inkBBox": [
+        72,
+        135,
+        278,
+        372
+      ],
+      "displayViewBox": [
+        58,
+        121,
+        234,
+        265
+      ],
+      "rectangles": 416,
+      "pathLength": 8639,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "shield",
+      "target": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/targets/04-shield.png",
+      "enlarged": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/enlarged-3x/04-shield@3x.png",
+      "replicaPng": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/replica-png/04-shield.png",
+      "svg": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/svg/04-shield.svg",
+      "diff": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/diff/04-shield.png",
+      "inkBBox": [
+        132,
+        66,
+        351,
+        326
+      ],
+      "displayViewBox": [
+        116,
+        50,
+        251,
+        292
+      ],
+      "rectangles": 386,
+      "pathLength": 8008,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "lock",
+      "target": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/targets/05-lock.png",
+      "enlarged": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/enlarged-3x/05-lock@3x.png",
+      "replicaPng": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/replica-png/05-lock.png",
+      "svg": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/svg/05-lock.svg",
+      "diff": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/diff/05-lock.png",
+      "inkBBox": [
+        109,
+        65,
+        306,
+        321
+      ],
+      "displayViewBox": [
+        94,
+        50,
+        227,
+        286
+      ],
+      "rectangles": 248,
+      "pathLength": 5102,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "ear",
+      "target": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/targets/06-ear.png",
+      "enlarged": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/enlarged-3x/06-ear@3x.png",
+      "replicaPng": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/replica-png/06-ear.png",
+      "svg": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/svg/06-ear.svg",
+      "diff": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/diff/06-ear.png",
+      "inkBBox": [
+        68,
+        63,
+        296,
+        324
+      ],
+      "displayViewBox": [
+        52,
+        47,
+        260,
+        293
+      ],
+      "rectangles": 496,
+      "pathLength": 10139,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "feedback",
+      "target": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/targets/07-feedback.png",
+      "enlarged": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/enlarged-3x/07-feedback@3x.png",
+      "replicaPng": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/replica-png/07-feedback.png",
+      "svg": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/svg/07-feedback.svg",
+      "diff": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/diff/07-feedback.png",
+      "inkBBox": [
+        128,
+        34,
+        363,
+        249
+      ],
+      "displayViewBox": [
+        114,
+        20,
+        263,
+        243
+      ],
+      "rectangles": 266,
+      "pathLength": 5502,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "phone",
+      "target": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/targets/08-phone.png",
+      "enlarged": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/enlarged-3x/08-phone@3x.png",
+      "replicaPng": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/replica-png/08-phone.png",
+      "svg": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/svg/08-phone.svg",
+      "diff": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/diff/08-phone.png",
+      "inkBBox": [
+        93,
+        26,
+        318,
+        255
+      ],
+      "displayViewBox": [
+        79,
+        12,
+        253,
+        257
+      ],
+      "rectangles": 389,
+      "pathLength": 7927,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "mail",
+      "target": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/targets/09-mail.png",
+      "enlarged": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/enlarged-3x/09-mail@3x.png",
+      "replicaPng": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/replica-png/09-mail.png",
+      "svg": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/svg/09-mail.svg",
+      "diff": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/diff/09-mail.png",
+      "inkBBox": [
+        51,
+        49,
+        294,
+        241
+      ],
+      "displayViewBox": [
+        36,
+        34,
+        273,
+        222
+      ],
+      "rectangles": 357,
+      "pathLength": 7017,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    }
+  ]
+}

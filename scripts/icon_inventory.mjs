@@ -5,18 +5,8 @@ import path from "node:path";
 const ROOT = path.resolve(new URL("..", import.meta.url).pathname);
 const APP = path.join(ROOT, "app.js");
 const OUT = path.join(ROOT, "docs", "ui", "icon-inventory.json");
-const REPLICA = path.join(
-  ROOT,
-  "assets",
-  "icons",
-  "calibration",
-  "board-01-high-frequency",
-  "single-svg-replica",
-  "icon-replicas-board-01.js"
-);
 
 const source = fs.readFileSync(APP, "utf8");
-const replicaSource = fs.existsSync(REPLICA) ? fs.readFileSync(REPLICA, "utf8") : "";
 const lines = source.split("\n");
 
 function lineOf(index) {
@@ -41,7 +31,19 @@ function extractObjectBody(name) {
 const libraryBody = extractObjectBody("ICON_LIBRARY");
 const aliasBody = extractObjectBody("ICON_ALIASES");
 const library = [...libraryBody.matchAll(/^\s{2}([a-zA-Z0-9_-]+):\s*`/gm)].map((m) => m[1]).sort();
-const replicas = [...replicaSource.matchAll(/^\s{2}"([^"]+)":\s*\{/gm)].map((m) => m[1]).sort();
+const replicaFiles = fs
+  .readdirSync(path.join(ROOT, "assets", "icons", "calibration"), { withFileTypes: true })
+  .filter((entry) => entry.isDirectory())
+  .flatMap((entry) => {
+    const dir = path.join(ROOT, "assets", "icons", "calibration", entry.name, "single-svg-replica");
+    if (!fs.existsSync(dir)) return [];
+    return fs
+      .readdirSync(dir)
+      .filter((file) => file.startsWith("icon-replicas-") && file.endsWith(".js"))
+      .map((file) => path.join(dir, file));
+  });
+const replicaSource = replicaFiles.map((file) => fs.readFileSync(file, "utf8")).join("\n");
+const replicas = [...new Set([...replicaSource.matchAll(/^\s{2}"([^"]+)":\s*\{/gm)].map((m) => m[1]))].sort();
 const aliases = Object.fromEntries([...aliasBody.matchAll(/^\s{2}([a-zA-Z0-9_-]+):\s*"([a-zA-Z0-9_-]+)"/gm)].map((m) => [m[1], m[2]]));
 
 const usage = new Map();
