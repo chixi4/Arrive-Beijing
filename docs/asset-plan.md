@@ -40,7 +40,7 @@
 - 首都机场
 - 大兴机场
 
-最终成品：
+第一版成品（保留作历史资产）：
 
 - `assets/bitmap/stations/beijing-station.png`
 - `assets/bitmap/stations/beijing-west-station.png`
@@ -52,6 +52,12 @@
 - `assets/bitmap/stations/tongzhou-station.png`
 - `assets/bitmap/stations/capital-airport.png`
 - `assets/bitmap/stations/daxing-airport.png`
+
+二次校准成品：
+
+- `assets/bitmap/stations-v2/master/*.png`：每个站点的生图主图，保留用于后续重切。
+- `assets/bitmap/stations-v2/landscape/*.png`：`960 × 540` 横版图，供首页头图使用。
+- `assets/bitmap/stations-v2/portrait/*.png`：`720 × 900` 竖版图，供站点选择/切换卡片使用。
 
 ### 场景与演示图
 

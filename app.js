@@ -22,16 +22,29 @@ const stations = [
 ];
 
 const stationHeroAssets = {
-  beijing: "assets/bitmap/stations/beijing-station.png",
-  west: "assets/bitmap/stations/beijing-west-station.png",
-  south: "assets/bitmap/stations/beijing-south-station.png",
-  north: "assets/bitmap/stations/beijing-north-station.png",
-  chaoyang: "assets/bitmap/stations/chaoyang-station.png",
-  qinghe: "assets/bitmap/stations/qinghe-station.png",
-  yizhuang: "assets/bitmap/stations/yizhuang-station.png",
-  tongzhou: "assets/bitmap/stations/tongzhou-station.png",
-  capital: "assets/bitmap/stations/capital-airport.png",
-  daxing: "assets/bitmap/stations/daxing-airport.png",
+  beijing: "assets/bitmap/stations-v2/landscape/beijing.png",
+  west: "assets/bitmap/stations-v2/landscape/west.png",
+  south: "assets/bitmap/stations-v2/landscape/south.png",
+  north: "assets/bitmap/stations-v2/landscape/north.png",
+  chaoyang: "assets/bitmap/stations-v2/landscape/chaoyang.png",
+  qinghe: "assets/bitmap/stations-v2/landscape/qinghe.png",
+  yizhuang: "assets/bitmap/stations-v2/landscape/yizhuang.png",
+  tongzhou: "assets/bitmap/stations-v2/landscape/tongzhou.png",
+  capital: "assets/bitmap/stations-v2/landscape/capital.png",
+  daxing: "assets/bitmap/stations-v2/landscape/daxing.png",
+};
+
+const stationPortraitAssets = {
+  beijing: "assets/bitmap/stations-v2/portrait/beijing.png",
+  west: "assets/bitmap/stations-v2/portrait/west.png",
+  south: "assets/bitmap/stations-v2/portrait/south.png",
+  north: "assets/bitmap/stations-v2/portrait/north.png",
+  chaoyang: "assets/bitmap/stations-v2/portrait/chaoyang.png",
+  qinghe: "assets/bitmap/stations-v2/portrait/qinghe.png",
+  yizhuang: "assets/bitmap/stations-v2/portrait/yizhuang.png",
+  tongzhou: "assets/bitmap/stations-v2/portrait/tongzhou.png",
+  capital: "assets/bitmap/stations-v2/portrait/capital.png",
+  daxing: "assets/bitmap/stations-v2/portrait/daxing.png",
 };
 
 const stationIconAssets = Object.fromEntries(stations.map(([id, , src]) => [id, src]));
@@ -362,8 +375,10 @@ function anchorIcon(name, className = "") {
   return renderIcon(name, className ? `anchor-icon ${className}` : "anchor-icon");
 }
 
-function stationHeroImage(id) {
-  return stationHeroAssets[id] || stationHeroAssets.west;
+function stationHeroImage(id, variant = "landscape") {
+  const assets = variant === "portrait" ? stationPortraitAssets : stationHeroAssets;
+  const src = assets[id] || assets.west;
+  return `${src}?v=20260524-29`;
 }
 
 function stationIconImage(id) {
@@ -1709,7 +1724,6 @@ function renderStationHome() {
                     <span class="ab-info-icon tag ${index === 0 ? "danger" : index === 1 ? "warning" : "primary"}">${item.tag}</span>
                     <span>
                       <strong>${item.text}</strong>
-                      <em>点击查看公告详情</em>
                     </span>
                   </span>
                   <span class="ab-info-row-right"><i>›</i></span>
@@ -3412,7 +3426,7 @@ function renderStationSelect(kind) {
             ([id, name]) => `
               <button class="station-slide ${state.draftStation === id ? "active" : ""}" data-station="${id}">
                 <span class="station-slide-media">
-                  <img class="station-slide-photo" src="${stationHeroImage(id)}" alt="${name}">
+                  <img class="station-slide-photo" src="${stationHeroImage(id, "portrait")}" alt="${name}">
                   <span class="station-slide-icon"><img src="${stationIconImage(id)}" alt=""></span>
                 </span>
                 <span class="station-slide-copy">
