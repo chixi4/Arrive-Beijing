@@ -372,7 +372,7 @@ CSV 模拟与单图 SVG mask 复刻均通过，`maxDiffRatio <= 5%`。
 
 ### 生成与修复
 
-这批不再复用 `extracted_page04_station_icons/` 的旧 PNG。目标图来自新站点建筑图的黑白轮廓化处理，只提取建筑外形和主要结构，不读取图片中的文字，也不使用 OCR。轮廓图仍按 3x3 工作流进入 CSV alpha 模拟、单图拆分、3 倍放大和 SVG mask 复刻。
+这批不再复用 `extracted_page04_station_icons/` 的旧 PNG，也不再从站点图片直接算法提取轮廓。正确流程是：先人工视觉查看 10 张站点建筑图，把建筑特征写进提示词，让生图模型重绘成 3x3 黑白 icon target；随后用 `scripts/icon_clean_board.py` 清成纯黑白校准板，再进入 CSV alpha 模拟、单图拆分、3 倍放大和 SVG mask 复刻。这个过程不读取图片中的文字，也不使用 OCR。
 
 ### 文件
 
@@ -406,7 +406,7 @@ CSV 模拟与单图 SVG mask 复刻均通过，`maxDiffRatio = 0.0`。这批图�
 
 ### 生成与修复
 
-大兴机场单独进入第二组；其余重复站点用于保持九宫格构图一致。页面加载顺序为 board-08 后接 board-09，重复语义形状一致，不影响最终显示；`station_capital` 来自 board-08，`station_daxing` 来自 board-09。
+大兴机场单独进入第二组；其余重复站点用于保持九宫格构图一致。第二组同样由生图模型根据站点建筑图视觉特征重绘为 icon target，而不是直接从原图扣轮廓。页面加载顺序为 board-08 后接 board-09，重复语义形状一致，不影响最终显示；`station_capital` 来自 board-08，`station_daxing` 来自 board-09。
 
 ### 文件
 

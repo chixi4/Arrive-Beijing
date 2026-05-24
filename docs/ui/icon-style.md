@@ -10,7 +10,7 @@
 - 已完成单图复刻的高频图标：`pin`、`map`、`route`、`megaphone/notice`、`search`、`user`、`taxi`、`car`、`transfer`、`message`、`globe`、`accessibility`、`shield`、`lock`、`ear`、`feedback`、`phone`、`mail`、`home`、`parking`、`points`、`calendar`、`clock`、`back`、`train/station`、`people`、`history`、`lounge`、`dining`、`charger`、`wifi`、`tea`、`book`、`medical`、`restroom`、`gift/redeem`。
 - 追加的三批覆盖 `check/more/question/refresh/settings/edit/scan/camera/id`、`angry/bike/bus/chat/cup/glove/leaf/logout/paper`、`pillow/plane/grid/handshake/qr/thumb` 等剩余库项，CSV 模拟与 SVG mask 复刻都已通过。
 - 站点轮廓两批覆盖 10 个站点：`station_beijing/station_west/station_south/station_north/station_chaoyang/station_qinghe/station_yizhuang/station_tongzhou/station_capital/station_daxing`，用于站点选择卡片左下角，不再使用旧 PNG。
-- 最新视觉口径：基础业务图标按粗一档的黑色 monoline 目标进入像素复刻链路；站点图标按新站点建筑图提取黑白轮廓，再进入同一 CSV 与 SVG mask 复刻链路。所有批次都通过 `diffRatio <= 5%` 门槛。
+- 最新视觉口径：基础业务图标按粗一档的黑色 monoline 目标进入像素复刻链路；站点图标不能从站点图片直接算法提轮廓，必须先把站点图片作为视觉参考交给生图模型重绘为 3x3 icon target，再进入同一 CSV 与 SVG mask 复刻链路。所有批次都通过 `diffRatio <= 5%` 门槛。
 - 仍需重点校准的图标：当前使用链路无缺失；下一轮只在新增页面出现新语义，或现有页面视觉检查发现具体图标不协调时再扩批。
 
 ## 视觉规范
