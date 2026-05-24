@@ -55,10 +55,19 @@
 
 | Token | Value | 用途 |
 | --- | --- | --- |
-| `--ds-radius-sm` | `8px` | 紧凑控件 |
-| `--ds-radius-md` | `12px` | 常规卡片/输入框 |
-| `--ds-radius-lg` | `16px` | 大卡片/横幅 |
-| `--ds-radius-xl` | `20px` | 强调面板 |
+| `--ds-radius-xs` | `4px` | 极小内嵌控件 |
+| `--ds-radius-sm` | `6px` | 小状态块 |
+| `--ds-radius-md` | `8px` | 基础数值，控件圆角来源 |
+| `--ds-radius-lg` | `10px` | 基础数值，小卡片来源 |
+| `--ds-radius-xl` | `12px` | 基础数值，标准卡片来源 |
+| `--ds-radius-2xl` | `14px` | 基础数值，头图/媒体来源 |
+| `--ds-radius-control` | `8px` | 输入框、分段控件、主按钮 |
+| `--ds-radius-card-sm` | `10px` | 内嵌卡片、列表内部统计格 |
+| `--ds-radius-card` | `12px` | 标准卡片、面板、列表项 |
+| `--ds-radius-media` | `14px` | 首页头图、地图图标、强调媒体块 |
+| `--ds-radius-icon` | `10px` | 功能图标软方块 |
+| `--ds-radius-icon-sm` | `8px` | 小尺寸行内图标底 |
+| `--ds-radius-sheet` | `14px` | 弹层/底部面板 |
 | `--ds-radius-pill` | `999px` | 胶囊按钮/标签 |
 | `--ds-shadow-xs` | `0 1px 2px rgba(29, 39, 51, 0.04)` | 极轻边界 |
 | `--ds-shadow-sm` | `0 4px 12px rgba(29, 39, 51, 0.05)` | 轻卡片 |
@@ -80,6 +89,8 @@
 | `--ds-icon-xl` | `44px` | 功能入口图标容器 |
 | `--ds-icon-empty` | `48px` | 空状态图标 |
 | `--ds-icon-stroke` | `1.85` | 线性图标统一线宽 |
+
+圆角已经按锚点页比例重算：18x9 风格锚点是 `864px` 宽，业务原型画布是 `430px` 宽，所以锚点里的 `24px` 卡片圆角在业务组件里约等于 `12px`。后续业务页优先使用语义 token，不再直接写 `16px`、`18px`、`20px`、`26px` 这类未换算旧值。
 
 ## 组件约定
 

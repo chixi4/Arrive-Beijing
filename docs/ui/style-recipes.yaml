@@ -1,3 +1,12 @@
+token_contract:
+  radius_scale:
+    basis: "18x9 style anchors are 864px wide; business prototype is 430px wide, so anchor radii are applied at roughly 0.5x."
+    control: 8px
+    card_sm: 10px
+    card: 12px
+    media: 14px
+    pill: 999px
+
 recipes:
   home_workbench:
     applies_to:
@@ -12,7 +21,7 @@ recipes:
       card_gap: 10px
     composition:
       hero_card:
-        radius: 26px
+        radius: var(--ds-radius-media)
         image_inside_card: true
         overlay_strength: restrained
         avoid: [edge_cropped_image, decorative_gradient_only, large_empty_hero_area]
@@ -41,10 +50,11 @@ recipes:
     composition:
       search_bar:
         height: 40px
-        radius: 12px
+        radius: var(--ds-radius-control)
       filter_chips:
         active_style: brand_soft
       list_item:
+        radius: var(--ds-radius-card)
         min_height: 72px
         title_weight: 800
         meta_rows: 1_to_2
@@ -141,7 +151,7 @@ recipes:
       archetype: modal
     composition:
       overlay: restrained
-      sheet_radius: 24px
+      sheet_radius: var(--ds-radius-sheet)
       action_grid_icon_size: var(--ds-icon-md)
     visual_rules:
       avoid: [floating_glass, excessive_blur, random_shortcuts]
