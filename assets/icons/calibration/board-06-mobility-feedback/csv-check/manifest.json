@@ -2,6 +2,7 @@
   "source": "assets/icons/calibration/board-06-mobility-feedback/board-clean.png",
   "out": "assets/icons/calibration/board-06-mobility-feedback/csv-check",
   "threshold": 0.05,
+  "maxDiffRatio": 0.0,
   "pass": true,
   "icons": [
     {
@@ -13,9 +14,9 @@
       "actual": "assets/icons/calibration/board-06-mobility-feedback/csv-check/simulated/01-angry.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 1591,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.009106,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -27,9 +28,9 @@
       "actual": "assets/icons/calibration/board-06-mobility-feedback/csv-check/simulated/02-bike.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 1178,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.006742,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -41,9 +42,9 @@
       "actual": "assets/icons/calibration/board-06-mobility-feedback/csv-check/simulated/03-bus.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 1367,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.007824,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -55,9 +56,9 @@
       "actual": "assets/icons/calibration/board-06-mobility-feedback/csv-check/simulated/04-chat.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 934,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.005346,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -69,9 +70,9 @@
       "actual": "assets/icons/calibration/board-06-mobility-feedback/csv-check/simulated/05-cup.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 965,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.005523,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -83,9 +84,9 @@
       "actual": "assets/icons/calibration/board-06-mobility-feedback/csv-check/simulated/06-glove.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 1079,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.006175,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -97,9 +98,9 @@
       "actual": "assets/icons/calibration/board-06-mobility-feedback/csv-check/simulated/07-leaf.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 1332,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.007623,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -111,9 +112,9 @@
       "actual": "assets/icons/calibration/board-06-mobility-feedback/csv-check/simulated/08-logout.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 1041,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.005958,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -125,9 +126,9 @@
       "actual": "assets/icons/calibration/board-06-mobility-feedback/csv-check/simulated/09-paper.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 1449,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.008293,
+      "diffRatio": 0.0,
       "pass": true
     }
   ]

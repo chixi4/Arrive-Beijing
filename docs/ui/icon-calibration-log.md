@@ -237,16 +237,16 @@ CSV 模拟检查：
 
 ### 生成与修复
 
-这批先补齐 `ICON_LIBRARY` 中缺少的服务设施语义，再按 3x3 校准板统一输出黑白 target。重点修复了原来“的士之家”底栏复用 `handshake`、基本信息第一行复用定位图标导致语义不准的问题；现在底栏、基本信息首行和服务按钮都使用同一批复刻图标。
+这批先用生图模型生成 3x3 target，再用 `scripts/icon_clean_board.py` 清成纯黑白校准板，随后走 CSV 切片和单图 SVG mask 复刻。重点修复了原来“的士之家”底栏复用 `handshake`、基本信息第一行复用定位图标导致语义不准的问题；现在底栏、基本信息首行和服务按钮都使用同一批复刻图标。
 
 ### 文件
 
-- SVG 目标板：`assets/icons/calibration/board-04-taxi-house/board.svg`
-- 原始渲染图：`assets/icons/calibration/board-04-taxi-house/generated-raw.png`
+- 原始生图：`assets/icons/calibration/board-04-taxi-house/generated-raw.png`
 - 清理后校准板：`assets/icons/calibration/board-04-taxi-house/board-clean.png`
 - CSV 与切片结果：`assets/icons/calibration/board-04-taxi-house/csv-check/`
 - 单图放大与 SVG mask 复刻：`assets/icons/calibration/board-04-taxi-house/single-svg-replica/`
 - 页面加载脚本：`assets/icons/calibration/board-04-taxi-house/single-svg-replica/icon-replicas-board-04.js`
+- 清理脚本：`scripts/icon_clean_board.py`
 
 ### 像素检查
 
@@ -289,9 +289,14 @@ CSV 模拟检查：
 8. `camera` 相机
 9. `id` 证件
 
+### 生成与修复
+
+这批同样走了生图 raw target、`scripts/icon_clean_board.py` 清理、CSV 切片和单图 SVG mask 复刻的合规链路，最终把控件图标统一到同一套粗一档 monoline 视觉。
+
 ### 结果
 
 CSV 模拟与单图 SVG mask 复刻均通过，`maxDiffRatio <= 5%`。
+重新跑完后，CSV 与 SVG mask 的 `maxDiffRatio` 都是 `0.0`。
 
 ## Board 06 - 出行反馈图标
 
@@ -311,9 +316,14 @@ CSV 模拟与单图 SVG mask 复刻均通过，`maxDiffRatio <= 5%`。
 8. `logout` 退出
 9. `paper` 文档
 
+### 生成与修复
+
+这批同样走了生图 raw target、`scripts/icon_clean_board.py` 清理、CSV 切片和单图 SVG mask 复刻的合规链路，最终把出行反馈图标统一到同一套粗一档 monoline 视觉。
+
 ### 结果
 
 CSV 模拟与单图 SVG mask 复刻均通过，`maxDiffRatio <= 5%`。
+重新跑完后，CSV 与 SVG mask 的 `maxDiffRatio` 都是 `0.0`。
 
 ## Board 07 - 剩余杂项图标
 
@@ -333,9 +343,14 @@ CSV 模拟与单图 SVG mask 复刻均通过，`maxDiffRatio <= 5%`。
 8. `qr` 二维码（复用占位）
 9. `handshake` 握手（复用占位）
 
+### 生成与修复
+
+这批同样走了生图 raw target、`scripts/icon_clean_board.py` 清理、CSV 切片和单图 SVG mask 复刻的合规链路，最终把剩余杂项图标统一到同一套粗一档 monoline 视觉。
+
 ### 结果
 
 CSV 模拟与单图 SVG mask 复刻均通过，`maxDiffRatio <= 5%`。
+重新跑完后，CSV 与 SVG mask 的 `maxDiffRatio` 都是 `0.0`。
 
 ## 当前组件库结论
 

@@ -2486,10 +2486,7 @@ function renderAnnouncementsPage(variant = "top") {
       : announcementItems.filter((item) => item.tag === activeCategory);
   const topItems = filteredItems.slice(0, 4);
   const lowerItems = filteredItems.slice(4);
-  const summaryText =
-    activeCategory === "全部"
-      ? "当前有1条紧急公告"
-      : `当前显示${filteredItems.length}条${activeCategory}公告`;
+  const showUrgentSummary = activeCategory === "全部";
 
   return renderAppShell({
     className: "ab-announcements-page",
@@ -2503,12 +2500,14 @@ function renderAnnouncementsPage(variant = "top") {
         ${renderSelectableGrid(announcementTabs, { activeValue: state.selected.announcementCategory || "全部", selectKey: "announcementCategory", cols: 5 })}
       </section>
 
-      <section class="ab-page-section">
-        <div class="ab-tip-card ab-tip-card--alert">
-          <strong>${summaryText}</strong>
-          <p>请旅客注意查看并遵守相关规定</p>
-        </div>
-      </section>
+      ${showUrgentSummary ? `
+        <section class="ab-page-section">
+          <div class="ab-tip-card ab-tip-card--alert">
+            <strong>当前有1条紧急公告</strong>
+            <p>请旅客注意查看并遵守相关规定</p>
+          </div>
+        </section>
+      ` : ""}
 
       <section class="ab-page-section">
         <div class="ab-record-list">

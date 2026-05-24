@@ -5,7 +5,7 @@
   "cropPaddingRatio": 0.06,
   "diffThreshold": 0.05,
   "pass": true,
-  "maxDiffRatio": 0.008093,
+  "maxDiffRatio": 0.0,
   "icons": [
     {
       "name": "angry",
@@ -15,22 +15,22 @@
       "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/01-angry.svg",
       "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/01-angry.png",
       "inkBBox": [
-        111,
-        112,
-        307,
-        306
+        99,
+        101,
+        379,
+        382
       ],
       "displayViewBox": [
-        99,
-        100,
-        220,
-        218
+        82,
+        84,
+        314,
+        315
       ],
-      "rectangles": 354,
-      "pathLength": 7434,
-      "diffPixels": 1365,
+      "rectangles": 487,
+      "pathLength": 10221,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.007812,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -41,22 +41,22 @@
       "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/02-bike.svg",
       "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/02-bike.png",
       "inkBBox": [
-        106,
-        160,
-        312,
-        306
+        54,
+        136,
+        374,
+        347
       ],
       "displayViewBox": [
-        94,
-        148,
-        230,
-        170
+        35,
+        117,
+        358,
+        249
       ],
-      "rectangles": 265,
-      "pathLength": 5565,
-      "diffPixels": 1009,
+      "rectangles": 564,
+      "pathLength": 11611,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.005775,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -67,22 +67,22 @@
       "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/03-bus.svg",
       "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/03-bus.png",
       "inkBBox": [
-        122,
-        120,
-        296,
-        304
+        35,
+        105,
+        326,
+        387
       ],
       "displayViewBox": [
-        111,
-        109,
-        196,
-        206
+        18,
+        88,
+        325,
+        316
       ],
-      "rectangles": 122,
-      "pathLength": 2562,
-      "diffPixels": 1290,
+      "rectangles": 291,
+      "pathLength": 5800,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.007383,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -93,22 +93,22 @@
       "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/04-chat.svg",
       "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/04-chat.png",
       "inkBBox": [
-        122,
-        133,
-        296,
-        296
+        99,
+        81,
+        376,
+        332
       ],
       "displayViewBox": [
-        112,
-        123,
-        194,
-        183
+        82,
+        64,
+        311,
+        285
       ],
-      "rectangles": 121,
-      "pathLength": 2541,
-      "diffPixels": 858,
+      "rectangles": 265,
+      "pathLength": 5519,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.004911,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -119,22 +119,22 @@
       "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/05-cup.svg",
       "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/05-cup.png",
       "inkBBox": [
-        135,
-        163,
-        304,
-        317
+        101,
+        60,
+        313,
+        340
       ],
       "displayViewBox": [
-        125,
-        153,
-        189,
-        174
+        84,
+        43,
+        246,
+        314
       ],
-      "rectangles": 139,
-      "pathLength": 2919,
-      "diffPixels": 884,
+      "rectangles": 184,
+      "pathLength": 3791,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.005059,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -145,22 +145,22 @@
       "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/06-glove.svg",
       "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/06-glove.png",
       "inkBBox": [
-        130,
-        128,
-        276,
-        298
+        80,
+        52,
+        290,
+        341
       ],
       "displayViewBox": [
-        120,
-        118,
-        166,
-        190
+        63,
+        35,
+        244,
+        323
       ],
-      "rectangles": 181,
-      "pathLength": 3801,
-      "diffPixels": 919,
+      "rectangles": 325,
+      "pathLength": 6492,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.00526,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -171,22 +171,22 @@
       "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/07-leaf.svg",
       "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/07-leaf.png",
       "inkBBox": [
-        133,
-        117,
-        315,
-        301
+        134,
+        29,
+        360,
+        290
       ],
       "displayViewBox": [
-        122,
-        106,
-        204,
-        206
+        118,
+        13,
+        258,
+        293
       ],
-      "rectangles": 310,
-      "pathLength": 6510,
-      "diffPixels": 1108,
+      "rectangles": 411,
+      "pathLength": 8483,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.006341,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -197,22 +197,22 @@
       "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/08-logout.svg",
       "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/08-logout.png",
       "inkBBox": [
-        122,
-        122,
-        274,
-        296
+        104,
+        34,
+        332,
+        286
       ],
       "displayViewBox": [
-        112,
-        112,
-        172,
-        194
+        89,
+        19,
+        258,
+        282
       ],
-      "rectangles": 147,
-      "pathLength": 3087,
-      "diffPixels": 919,
+      "rectangles": 182,
+      "pathLength": 3727,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.00526,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -223,22 +223,22 @@
       "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/09-paper.svg",
       "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/09-paper.png",
       "inkBBox": [
-        144,
-        109,
-        296,
-        309
+        66,
+        26,
+        290,
+        296
       ],
       "displayViewBox": [
-        132,
-        97,
-        176,
-        224
+        50,
+        10,
+        256,
+        302
       ],
-      "rectangles": 103,
-      "pathLength": 2163,
-      "diffPixels": 1414,
+      "rectangles": 167,
+      "pathLength": 3211,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.008093,
+      "diffRatio": 0.0,
       "pass": true
     }
   ]

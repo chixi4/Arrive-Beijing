@@ -2,6 +2,7 @@
   "source": "assets/icons/calibration/board-07-remaining-utility/board-clean.png",
   "out": "assets/icons/calibration/board-07-remaining-utility/csv-check",
   "threshold": 0.05,
+  "maxDiffRatio": 0.0,
   "pass": true,
   "icons": [
     {
@@ -13,9 +14,9 @@
       "actual": "assets/icons/calibration/board-07-remaining-utility/csv-check/simulated/01-pillow.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 1061,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.006072,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -27,9 +28,9 @@
       "actual": "assets/icons/calibration/board-07-remaining-utility/csv-check/simulated/02-plane.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 970,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.005552,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -41,9 +42,9 @@
       "actual": "assets/icons/calibration/board-07-remaining-utility/csv-check/simulated/03-grid.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 1639,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.009381,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -55,9 +56,9 @@
       "actual": "assets/icons/calibration/board-07-remaining-utility/csv-check/simulated/04-handshake.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 807,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.004619,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -69,9 +70,9 @@
       "actual": "assets/icons/calibration/board-07-remaining-utility/csv-check/simulated/05-qr.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 1436,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.008219,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -83,9 +84,9 @@
       "actual": "assets/icons/calibration/board-07-remaining-utility/csv-check/simulated/06-thumb.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 1194,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.006834,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -97,9 +98,9 @@
       "actual": "assets/icons/calibration/board-07-remaining-utility/csv-check/simulated/07-grid.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 1634,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.009352,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -111,9 +112,9 @@
       "actual": "assets/icons/calibration/board-07-remaining-utility/csv-check/simulated/08-qr.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 1436,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.008219,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -125,9 +126,9 @@
       "actual": "assets/icons/calibration/board-07-remaining-utility/csv-check/simulated/09-handshake.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 797,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.004561,
+      "diffRatio": 0.0,
       "pass": true
     }
   ]
