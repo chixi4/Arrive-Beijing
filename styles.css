@@ -542,6 +542,16 @@ body.desktop-preview #app {
   flex: none;
 }
 
+.icon[data-icon="search"],
+.anchor-icon[data-icon="search"] {
+  transform: translateX(1px);
+}
+
+.icon[data-icon="car"],
+.anchor-icon[data-icon="car"] {
+  transform: scale(1.18);
+}
+
 .icon.sm {
   width: 16px;
   height: 16px;

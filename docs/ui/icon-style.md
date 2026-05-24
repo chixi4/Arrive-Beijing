@@ -16,6 +16,7 @@
 - 手写图标使用 `stroke="currentColor"`，`fill="none"`，`stroke-width: var(--ds-icon-stroke, 1.85)`。
 - 单图复刻图标使用目标图真实黑色线条的 `inkBBox` 加少量 padding 生成自定义 viewBox，并使用 `fill="currentColor"`、`stroke="none"` 的 mask path。
 - 线性图标保持 `stroke-linecap="round"`，`stroke-linejoin="round"`。
+- 允许少量语义级光学校正：例如 `search` 因斜柄导致小尺寸视觉偏左，统一右移 `1px`；`car` 因横向车身在方形盒中显小，统一放大 `1.18`。
 - 默认不要渐变、阴影、3D、彩色填充或装饰性光效。
 - 页面级不直接改图标大小；优先使用 `--ds-icon-xs/sm/md/lg/xl/empty`。
 
