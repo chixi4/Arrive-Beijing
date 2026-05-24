@@ -7891,6 +7891,230 @@ body.desktop-preview #app {
   background: rgba(245, 247, 251, 0.98);
 }
 
+/* Business-page typography calibration: larger text with lighter Chinese weights. */
+.ab-page {
+  font-size: 15px;
+  line-height: var(--ds-line-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.ab-page strong,
+.ab-page b {
+  font-weight: 600;
+}
+
+.ab-topbar {
+  height: 54px;
+}
+
+.ab-topbar-copy h1 {
+  font-size: 20px;
+  line-height: 1.14;
+  font-weight: 700;
+}
+
+.ab-topbar-copy p {
+  font-size: 13.5px;
+  font-weight: 400;
+}
+
+.ab-topbar-action,
+.ab-section-link {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.ab-section-title h2 {
+  font-size: 18px;
+  line-height: 1.24;
+  font-weight: 700;
+}
+
+.ab-home-hero-copy p,
+.ab-home-hero-flow,
+.ab-home-badge {
+  font-weight: 600;
+}
+
+.ab-home-hero-copy h1 {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.ab-home-weather strong {
+  font-weight: 800;
+}
+
+.ab-home-weather span,
+.ab-station-chip {
+  font-weight: 700;
+}
+
+.ab-info-row {
+  min-height: 54px;
+  padding-top: 9px;
+  padding-bottom: 8px;
+}
+
+.ab-info-list.compact .ab-info-row {
+  min-height: 50px;
+  padding-top: 8px;
+  padding-bottom: 7px;
+}
+
+.ab-info-row strong,
+.ab-action-tile strong,
+.ab-preview-card strong,
+.ab-panel-head h2,
+.ab-record-head strong,
+.ab-profile-card-copy strong,
+.ab-tip-card strong,
+.ab-map-shell-main strong,
+.ab-route-plan-main strong,
+.ab-route-plan-card strong,
+.ab-traffic-stop-left strong,
+.ab-traffic-ride-copy strong,
+.ab-traffic-metro-head strong,
+.ab-traffic-bus-copy strong,
+.ab-traffic-compare-copy strong,
+.ab-parking-card-head strong,
+.ab-queue-station-copy strong,
+.ab-station-area-head strong,
+.ab-station-banner-copy strong,
+.ab-station-house-copy strong,
+.ab-target-copy strong,
+.ab-meal-card-head strong,
+.ab-reward-card strong,
+.ab-journey-card-main strong,
+.ab-house-hero-copy strong,
+.ab-review-head strong {
+  font-size: 15.5px;
+  line-height: 1.28;
+  font-weight: 600;
+}
+
+.ab-panel-head h2,
+.ab-tip-card strong,
+.ab-house-hero-copy strong {
+  font-size: 16.5px;
+  font-weight: 700;
+}
+
+.ab-info-row em,
+.ab-action-tile em,
+.ab-preview-card em,
+.ab-panel-head p,
+.ab-tip-card p,
+.ab-record-card p,
+.ab-record-reply,
+.ab-profile-card-copy em,
+.ab-nav-visual-note,
+.ab-map-shell-main em,
+.ab-route-plan-main em,
+.ab-route-plan-card em,
+.ab-traffic-stop-left em,
+.ab-traffic-ride-copy em,
+.ab-traffic-bus-copy em,
+.ab-traffic-compare-copy em,
+.ab-queue-station-copy em,
+.ab-station-banner-copy em,
+.ab-station-house-copy em,
+.ab-target-copy em,
+.ab-meal-card-copy em,
+.ab-reward-card em,
+.ab-journey-card-main span,
+.ab-house-density em,
+.ab-review-head span,
+.ab-review-copy p {
+  font-size: 13px;
+  line-height: 1.42;
+  font-weight: 400;
+}
+
+.ab-info-row-right,
+.ab-traffic-meta,
+.ab-queue-status-line,
+.ab-queue-count,
+.ab-parking-card-foot,
+.ab-parking-card-usage,
+.ab-parking-card-note {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.ab-info-row-right b,
+.ab-parking-card-usage b,
+.ab-route-plan-side b {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.ab-info-icon.tag,
+.ab-record-tag,
+.ab-status-pill,
+.ab-small-badge,
+.ab-line-badge {
+  font-weight: 700;
+}
+
+.ab-select-chip,
+.ab-segment,
+.ab-nav-search,
+.ab-nav-search button,
+.ab-nav-visual-top span,
+.ab-nav-floor-rail button,
+.ab-nav-current-dot,
+.ab-nav-target-dot,
+.ab-station-map-tag,
+.ab-traffic-ride-action,
+.ab-traffic-metro-foot button,
+.ab-station-banner b,
+.ab-reward-foot button {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.ab-service-card .ab-action-tile strong {
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.ab-service-card .ab-action-tile em {
+  font-size: 12.5px;
+  font-weight: 400;
+}
+
+.ab-stat-card strong,
+.ab-queue-station-grid strong,
+.ab-station-area-grid strong,
+.ab-traffic-metro-grid strong,
+.ab-traffic-metro-foot span,
+.ab-traffic-ride-price,
+.ab-traffic-compare-value b,
+.ab-house-density b,
+.ab-redeem-summary b,
+.ab-reward-foot b,
+.ab-journey-card-tail b,
+.ab-meal-card-price,
+.ab-meal-card-counter span {
+  font-weight: 800;
+}
+
+.ab-stat-card span,
+.ab-traffic-metro-grid span,
+.ab-queue-station-grid span,
+.ab-station-area-grid span,
+.ab-house-density span,
+.ab-redeem-summary strong {
+  font-weight: 500;
+}
+
+.ab-bottom-nav-item {
+  font-size: 12px;
+  font-weight: 500;
+}
+
 @media (max-width: 430px) {
   #app {
     width: 100vw;
