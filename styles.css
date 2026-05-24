@@ -36,11 +36,19 @@
   --ds-space-12: 48px;
   --ds-space-14: 56px;
   --ds-space-16: 64px;
-  --ds-radius-xs: 6px;
-  --ds-radius-sm: 8px;
-  --ds-radius-md: 12px;
-  --ds-radius-lg: 16px;
-  --ds-radius-xl: 20px;
+  --ds-radius-xs: 4px;
+  --ds-radius-sm: 6px;
+  --ds-radius-md: 8px;
+  --ds-radius-lg: 10px;
+  --ds-radius-xl: 12px;
+  --ds-radius-2xl: 14px;
+  --ds-radius-control: var(--ds-radius-md);
+  --ds-radius-card-sm: var(--ds-radius-lg);
+  --ds-radius-card: var(--ds-radius-xl);
+  --ds-radius-media: var(--ds-radius-2xl);
+  --ds-radius-icon: var(--ds-radius-lg);
+  --ds-radius-icon-sm: var(--ds-radius-md);
+  --ds-radius-sheet: var(--ds-radius-2xl);
   --ds-radius-pill: 999px;
   --ds-shadow-xs: 0 1px 2px rgba(29, 39, 51, 0.04);
   --ds-shadow-sm: 0 4px 12px rgba(29, 39, 51, 0.05);
@@ -95,10 +103,10 @@
   --amber-soft: var(--ds-color-warning-soft);
   --shadow: var(--ds-shadow-md);
   --shadow-soft: var(--ds-shadow-sm);
-  --radius-sm: 10px;
-  --radius-md: 14px;
-  --radius-lg: 18px;
-  --radius-xl: 22px;
+  --radius-sm: var(--ds-radius-md);
+  --radius-md: var(--ds-radius-lg);
+  --radius-lg: var(--ds-radius-xl);
+  --radius-xl: var(--ds-radius-2xl);
   --page-pad: var(--ds-page-pad);
   --nav-h: var(--ds-nav-h);
   --page-w: var(--ds-page-w);
@@ -589,7 +597,7 @@ body.desktop-preview #app {
 .card {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: var(--radius-md);
+  border-radius: var(--ds-radius-card);
   box-shadow: var(--shadow-soft);
 }
 
@@ -600,7 +608,7 @@ body.desktop-preview #app {
 .soft-card {
   background: var(--surface-soft);
   border: 1px solid rgba(223, 230, 239, 0.8);
-  border-radius: var(--radius-md);
+  border-radius: var(--ds-radius-card);
 }
 
 .chip-row,
@@ -813,7 +821,7 @@ body.desktop-preview #app {
 
 .ds-swatch-chip {
   height: 34px;
-  border-radius: 10px;
+  border-radius: var(--ds-radius-card-sm);
   border: 1px solid rgba(29, 39, 51, 0.08);
   background: var(--swatch);
 }
@@ -836,6 +844,45 @@ body.desktop-preview #app {
 }
 
 .ds-swatch code {
+  margin-top: 4px;
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+}
+
+.ds-radius-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.ds-radius-sample {
+  min-height: 58px;
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+}
+
+.ds-radius-sample span {
+  width: 64px;
+  height: 42px;
+  border-radius: var(--sample-radius);
+  border: 1px solid var(--ds-color-primary-soft-strong);
+  background: var(--blue-soft);
+}
+
+.ds-radius-sample strong,
+.ds-radius-sample code {
+  display: block;
+}
+
+.ds-radius-sample strong {
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: 850;
+}
+
+.ds-radius-sample code {
   margin-top: 4px;
   color: var(--muted);
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -926,7 +973,7 @@ body.desktop-preview #app {
 .ds-list-card {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: var(--ds-radius-md);
+  border-radius: var(--ds-radius-card);
   overflow: hidden;
 }
 
@@ -949,7 +996,7 @@ body.desktop-preview #app {
 .ds-list-row-icon {
   width: 32px;
   height: 32px;
-  border-radius: 10px;
+  border-radius: var(--ds-radius-icon);
   display: grid;
   place-items: center;
   background: var(--blue-soft);
@@ -1009,7 +1056,7 @@ body.desktop-preview #app {
   min-height: 86px;
   padding: 10px 8px;
   border: 1px solid var(--line);
-  border-radius: var(--ds-radius-md);
+  border-radius: var(--ds-radius-card);
   background: var(--surface-soft);
   display: grid;
   justify-items: center;
@@ -1021,7 +1068,7 @@ body.desktop-preview #app {
 .ds-icon-sample > span {
   width: 38px;
   height: 38px;
-  border-radius: 12px;
+  border-radius: var(--ds-radius-icon);
   display: grid;
   place-items: center;
   background: var(--blue-soft);
@@ -1049,7 +1096,7 @@ body.desktop-preview #app {
   gap: 10px;
   padding: 0 14px;
   border: 1px solid var(--line);
-  border-radius: var(--ds-radius-md);
+  border-radius: var(--ds-radius-control);
   background: var(--surface);
   color: var(--muted);
 }
@@ -1069,7 +1116,7 @@ body.desktop-preview #app {
   min-height: 104px;
   padding: 12px 14px;
   border: 1px solid var(--line);
-  border-radius: var(--ds-radius-md);
+  border-radius: var(--ds-radius-card-sm);
   background: var(--surface);
   color: var(--subtle);
   font-size: 14px;
@@ -1083,7 +1130,7 @@ body.desktop-preview #app {
   align-items: center;
   gap: 12px;
   padding: 14px;
-  border-radius: var(--ds-radius-lg);
+  border-radius: var(--ds-radius-card);
   border: 1px solid var(--ds-color-primary-soft-strong);
   background: linear-gradient(180deg, #f6faff, #eef6ff);
 }
@@ -1091,7 +1138,7 @@ body.desktop-preview #app {
 .ds-callout-icon {
   width: 40px;
   height: 40px;
-  border-radius: 12px;
+  border-radius: var(--ds-radius-icon);
   display: grid;
   place-items: center;
   color: #fff;
@@ -5019,7 +5066,7 @@ body.desktop-preview #app {
 .ab-topbar-action {
   min-height: 32px;
   padding: 0 12px;
-  border-radius: 999px;
+  border-radius: var(--ds-radius-pill);
   background: var(--blue-soft);
   color: var(--blue);
   font-size: 13px;
@@ -5035,7 +5082,7 @@ body.desktop-preview #app {
 .ab-icon-btn {
   width: 36px;
   height: 36px;
-  border-radius: 999px;
+  border-radius: var(--ds-radius-pill);
   display: grid;
   place-items: center;
   border: 1px solid var(--line);
@@ -5061,7 +5108,7 @@ body.desktop-preview #app {
 }
 
 .ab-home-hero-card {
-  border-radius: 26px;
+  border-radius: var(--ds-radius-media);
   overflow: hidden;
   background: #d8e8ff;
   border: 1px solid rgba(255, 255, 255, 0.72);
@@ -5095,7 +5142,7 @@ body.desktop-preview #app {
 .ab-station-chip {
   min-height: 38px;
   padding: 0 14px 0 12px;
-  border-radius: 999px;
+  border-radius: var(--ds-radius-pill);
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -5172,7 +5219,7 @@ body.desktop-preview #app {
 .ab-home-badge {
   min-height: 30px;
   padding: 0 10px;
-  border-radius: 999px;
+  border-radius: var(--ds-radius-pill);
   display: inline-flex;
   align-items: center;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -5190,7 +5237,7 @@ body.desktop-preview #app {
   min-height: 58px;
   padding: 12px 14px;
   border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius: var(--ds-radius-card);
   background: var(--surface);
   box-shadow: var(--shadow-soft);
   width: 100%;
@@ -5227,7 +5274,7 @@ body.desktop-preview #app {
 .ab-info-icon {
   width: 34px;
   height: 34px;
-  border-radius: 11px;
+  border-radius: var(--ds-radius-icon);
   display: grid;
   place-items: center;
   flex: none;
@@ -5245,7 +5292,7 @@ body.desktop-preview #app {
   width: auto;
   height: 24px;
   padding: 0 8px;
-  border-radius: 8px;
+  border-radius: var(--ds-radius-control);
   color: #fff;
   font-size: 12px;
   font-weight: 800;
@@ -5323,7 +5370,7 @@ body.desktop-preview #app {
   min-height: 104px;
   padding: 12px;
   border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius: var(--ds-radius-card);
   background: var(--surface);
   box-shadow: var(--shadow-soft);
   display: grid;
@@ -5335,7 +5382,7 @@ body.desktop-preview #app {
 .ab-action-tile-icon {
   width: 44px;
   height: 44px;
-  border-radius: 14px;
+  border-radius: var(--ds-radius-icon);
   display: grid;
   place-items: center;
   background: var(--ab-tile-bg, var(--blue-soft));
@@ -5370,7 +5417,7 @@ body.desktop-preview #app {
   min-height: 108px;
   padding: 12px;
   border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius: var(--ds-radius-card);
   background: var(--surface);
   box-shadow: var(--shadow-soft);
   text-align: left;
@@ -5381,7 +5428,7 @@ body.desktop-preview #app {
 .ab-preview-card-icon {
   width: 40px;
   height: 40px;
-  border-radius: 12px;
+  border-radius: var(--ds-radius-icon);
   display: grid;
   place-items: center;
   background: var(--blue-soft);
@@ -5409,7 +5456,7 @@ body.desktop-preview #app {
 .ab-panel {
   padding: 14px;
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: var(--ds-radius-card);
   background: var(--surface);
   box-shadow: var(--shadow-soft);
   display: grid;
@@ -5459,7 +5506,7 @@ body.desktop-preview #app {
   min-height: 44px;
   padding: 10px 8px;
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: var(--ds-radius-control);
   background: var(--surface);
   color: var(--text);
   box-shadow: var(--shadow-soft);
@@ -5500,7 +5547,7 @@ body.desktop-preview #app {
   min-height: 120px;
   padding: 12px 14px;
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: var(--ds-radius-card-sm);
   background: var(--surface-soft);
   display: flex;
   flex-direction: column;
@@ -5524,7 +5571,7 @@ body.desktop-preview #app {
 
 .ab-upload-tile {
   min-height: 96px;
-  border-radius: 16px;
+  border-radius: var(--ds-radius-card);
   border: 1px dashed #c8d4e2;
   background: #fbfcfe;
   display: grid;
@@ -5541,7 +5588,7 @@ body.desktop-preview #app {
 
 .ab-tip-card {
   padding: 14px;
-  border-radius: 16px;
+  border-radius: var(--ds-radius-card);
   border: 1px solid var(--ds-color-primary-soft-strong);
   background: linear-gradient(180deg, #f6faff, #eef6ff);
   display: grid;
@@ -5574,7 +5621,7 @@ body.desktop-preview #app {
 .ab-record-card {
   padding: 14px;
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: var(--ds-radius-card);
   background: var(--surface);
   box-shadow: var(--shadow-soft);
   text-align: left;
@@ -5607,7 +5654,7 @@ body.desktop-preview #app {
 .ab-record-tag {
   min-height: 24px;
   padding: 0 8px;
-  border-radius: 8px;
+  border-radius: var(--ds-radius-control);
   display: inline-flex;
   align-items: center;
   color: #fff;
@@ -5640,7 +5687,7 @@ body.desktop-preview #app {
 
 .ab-record-reply {
   padding: 10px 12px;
-  border-radius: 14px;
+  border-radius: var(--ds-radius-card-sm);
   background: #f4f8ff;
   border: 1px solid #d8e6ff;
   color: #4c658f;
@@ -5657,7 +5704,7 @@ body.desktop-preview #app {
   min-height: 88px;
   padding: 14px;
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: var(--ds-radius-card);
   background: var(--surface);
   box-shadow: var(--shadow);
   display: grid;
@@ -5670,7 +5717,7 @@ body.desktop-preview #app {
 .ab-avatar {
   width: 52px;
   height: 52px;
-  border-radius: 16px;
+  border-radius: var(--ds-radius-icon);
   display: grid;
   place-items: center;
   background: linear-gradient(180deg, #dceeff, #f4f9ff);
@@ -5710,7 +5757,7 @@ body.desktop-preview #app {
   min-height: 84px;
   padding: 12px 10px;
   border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius: var(--ds-radius-card);
   background: var(--surface);
   box-shadow: var(--shadow-soft);
   display: grid;
@@ -5751,7 +5798,7 @@ body.desktop-preview #app {
 .ab-segment-strip {
   padding: 4px;
   border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius: var(--ds-radius-card-sm);
   background: var(--surface-soft);
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -5760,7 +5807,7 @@ body.desktop-preview #app {
 
 .ab-segment {
   min-height: 40px;
-  border-radius: 12px;
+  border-radius: var(--ds-radius-control);
   background: transparent;
   color: var(--muted);
   font-size: 14px;
@@ -5782,7 +5829,7 @@ body.desktop-preview #app {
   width: 100%;
   min-height: 48px;
   padding: 0 16px;
-  border-radius: 14px;
+  border-radius: var(--ds-radius-control);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -5869,7 +5916,7 @@ body.desktop-preview #app {
 .ab-status-pill {
   min-height: 24px;
   padding: 0 8px;
-  border-radius: 8px;
+  border-radius: var(--ds-radius-control);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -5906,7 +5953,7 @@ body.desktop-preview #app {
 .ab-small-badge {
   min-height: 22px;
   padding: 0 8px;
-  border-radius: 999px;
+  border-radius: var(--ds-radius-pill);
   background: var(--blue-soft);
   color: var(--blue);
   font-size: 11px;
@@ -5919,7 +5966,7 @@ body.desktop-preview #app {
 
 .ab-progress {
   height: 8px;
-  border-radius: 999px;
+  border-radius: var(--ds-radius-pill);
   background: #edf1f6;
   overflow: hidden;
 }
@@ -5986,7 +6033,7 @@ body.desktop-preview #app {
 .ab-station-house,
 .ab-route-plan-card {
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: var(--ds-radius-card);
   background: var(--surface);
   box-shadow: var(--shadow-soft);
 }
@@ -6023,7 +6070,7 @@ body.desktop-preview #app {
 .ab-map-shell-icon {
   width: 72px;
   height: 72px;
-  border-radius: 20px;
+  border-radius: var(--ds-radius-media);
   display: grid;
   place-items: center;
   background: #fff;
@@ -6058,7 +6105,7 @@ body.desktop-preview #app {
   min-width: 44px;
   height: 28px;
   padding: 0 10px;
-  border-radius: 999px;
+  border-radius: var(--ds-radius-pill);
   background: #fff;
   border: 1px solid var(--line);
   display: grid;
@@ -6087,7 +6134,7 @@ body.desktop-preview #app {
   min-height: 32px;
   padding: 0 12px;
   border: 1px solid transparent;
-  border-radius: 999px;
+  border-radius: var(--ds-radius-pill);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -6195,7 +6242,7 @@ body.desktop-preview #app {
 .ab-traffic-stop-icon {
   width: 30px;
   height: 30px;
-  border-radius: 10px;
+  border-radius: var(--ds-radius-icon-sm);
   display: grid;
   place-items: center;
   background: var(--blue-soft);
@@ -6248,7 +6295,7 @@ body.desktop-preview #app {
 .ab-traffic-ride-icon {
   width: 32px;
   height: 32px;
-  border-radius: 10px;
+  border-radius: var(--ds-radius-icon-sm);
   display: grid;
   place-items: center;
   background: var(--blue-soft);
@@ -6288,7 +6335,7 @@ body.desktop-preview #app {
   min-width: 54px;
   height: 32px;
   padding: 0 12px;
-  border-radius: 10px;
+  border-radius: var(--ds-radius-control);
   background: var(--blue);
   color: #fff;
   display: grid;
@@ -6313,7 +6360,7 @@ body.desktop-preview #app {
 .ab-line-badge {
   min-height: 24px;
   padding: 0 8px;
-  border-radius: 8px;
+  border-radius: var(--ds-radius-control);
   display: inline-flex;
   align-items: center;
   color: #fff;
@@ -6346,7 +6393,7 @@ body.desktop-preview #app {
 
 .ab-traffic-metro-grid div {
   padding: 10px 10px 12px;
-  border-radius: 14px;
+  border-radius: var(--ds-radius-card-sm);
   background: var(--surface-soft);
   display: grid;
   gap: 4px;
@@ -6379,7 +6426,7 @@ body.desktop-preview #app {
 .ab-traffic-metro-foot button {
   min-height: 36px;
   padding: 0 14px;
-  border-radius: 10px;
+  border-radius: var(--ds-radius-control);
   background: var(--green);
   color: #fff;
   font-size: 13px;
@@ -6399,7 +6446,7 @@ body.desktop-preview #app {
 .ab-traffic-bus-icon {
   width: 52px;
   height: 52px;
-  border-radius: 16px;
+  border-radius: var(--ds-radius-icon);
   background: var(--blue-soft);
   color: var(--blue);
   display: grid;
@@ -6461,7 +6508,7 @@ body.desktop-preview #app {
   padding-left: 12px;
   padding-right: 12px;
   border-bottom-color: transparent;
-  border-radius: 14px;
+  border-radius: var(--ds-radius-card-sm);
 }
 
 .ab-traffic-compare-copy strong {
@@ -6556,7 +6603,7 @@ body.desktop-preview #app {
 
 .ab-table-card {
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: var(--ds-radius-card);
   overflow: hidden;
   background: var(--surface);
   box-shadow: var(--shadow-soft);
@@ -6613,7 +6660,7 @@ body.desktop-preview #app {
 .ab-queue-search {
   height: 66px;
   padding: 0 16px;
-  border-radius: 999px;
+  border-radius: var(--ds-radius-control);
   background: #fff;
   border: 1px solid rgba(223, 230, 239, 0.95);
   box-shadow: var(--shadow-soft);
@@ -6706,7 +6753,7 @@ body.desktop-preview #app {
 .ab-queue-station-icon {
   width: 40px;
   height: 40px;
-  border-radius: 12px;
+  border-radius: var(--ds-radius-icon);
   display: grid;
   place-items: center;
   background: var(--blue-soft);
@@ -6748,7 +6795,7 @@ body.desktop-preview #app {
 
 .ab-queue-station-grid div {
   padding: 10px 8px;
-  border-radius: 14px;
+  border-radius: var(--ds-radius-card-sm);
   background: var(--surface-soft);
   display: grid;
   gap: 4px;
@@ -6775,7 +6822,7 @@ body.desktop-preview #app {
 
 .ab-station-hero {
   padding: 16px;
-  border-radius: 20px;
+  border-radius: var(--ds-radius-media);
   background: linear-gradient(180deg, #3d82df, #3675d2);
   color: #fff;
   box-shadow: var(--shadow);
@@ -6844,7 +6891,7 @@ body.desktop-preview #app {
 
 .ab-station-area-grid div {
   padding: 10px 8px;
-  border-radius: 14px;
+  border-radius: var(--ds-radius-card-sm);
   background: var(--surface-soft);
   display: grid;
   gap: 4px;
@@ -6900,7 +6947,7 @@ body.desktop-preview #app {
   min-width: 72px;
   min-height: 36px;
   padding: 0 12px;
-  border-radius: 12px;
+  border-radius: var(--ds-radius-control);
   background: rgba(255, 255, 255, 0.2);
   display: grid;
   place-items: center;
@@ -6927,7 +6974,7 @@ body.desktop-preview #app {
 .ab-station-house-icon {
   width: 44px;
   height: 44px;
-  border-radius: 14px;
+  border-radius: var(--ds-radius-icon);
   display: grid;
   place-items: center;
   background: #e5f7ef;
@@ -6969,7 +7016,7 @@ body.desktop-preview #app {
 .ab-target-icon {
   width: 44px;
   height: 44px;
-  border-radius: 14px;
+  border-radius: var(--ds-radius-icon);
   display: grid;
   place-items: center;
   background: var(--blue-soft);
@@ -7059,7 +7106,7 @@ body.desktop-preview #app {
 
 .ab-redeem-summary {
   padding: 16px;
-  border-radius: 18px;
+  border-radius: var(--ds-radius-card);
   background: #eaf2ff;
   border: 1px solid #d8e6ff;
   display: flex;
@@ -7107,7 +7154,7 @@ body.desktop-preview #app {
 .ab-reward-icon {
   width: 46px;
   height: 46px;
-  border-radius: 16px;
+  border-radius: var(--ds-radius-icon);
   display: grid;
   place-items: center;
   margin: 0 auto;
@@ -7148,7 +7195,7 @@ body.desktop-preview #app {
 .ab-reward-foot button {
   min-height: 32px;
   padding: 0 12px;
-  border-radius: 10px;
+  border-radius: var(--ds-radius-control);
   background: var(--blue);
   color: #fff;
   font-size: 13px;
@@ -7218,7 +7265,7 @@ body.desktop-preview #app {
 
 .ab-house-density {
   padding: 14px;
-  border-radius: 18px;
+  border-radius: var(--ds-radius-card);
   background: rgba(255, 255, 255, 0.16);
   border: 1px solid rgba(255, 255, 255, 0.12);
   display: grid;
@@ -7245,7 +7292,7 @@ body.desktop-preview #app {
 
 .ab-house-progress {
   height: 10px;
-  border-radius: 999px;
+  border-radius: var(--ds-radius-pill);
   background: rgba(255, 255, 255, 0.16);
   overflow: hidden;
 }
@@ -7271,7 +7318,7 @@ body.desktop-preview #app {
 .ab-house-location-icon {
   width: 44px;
   height: 44px;
-  border-radius: 16px;
+  border-radius: var(--ds-radius-icon);
   display: grid;
   place-items: center;
   background: #e5f7ef;

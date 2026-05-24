@@ -1021,6 +1021,14 @@ function renderDesignSystem() {
     ["悬浮阴影", "--ds-shadow-md", "0 8px 24px rgba(29, 39, 51, 0.06)"],
   ];
 
+  const radiusTokens = [
+    ["控件圆角", "--ds-radius-control", "8px"],
+    ["小卡片", "--ds-radius-card-sm", "10px"],
+    ["标准卡片", "--ds-radius-card", "12px"],
+    ["头图/媒体", "--ds-radius-media", "14px"],
+    ["胶囊", "--ds-radius-pill", "999px"],
+  ];
+
   const typeRows = [
     ["页面标题", "38px / 1.12 / 800", "设计系统"],
     ["分区标题", "18px / 1.12 / 850", "组件库"],
@@ -1146,6 +1154,28 @@ function renderDesignSystem() {
                     <div>
                       <strong>${label}</strong>
                       <code>${token}</code>
+                    </div>
+                  </article>
+                `
+              )
+              .join("")}
+          </div>
+        </section>
+
+        <section class="ds-section">
+          <div class="ds-section-title">
+            <h2>圆角 Token</h2>
+            <span>按 430px 业务画布校准</span>
+          </div>
+          <div class="card padded ds-radius-grid">
+            ${radiusTokens
+              .map(
+                ([label, token, value]) => `
+                  <article class="ds-radius-sample" style="--sample-radius:var(${token})">
+                    <span aria-hidden="true"></span>
+                    <div>
+                      <strong>${label}</strong>
+                      <code>${token} · ${value}</code>
                     </div>
                   </article>
                 `
