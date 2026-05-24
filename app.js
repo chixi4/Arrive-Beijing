@@ -250,14 +250,17 @@ const ICON_LIBRARY = {
   angry: `<circle cx="12" cy="12" r="8"></circle><path d="m8.2 8.6 2.2 1.1"></path><path d="m15.8 8.6-2.2 1.1"></path><path d="M8.4 16.4c2.1-1.5 5.1-1.5 7.2 0"></path>`,
   back: `<path d="M15.5 5 8.5 12l7 7"></path>`,
   bike: `<circle cx="6.5" cy="17" r="3"></circle><circle cx="17.5" cy="17" r="3"></circle><path d="m9.5 17 2.5-6 2.5 6"></path><path d="M10 11h4.8l2.7 6"></path><path d="M8.5 8.5h3"></path>`,
+  book: `<path d="M5 5.5h6.2c1.1 0 2 .9 2 2v12.2c-.6-.8-1.4-1.2-2.4-1.2H5z"></path><path d="M19 5.5h-5.8c-1.1 0-2 .9-2 2v12.2c.6-.8 1.4-1.2 2.4-1.2H19z"></path><path d="M11.2 7.5v12"></path>`,
   bus: `<rect x="5" y="4.8" width="14" height="13.5" rx="2.2"></rect><path d="M8 8.6h8"></path><path d="M8 12.2h8"></path><path d="M7.8 18.3v1.5"></path><path d="M16.2 18.3v1.5"></path>`,
   calendar: `<rect x="4.5" y="5.5" width="15" height="14" rx="2.2"></rect><path d="M8.2 3.8v4"></path><path d="M15.8 3.8v4"></path><path d="M4.5 10h15"></path><path d="M8 14h3"></path><path d="M13 14h3"></path>`,
   camera: `<rect x="4" y="7" width="16" height="11" rx="2.2"></rect><path d="M8.6 7 10 4.8h4l1.4 2.2"></path><circle cx="12" cy="12.7" r="3"></circle>`,
   car: `<path d="M5.2 13.5h13.6l-1.1-4.3a2.3 2.3 0 0 0-2.2-1.7h-7a2.3 2.3 0 0 0-2.2 1.7z"></path><path d="M4.5 13.5v4.3"></path><path d="M19.5 13.5v4.3"></path><circle cx="8" cy="17.5" r="1.35"></circle><circle cx="16" cy="17.5" r="1.35"></circle>`,
   chat: `<path d="M5 6h14v9.2H9.2L5 19z"></path><path d="M8.2 10.6h.1"></path><path d="M12 10.6h.1"></path><path d="M15.8 10.6h.1"></path>`,
   check: `<path d="m5.8 12.5 4.1 4.1 8.3-8.6"></path>`,
+  charger: `<rect x="7.5" y="3.8" width="9" height="16.4" rx="2.4"></rect><path d="M10.2 7h3.6"></path><path d="m12.8 10-2.2 3.2h2.1l-1.4 3.3 3.4-4.5h-2.3z"></path>`,
   clock: `<circle cx="12" cy="12" r="8"></circle><path d="M12 7.5v4.8l3.2 1.9"></path>`,
   cup: `<path d="M6.2 8.8h9.5v5.4a4.1 4.1 0 0 1-4.1 4.1H10a3.8 3.8 0 0 1-3.8-3.8z"></path><path d="M15.7 10h2a2.1 2.1 0 0 1 0 4.2h-2"></path><path d="M7.5 21h7"></path>`,
+  dining: `<path d="M7 4.5v7.2"></path><path d="M4.8 4.5v7.2"></path><path d="M9.2 4.5v7.2"></path><path d="M4.8 11.7h4.4"></path><path d="M7 11.7v7.8"></path><path d="M16.8 4.5c-2.3 1.8-3.2 4-3.2 7.4h4.6"></path><path d="M18.2 4.5v15"></path>`,
   edit: `<path d="M4.5 19.5h15"></path><path d="m6.5 16 2-5.8 7-7 4 4-7 7z"></path><path d="m14.4 4.3 4 4"></path>`,
   ear: `<path d="M6.4 11a5.6 5.6 0 1 1 9.4 4.1c-1.3 1.2-1.9 2.1-1.9 3.4a2.4 2.4 0 0 1-2.4 2.4c-1.6 0-2.3-1.2-3.1-2.3"></path><path d="M9 11.2a3 3 0 1 1 4.9 2.2"></path>`,
   feedback: `<path d="M5 6h14v9.5H9.6L5 19.5z"></path><path d="M8.5 9.7h7"></path><path d="M8.5 13h4.7"></path>`,
@@ -272,9 +275,11 @@ const ICON_LIBRARY = {
   leaf: `<path d="M20 4.5c-7.2 0-12.2 3.6-14 9.6 1.3 3.5 4.2 5.4 7.6 5.4 4.2 0 7.2-3.2 7.2-8.4V4.5z"></path><path d="M6 18c3.8-4.2 7.5-7 13.2-9.8"></path>`,
   lock: `<rect x="5" y="10" width="14" height="10" rx="2.2"></rect><path d="M8.5 10V8a3.5 3.5 0 0 1 7 0v2"></path><path d="M12 14v2.4"></path>`,
   logout: `<path d="M10 5H6.5A1.5 1.5 0 0 0 5 6.5v11A1.5 1.5 0 0 0 6.5 19H10"></path><path d="M13 8l4 4-4 4"></path><path d="M17 12H9"></path>`,
+  lounge: `<path d="M4.8 9.2v10.3"></path><path d="M19.2 13.8v5.7"></path><path d="M4.8 15.5h14.4"></path><path d="M7.2 10.2h4.6a1.6 1.6 0 0 1 1.6 1.6v3.7H7.2z"></path><path d="M13.4 12.2h3.8a2 2 0 0 1 2 2v1.3h-5.8z"></path><path d="M7 19.5v1.2"></path><path d="M17 19.5v1.2"></path>`,
   mail: `<rect x="4.5" y="6.5" width="15" height="11" rx="2.2"></rect><path d="m5.4 8 6.6 5 6.6-5"></path>`,
   map: `<path d="M9 19.5 4.2 17.6V5l4.8 1.9 6-1.9 4.8 1.9v12.6L15 17.6z"></path><path d="M9 6.9v12.6"></path><path d="M15 5v12.6"></path>`,
   megaphone: `<path d="M4.5 13.2h4l8.7-6v11.6l-8.7-5.6h-4z"></path><path d="M8.5 13.2 10.2 19"></path><path d="M19.5 10.4c.8.7 1.2 1.6 1.2 2.6s-.4 1.9-1.2 2.6"></path>`,
+  medical: `<rect x="4.8" y="7.5" width="14.4" height="11" rx="2.2"></rect><path d="M9.2 7.5V5.8c0-.8.6-1.4 1.4-1.4h2.8c.8 0 1.4.6 1.4 1.4v1.7"></path><path d="M12 10.5v5"></path><path d="M9.5 13h5"></path>`,
   message: `<path d="M5 6.2h14v9.3H9.2L5 19.4z"></path><path d="M8.4 10.8h7.2"></path><path d="M8.4 13.4h4.5"></path>`,
   more: `<circle cx="5.2" cy="12" r="1.2"></circle><circle cx="12" cy="12" r="1.2"></circle><circle cx="18.8" cy="12" r="1.2"></circle>`,
   paper: `<path d="M7 3.8h8l4 4v12.4H7z"></path><path d="M15 3.8v4h4"></path><path d="M10 12h4.5"></path><path d="M10 15.5h4.5"></path>`,
@@ -288,6 +293,7 @@ const ICON_LIBRARY = {
   qr: `<path d="M4.5 4.5h5v5h-5z"></path><path d="M14.5 4.5h5v5h-5z"></path><path d="M4.5 14.5h5v5h-5z"></path><path d="M14.5 14.5h2v2h-2z"></path><path d="M18.5 14.5v5h-4"></path>`,
   question: `<circle cx="12" cy="12" r="8"></circle><path d="M9.5 9.2A2.8 2.8 0 0 1 12 7.8c1.7 0 3 1 3 2.6 0 2-2.7 2.1-2.7 4.1"></path><path d="M12.3 17.2h.1"></path>`,
   refresh: `<path d="M20 6.5v5h-5"></path><path d="M19 11.5a7 7 0 1 0-2.1 5"></path>`,
+  restroom: `<circle cx="8" cy="6.4" r="1.8"></circle><circle cx="16" cy="6.4" r="1.8"></circle><path d="M6.5 10h3L11 16H9.4v4H6.6v-4H5z"></path><path d="M14.8 10h2.4l1.3 10h-2.8l-.5-4.2-.5 4.2h-2.8z"></path>`,
   route: `<path d="M6 18.5c2.5-3 9.5-.7 12-3.8 1.3-1.6.8-4-1.2-5"></path><circle cx="5.5" cy="18.5" r="2"></circle><circle cx="16.8" cy="7.5" r="2"></circle>`,
   scan: `<path d="M7.2 3.8H4v3.4"></path><path d="M16.8 3.8H20v3.4"></path><path d="M7.2 20.2H4v-3.4"></path><path d="M16.8 20.2H20v-3.4"></path><path d="M7.5 12h9"></path>`,
   search: `<circle cx="10.8" cy="10.8" r="5.9"></circle><path d="m15.2 15.2 4.4 4.4"></path>`,
@@ -297,14 +303,20 @@ const ICON_LIBRARY = {
   thumb: `<path d="M8.2 20.2H5.5a2 2 0 0 1-2-2v-6.4h4.7"></path><path d="M8.2 11.8 12.1 3.7c1.8.4 2.4 1.7 1.9 3.8l-.4 1.8h5.2a2 2 0 0 1 2 2.4l-1.1 5.1a3.2 3.2 0 0 1-3.1 2.5H8.2z"></path>`,
   train: `<rect x="5.5" y="4" width="13" height="14.2" rx="2.6"></rect><path d="M8.4 8.2h7.2"></path><path d="M8.4 12h2.7"></path><path d="M12.9 12h2.7"></path><circle cx="9" cy="15.6" r="1"></circle><circle cx="15" cy="15.6" r="1"></circle><path d="m8.8 21 2-2.8"></path><path d="m15.2 18.2 2 2.8"></path>`,
   transfer: `<path d="M6 8h10.5"></path><path d="m13.8 5.2 2.8 2.8-2.8 2.8"></path><path d="M18 16H7.5"></path><path d="m10.2 13.2-2.8 2.8 2.8 2.8"></path>`,
+  tea: `<path d="M6.3 9.2h9.4v5.1a3.9 3.9 0 0 1-3.9 3.9H10a3.7 3.7 0 0 1-3.7-3.7z"></path><path d="M15.7 10.2h1.8a2 2 0 0 1 0 4h-1.8"></path><path d="M8 20.2h7"></path><path d="M8.2 5.2c-.8.9-.8 1.8 0 2.7"></path><path d="M12 4.6c-.8 1-.8 2 0 3"></path><path d="M15.8 5.2c-.8.9-.8 1.8 0 2.7"></path>`,
   user: `<circle cx="12" cy="8" r="3.5"></circle><path d="M5 20c1.2-4.3 4-6.2 7-6.2s5.8 1.9 7 6.2"></path>`,
+  wifi: `<path d="M5 10.2c4.4-3.8 9.6-3.8 14 0"></path><path d="M8 13.2c2.5-2.1 5.5-2.1 8 0"></path><path d="M10.8 16.2c.8-.7 1.6-.7 2.4 0"></path><circle cx="12" cy="19" r="1"></circle>`,
 };
 
 const ICON_ALIASES = {
   airport: "plane",
   announcement: "megaphone",
+  handshake: "lounge",
+  house: "lounge",
   license: "id",
+  meal: "dining",
   notice: "megaphone",
+  redeem: "gift",
   station: "train",
 };
 
@@ -1101,6 +1113,20 @@ function renderDesignSystem() {
         ["history", "历史"],
       ],
     },
+    {
+      title: "的士之家",
+      icons: [
+        ["lounge", "休息"],
+        ["dining", "餐饮"],
+        ["charger", "充电"],
+        ["wifi", "WIFI"],
+        ["tea", "茶水"],
+        ["book", "阅读"],
+        ["medical", "急救"],
+        ["restroom", "洗手间"],
+        ["gift", "兑换"],
+      ],
+    },
   ];
 
   return `
@@ -1115,7 +1141,7 @@ function renderDesignSystem() {
         <section class="ds-section">
           <div class="ds-section-title">
             <h2>图标系统</h2>
-            <span>三批复刻</span>
+            <span>四批复刻</span>
           </div>
           ${calibrationIconGroups
             .map(
@@ -1316,7 +1342,7 @@ function renderAbFooterNav(kind, activeKey) {
       ? [
           { key: "home", label: "首页", icon: "home", to: "#/driver/queue" },
           { key: "short", label: "短途复载", icon: "taxi", to: "#/driver/short-haul/booking" },
-          { key: "house", label: "的士之家", icon: "handshake", to: "#/driver/taxi-house/info" },
+          { key: "house", label: "的士之家", icon: "lounge", to: "#/driver/taxi-house/info" },
           { key: "profile", label: "身份", icon: "user", to: "#/driver/profile" },
         ]
       : [
@@ -1565,7 +1591,7 @@ function renderStationHome() {
 
       <section class="ab-page-section">
         ${renderSectionTitle("站区公告", `<button class="ab-section-link" data-to="#/announcements">更多 ></button>`)}
-        <div class="ab-info-list ab-announcement-list">
+        <div class="ab-info-list ab-announcement-list compact">
           ${announcements
             .map(
               (text, index) => `
@@ -2107,14 +2133,14 @@ const taxiHouseTabs = [
 ];
 
 const taxiHouseServices = [
-  { key: "免费休息区", label: "免费休息区", toast: "免费休息区（原型演示）" },
-  { key: "餐饮服务", label: "餐饮服务", toast: "餐饮服务（原型演示）" },
-  { key: "充电桩", label: "充电桩", toast: "充电桩（原型演示）" },
-  { key: "免费WIFI", label: "免费WIFI", toast: "免费WIFI（原型演示）" },
-  { key: "茶水供应", label: "茶水供应", toast: "茶水供应（原型演示）" },
-  { key: "阅读角", label: "阅读角", toast: "阅读角（原型演示）" },
-  { key: "医疗急救箱", label: "医疗急救箱", toast: "医疗急救箱（原型演示）" },
-  { key: "洗手间", label: "洗手间", toast: "洗手间（原型演示）" },
+  { key: "免费休息区", label: "免费休息区", icon: "lounge", toast: "免费休息区（原型演示）" },
+  { key: "餐饮服务", label: "餐饮服务", icon: "dining", toast: "餐饮服务（原型演示）" },
+  { key: "充电桩", label: "充电桩", icon: "charger", toast: "充电桩（原型演示）" },
+  { key: "免费WIFI", label: "免费WIFI", icon: "wifi", toast: "免费WIFI（原型演示）" },
+  { key: "茶水供应", label: "茶水供应", icon: "tea", toast: "茶水供应（原型演示）" },
+  { key: "阅读角", label: "阅读角", icon: "book", toast: "阅读角（原型演示）" },
+  { key: "医疗急救箱", label: "医疗急救箱", icon: "medical", toast: "医疗急救箱（原型演示）" },
+  { key: "洗手间", label: "洗手间", icon: "restroom", toast: "洗手间（原型演示）" },
 ];
 
 const taxiHouseReviews = [
@@ -2998,21 +3024,12 @@ function renderTaxiHousePage(variant = "info") {
     info: `
       <section class="ab-page-section">
         ${renderSectionTitle("基本信息")}
-        <div class="ab-panel">
-          <button class="ab-house-location-card" data-toast="北京西站的士之家（原型演示）">
-            <span class="ab-house-location-icon">${iconMarkup("pin")}</span>
-            <span class="ab-house-location-copy">
-              <strong>北京西站的士之家</strong>
-              <em>出租车候客区服务楼2层</em>
-            </span>
-            <i>›</i>
-          </button>
-          ${renderInfoRows([
-            { icon: "pin", label: "地址：北京西站出租车候客区服务楼2F", toast: "地址" },
-            { icon: "clock", label: "开放时间：06:00 - 22:00（全年无休）", toast: "开放时间" },
-            { icon: "user", label: "可容纳：约50名司机同时休息", toast: "容纳量" },
-          ])}
-        </div>
+        ${renderInfoRows([
+          { icon: "lounge", label: "北京西站的士之家", note: "出租车候客区服务楼2层", toast: "北京西站的士之家" },
+          { icon: "pin", label: "地址：北京西站出租车候客区服务楼2F", toast: "地址" },
+          { icon: "clock", label: "开放时间：06:00 - 22:00（全年无休）", toast: "开放时间" },
+          { icon: "people", label: "可容纳：约50名司机同时休息", toast: "容纳量" },
+        ])}
       </section>
 
       <section class="ab-page-section">

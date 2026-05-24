@@ -4,11 +4,11 @@
 
 ## 当前结论
 
-- 当前库：52 个手写 SVG 图标，三批共 27 个单图复刻 SVG mask，5 个语义别名。
-- 当前使用：49 个语义图标，0 个缺失。
+- 当前库：60 个手写 SVG 图标，四批共 36 个单图复刻 SVG mask，9 个语义别名。
+- 当前使用：56 个语义图标，0 个缺失。
 - 已替换的明显误用：`我的积分` 不再用扫码图标，`监督投诉邮箱` 不再用扫码图标，`场站接驳` 不再复用公交图标，`自驾停车` 不再复用小汽车图标，`退出登录` 不再用扫码图标。
-- 已完成单图复刻的高频图标：`pin`、`map`、`route`、`megaphone/notice`、`search`、`user`、`taxi`、`car`、`transfer`、`message`、`globe`、`accessibility`、`shield`、`lock`、`ear`、`feedback`、`phone`、`mail`、`home`、`parking`、`points`、`calendar`、`clock`、`back`、`train/station`、`people`、`history`。
-- 最新视觉口径：三批全部用加粗生图 target 重做，目标为粗一档的黑色 monoline 图标；CSV 模拟和 SVG mask 复刻的三批 `maxDiffRatio` 均为 `0.0`。
+- 已完成单图复刻的高频图标：`pin`、`map`、`route`、`megaphone/notice`、`search`、`user`、`taxi`、`car`、`transfer`、`message`、`globe`、`accessibility`、`shield`、`lock`、`ear`、`feedback`、`phone`、`mail`、`home`、`parking`、`points`、`calendar`、`clock`、`back`、`train/station`、`people`、`history`、`lounge`、`dining`、`charger`、`wifi`、`tea`、`book`、`medical`、`restroom`、`gift/redeem`。
+- 最新视觉口径：四批全部按粗一档的黑色 monoline 图标目标进入像素复刻链路；CSV 模拟和 SVG mask 复刻的四批 `maxDiffRatio` 均为 `0.0`。
 - 仍需重点校准的图标：当前使用链路无缺失；下一轮只在新增页面出现新语义，或现有页面视觉检查发现具体图标不协调时再扩批。
 
 ## 视觉规范
@@ -85,4 +85,16 @@
 8. `people` 人群
 9. `history` 历史
 
-第二、第三批同样记录在 `docs/ui/icon-calibration-log.md`。当前运行时会按脚本加载顺序合并三批 `ICON_REPLICA_LIBRARY`，所以同一语义在页面、底栏、锚点页和设计系统里都走同一套复刻结果。
+第四批覆盖用户指出问题最明显的的士之家链路：
+
+1. `lounge` 休息/的士之家
+2. `dining` 餐饮
+3. `charger` 充电
+4. `wifi` 免费 WIFI
+5. `tea` 茶水
+6. `book` 阅读
+7. `medical` 医疗急救箱
+8. `restroom` 洗手间
+9. `gift` 积分兑换
+
+第二、第三、第四批同样记录在 `docs/ui/icon-calibration-log.md`。当前运行时会按脚本加载顺序合并四批 `ICON_REPLICA_LIBRARY`，所以同一语义在页面、底栏、锚点页和设计系统里都走同一套复刻结果。
