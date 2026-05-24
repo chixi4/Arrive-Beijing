@@ -14,7 +14,7 @@
 
 - 手写图标默认使用 `viewBox="0 0 24 24"`。
 - 手写图标使用 `stroke="currentColor"`，`fill="none"`，`stroke-width: var(--ds-icon-stroke, 1.85)`。
-- 单图复刻图标可以使用从目标图 bbox 拆出的自定义 viewBox，并使用 `fill="currentColor"`、`stroke="none"` 的 mask path。
+- 单图复刻图标使用目标图真实黑色线条的 `inkBBox` 加少量 padding 生成自定义 viewBox，并使用 `fill="currentColor"`、`stroke="none"` 的 mask path。
 - 线性图标保持 `stroke-linecap="round"`，`stroke-linejoin="round"`。
 - 默认不要渐变、阴影、3D、彩色填充或装饰性光效。
 - 页面级不直接改图标大小；优先使用 `--ds-icon-xs/sm/md/lg/xl/empty`。
@@ -39,7 +39,7 @@
 1. 视觉检查：图标语义是否清楚、线宽是否一致、九宫格是否居中、是否有多余文字或装饰。
 2. CSV 模拟：把 3x3 图切成 9 个 cell，按像素亮度生成 alpha CSV 和模拟 PNG。
 3. 像素比对：目标 cell 与 CSV 模拟 PNG 的 `diffRatio <= 5%` 才能进入手写 SVG 复刻或组件库校准。
-4. 单图复刻：把 9 个 cell 拆成独立 PNG 和 3 倍放大图，再生成 `currentColor` SVG mask。完整 cell 的目标图与复刻 PNG 必须 `diffRatio <= 5%`，实际页面 viewBox 使用 bbox 加统一留白，避免白边导致图标过小。
+4. 单图复刻：把 9 个 cell 拆成独立 PNG 和 3 倍放大图，再生成 `currentColor` SVG mask。完整 cell 的目标图与复刻 PNG 必须 `diffRatio <= 5%`，实际页面 viewBox 使用 `inkBBox + padding` 裁边并由浏览器居中，避免白边导致图标过小。
 
 注意：CSV 是像素校准中间产物，不直接作为页面文字或业务事实源。最终页面仍使用可维护的 SVG 组件。
 

@@ -82,23 +82,19 @@ def ink_bbox(image: Image.Image, threshold: int) -> tuple[int, int, int, int]:
     return min(xs), min(ys), max(xs) + 1, max(ys) + 1
 
 
-def fitted_view_box(
-    bbox: tuple[int, int, int, int], size: tuple[int, int], fill_ratio: float
+def cropped_view_box(
+    bbox: tuple[int, int, int, int], size: tuple[int, int], padding_ratio: float
 ) -> tuple[int, int, int, int]:
     x0, y0, x1, y1 = bbox
     width, height = size
     ink_width = x1 - x0
     ink_height = y1 - y0
-    side = round(max(ink_width, ink_height) / fill_ratio)
-    side = max(side, ink_width, ink_height)
-    side = min(side, width, height)
-    cx = (x0 + x1) / 2
-    cy = (y0 + y1) / 2
-    vx = round(cx - side / 2)
-    vy = round(cy - side / 2)
-    vx = max(0, min(width - side, vx))
-    vy = max(0, min(height - side, vy))
-    return vx, vy, side, side
+    padding = round(max(ink_width, ink_height) * padding_ratio)
+    vx = max(0, x0 - padding)
+    vy = max(0, y0 - padding)
+    x2 = min(width, x1 + padding)
+    y2 = min(height, y1 + padding)
+    return vx, vy, x2 - vx, y2 - vy
 
 
 def format_view_box(box: tuple[int, int, int, int]) -> str:
@@ -195,7 +191,7 @@ def replicate(args: argparse.Namespace) -> None:
             path_data = rects_to_path(rects)
             body = svg_body(path_data)
             bbox = ink_bbox(cell, args.threshold)
-            view_box = fitted_view_box(bbox, cell.size, args.fit_ratio)
+            view_box = cropped_view_box(bbox, cell.size, args.padding_ratio)
             replica = draw_rects(cell.size, rects)
             replica.save(replica_path)
             write_svg(svg_path, cell.width, cell.height, body)
@@ -229,7 +225,7 @@ def replicate(args: argparse.Namespace) -> None:
         "source": str(args.input),
         "out": str(out),
         "threshold": args.threshold,
-        "fitRatio": args.fit_ratio,
+        "cropPaddingRatio": args.padding_ratio,
         "diffThreshold": 0.05,
         "pass": all(item["pass"] for item in manifest),
         "maxDiffRatio": max(item["diffRatio"] for item in manifest),
@@ -246,10 +242,10 @@ def main() -> None:
     parser.add_argument("--names", required=True, help="Exactly 9 comma-separated icon names in reading order.")
     parser.add_argument("--threshold", type=int, default=128, help="Pixel luminance threshold for ink extraction.")
     parser.add_argument(
-        "--fit-ratio",
+        "--padding-ratio",
         type=float,
-        default=0.78,
-        help="How much of the generated icon viewport the ink bounding box should occupy.",
+        default=0.06,
+        help="Padding added around the ink bounding box before the page display viewBox is written.",
     )
     parser.set_defaults(func=replicate)
     args = parser.parse_args()
