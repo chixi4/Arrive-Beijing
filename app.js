@@ -3159,11 +3159,11 @@ function renderShortHaulPage(variant = "booking") {
 
       <section class="ab-page-section">
         ${renderSectionTitle("目标车站")}
-        <button class="ab-target-card" data-toast="北京西站（原型演示）">
-          <span class="ab-target-icon">${iconMarkup("pin")}</span>
+        <button class="ab-target-card" data-toast="北京南站（原型演示）">
+          <span class="ab-target-icon">${iconMarkup("station_south")}</span>
           <span class="ab-target-copy">
-            <strong>北京西站</strong>
-            <em>丰台区莲花池东路118号</em>
+            <strong>北京南站</strong>
+            <em>丰台区永外大街12号</em>
           </span>
           <i>›</i>
         </button>
@@ -3267,8 +3267,8 @@ function renderTaxiHousePage(variant = "info") {
       <section class="ab-page-section">
         ${renderSectionTitle("基本信息")}
         ${renderInfoRows([
-          { icon: "lounge", label: "北京西站的士之家", note: "出租车候客区服务楼2层", toast: "北京西站的士之家" },
-          { icon: "pin", label: "地址：北京西站出租车候客区服务楼2F", toast: "地址" },
+          { icon: "lounge", label: "北京南站的士之家", note: "出租车候客区服务楼2层", toast: "北京南站的士之家" },
+          { icon: "pin", label: "地址：北京南站出租车候客区服务楼2F", toast: "地址" },
           { icon: "clock", label: "开放时间：06:00 - 22:00（全年无休）", toast: "开放时间" },
           { icon: "people", label: "可容纳：约50名司机同时休息", toast: "容纳量" },
         ])}
@@ -3341,7 +3341,7 @@ function renderTaxiHousePage(variant = "info") {
       <section class="ab-page-section">
         <div class="ab-house-hero">
           <div class="ab-house-hero-copy">
-            <strong>北京西站 · 司机专属服务中心</strong>
+            <strong>北京南站 · 司机专属服务中心</strong>
             <div class="ab-house-density">
               <span>当前休息司机密度</span>
               <b>78%</b>
