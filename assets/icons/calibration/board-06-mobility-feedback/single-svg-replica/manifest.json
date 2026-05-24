@@ -1,0 +1,245 @@
+{
+  "source": "assets/icons/calibration/board-06-mobility-feedback/board-clean.png",
+  "out": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica",
+  "threshold": 128,
+  "cropPaddingRatio": 0.06,
+  "diffThreshold": 0.05,
+  "pass": true,
+  "maxDiffRatio": 0.008093,
+  "icons": [
+    {
+      "name": "angry",
+      "target": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/targets/01-angry.png",
+      "enlarged": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/enlarged-3x/01-angry@3x.png",
+      "replicaPng": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/replica-png/01-angry.png",
+      "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/01-angry.svg",
+      "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/01-angry.png",
+      "inkBBox": [
+        111,
+        112,
+        307,
+        306
+      ],
+      "displayViewBox": [
+        99,
+        100,
+        220,
+        218
+      ],
+      "rectangles": 354,
+      "pathLength": 7434,
+      "diffPixels": 1365,
+      "totalPixels": 174724,
+      "diffRatio": 0.007812,
+      "pass": true
+    },
+    {
+      "name": "bike",
+      "target": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/targets/02-bike.png",
+      "enlarged": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/enlarged-3x/02-bike@3x.png",
+      "replicaPng": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/replica-png/02-bike.png",
+      "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/02-bike.svg",
+      "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/02-bike.png",
+      "inkBBox": [
+        106,
+        160,
+        312,
+        306
+      ],
+      "displayViewBox": [
+        94,
+        148,
+        230,
+        170
+      ],
+      "rectangles": 265,
+      "pathLength": 5565,
+      "diffPixels": 1009,
+      "totalPixels": 174724,
+      "diffRatio": 0.005775,
+      "pass": true
+    },
+    {
+      "name": "bus",
+      "target": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/targets/03-bus.png",
+      "enlarged": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/enlarged-3x/03-bus@3x.png",
+      "replicaPng": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/replica-png/03-bus.png",
+      "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/03-bus.svg",
+      "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/03-bus.png",
+      "inkBBox": [
+        122,
+        120,
+        296,
+        304
+      ],
+      "displayViewBox": [
+        111,
+        109,
+        196,
+        206
+      ],
+      "rectangles": 122,
+      "pathLength": 2562,
+      "diffPixels": 1290,
+      "totalPixels": 174724,
+      "diffRatio": 0.007383,
+      "pass": true
+    },
+    {
+      "name": "chat",
+      "target": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/targets/04-chat.png",
+      "enlarged": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/enlarged-3x/04-chat@3x.png",
+      "replicaPng": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/replica-png/04-chat.png",
+      "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/04-chat.svg",
+      "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/04-chat.png",
+      "inkBBox": [
+        122,
+        133,
+        296,
+        296
+      ],
+      "displayViewBox": [
+        112,
+        123,
+        194,
+        183
+      ],
+      "rectangles": 121,
+      "pathLength": 2541,
+      "diffPixels": 858,
+      "totalPixels": 174724,
+      "diffRatio": 0.004911,
+      "pass": true
+    },
+    {
+      "name": "cup",
+      "target": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/targets/05-cup.png",
+      "enlarged": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/enlarged-3x/05-cup@3x.png",
+      "replicaPng": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/replica-png/05-cup.png",
+      "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/05-cup.svg",
+      "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/05-cup.png",
+      "inkBBox": [
+        135,
+        163,
+        304,
+        317
+      ],
+      "displayViewBox": [
+        125,
+        153,
+        189,
+        174
+      ],
+      "rectangles": 139,
+      "pathLength": 2919,
+      "diffPixels": 884,
+      "totalPixels": 174724,
+      "diffRatio": 0.005059,
+      "pass": true
+    },
+    {
+      "name": "glove",
+      "target": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/targets/06-glove.png",
+      "enlarged": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/enlarged-3x/06-glove@3x.png",
+      "replicaPng": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/replica-png/06-glove.png",
+      "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/06-glove.svg",
+      "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/06-glove.png",
+      "inkBBox": [
+        130,
+        128,
+        276,
+        298
+      ],
+      "displayViewBox": [
+        120,
+        118,
+        166,
+        190
+      ],
+      "rectangles": 181,
+      "pathLength": 3801,
+      "diffPixels": 919,
+      "totalPixels": 174724,
+      "diffRatio": 0.00526,
+      "pass": true
+    },
+    {
+      "name": "leaf",
+      "target": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/targets/07-leaf.png",
+      "enlarged": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/enlarged-3x/07-leaf@3x.png",
+      "replicaPng": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/replica-png/07-leaf.png",
+      "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/07-leaf.svg",
+      "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/07-leaf.png",
+      "inkBBox": [
+        133,
+        117,
+        315,
+        301
+      ],
+      "displayViewBox": [
+        122,
+        106,
+        204,
+        206
+      ],
+      "rectangles": 310,
+      "pathLength": 6510,
+      "diffPixels": 1108,
+      "totalPixels": 174724,
+      "diffRatio": 0.006341,
+      "pass": true
+    },
+    {
+      "name": "logout",
+      "target": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/targets/08-logout.png",
+      "enlarged": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/enlarged-3x/08-logout@3x.png",
+      "replicaPng": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/replica-png/08-logout.png",
+      "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/08-logout.svg",
+      "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/08-logout.png",
+      "inkBBox": [
+        122,
+        122,
+        274,
+        296
+      ],
+      "displayViewBox": [
+        112,
+        112,
+        172,
+        194
+      ],
+      "rectangles": 147,
+      "pathLength": 3087,
+      "diffPixels": 919,
+      "totalPixels": 174724,
+      "diffRatio": 0.00526,
+      "pass": true
+    },
+    {
+      "name": "paper",
+      "target": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/targets/09-paper.png",
+      "enlarged": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/enlarged-3x/09-paper@3x.png",
+      "replicaPng": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/replica-png/09-paper.png",
+      "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/09-paper.svg",
+      "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/09-paper.png",
+      "inkBBox": [
+        144,
+        109,
+        296,
+        309
+      ],
+      "displayViewBox": [
+        132,
+        97,
+        176,
+        224
+      ],
+      "rectangles": 103,
+      "pathLength": 2163,
+      "diffPixels": 1414,
+      "totalPixels": 174724,
+      "diffRatio": 0.008093,
+      "pass": true
+    }
+  ]
+}

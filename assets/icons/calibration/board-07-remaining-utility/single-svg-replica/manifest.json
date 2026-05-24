@@ -1,0 +1,245 @@
+{
+  "source": "assets/icons/calibration/board-07-remaining-utility/board-clean.png",
+  "out": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica",
+  "threshold": 128,
+  "cropPaddingRatio": 0.06,
+  "diffThreshold": 0.05,
+  "pass": true,
+  "maxDiffRatio": 0.008316,
+  "icons": [
+    {
+      "name": "pillow",
+      "target": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/targets/01-pillow.png",
+      "enlarged": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/enlarged-3x/01-pillow@3x.png",
+      "replicaPng": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/replica-png/01-pillow.png",
+      "svg": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/svg/01-pillow.svg",
+      "diff": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/diff/01-pillow.png",
+      "inkBBox": [
+        117,
+        146,
+        301,
+        272
+      ],
+      "displayViewBox": [
+        106,
+        135,
+        206,
+        148
+      ],
+      "rectangles": 94,
+      "pathLength": 1974,
+      "diffPixels": 964,
+      "totalPixels": 174724,
+      "diffRatio": 0.005517,
+      "pass": true
+    },
+    {
+      "name": "plane",
+      "target": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/targets/02-plane.png",
+      "enlarged": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/enlarged-3x/02-plane@3x.png",
+      "replicaPng": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/replica-png/02-plane.png",
+      "svg": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/svg/02-plane.svg",
+      "diff": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/diff/02-plane.png",
+      "inkBBox": [
+        109,
+        142,
+        309,
+        304
+      ],
+      "displayViewBox": [
+        97,
+        130,
+        224,
+        186
+      ],
+      "rectangles": 275,
+      "pathLength": 5775,
+      "diffPixels": 797,
+      "totalPixels": 174724,
+      "diffRatio": 0.004561,
+      "pass": true
+    },
+    {
+      "name": "grid",
+      "target": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/targets/03-grid.png",
+      "enlarged": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/enlarged-3x/03-grid@3x.png",
+      "replicaPng": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/replica-png/03-grid.png",
+      "svg": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/svg/03-grid.svg",
+      "diff": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/diff/03-grid.png",
+      "inkBBox": [
+        117,
+        117,
+        301,
+        301
+      ],
+      "displayViewBox": [
+        106,
+        106,
+        206,
+        206
+      ],
+      "rectangles": 177,
+      "pathLength": 3717,
+      "diffPixels": 1448,
+      "totalPixels": 174724,
+      "diffRatio": 0.008287,
+      "pass": true
+    },
+    {
+      "name": "handshake",
+      "target": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/targets/04-handshake.png",
+      "enlarged": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/enlarged-3x/04-handshake@3x.png",
+      "replicaPng": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/replica-png/04-handshake.png",
+      "svg": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/svg/04-handshake.svg",
+      "diff": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/diff/04-handshake.png",
+      "inkBBox": [
+        110,
+        167,
+        308,
+        297
+      ],
+      "displayViewBox": [
+        98,
+        155,
+        222,
+        154
+      ],
+      "rectangles": 302,
+      "pathLength": 6342,
+      "diffPixels": 732,
+      "totalPixels": 174724,
+      "diffRatio": 0.004189,
+      "pass": true
+    },
+    {
+      "name": "qr",
+      "target": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/targets/05-qr.png",
+      "enlarged": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/enlarged-3x/05-qr@3x.png",
+      "replicaPng": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/replica-png/05-qr.png",
+      "svg": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/svg/05-qr.svg",
+      "diff": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/diff/05-qr.png",
+      "inkBBox": [
+        117,
+        117,
+        301,
+        301
+      ],
+      "displayViewBox": [
+        106,
+        106,
+        206,
+        206
+      ],
+      "rectangles": 103,
+      "pathLength": 2163,
+      "diffPixels": 1359,
+      "totalPixels": 174724,
+      "diffRatio": 0.007778,
+      "pass": true
+    },
+    {
+      "name": "thumb",
+      "target": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/targets/06-thumb.png",
+      "enlarged": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/enlarged-3x/06-thumb@3x.png",
+      "replicaPng": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/replica-png/06-thumb.png",
+      "svg": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/svg/06-thumb.svg",
+      "diff": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/diff/06-thumb.png",
+      "inkBBox": [
+        106,
+        108,
+        316,
+        309
+      ],
+      "displayViewBox": [
+        93,
+        95,
+        236,
+        227
+      ],
+      "rectangles": 199,
+      "pathLength": 4179,
+      "diffPixels": 1024,
+      "totalPixels": 174724,
+      "diffRatio": 0.005861,
+      "pass": true
+    },
+    {
+      "name": "grid",
+      "target": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/targets/07-grid.png",
+      "enlarged": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/enlarged-3x/07-grid@3x.png",
+      "replicaPng": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/replica-png/07-grid.png",
+      "svg": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/svg/07-grid.svg",
+      "diff": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/diff/07-grid.png",
+      "inkBBox": [
+        117,
+        117,
+        301,
+        301
+      ],
+      "displayViewBox": [
+        106,
+        106,
+        206,
+        206
+      ],
+      "rectangles": 177,
+      "pathLength": 3717,
+      "diffPixels": 1453,
+      "totalPixels": 174724,
+      "diffRatio": 0.008316,
+      "pass": true
+    },
+    {
+      "name": "qr",
+      "target": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/targets/08-qr.png",
+      "enlarged": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/enlarged-3x/08-qr@3x.png",
+      "replicaPng": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/replica-png/08-qr.png",
+      "svg": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/svg/08-qr.svg",
+      "diff": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/diff/08-qr.png",
+      "inkBBox": [
+        117,
+        117,
+        301,
+        301
+      ],
+      "displayViewBox": [
+        106,
+        106,
+        206,
+        206
+      ],
+      "rectangles": 103,
+      "pathLength": 2163,
+      "diffPixels": 1359,
+      "totalPixels": 174724,
+      "diffRatio": 0.007778,
+      "pass": true
+    },
+    {
+      "name": "handshake",
+      "target": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/targets/09-handshake.png",
+      "enlarged": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/enlarged-3x/09-handshake@3x.png",
+      "replicaPng": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/replica-png/09-handshake.png",
+      "svg": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/svg/09-handshake.svg",
+      "diff": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/diff/09-handshake.png",
+      "inkBBox": [
+        110,
+        167,
+        308,
+        297
+      ],
+      "displayViewBox": [
+        98,
+        155,
+        222,
+        154
+      ],
+      "rectangles": 302,
+      "pathLength": 6342,
+      "diffPixels": 729,
+      "totalPixels": 174724,
+      "diffRatio": 0.004172,
+      "pass": true
+    }
+  ]
+}

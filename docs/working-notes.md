@@ -78,6 +78,8 @@
 - 的士之家基本信息页修掉了旧组件混用问题：首行“北京西站的士之家”不再使用单独的 `ab-house-location-card`，改为和地址、开放时间、可容纳量同一组 `ab-info-row`，左侧图标、行高和左右内边距统一。
 - 新增第四批 3x3 图标校准板 `board-04-taxi-house`，覆盖 `lounge/dining/charger/wifi/tea/book/medical/restroom/gift`，CSV 模拟与单图 SVG mask 复刻都为 `maxDiffRatio = 0.0`；司机端底栏和的士之家服务入口已接入这批图标。
 - 重新定位个人中心等页面卡片底部 hover 白条：根因不是信息行 padding，而是固定高度 `mobile-preview-app` 中 `.ab-page-body` 作为 grid 时默认 `align-content: normal/stretch`，把页面剩余高度分摊到各个 auto track，导致 `ab-info-list` 被父级拉高、最后一行下方留下白色内部空白。已将 `.ab-page-body` 设为 `align-content: start`，实测基础设置卡片最后一行到容器底部的间隙从约 10.469px 收敛为 1px 边框。
+- 本轮继续补齐图标系统：新增 `board-05-interface-controls`、`board-06-mobility-feedback`、`board-07-remaining-utility` 三批复刻板，把之前仍回落到手写 `ICON_LIBRARY` 的 `check/more/question/refresh/settings/edit/scan/camera/id/angry/bike/bus/chat/cup/glove/leaf/logout/paper/pillow/plane/grid/handshake/qr/thumb` 全部接入 `ICON_REPLICA_LIBRARY`。重新跑 `node scripts/icon_inventory.mjs` 后，60 个基础图标都有复刻 SVG mask，已用语义 0 缺失。
+- 站区公告页的 `全部/紧急/通知/提示/活动` 已从“跳回同一路由”改为真正的筛选按钮：点击分类会写入 `state.selected.announcementCategory` 并过滤公告列表；`提示` 类别同时匹配 `12306实名核验系统升级提醒` 与 `行李托运服务操作流程更新` 两条公告。
 
 ## 设计判断
 
