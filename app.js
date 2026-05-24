@@ -6,19 +6,18 @@ if ("scrollRestoration" in history) {
 }
 
 const IMG = "extracted_screenshots/";
-const ICON = "extracted_page04_station_icons/";
 
 const stations = [
-  ["beijing", "北京站", `${ICON}P04_icon_北京站.png`],
-  ["west", "北京西站", `${ICON}P04_icon_北京西站.png`],
-  ["south", "北京南站", `${ICON}P04_icon_北京南站.png`],
-  ["north", "北京北站", `${ICON}P04_icon_北京北站.png`],
-  ["chaoyang", "朝阳站", `${ICON}P04_icon_朝阳站.png`],
-  ["qinghe", "清河站", `${ICON}P04_icon_清河站.png`],
-  ["yizhuang", "亦庄站", `${ICON}P04_icon_亦庄站.png`],
-  ["tongzhou", "通州站", `${ICON}P04_icon_通州站.png`],
-  ["capital", "首都机场", `${ICON}P04_icon_首都机场.png`],
-  ["daxing", "大兴机场", `${ICON}P04_icon_大兴机场.png`],
+  ["beijing", "北京站"],
+  ["west", "北京西站"],
+  ["south", "北京南站"],
+  ["north", "北京北站"],
+  ["chaoyang", "朝阳站"],
+  ["qinghe", "清河站"],
+  ["yizhuang", "亦庄站"],
+  ["tongzhou", "通州站"],
+  ["capital", "首都机场"],
+  ["daxing", "大兴机场"],
 ];
 
 const stationHeroAssets = {
@@ -47,7 +46,18 @@ const stationPortraitAssets = {
   daxing: "assets/bitmap/stations-v2/portrait/daxing.png",
 };
 
-const stationIconAssets = Object.fromEntries(stations.map(([id, , src]) => [id, src]));
+const stationIconNames = {
+  beijing: "station_beijing",
+  west: "station_west",
+  south: "station_south",
+  north: "station_north",
+  chaoyang: "station_chaoyang",
+  qinghe: "station_qinghe",
+  yizhuang: "station_yizhuang",
+  tongzhou: "station_tongzhou",
+  capital: "station_capital",
+  daxing: "station_daxing",
+};
 
 const navigationVisualAssets = {
   map: "assets/bitmap/navigation/crops/flat-map-crop.png",
@@ -378,12 +388,11 @@ function anchorIcon(name, className = "") {
 function stationHeroImage(id, variant = "landscape") {
   const assets = variant === "portrait" ? stationPortraitAssets : stationHeroAssets;
   const src = assets[id] || assets.west;
-  return `${src}?v=20260524-29`;
+  return `${src}?v=20260524-30`;
 }
 
-function stationIconImage(id) {
-  const src = stationIconAssets[id] || stationIconAssets.west;
-  return `${src}?v=20260524-26`;
+function stationIconMarkup(id) {
+  return iconMarkup(stationIconNames[id] || stationIconNames.west);
 }
 
 function stationKindLabel(id) {
@@ -1255,6 +1264,34 @@ function renderDesignSystem() {
         ["camera", "相机"],
       ],
     },
+    {
+      title: "站点轮廓 A",
+      icons: [
+        ["station_beijing", "北京站"],
+        ["station_west", "北京西站"],
+        ["station_south", "北京南站"],
+        ["station_north", "北京北站"],
+        ["station_chaoyang", "朝阳站"],
+        ["station_qinghe", "清河站"],
+        ["station_yizhuang", "亦庄站"],
+        ["station_tongzhou", "通州站"],
+        ["station_capital", "首都机场"],
+      ],
+    },
+    {
+      title: "站点轮廓 B",
+      icons: [
+        ["station_daxing", "大兴机场"],
+        ["station_beijing", "北京站"],
+        ["station_west", "北京西站"],
+        ["station_south", "北京南站"],
+        ["station_north", "北京北站"],
+        ["station_chaoyang", "朝阳站"],
+        ["station_qinghe", "清河站"],
+        ["station_yizhuang", "亦庄站"],
+        ["station_tongzhou", "通州站"],
+      ],
+    },
   ];
 
   return `
@@ -1269,7 +1306,7 @@ function renderDesignSystem() {
         <section class="ds-section">
           <div class="ds-section-title">
             <h2>图标系统</h2>
-            <span>七批复刻</span>
+            <span>九批复刻</span>
           </div>
           ${calibrationIconGroups
             .map(
@@ -3427,7 +3464,7 @@ function renderStationSelect(kind) {
               <button class="station-slide ${state.draftStation === id ? "active" : ""}" data-station="${id}">
                 <span class="station-slide-media">
                   <img class="station-slide-photo" src="${stationHeroImage(id, "portrait")}" alt="${name}">
-                  <span class="station-slide-icon"><img src="${stationIconImage(id)}" alt=""></span>
+                  <span class="station-slide-icon">${stationIconMarkup(id)}</span>
                 </span>
                 <span class="station-slide-copy">
                   <strong>${name}</strong>

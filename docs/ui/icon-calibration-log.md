@@ -352,6 +352,74 @@ CSV 模拟与单图 SVG mask 复刻均通过，`maxDiffRatio <= 5%`。
 CSV 模拟与单图 SVG mask 复刻均通过，`maxDiffRatio <= 5%`。
 重新跑完后，CSV 与 SVG mask 的 `maxDiffRatio` 都是 `0.0`。
 
+## Board 08 - 站点轮廓图标 A
+
+![board-08](../../assets/icons/calibration/board-08-station-icons-a/board-clean.png)
+
+### 覆盖图标
+
+第八批把站点选择卡片左下角从旧 PNG 小图标切到统一 `currentColor` SVG mask。第一组覆盖：
+
+1. `station_beijing` 北京站
+2. `station_west` 北京西站
+3. `station_south` 北京南站
+4. `station_north` 北京北站
+5. `station_chaoyang` 朝阳站
+6. `station_qinghe` 清河站
+7. `station_yizhuang` 亦庄站
+8. `station_tongzhou` 通州站
+9. `station_capital` 首都机场
+
+### 生成与修复
+
+这批不再复用 `extracted_page04_station_icons/` 的旧 PNG。目标图来自新站点建筑图的黑白轮廓化处理，只提取建筑外形和主要结构，不读取图片中的文字，也不使用 OCR。轮廓图仍按 3x3 工作流进入 CSV alpha 模拟、单图拆分、3 倍放大和 SVG mask 复刻。
+
+### 文件
+
+- 原始轮廓板：`assets/icons/calibration/board-08-station-icons-a/generated-raw.png`
+- 清理后校准板：`assets/icons/calibration/board-08-station-icons-a/board-clean.png`
+- CSV 与切片结果：`assets/icons/calibration/board-08-station-icons-a/csv-check/`
+- 单图放大与 SVG mask 复刻：`assets/icons/calibration/board-08-station-icons-a/single-svg-replica/`
+- 页面加载脚本：`assets/icons/calibration/board-08-station-icons-a/single-svg-replica/icon-replicas-board-08.js`
+
+### 结果
+
+CSV 模拟与单图 SVG mask 复刻均通过，`maxDiffRatio = 0.0`。这批图标已经进入 `#/design-system` 的“图标系统 / 站点轮廓 A”区块，并用于 `#/station/select`、`#/station/switch` 站点卡片左下角。
+
+## Board 09 - 站点轮廓图标 B
+
+![board-09](../../assets/icons/calibration/board-09-station-icons-b/board-clean.png)
+
+### 覆盖图标
+
+第九批补齐第十个站点，并复用一部分站点轮廓保持 3x3 板完整：
+
+1. `station_daxing` 大兴机场
+2. `station_beijing` 北京站
+3. `station_west` 北京西站
+4. `station_south` 北京南站
+5. `station_north` 北京北站
+6. `station_chaoyang` 朝阳站
+7. `station_qinghe` 清河站
+8. `station_yizhuang` 亦庄站
+9. `station_tongzhou` 通州站
+
+### 生成与修复
+
+大兴机场单独进入第二组；其余重复站点用于保持九宫格构图一致。页面加载顺序为 board-08 后接 board-09，重复语义形状一致，不影响最终显示；`station_capital` 来自 board-08，`station_daxing` 来自 board-09。
+
+### 文件
+
+- 原始轮廓板：`assets/icons/calibration/board-09-station-icons-b/generated-raw.png`
+- 清理后校准板：`assets/icons/calibration/board-09-station-icons-b/board-clean.png`
+- CSV 与切片结果：`assets/icons/calibration/board-09-station-icons-b/csv-check/`
+- 单图放大与 SVG mask 复刻：`assets/icons/calibration/board-09-station-icons-b/single-svg-replica/`
+- 页面加载脚本：`assets/icons/calibration/board-09-station-icons-b/single-svg-replica/icon-replicas-board-09.js`
+
+### 结果
+
+CSV 模拟与单图 SVG mask 复刻均通过，`maxDiffRatio = 0.0`。`node scripts/icon_inventory.mjs` 已能把 replica-only 的 `station_*` 语义计入清单，当前没有缺失图标。
+
 ## 当前组件库结论
 
-七批合计 60 个图标已经进入统一复刻库。运行 `node scripts/icon_inventory.mjs` 后，当前状态为：60 个基础 SVG、60 个复刻 SVG mask、所有已用语义均已覆盖、0 个缺失、0 个未覆盖库项。后续新增图标必须继续先进入 `ICON_LIBRARY` 和清单，再按 3x3 组补充校准，不允许页面局部临时画图标。
+九批合计 70 个唯一复刻图标已经进入统一复刻库，其中 60 个为基础业务图标，10 个为站点轮廓图标。运行 `node scripts/icon_inventory.mjs` 后，当前状态为：60 个基础 SVG、70 个复刻 SVG mask、所有已用语义均已覆盖、0 个缺失、0 个未覆盖库项。后续新增图标必须继续先进入图标清单，再按 3x3 组补充校准，不允许页面局部临时画图标或回退到旧 PNG。

@@ -87,7 +87,7 @@ for (const match of source.matchAll(/\bicon\s*:\s*(["'`])([^"'`]+)\1/g)) {
 for (const match of source.matchAll(/\[\s*(["'`])([^"'`]+)\1\s*,\s*(["'`])([^"'`]+)\3/g)) {
   const rawName = match[2];
   const resolvedName = aliases[rawName] || rawName;
-  if (library.includes(resolvedName)) {
+  if (library.includes(resolvedName) || replicas.includes(resolvedName)) {
     addUse(rawName, "icon-array", match.index);
   }
 }
