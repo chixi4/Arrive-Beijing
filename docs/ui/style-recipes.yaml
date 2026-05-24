@@ -7,12 +7,13 @@ token_contract:
     media: 14px
     pill: 999px
   density_scale:
-    section_gap: 12px
-    section_title_gap: 8px
-    cell_height: 56px
-    compact_cell_height: 52px
-    cell_icon: 32px
-    compact_cell_icon: 30px
+    page_padding: 14px
+    section_gap: 10px
+    section_title_gap: 6px
+    cell_height: 52px
+    compact_cell_height: 48px
+    cell_icon: 30px
+    compact_cell_icon: 28px
 
 component_contract:
   cell_group:
@@ -32,8 +33,8 @@ recipes:
       first_screen_goal: "站名、客流、天气、公告和核心服务在首屏建立可操作感"
       page_padding: var(--ds-page-pad)
       hero_to_section_gap: 18px
-      section_gap: 18px
-      card_gap: 10px
+      section_gap: 10px
+      card_gap: 8px
     composition:
       hero_card:
         radius: var(--ds-radius-media)
@@ -46,6 +47,7 @@ recipes:
         right_chevron: fixed_right
       service_grid:
         columns: 4
+        container: grouped_card
         icon_container: soft_square
         icon_semantics: unique_per_service
     visual_rules:

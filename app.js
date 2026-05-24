@@ -1613,7 +1613,9 @@ function renderStationHome() {
 
       <section class="ab-page-section">
         ${renderSectionTitle("站区服务")}
-        ${renderActionGrid(serviceTiles, "ab-service-grid")}
+        <div class="ab-service-card">
+          ${renderActionGrid(serviceTiles, "ab-service-grid")}
+        </div>
       </section>
 
       <section class="ab-page-section">
@@ -3690,6 +3692,7 @@ function render() {
   }
   if (current === "#/services") {
     state.currentSurface = current;
+    app.className = "app-shell mobile-preview-app";
     app.innerHTML = renderServices();
     syncDesktopPreviewFrame();
     requestAnimationFrame(() => window.scrollTo(0, 0));
@@ -3713,6 +3716,7 @@ function render() {
     return;
   }
   state.currentSurface = current;
+  app.className = "app-shell mobile-preview-app";
   const page = pages[current] || pages["#/portal"];
   app.innerHTML = renderSourcePage(page);
   syncDesktopPreviewFrame();
