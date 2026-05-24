@@ -77,6 +77,7 @@
 - 进一步从锚点页抽出上层密度规则：简单信息不再默认一条一个独立卡片，而是进入 `ab-info-list` cell-group，外层一个白色容器，内部行用分割线；标准 cell 56px，紧凑 cell 52px，section 间距收敛到 12px。
 - 的士之家基本信息页修掉了旧组件混用问题：首行“北京西站的士之家”不再使用单独的 `ab-house-location-card`，改为和地址、开放时间、可容纳量同一组 `ab-info-row`，左侧图标、行高和左右内边距统一。
 - 新增第四批 3x3 图标校准板 `board-04-taxi-house`，覆盖 `lounge/dining/charger/wifi/tea/book/medical/restroom/gift`，CSV 模拟与单图 SVG mask 复刻都为 `maxDiffRatio = 0.0`；司机端底栏和的士之家服务入口已接入这批图标。
+- 重新定位个人中心等页面卡片底部 hover 白条：根因不是信息行 padding，而是固定高度 `mobile-preview-app` 中 `.ab-page-body` 作为 grid 时默认 `align-content: normal/stretch`，把页面剩余高度分摊到各个 auto track，导致 `ab-info-list` 被父级拉高、最后一行下方留下白色内部空白。已将 `.ab-page-body` 设为 `align-content: start`，实测基础设置卡片最后一行到容器底部的间隙从约 10.469px 收敛为 1px 边框。
 
 ## 设计判断
 

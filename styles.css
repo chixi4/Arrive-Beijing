@@ -5010,6 +5010,7 @@ body.desktop-preview #app {
 
 .ab-page-body {
   display: grid;
+  align-content: start;
   gap: var(--ds-section-gap);
   padding: 10px var(--ds-page-pad) 14px;
 }
