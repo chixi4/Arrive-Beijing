@@ -34,6 +34,20 @@ const stationHeroAssets = {
   daxing: "assets/bitmap/stations/daxing-airport.png",
 };
 
+const stationIconAssets = Object.fromEntries(stations.map(([id, , src]) => [id, src]));
+
+const navigationVisualAssets = {
+  map: "assets/bitmap/navigation/crops/flat-map-crop.png",
+  map3d: "assets/bitmap/navigation/crops/three-d-map-crop.png",
+  ar: "assets/bitmap/navigation/crops/ar-demo-crop.png",
+  route: "assets/bitmap/navigation/crops/map-preview-crop.png",
+};
+
+const splashImageSets = {
+  traveler: ["assets/bitmap/splash/passenger-01.png", "assets/bitmap/splash/passenger-02.png"],
+  driver: ["assets/bitmap/splash/driver-01.png", "assets/bitmap/splash/driver-02.png"],
+};
+
 const state = {
   station: localStorage.getItem("arrive-beijing.station") || "west",
   draftStation: localStorage.getItem("arrive-beijing.station") || "west",
@@ -57,6 +71,8 @@ const state = {
   },
 };
 
+let stationScrollTimer = null;
+
 const travelerBottomNavItems = [
   { key: "home", label: "首页", icon: "home", to: "#/station/home" },
   { key: "announcements", label: "公告", icon: "notice", to: "#/announcements" },
@@ -70,6 +86,14 @@ const stationHomeAnnouncements = [
   { tag: "通知", text: "春运期间地铁2号线延时至次日02:00", to: "#/announcements" },
   { tag: "提醒", text: "12306实名核验通道升级，请提前准备证件", to: "#/announcements" },
 ];
+
+const stationAnnouncementOverrides = {
+  south: [
+    { tag: "紧急", text: "北京南站北广场施工，请绕行南广场进站", to: "#/announcements" },
+    { tag: "通知", text: "春运期间地铁4号线延时至次日02:00", to: "#/announcements" },
+    { tag: "提醒", text: "12306实名核验通道升级，请提前准备证件", to: "#/announcements" },
+  ],
+};
 
 const stationHomeServices = [
   { label: "导航指引", icon: "map", to: "#/nav/map", bg: "#dceeff", fg: "#2e7de1" },
@@ -147,7 +171,7 @@ const travelerProfileSections = [
 
 const driverProfileStats = [
   { value: "4.9", label: "综合评分", tone: "primary" },
-  { value: "48", label: "当前积分", tone: "success" },
+  { value: "50", label: "当前积分", tone: "success" },
   { value: "3,852", label: "累计接单", tone: "warning" },
   { value: "48.6万", label: "累计里程km", tone: "danger" },
 ];
@@ -340,6 +364,29 @@ function anchorIcon(name, className = "") {
 
 function stationHeroImage(id) {
   return stationHeroAssets[id] || stationHeroAssets.west;
+}
+
+function stationIconImage(id) {
+  const src = stationIconAssets[id] || stationIconAssets.west;
+  return `${src}?v=20260524-26`;
+}
+
+function stationKindLabel(id) {
+  return id === "capital" || id === "daxing" ? "机场" : "火车站";
+}
+
+function pickSplashImage(kind) {
+  const choices = splashImageSets[kind] || splashImageSets.traveler;
+  const storageKey = `arrive-beijing.splash.${kind}`;
+  try {
+    const saved = sessionStorage.getItem(storageKey);
+    if (saved && choices.includes(saved)) return saved;
+    const chosen = choices[Math.floor(Math.random() * choices.length)];
+    sessionStorage.setItem(storageKey, chosen);
+    return chosen;
+  } catch (error) {
+    return choices[Math.floor(Math.random() * choices.length)];
+  }
 }
 
 const travelerNav = [
@@ -603,10 +650,6 @@ const pages = {
       ...travelerNav,
     ],
   },
-  "#/driver/splash": {
-    src: "P04-01_开屏页.png",
-    hotspots: [{ x: 0, y: 0, w: 100, h: 100, to: "#/driver/short-haul/booking" }],
-  },
   "#/driver/queue": {
     src: "P19-01_车站排队情况-左.png",
     hotspots: [
@@ -833,6 +876,35 @@ function syncDesktopPreviewFrame() {
   const scale = isDesktopPreview ? Math.min((window.innerWidth - 32) / baseWidth, (window.innerHeight - 32) / baseHeight) : 1;
   app.style.setProperty("--desktop-preview-scale", String(scale));
   document.body.classList.toggle("desktop-preview", isDesktopPreview);
+}
+
+function updateStationCarouselSelection(carousel) {
+  const slides = [...carousel.querySelectorAll("[data-station]")];
+  if (!slides.length) return;
+  const carouselBox = carousel.getBoundingClientRect();
+  const center = carouselBox.left + carouselBox.width / 2;
+  const nearest = slides.reduce((best, slide) => {
+    const box = slide.getBoundingClientRect();
+    const distance = Math.abs(box.left + box.width / 2 - center);
+    return !best || distance < best.distance ? { slide, distance } : best;
+  }, null);
+  if (!nearest) return;
+  const stationId = nearest.slide.dataset.station;
+  state.draftStation = stationId;
+  slides.forEach((slide) => slide.classList.toggle("active", slide.dataset.station === stationId));
+  const [id, name] = stationById(stationId);
+  const nameNode = document.querySelector("[data-selected-station-name]");
+  const kindNode = document.querySelector("[data-selected-station-kind]");
+  if (nameNode) nameNode.textContent = name;
+  if (kindNode) kindNode.textContent = stationKindLabel(id);
+}
+
+function syncStationCarousel() {
+  const carousel = document.querySelector("[data-station-carousel]");
+  if (!carousel) return;
+  const active = carousel.querySelector(`[data-station="${state.draftStation}"]`);
+  if (!active) return;
+  active.scrollIntoView({ block: "nearest", inline: "center", behavior: "auto" });
 }
 
 function boxStyle(box) {
@@ -1577,11 +1649,7 @@ function scrollToSection(id) {
 function renderStationHome() {
   const [, stationName] = stationById(state.station);
   const stationSrc = stationHeroImage(state.station);
-  const announcements = [
-    "北京西站南广场施工，请绕行南广场进站",
-    "春运期间地铁2号线延时至次日02:00",
-    "12306实名核验通道升级，请提前准备证件",
-  ];
+  const announcements = stationAnnouncementOverrides[state.station] || stationHomeAnnouncements;
   const trafficCards = [
     { icon: "taxi", label: "出租车", meta: "南广场出口 · 8-12分钟", to: "#/traffic/taxi" },
     { icon: "car", label: "网约车", meta: "推荐上车点 · 200m", to: "#/traffic/ride" },
@@ -1635,12 +1703,12 @@ function renderStationHome() {
         <div class="ab-info-list ab-announcement-list compact">
           ${announcements
             .map(
-              (text, index) => `
+              (item, index) => `
                 <button class="ab-info-row ab-announcement-row" data-to="#/announcements">
                   <span class="ab-info-row-left">
-                    <span class="ab-info-icon tag ${index === 0 ? "danger" : index === 1 ? "warning" : "primary"}">${index === 0 ? "紧急" : index === 1 ? "通知" : "提醒"}</span>
+                    <span class="ab-info-icon tag ${index === 0 ? "danger" : index === 1 ? "warning" : "primary"}">${item.tag}</span>
                     <span>
-                      <strong>${text}</strong>
+                      <strong>${item.text}</strong>
                       <em>点击查看公告详情</em>
                     </span>
                   </span>
@@ -1964,6 +2032,28 @@ const announcementItems = [
   },
 ];
 
+const announcementItemOverrides = {
+  south: [
+    { tag: "紧急", tone: "danger", title: "北京南站北广场临时施工通告", meta: "2025-01-20 10:30" },
+    { tag: "通知", tone: "primary", title: "春运期间地铁4号线延时至次日02:00", meta: "2025-01-19 14:00" },
+    { tag: "提示", tone: "warning", title: "12306实名核验系统升级提醒", meta: "2025-01-18 09:00" },
+    { tag: "活动", tone: "primary", title: "春节期间文化展览活动预告", meta: "2025-01-17 16:00" },
+    { tag: "通知", tone: "primary", title: "自助售票机系统维护通知", meta: "2025-01-16 11:20" },
+    {
+      tag: "提示",
+      tone: "warning",
+      title: "行李托运服务操作流程更新",
+      meta: "2025-01-15 08:00",
+      reply:
+        "即日起，行李托运需在出发前3小时办理，托运标准为每人不超过50公斤。请于各站行李房窗口办理，携带有效证件及车票。",
+    },
+  ],
+};
+
+function stationScopedAnnouncementItems() {
+  return announcementItemOverrides[state.station] || announcementItems;
+}
+
 const announcementTabs = [
   { key: "全部", label: "全部" },
   { key: "紧急", label: "紧急" },
@@ -2155,18 +2245,18 @@ const shortHaulTabs = [
 ];
 
 const shortHaulHistory = [
-  { title: "北京南站", meta: "今天 14:32 · 行程里程 3.2km", value: "+3分", tone: "success", tag: "短途" },
-  { title: "北京西站", meta: "今天 11:15 · 行程里程 12.5km", value: "-2分", tone: "danger", tag: "普通" },
-  { title: "首都机场T3", meta: "昨天 18:40 · 行程里程 4.8km", value: "+3分", tone: "success", tag: "短途" },
-  { title: "北京站", meta: "昨天 09:22 · 行程里程 8.1km", value: "-2分", tone: "danger", tag: "普通" },
+  { title: "北京南站", meta: "今天 14:32 · 行程里程 3.2km", value: "+10分", tone: "success", tag: "短途" },
+  { title: "北京西站", meta: "今天 11:15 · 行程里程 12.5km", value: "-10分", tone: "danger", tag: "复载" },
+  { title: "首都机场T3", meta: "昨天 18:40 · 行程里程 4.8km", value: "+10分", tone: "success", tag: "短途" },
+  { title: "北京站", meta: "昨天 09:22 · 行程里程 8.1km", value: "-10分", tone: "danger", tag: "复载" },
 ];
 
 const shortHaulPoints = [
-  { title: "短途赋分", meta: "今天 14:32 · 北京南站", value: "+3", tone: "success", tag: "积分" },
-  { title: "复载消分", meta: "今天 11:15 · 北京西站", value: "-2", tone: "danger", tag: "积分" },
-  { title: "短途赋分", meta: "昨天 18:40 · 首都机场T3", value: "+3", tone: "success", tag: "积分" },
-  { title: "复载消分", meta: "昨天 09:22 · 北京站", value: "-2", tone: "danger", tag: "积分" },
-  { title: "短途赋分", meta: "前天 16:05 · 朝阳站", value: "+3", tone: "success", tag: "积分" },
+  { title: "短途赋分", meta: "今天 14:32 · 北京南站", value: "+10", tone: "success", tag: "积分" },
+  { title: "复载消分", meta: "今天 11:15 · 北京西站", value: "-10", tone: "danger", tag: "积分" },
+  { title: "短途赋分", meta: "昨天 18:40 · 首都机场T3", value: "+10", tone: "success", tag: "积分" },
+  { title: "复载消分", meta: "昨天 09:22 · 北京站", value: "-10", tone: "danger", tag: "积分" },
+  { title: "短途赋分", meta: "前天 16:05 · 朝阳站", value: "+10", tone: "success", tag: "积分" },
 ];
 
 const taxiHouseTabs = [
@@ -2416,13 +2506,39 @@ function renderTaxiHouseReviewCard(item) {
 function renderNavigationPage(mode) {
   const activeRoute = `#/nav/${mode}`;
   const activeModeRoute = mode === "route" ? "#/nav/map" : activeRoute;
+  const visualMode = mode === "route" ? "route" : mode;
+  const visualCopy = {
+    map: {
+      title: "地图预览",
+      desc: "平面站内图 · 出入口 / 服务设施 / 当前定位",
+      badge: "平面",
+    },
+    map3d: {
+      title: "3D 导览",
+      desc: "立体站层关系 · 扶梯 / 出口 / 换乘动线",
+      badge: "3D",
+    },
+    ar: {
+      title: "AR 指引",
+      desc: "实景箭头提示 · 前方右转 · 直行 120米",
+      badge: "AR",
+    },
+    route: {
+      title: "路线规划",
+      desc: "从当前位置到检票口 / 出口的推荐路线",
+      badge: "路线",
+    },
+  };
   const floorPlans = {
-    B1: { title: "B1 地下层", note: "地铁换乘 / 停车接驳 / 出站通道", value: "步行 6 分钟" },
-    F1: { title: "F1 地面层", note: "到站大厅 / 站区服务 / 出租车引导", value: "步行 4 分钟" },
-    F2: { title: "F2 连廊层", note: "候车休息 / 站内通道 / 无障碍路线", value: "步行 5 分钟" },
-    F3: { title: "F3 观景层", note: "高位导向 / 服务窗口 / 站区标识", value: "步行 7 分钟" },
+    B1: { title: "B1 地下层", note: "地铁换乘 / 停车接驳 / 出站通道", value: "步行 6 分钟", target: "地铁换乘厅", turn: "下行后左转" },
+    F1: { title: "F1 地面层", note: "到站大厅 / 站区服务 / 出租车引导", value: "步行 4 分钟", target: "南广场出口", turn: "前方直行" },
+    F2: { title: "F2 连廊层", note: "候车休息 / 站内通道 / 无障碍路线", value: "步行 5 分钟", target: "检票口B8", turn: "前方右转" },
+    F3: { title: "F3 观景层", note: "高位导向 / 服务窗口 / 站区标识", value: "步行 7 分钟", target: "服务窗口", turn: "上行后右转" },
   };
   const currentFloor = floorPlans[state.selected.navFloor] || floorPlans.F1;
+  const currentVisual = visualCopy[visualMode] || visualCopy.map;
+  const currentImage = navigationVisualAssets[visualMode] || navigationVisualAssets.map;
+  const floorButtons = ["B1", "F1", "F2", "F3"];
 
   return renderAppShell({
     className: "ab-navigation-page",
@@ -2433,29 +2549,45 @@ function renderNavigationPage(mode) {
     }),
     body: `
       <section class="ab-page-section">
+        <div class="ab-nav-search">
+          ${iconMarkup("search")}
+          <span>搜索目的地（出口、检票口等）</span>
+          <button data-toast="导航搜索（原型演示）">导航</button>
+        </div>
         ${renderSelectableGrid(navModeTabs, { activeValue: activeModeRoute, cols: 3 })}
       </section>
 
       <section class="ab-page-section">
-        <div class="ab-map-shell">
-          <div class="ab-map-shell-grid" aria-hidden="true"></div>
-          <div class="ab-map-shell-main">
-            <span class="ab-map-shell-icon">${iconMarkup("map")}</span>
-            <strong>地图预览</strong>
-            <em>平面 / 3D / AR 示例</em>
+        ${renderSectionTitle(currentVisual.title)}
+        <p class="ab-nav-visual-note">${currentVisual.desc}</p>
+        <div class="ab-nav-visual" data-floor="${state.selected.navFloor || "F1"}" data-mode="${visualMode}">
+          <img src="${currentImage}" alt="${currentVisual.title}">
+          <div class="ab-nav-visual-shade"></div>
+          <div class="ab-nav-visual-top">
+            <span>${currentVisual.badge}</span>
           </div>
-          <div class="ab-map-shell-tags">
-            <span>B1</span>
-            <span>F1</span>
-            <span>F2</span>
-            <span>F3</span>
+          <div class="ab-nav-floor-rail" aria-label="楼层切换">
+            ${floorButtons
+              .map(
+                (floor) => `
+                  <button class="${state.selected.navFloor === floor ? "active" : ""}" data-select-key="navFloor" data-select-value="${floor}">
+                    ${floor}
+                  </button>
+                `
+              )
+              .join("")}
+          </div>
+          <div class="ab-nav-route-overlay">
+            <span class="ab-nav-current-dot">您在此</span>
+            <span class="ab-nav-target-dot">${currentFloor.target}</span>
+            <span class="ab-nav-route-line"></span>
           </div>
         </div>
       </section>
 
       <section class="ab-page-section">
         ${renderSectionTitle("路线规划", `<button class="ab-section-link" data-to="#/nav/route">查看详情 ></button>`)}
-        <div class="ab-panel">
+        <div class="ab-panel ab-route-panel">
           ${renderSelectableGrid([
             { key: "B1", label: "B1" },
             { key: "F1", label: "F1" },
@@ -2467,9 +2599,14 @@ function renderNavigationPage(mode) {
             cols: 4,
           })}
           <div class="ab-route-plan-card">
-            <strong>${currentFloor.title}</strong>
-            <em>${currentFloor.note}</em>
-            <span>${currentFloor.value}</span>
+            <span class="ab-route-plan-main">
+              <strong>${currentFloor.title}</strong>
+              <em>${currentFloor.note}</em>
+            </span>
+            <span class="ab-route-plan-side">
+              <b>${currentFloor.turn}</b>
+              <i>${currentFloor.value}</i>
+            </span>
           </div>
         </div>
       </section>
@@ -2480,10 +2617,11 @@ function renderNavigationPage(mode) {
 
 function renderAnnouncementsPage(variant = "top") {
   const activeCategory = state.selected.announcementCategory || "全部";
+  const currentAnnouncementItems = stationScopedAnnouncementItems();
   const filteredItems =
     activeCategory === "全部"
-      ? announcementItems
-      : announcementItems.filter((item) => item.tag === activeCategory);
+      ? currentAnnouncementItems
+      : currentAnnouncementItems.filter((item) => item.tag === activeCategory);
   const topItems = filteredItems.slice(0, 4);
   const lowerItems = filteredItems.slice(4);
   const showUrgentSummary = activeCategory === "全部";
@@ -2964,7 +3102,7 @@ function renderShortHaulPage(variant = "booking") {
       <section class="ab-page-section">
         <div class="ab-tip-card soft">
           <strong>短途复载规则</strong>
-          <p>1 送客至车站5km范围内 · 2 获得+3复载积分 · 3 预约时段免排队进场</p>
+          <p>1 送客至车站5km范围内 · 2 获得+10复载积分 · 3 预约时段消耗10分免排队进场</p>
         </div>
       </section>
 
@@ -2995,7 +3133,7 @@ function renderShortHaulPage(variant = "booking") {
       </section>
 
       <section class="ab-page-section" id="short-haul-more">
-        <button class="ab-primary-button" data-toast="确认预约（消耗2分）">确认预约（消耗2分）</button>
+        <button class="ab-primary-button" data-toast="确认预约（消耗10分）">确认预约（消耗10分）</button>
       </section>
     `,
     history: `
@@ -3015,7 +3153,7 @@ function renderShortHaulPage(variant = "booking") {
 
       <section class="ab-page-section">
         ${renderSectionTitle("累计积分")}
-        ${renderStatGrid([{ value: "48", label: "当前积分", tone: "primary" }, { value: "+27", label: "本月获得", tone: "success" }, { value: "24次", label: "可复载次数", tone: "warning" }])}
+        ${renderStatGrid([{ value: "50", label: "当前积分", tone: "primary" }, { value: "+30", label: "本月获得", tone: "success" }, { value: "5次", label: "可复载次数", tone: "warning" }])}
       </section>
 
       <section class="ab-page-section">
@@ -3055,9 +3193,9 @@ function renderShortHaulPage(variant = "booking") {
     body: `
       <section class="ab-page-section">
         ${renderStatGrid([
-          { value: "+3分", label: "短途赋分", tone: "success" },
-          { value: "-2分", label: "复载消分", tone: "danger" },
-          { value: "48分", label: "当前积分", tone: "primary" },
+          { value: "+10分", label: "短途赋分", tone: "success" },
+          { value: "-10分", label: "复载消分", tone: "danger" },
+          { value: "50分", label: "当前积分", tone: "primary" },
         ])}
       </section>
 
@@ -3116,9 +3254,9 @@ function renderTaxiHousePage(variant = "info") {
         <div class="ab-redeem-summary">
           <div>
             <strong>我的积分</strong>
-            <b>48</b>
+            <b>50</b>
           </div>
-          <p>积分来源：短途复载赋分<br>本月获得 +27 积分</p>
+          <p>积分来源：短途复载赋分<br>本月获得 +30 积分</p>
         </div>
       </section>
 
@@ -3146,7 +3284,7 @@ function renderTaxiHousePage(variant = "info") {
     topbar: renderAppTopbar({
       title: "的士之家",
       backTo: "#/driver/queue",
-      action: `<button class="ab-topbar-action" data-toast="48积分（原型演示）">48积分</button>`,
+      action: `<button class="ab-topbar-action" data-toast="50积分（原型演示）">50积分</button>`,
     }),
     body: `
       <section class="ab-page-section">
@@ -3220,11 +3358,16 @@ function renderFeatureRoute(current) {
   return null;
 }
 
-function renderSplash() {
+function renderSplash(kind = "traveler") {
+  const isDriver = kind === "driver";
+  const target = isDriver ? "#/driver/short-haul/booking" : "#/station/select";
+  const label = isDriver ? "进入短途复载" : "进入站区选择";
+  const alt = isDriver ? "短途复载" : "到站北京";
+  const splashImage = pickSplashImage(isDriver ? "driver" : "traveler");
   return `
     <div class="splash-shell">
-      <button class="splash-trigger" data-to="#/station/select" aria-label="进入站区选择">
-        <img class="splash-full-image" src="${IMG}P04-01_开屏页.png" alt="到站北京">
+      <button class="splash-trigger" data-to="${target}" aria-label="${label}">
+        <img class="splash-full-image" src="${splashImage}" alt="${alt}">
       </button>
     </div>
   `;
@@ -3250,52 +3393,42 @@ function renderStationSelect(kind) {
   const title = "选择出行站点";
   const buttonText = isSwitch ? "确认更改" : "确认选择";
   const selected = stationById(state.draftStation);
-  const orderedStations = [selected, ...stations.filter((station) => station[0] !== selected[0])];
-
-  if (!isSwitch) {
-    return `
-      <div class="source-screen custom-station-screen">
-        <div class="custom-topbar">
-          <button class="plain-back" data-to="#/splash">‹</button>
-          <strong>${title}</strong>
-          <span></span>
-        </div>
-        <div class="station-grid-source">
-          ${stations
-            .map(
-              ([id, name, src]) => `
-                <button class="station-tile ${state.draftStation === id ? "active" : ""}" data-station="${id}">
-                  <img src="${src}" alt="${name}">
-                  <span>${name}</span>
-                </button>`
-            )
-            .join("")}
-        </div>
-        <div class="confirm-bar">
-          <button class="confirm-button" data-confirm-station>${buttonText}</button>
-        </div>
-      </div>
-    `;
-  }
 
   return `
     <div class="source-screen custom-station-screen">
       <div class="custom-topbar">
-        <button class="plain-back" data-to="#/station/home">‹</button>
+        <button class="station-back-button" data-to="${isSwitch ? "#/station/home" : "#/splash"}" aria-label="返回">${iconMarkup("back")}</button>
         <strong>${title}</strong>
         <span></span>
       </div>
-      <div class="station-carousel" aria-label="左右滑动选择站点">
-        ${orderedStations
+      <section class="station-select-intro">
+        <p>${isSwitch ? "当前站点" : "首次进入请先选择站点"}</p>
+        <h1>${selected[1]}</h1>
+        <span>左右滑动站点卡片，确认后进入对应服务首页</span>
+      </section>
+      <div class="station-carousel" data-station-carousel aria-label="左右滑动选择站点">
+        ${stations
           .map(
-            ([id, name, src]) => `
+            ([id, name]) => `
               <button class="station-slide ${state.draftStation === id ? "active" : ""}" data-station="${id}">
-                <img src="${src}" alt="${name}">
-                <strong>${name}</strong>
+                <span class="station-slide-media">
+                  <img class="station-slide-photo" src="${stationHeroImage(id)}" alt="${name}">
+                  <span class="station-slide-icon"><img src="${stationIconImage(id)}" alt=""></span>
+                </span>
+                <span class="station-slide-copy">
+                  <strong>${name}</strong>
+                  <em>${stationKindLabel(id)} · 到站服务 · 导航指引</em>
+                </span>
+                <span class="station-slide-check">${iconMarkup("check")}</span>
               </button>`
           )
           .join("")}
       </div>
+      <section class="station-selected-summary">
+        <span>已选择</span>
+        <strong data-selected-station-name>${selected[1]}</strong>
+        <em data-selected-station-kind>${stationKindLabel(selected[0])}</em>
+      </section>
       <div class="confirm-bar">
         <button class="confirm-button" data-confirm-station>${buttonText}</button>
       </div>
@@ -3545,7 +3678,7 @@ function renderStyleAnchorCompletion() {
           <button>${anchorIcon("calendar")}<span>今天</span><i>›</i></button>
           <button>${anchorIcon("clock")}<span>09:00</span><i>›</i></button>
         </div>
-        <p class="anchor-consume">${anchorIcon("check")}<span>已消耗2分</span></p>
+        <p class="anchor-consume">${anchorIcon("check")}<span>已消耗10分</span></p>
         <div class="anchor-success-actions">
           <button class="outline" data-to="#/style-anchor/02-list">返回首页</button>
           <button class="primary" data-to="#/style-anchor/03-detail">继续预约</button>
@@ -3737,7 +3870,14 @@ function render() {
   if (current === "#/splash") {
     state.currentSurface = current;
     app.className = "app-shell mobile-preview-app";
-    app.innerHTML = renderSplash();
+    app.innerHTML = renderSplash("traveler");
+    syncDesktopPreviewFrame();
+    return;
+  }
+  if (current === "#/driver/splash") {
+    state.currentSurface = current;
+    app.className = "app-shell mobile-preview-app";
+    app.innerHTML = renderSplash("driver");
     syncDesktopPreviewFrame();
     return;
   }
@@ -3750,10 +3890,14 @@ function render() {
     return;
   }
   if (current === "#/station/select") {
+    if (state.currentSurface !== current) {
+      state.draftStation = "south";
+    }
     state.currentSurface = current;
     app.className = "app-shell mobile-preview-app";
     app.innerHTML = renderStationSelect("select");
     syncDesktopPreviewFrame();
+    requestAnimationFrame(syncStationCarousel);
     return;
   }
   if (current === "#/station/switch") {
@@ -3764,6 +3908,7 @@ function render() {
     app.className = "app-shell mobile-preview-app";
     app.innerHTML = renderStationSelect("switch");
     syncDesktopPreviewFrame();
+    requestAnimationFrame(syncStationCarousel);
     return;
   }
   state.currentSurface = current;
@@ -3830,6 +3975,17 @@ document.addEventListener("click", (event) => {
     go("#/station/home");
   }
 });
+
+document.addEventListener(
+  "scroll",
+  (event) => {
+    const target = event.target;
+    if (!(target instanceof Element) || !target.matches("[data-station-carousel]")) return;
+    window.clearTimeout(stationScrollTimer);
+    stationScrollTimer = window.setTimeout(() => updateStationCarouselSelection(target), 90);
+  },
+  true
+);
 
 window.addEventListener("hashchange", render);
 window.addEventListener("resize", syncDesktopPreviewFrame);

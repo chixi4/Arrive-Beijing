@@ -60,6 +60,12 @@
 - `assets/bitmap/navigation/three-d-map.png`：3D 室内地图演示。
 - `assets/bitmap/navigation/flat-map.png`：平面地图演示。
 - `assets/bitmap/navigation/ar-demo.png`：AR 导航演示。
+- `assets/bitmap/navigation/crops/map-preview-crop.png`：路线规划页面内嵌用裁切图。
+- `assets/bitmap/navigation/crops/three-d-map-crop.png`：3D 导览页面内嵌用裁切图。
+- `assets/bitmap/navigation/crops/flat-map-crop.png`：平面地图页面内嵌用裁切图。
+- `assets/bitmap/navigation/crops/ar-demo-crop.png`：AR 指引页面内嵌用裁切图。
+- `assets/bitmap/splash/passenger-01.png`、`assets/bitmap/splash/passenger-02.png`：旅客端随机开屏图池。
+- `assets/bitmap/splash/driver-01.png`、`assets/bitmap/splash/driver-02.png`：司机端随机开屏图池。
 - `assets/bitmap/traffic/taxi-pickup.png`：出租车上车点。
 - `assets/bitmap/traffic/ride-hailing-pickup.png`：网约车上车点。
 - `assets/bitmap/traffic/bus-transfer.png`：公交换乘。
@@ -80,6 +86,14 @@
 - `assets/bitmap/navigation/three-d-map.png`
 - `assets/bitmap/navigation/flat-map.png`
 - `assets/bitmap/navigation/ar-demo.png`
+- `assets/bitmap/navigation/crops/map-preview-crop.png`
+- `assets/bitmap/navigation/crops/three-d-map-crop.png`
+- `assets/bitmap/navigation/crops/flat-map-crop.png`
+- `assets/bitmap/navigation/crops/ar-demo-crop.png`
+- `assets/bitmap/splash/passenger-01.png`
+- `assets/bitmap/splash/passenger-02.png`
+- `assets/bitmap/splash/driver-01.png`
+- `assets/bitmap/splash/driver-02.png`
 - `assets/bitmap/traffic/taxi-pickup.png`
 - `assets/bitmap/traffic/ride-hailing-pickup.png`
 - `assets/bitmap/traffic/bus-transfer.png`
