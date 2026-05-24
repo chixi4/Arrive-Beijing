@@ -217,6 +217,60 @@ CSV 模拟检查：
 
 第三批已经进入 `#/design-system` 的“图标系统 / 服务工具”区块。业务页里主要能在 `#/station/home`、`#/parking/list`、`#/parking/price`、`#/driver/short-haul/booking`、`#/driver/short-haul/history`、`#/driver/short-haul/points`、`#/driver/queue`、`#/driver/profile` 看到。
 
+## Board 04 - 的士之家服务图标
+
+![board-04](../../assets/icons/calibration/board-04-taxi-house/board-clean.png)
+
+### 覆盖图标
+
+第四批专门补齐的士之家页面和司机端底栏中视觉不协调的服务设施语义：
+
+1. `lounge` 休息/的士之家
+2. `dining` 餐饮
+3. `charger` 充电桩
+4. `wifi` 免费 WIFI
+5. `tea` 茶水供应
+6. `book` 阅读角
+7. `medical` 医疗急救箱
+8. `restroom` 洗手间
+9. `gift` 积分兑换
+
+### 生成与修复
+
+这批先补齐 `ICON_LIBRARY` 中缺少的服务设施语义，再按 3x3 校准板统一输出黑白 target。重点修复了原来“的士之家”底栏复用 `handshake`、基本信息第一行复用定位图标导致语义不准的问题；现在底栏、基本信息首行和服务按钮都使用同一批复刻图标。
+
+### 文件
+
+- SVG 目标板：`assets/icons/calibration/board-04-taxi-house/board.svg`
+- 原始渲染图：`assets/icons/calibration/board-04-taxi-house/generated-raw.png`
+- 清理后校准板：`assets/icons/calibration/board-04-taxi-house/board-clean.png`
+- CSV 与切片结果：`assets/icons/calibration/board-04-taxi-house/csv-check/`
+- 单图放大与 SVG mask 复刻：`assets/icons/calibration/board-04-taxi-house/single-svg-replica/`
+- 页面加载脚本：`assets/icons/calibration/board-04-taxi-house/single-svg-replica/icon-replicas-board-04.js`
+
+### 像素检查
+
+CSV 模拟检查：
+
+```json
+{
+  "pass": true,
+  "maxDiffRatio": 0.0
+}
+```
+
+单图 SVG mask 复刻检查：
+
+```json
+{
+  "pass": true,
+  "maxDiffRatio": 0.0,
+  "cropPaddingRatio": 0.06
+}
+```
+
+第四批已经进入 `#/design-system` 的“图标系统 / 的士之家”区块。业务页里主要能在 `#/driver/taxi-house/info`、`#/driver/taxi-house/meal`、`#/driver/taxi-house/redeem` 和司机端底栏看到。
+
 ## 当前组件库结论
 
-三批合计 27 个图标已经进入统一复刻库，三批 CSV 模拟与单图 SVG mask 复刻结果全部为 `maxDiffRatio = 0.0`。运行 `node scripts/icon_inventory.mjs` 后，当前状态为：52 个基础 SVG、27 个复刻 SVG mask、49 个已使用语义、0 个缺失。后续新增图标必须继续先进入 `ICON_LIBRARY` 和清单，再按 3x3 组补充校准，不允许页面局部临时画图标。
+四批合计 36 个图标已经进入统一复刻库，四批 CSV 模拟与单图 SVG mask 复刻结果全部为 `maxDiffRatio = 0.0`。运行 `node scripts/icon_inventory.mjs` 后，当前状态为：60 个基础 SVG、36 个复刻 SVG mask、56 个已使用语义、0 个缺失。后续新增图标必须继续先进入 `ICON_LIBRARY` 和清单，再按 3x3 组补充校准，不允许页面局部临时画图标。

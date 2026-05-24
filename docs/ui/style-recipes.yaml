@@ -6,6 +6,21 @@ token_contract:
     card: 12px
     media: 14px
     pill: 999px
+  density_scale:
+    section_gap: 12px
+    section_title_gap: 8px
+    cell_height: 56px
+    compact_cell_height: 52px
+    cell_icon: 32px
+    compact_cell_icon: 30px
+
+component_contract:
+  cell_group:
+    component: ab-info-list
+    outer: "one white surface with border, light shadow, overflow hidden"
+    rows: "ab-info-row has no individual card border; adjacent rows use 1px divider"
+    use_for: [settings_menu, basic_info, contact_info, announcement_summary]
+    avoid: [one_card_per_simple_row, nested_card_inside_panel, mismatched_row_heights]
 
 recipes:
   home_workbench:
@@ -27,7 +42,7 @@ recipes:
         avoid: [edge_cropped_image, decorative_gradient_only, large_empty_hero_area]
       announcements:
         max_visible_items: 3
-        row_density: compact
+        row_density: compact_cell_group
         right_chevron: fixed_right
       service_grid:
         columns: 4
@@ -81,8 +96,8 @@ recipes:
         icon_usage: optional_small_line_icon
       info_sections:
         component: ab-info-list
-        divider: false
-        row_height: 64px
+        divider: true
+        row_height: var(--ds-cell-h)
       map_preview:
         tags: semantic_pills
     visual_rules:
@@ -138,6 +153,7 @@ recipes:
         layout: compact_left_aligned
       menu_sections:
         component: ab-info-list
+        grouped_cells: true
         icon: semantic_small
       logout:
         full_width: true

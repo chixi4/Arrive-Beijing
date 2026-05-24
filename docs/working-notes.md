@@ -73,6 +73,9 @@
 - 用户指出业务页圆角和 18x9 风格锚点不一致后，重新确认差异来自画布比例：锚点页按 `864 × 1728` 绘制，业务页按 `430 × 860` 预览，所以 24px 锚点卡片圆角在业务页约等于 12px。
 - 本轮把业务页圆角收敛进 `--ds-radius-*` token：控件 8px、小卡片 10px、标准卡片 12px、头图/媒体 14px、胶囊保持 999px；`ab-*` 卡片、面板、列表、表单、图标容器已迁移到这些 token，避免继续保留 16/18/20/26px 的过圆旧值。
 - `#/design-system` 增加“圆角 Token”预览区，`docs/design-tokens.md` 与 `docs/ui/style-recipes.yaml` 同步记录了锚点到业务画布的圆角换算规则，后续新增页面应优先使用语义 token，而不是页面级硬编码圆角。
+- 进一步从锚点页抽出上层密度规则：简单信息不再默认一条一个独立卡片，而是进入 `ab-info-list` cell-group，外层一个白色容器，内部行用分割线；标准 cell 56px，紧凑 cell 52px，section 间距收敛到 12px。
+- 的士之家基本信息页修掉了旧组件混用问题：首行“北京西站的士之家”不再使用单独的 `ab-house-location-card`，改为和地址、开放时间、可容纳量同一组 `ab-info-row`，左侧图标、行高和左右内边距统一。
+- 新增第四批 3x3 图标校准板 `board-04-taxi-house`，覆盖 `lounge/dining/charger/wifi/tea/book/medical/restroom/gift`，CSV 模拟与单图 SVG mask 复刻都为 `maxDiffRatio = 0.0`；司机端底栏和的士之家服务入口已接入这批图标。
 
 ## 设计判断
 

@@ -51,6 +51,18 @@
 | `--ds-space-14` | `56px` |
 | `--ds-space-16` | `64px` |
 
+### 密度
+
+| Token | Value | 用途 |
+| --- | --- | --- |
+| `--ds-section-gap` | `12px` | 页面 section 之间的默认间距 |
+| `--ds-section-title-gap` | `8px` | 分区标题到内容的距离 |
+| `--ds-cell-h` | `56px` | 标准 cell 行高 |
+| `--ds-cell-h-compact` | `52px` | 紧凑 cell 行高 |
+| `--ds-cell-pad-x` | `14px` | cell 左右内边距 |
+| `--ds-cell-icon` | `32px` | 标准 cell 图标底尺寸 |
+| `--ds-cell-icon-compact` | `30px` | 紧凑 cell 图标底尺寸 |
+
 ### 圆角、阴影、字号
 
 | Token | Value | 用途 |
@@ -98,6 +110,7 @@
 - `card`、`soft-card`、`entry-card` 是卡片层。
 - `chip`、`tab`、`pill`、`ds-badge` 是标签/状态层。
 - `topbar`、`bottom-nav` 是全局导航层。
+- `ab-info-list` 是业务页优先使用的 cell-group：多条信息放在同一个白色容器里，中间用 1px 分割线，不再默认“一条一个卡片”。
 - `ds-list-row`、`ds-field`、`ds-callout` 是后续页面最常用的复用块。
 
 ## 锚点复刻 Token（保留）

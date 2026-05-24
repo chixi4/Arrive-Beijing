@@ -50,10 +50,10 @@
   --ds-radius-icon-sm: var(--ds-radius-md);
   --ds-radius-sheet: var(--ds-radius-2xl);
   --ds-radius-pill: 999px;
-  --ds-shadow-xs: 0 1px 2px rgba(29, 39, 51, 0.04);
-  --ds-shadow-sm: 0 4px 12px rgba(29, 39, 51, 0.05);
-  --ds-shadow-md: 0 8px 24px rgba(29, 39, 51, 0.06);
-  --ds-shadow-lg: 0 16px 40px rgba(29, 39, 51, 0.1);
+  --ds-shadow-xs: 0 1px 2px rgba(29, 39, 51, 0.035);
+  --ds-shadow-sm: 0 3px 8px rgba(29, 39, 51, 0.04);
+  --ds-shadow-md: 0 6px 16px rgba(29, 39, 51, 0.055);
+  --ds-shadow-lg: 0 14px 34px rgba(29, 39, 51, 0.09);
   --ds-font-xs: 12px;
   --ds-font-sm: 14px;
   --ds-font-md: 16px;
@@ -78,6 +78,13 @@
   --ds-icon-stroke: 1.85;
   --ds-page-w: 430px;
   --ds-page-pad: 16px;
+  --ds-section-gap: 12px;
+  --ds-section-title-gap: 8px;
+  --ds-cell-h: 56px;
+  --ds-cell-h-compact: 52px;
+  --ds-cell-pad-x: 14px;
+  --ds-cell-icon: 32px;
+  --ds-cell-icon-compact: 30px;
   --ds-nav-h: 76px;
   --ds-motion-fast: 120ms;
   --ds-motion-base: 180ms;
@@ -4987,7 +4994,7 @@ body.desktop-preview #app {
 
 .ab-page-body {
   display: grid;
-  gap: 14px;
+  gap: var(--ds-section-gap);
   padding: 12px 16px 16px;
 }
 
@@ -4997,7 +5004,7 @@ body.desktop-preview #app {
 
 .ab-page-section {
   display: grid;
-  gap: 10px;
+  gap: var(--ds-section-title-gap);
 }
 
 .ab-section-title {
@@ -5229,23 +5236,31 @@ body.desktop-preview #app {
 }
 
 .ab-info-list {
-  display: grid;
-  gap: 10px;
-}
-
-.ab-info-row {
-  min-height: 58px;
-  padding: 12px 14px;
+  display: block;
+  overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--ds-radius-card);
   background: var(--surface);
   box-shadow: var(--shadow-soft);
+}
+
+.ab-info-row {
+  min-height: var(--ds-cell-h);
+  padding: 9px var(--ds-cell-pad-x);
+  border: 0;
+  border-radius: 0;
+  background: var(--surface);
+  box-shadow: none;
   width: 100%;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 12px;
   text-align: left;
+}
+
+.ab-info-row + .ab-info-row {
+  border-top: 1px solid var(--line);
 }
 
 .ab-info-row,
@@ -5264,6 +5279,11 @@ body.desktop-preview #app {
   transform: translateY(-1px);
 }
 
+.ab-info-list .ab-info-row:hover {
+  transform: none;
+  background: var(--surface-soft);
+}
+
 .ab-info-row-left {
   display: flex;
   align-items: center;
@@ -5272,8 +5292,8 @@ body.desktop-preview #app {
 }
 
 .ab-info-icon {
-  width: 34px;
-  height: 34px;
+  width: var(--ds-cell-icon);
+  height: var(--ds-cell-icon);
   border-radius: var(--ds-radius-icon);
   display: grid;
   place-items: center;
@@ -5283,8 +5303,8 @@ body.desktop-preview #app {
 }
 
 .ab-info-icon .icon {
-  width: 18px;
-  height: 18px;
+  width: 17px;
+  height: 17px;
 }
 
 .ab-info-icon.tag {
@@ -5316,7 +5336,7 @@ body.desktop-preview #app {
 
 .ab-info-row strong {
   display: block;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.25;
   font-weight: 800;
 }
@@ -5349,13 +5369,50 @@ body.desktop-preview #app {
 
 .ab-info-row-right i {
   font-style: normal;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1;
+}
+
+.ab-info-list.compact .ab-info-row {
+  min-height: var(--ds-cell-h-compact);
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.ab-info-list.compact .ab-info-icon {
+  width: var(--ds-cell-icon-compact);
+  height: var(--ds-cell-icon-compact);
+}
+
+.ab-info-list.compact .ab-info-icon .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.ab-info-list.loose {
+  display: grid;
+  gap: 10px;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.ab-info-list.loose .ab-info-row {
+  min-height: var(--ds-cell-h);
+  border: 1px solid var(--line);
+  border-radius: var(--ds-radius-card);
+  box-shadow: var(--shadow-soft);
+}
+
+.ab-info-list.loose .ab-info-row + .ab-info-row {
+  border-top: 1px solid var(--line);
 }
 
 .ab-action-grid {
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .ab-action-grid.ab-service-grid {
@@ -5367,8 +5424,8 @@ body.desktop-preview #app {
 }
 
 .ab-action-tile {
-  min-height: 104px;
-  padding: 12px;
+  min-height: 96px;
+  padding: 11px;
   border: 1px solid var(--line);
   border-radius: var(--ds-radius-card);
   background: var(--surface);
@@ -5414,8 +5471,8 @@ body.desktop-preview #app {
 }
 
 .ab-preview-card {
-  min-height: 108px;
-  padding: 12px;
+  min-height: 98px;
+  padding: 11px;
   border: 1px solid var(--line);
   border-radius: var(--ds-radius-card);
   background: var(--surface);
@@ -5454,13 +5511,13 @@ body.desktop-preview #app {
 }
 
 .ab-panel {
-  padding: 14px;
+  padding: 12px;
   border: 1px solid var(--line);
   border-radius: var(--ds-radius-card);
   background: var(--surface);
   box-shadow: var(--shadow-soft);
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 
 .ab-panel-head {
@@ -5486,7 +5543,7 @@ body.desktop-preview #app {
 
 .ab-panel-body {
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 
 .ab-select-grid {
@@ -5615,7 +5672,7 @@ body.desktop-preview #app {
 
 .ab-record-list {
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 
 .ab-record-card {
@@ -6027,7 +6084,6 @@ body.desktop-preview #app {
 .ab-meal-card,
 .ab-reward-card,
 .ab-journey-card,
-.ab-house-location-card,
 .ab-review-card,
 .ab-station-banner,
 .ab-station-house,
@@ -7303,47 +7359,6 @@ body.desktop-preview #app {
   height: 100%;
   border-radius: inherit;
   background: linear-gradient(90deg, #ff9ba0, #ffd1a5);
-}
-
-.ab-house-location-card {
-  min-height: 96px;
-  padding: 12px 0 14px;
-  display: grid;
-  grid-template-columns: 44px minmax(0, 1fr) 18px;
-  gap: 12px;
-  align-items: center;
-  text-align: left;
-}
-
-.ab-house-location-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--ds-radius-icon);
-  display: grid;
-  place-items: center;
-  background: #e5f7ef;
-  color: var(--green);
-}
-
-.ab-house-location-copy strong {
-  display: block;
-  font-size: 16px;
-  font-weight: 850;
-}
-
-.ab-house-location-copy em {
-  display: block;
-  margin-top: 4px;
-  color: var(--muted);
-  font-style: normal;
-  font-size: 12px;
-}
-
-.ab-house-location-card i {
-  color: var(--subtle);
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
 }
 
 .ab-review-card {
