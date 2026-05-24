@@ -55,13 +55,14 @@
 
 | Token | Value | 用途 |
 | --- | --- | --- |
-| `--ds-section-gap` | `12px` | 页面 section 之间的默认间距 |
-| `--ds-section-title-gap` | `8px` | 分区标题到内容的距离 |
-| `--ds-cell-h` | `56px` | 标准 cell 行高 |
-| `--ds-cell-h-compact` | `52px` | 紧凑 cell 行高 |
-| `--ds-cell-pad-x` | `14px` | cell 左右内边距 |
-| `--ds-cell-icon` | `32px` | 标准 cell 图标底尺寸 |
-| `--ds-cell-icon-compact` | `30px` | 紧凑 cell 图标底尺寸 |
+| `--ds-page-pad` | `14px` | 页面左右内边距 |
+| `--ds-section-gap` | `10px` | 页面 section 之间的默认间距 |
+| `--ds-section-title-gap` | `6px` | 分区标题到内容的距离 |
+| `--ds-cell-h` | `52px` | 标准 cell 行高 |
+| `--ds-cell-h-compact` | `48px` | 紧凑 cell 行高 |
+| `--ds-cell-pad-x` | `12px` | cell 左右内边距 |
+| `--ds-cell-icon` | `30px` | 标准 cell 图标底尺寸 |
+| `--ds-cell-icon-compact` | `28px` | 紧凑 cell 图标底尺寸 |
 
 ### 圆角、阴影、字号
 

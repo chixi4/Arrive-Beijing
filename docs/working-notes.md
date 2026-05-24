@@ -51,6 +51,7 @@
 - 首页头图再收了一版：外层改成留白包裹的卡片容器，主视觉不再贴边，背景图位置也上移了一点，避免站点图像像被屏幕边缘硬切出来。
 - 继续微调首页头图外边距：`ab-home-hero` 的左右留白已经收掉，让头图卡片和下面公告、服务区保持同一条内容边线，不再显得上面那张卡片偏窄。
 - 2026-05-24 进入 v2 视觉校准和图标系统化阶段：已读取新的 Obsidian 工作流与参考文档，确认新增 `Style Recipe` 层，用少量校准页驱动全局 token/component/recipe 返修。
+- 这轮把首页头图底部的白色收口渐变改成了更暗的黑色收口，并把“站区服务”从 8 张独立卡片改成单个分组卡片里的 8 个按钮；同时重新生成了 `docs/ui/icon-inventory.json`，把之前损坏的清单恢复成合法 JSON。
 - 图标层先完成基础重构：`ICONS` 与 `ANCHOR_ICONS` 合并为统一 `ICON_LIBRARY`，`iconMarkup()` 和 `anchorIcon()` 都从同一个 SVG/currentColor 图标库输出。
 - 已替换第一批明显语义误用图标：积分不再用扫码，邮箱不再用扫码，场站接驳不再复用公交，自驾停车不再复用小汽车，退出登录不再复用扫码。
 - 新增 `docs/ui/icon-inventory.json`、`docs/ui/icon-style.md`、`docs/ui/style-recipes.yaml`、`docs/ui/visual-calibration/sample-set.yaml` 与 `docs/ui/visual-thresholds.json`，把图标清单、3x3 生图校准规则和页面 recipe 规则落盘。
