@@ -4,12 +4,13 @@
 
 ## 当前结论
 
-- 当前库：60 个手写 SVG 图标，七批共 60 个单图复刻 SVG mask，8 个语义别名。
+- 当前库：60 个手写 SVG 图标，九批共 70 个唯一单图复刻 SVG mask，8 个语义别名。
 - 当前使用：页面和设计系统里所有已用语义均已进入复刻链路，0 个缺失。
 - 已替换的明显误用：`我的积分` 不再用扫码图标，`监督投诉邮箱` 不再用扫码图标，`场站接驳` 不再复用公交图标，`自驾停车` 不再复用小汽车图标，`退出登录` 不再用扫码图标。
 - 已完成单图复刻的高频图标：`pin`、`map`、`route`、`megaphone/notice`、`search`、`user`、`taxi`、`car`、`transfer`、`message`、`globe`、`accessibility`、`shield`、`lock`、`ear`、`feedback`、`phone`、`mail`、`home`、`parking`、`points`、`calendar`、`clock`、`back`、`train/station`、`people`、`history`、`lounge`、`dining`、`charger`、`wifi`、`tea`、`book`、`medical`、`restroom`、`gift/redeem`。
 - 追加的三批覆盖 `check/more/question/refresh/settings/edit/scan/camera/id`、`angry/bike/bus/chat/cup/glove/leaf/logout/paper`、`pillow/plane/grid/handshake/qr/thumb` 等剩余库项，CSV 模拟与 SVG mask 复刻都已通过。
-- 最新视觉口径：七批全部按粗一档的黑色 monoline 图标目标进入像素复刻链路；CSV 模拟和 SVG mask 复刻均通过 `diffRatio <= 5%` 门槛。
+- 站点轮廓两批覆盖 10 个站点：`station_beijing/station_west/station_south/station_north/station_chaoyang/station_qinghe/station_yizhuang/station_tongzhou/station_capital/station_daxing`，用于站点选择卡片左下角，不再使用旧 PNG。
+- 最新视觉口径：基础业务图标按粗一档的黑色 monoline 目标进入像素复刻链路；站点图标按新站点建筑图提取黑白轮廓，再进入同一 CSV 与 SVG mask 复刻链路。所有批次都通过 `diffRatio <= 5%` 门槛。
 - 仍需重点校准的图标：当前使用链路无缺失；下一轮只在新增页面出现新语义，或现有页面视觉检查发现具体图标不协调时再扩批。
 
 ## 视觉规范
@@ -134,4 +135,28 @@
 8. `qr` 二维码（复用占位）
 9. `handshake` 握手（复用占位）
 
-第二、第三、第四、第五、第六、第七批同样记录在 `docs/ui/icon-calibration-log.md`。当前运行时会按脚本加载顺序合并七批 `ICON_REPLICA_LIBRARY`，所以同一语义在页面、底栏、锚点页和设计系统里都走同一套复刻结果。
+第八批覆盖站点轮廓 A：
+
+1. `station_beijing` 北京站
+2. `station_west` 北京西站
+3. `station_south` 北京南站
+4. `station_north` 北京北站
+5. `station_chaoyang` 朝阳站
+6. `station_qinghe` 清河站
+7. `station_yizhuang` 亦庄站
+8. `station_tongzhou` 通州站
+9. `station_capital` 首都机场
+
+第九批覆盖站点轮廓 B：
+
+1. `station_daxing` 大兴机场
+2. `station_beijing` 北京站（复用）
+3. `station_west` 北京西站（复用）
+4. `station_south` 北京南站（复用）
+5. `station_north` 北京北站（复用）
+6. `station_chaoyang` 朝阳站（复用）
+7. `station_qinghe` 清河站（复用）
+8. `station_yizhuang` 亦庄站（复用）
+9. `station_tongzhou` 通州站（复用）
+
+第二到第九批同样记录在 `docs/ui/icon-calibration-log.md`。当前运行时会按脚本加载顺序合并九批 `ICON_REPLICA_LIBRARY`，所以同一语义在页面、底栏、锚点页、站点选择卡片和设计系统里都走同一套复刻结果。

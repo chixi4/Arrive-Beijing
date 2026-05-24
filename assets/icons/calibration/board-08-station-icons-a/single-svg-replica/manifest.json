@@ -1,0 +1,245 @@
+{
+  "source": "assets/icons/calibration/board-08-station-icons-a/board-clean.png",
+  "out": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica",
+  "threshold": 128,
+  "cropPaddingRatio": 0.06,
+  "diffThreshold": 0.05,
+  "pass": true,
+  "maxDiffRatio": 0.0,
+  "icons": [
+    {
+      "name": "station_beijing",
+      "target": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/targets/01-station_beijing.png",
+      "enlarged": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/enlarged-3x/01-station_beijing@3x.png",
+      "replicaPng": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/replica-png/01-station_beijing.png",
+      "svg": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/svg/01-station_beijing.svg",
+      "diff": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/diff/01-station_beijing.png",
+      "inkBBox": [
+        64,
+        174,
+        354,
+        276
+      ],
+      "displayViewBox": [
+        47,
+        157,
+        324,
+        136
+      ],
+      "rectangles": 147,
+      "pathLength": 2976,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "station_west",
+      "target": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/targets/02-station_west.png",
+      "enlarged": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/enlarged-3x/02-station_west@3x.png",
+      "replicaPng": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/replica-png/02-station_west.png",
+      "svg": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/svg/02-station_west.svg",
+      "diff": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/diff/02-station_west.png",
+      "inkBBox": [
+        64,
+        174,
+        354,
+        276
+      ],
+      "displayViewBox": [
+        47,
+        157,
+        324,
+        136
+      ],
+      "rectangles": 95,
+      "pathLength": 1923,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "station_south",
+      "target": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/targets/03-station_south.png",
+      "enlarged": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/enlarged-3x/03-station_south@3x.png",
+      "replicaPng": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/replica-png/03-station_south.png",
+      "svg": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/svg/03-station_south.svg",
+      "diff": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/diff/03-station_south.png",
+      "inkBBox": [
+        64,
+        174,
+        354,
+        276
+      ],
+      "displayViewBox": [
+        47,
+        157,
+        324,
+        136
+      ],
+      "rectangles": 135,
+      "pathLength": 2665,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "station_north",
+      "target": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/targets/04-station_north.png",
+      "enlarged": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/enlarged-3x/04-station_north@3x.png",
+      "replicaPng": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/replica-png/04-station_north.png",
+      "svg": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/svg/04-station_north.svg",
+      "diff": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/diff/04-station_north.png",
+      "inkBBox": [
+        64,
+        174,
+        354,
+        276
+      ],
+      "displayViewBox": [
+        47,
+        157,
+        324,
+        136
+      ],
+      "rectangles": 132,
+      "pathLength": 2671,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "station_chaoyang",
+      "target": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/targets/05-station_chaoyang.png",
+      "enlarged": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/enlarged-3x/05-station_chaoyang@3x.png",
+      "replicaPng": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/replica-png/05-station_chaoyang.png",
+      "svg": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/svg/05-station_chaoyang.svg",
+      "diff": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/diff/05-station_chaoyang.png",
+      "inkBBox": [
+        64,
+        174,
+        354,
+        276
+      ],
+      "displayViewBox": [
+        47,
+        157,
+        324,
+        136
+      ],
+      "rectangles": 166,
+      "pathLength": 3340,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "station_qinghe",
+      "target": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/targets/06-station_qinghe.png",
+      "enlarged": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/enlarged-3x/06-station_qinghe@3x.png",
+      "replicaPng": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/replica-png/06-station_qinghe.png",
+      "svg": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/svg/06-station_qinghe.svg",
+      "diff": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/diff/06-station_qinghe.png",
+      "inkBBox": [
+        64,
+        174,
+        354,
+        276
+      ],
+      "displayViewBox": [
+        47,
+        157,
+        324,
+        136
+      ],
+      "rectangles": 107,
+      "pathLength": 2101,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "station_yizhuang",
+      "target": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/targets/07-station_yizhuang.png",
+      "enlarged": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/enlarged-3x/07-station_yizhuang@3x.png",
+      "replicaPng": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/replica-png/07-station_yizhuang.png",
+      "svg": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/svg/07-station_yizhuang.svg",
+      "diff": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/diff/07-station_yizhuang.png",
+      "inkBBox": [
+        64,
+        174,
+        354,
+        276
+      ],
+      "displayViewBox": [
+        47,
+        157,
+        324,
+        136
+      ],
+      "rectangles": 68,
+      "pathLength": 1372,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "station_tongzhou",
+      "target": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/targets/08-station_tongzhou.png",
+      "enlarged": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/enlarged-3x/08-station_tongzhou@3x.png",
+      "replicaPng": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/replica-png/08-station_tongzhou.png",
+      "svg": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/svg/08-station_tongzhou.svg",
+      "diff": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/diff/08-station_tongzhou.png",
+      "inkBBox": [
+        64,
+        174,
+        354,
+        276
+      ],
+      "displayViewBox": [
+        47,
+        157,
+        324,
+        136
+      ],
+      "rectangles": 140,
+      "pathLength": 2784,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "station_capital",
+      "target": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/targets/09-station_capital.png",
+      "enlarged": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/enlarged-3x/09-station_capital@3x.png",
+      "replicaPng": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/replica-png/09-station_capital.png",
+      "svg": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/svg/09-station_capital.svg",
+      "diff": "assets/icons/calibration/board-08-station-icons-a/single-svg-replica/diff/09-station_capital.png",
+      "inkBBox": [
+        64,
+        174,
+        354,
+        276
+      ],
+      "displayViewBox": [
+        47,
+        157,
+        324,
+        136
+      ],
+      "rectangles": 114,
+      "pathLength": 2287,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    }
+  ]
+}
