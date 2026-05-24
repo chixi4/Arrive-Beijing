@@ -55,4 +55,6 @@
 8. `car` 网约车/小汽车
 9. `transfer` 场站接驳
 
+已完成第一批校准，记录见 `docs/ui/icon-calibration-log.md`。清理后的图标板位于 `assets/icons/calibration/board-01-high-frequency/board-clean.png`，CSV 模拟比对已通过，`maxDiffRatio = 0.0`。
+
 第二批再覆盖设置、反馈、停车、积分、表单和司机端专属图标。
