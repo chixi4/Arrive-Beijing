@@ -15,19 +15,19 @@
       "svg": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/svg/01-lounge.svg",
       "diff": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/diff/01-lounge.png",
       "inkBBox": [
-        128,
-        171,
-        290,
-        305
+        87,
+        115,
+        377,
+        395
       ],
       "displayViewBox": [
-        118,
-        161,
-        182,
-        154
+        70,
+        98,
+        324,
+        314
       ],
-      "rectangles": 87,
-      "pathLength": 1827,
+      "rectangles": 320,
+      "pathLength": 6640,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -41,19 +41,19 @@
       "svg": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/svg/02-dining.svg",
       "diff": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/diff/02-dining.png",
       "inkBBox": [
-        128,
-        125,
-        280,
-        293
+        70,
+        112,
+        346,
+        399
       ],
       "displayViewBox": [
-        118,
-        115,
-        172,
-        188
+        53,
+        95,
+        310,
+        321
       ],
-      "rectangles": 104,
-      "pathLength": 2184,
+      "rectangles": 383,
+      "pathLength": 7904,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -67,19 +67,19 @@
       "svg": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/svg/03-charger.svg",
       "diff": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/diff/03-charger.png",
       "inkBBox": [
-        154,
-        118,
-        264,
-        300
+        57,
+        116,
+        321,
+        378
       ],
       "displayViewBox": [
-        143,
-        107,
-        132,
-        204
+        41,
+        100,
+        296,
+        294
       ],
-      "rectangles": 153,
-      "pathLength": 3213,
+      "rectangles": 299,
+      "pathLength": 6136,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -93,19 +93,19 @@
       "svg": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/svg/04-wifi.svg",
       "diff": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/diff/04-wifi.png",
       "inkBBox": [
-        130,
-        153,
-        288,
-        298
+        89,
+        105,
+        372,
+        321
       ],
       "displayViewBox": [
-        121,
-        144,
-        176,
-        163
+        72,
+        88,
+        317,
+        250
       ],
-      "rectangles": 174,
-      "pathLength": 3654,
+      "rectangles": 352,
+      "pathLength": 7346,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -119,19 +119,19 @@
       "svg": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/svg/05-tea.svg",
       "diff": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/diff/05-tea.png",
       "inkBBox": [
-        143,
-        126,
-        293,
-        300
+        64,
+        125,
+        340,
+        324
       ],
       "displayViewBox": [
-        133,
-        116,
-        170,
-        194
+        47,
+        108,
+        310,
+        233
       ],
-      "rectangles": 199,
-      "pathLength": 4179,
+      "rectangles": 259,
+      "pathLength": 5237,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -145,19 +145,19 @@
       "svg": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/svg/06-book.svg",
       "diff": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/diff/06-book.png",
       "inkBBox": [
-        130,
-        135,
-        288,
-        295
+        29,
+        104,
+        330,
+        336
       ],
       "displayViewBox": [
-        120,
-        125,
-        178,
-        180
+        11,
+        86,
+        337,
+        268
       ],
-      "rectangles": 37,
-      "pathLength": 777,
+      "rectangles": 217,
+      "pathLength": 4375,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -171,19 +171,19 @@
       "svg": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/svg/07-medical.svg",
       "diff": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/diff/07-medical.png",
       "inkBBox": [
-        128,
-        124,
-        290,
-        283
+        93,
+        31,
+        364,
+        296
       ],
       "displayViewBox": [
-        118,
-        114,
-        182,
-        179
+        77,
+        15,
+        303,
+        297
       ],
-      "rectangles": 107,
-      "pathLength": 2247,
+      "rectangles": 260,
+      "pathLength": 5256,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -197,19 +197,19 @@
       "svg": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/svg/08-restroom.svg",
       "diff": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/diff/08-restroom.png",
       "inkBBox": [
-        130,
-        126,
-        283,
-        298
+        66,
+        31,
+        331,
+        297
       ],
       "displayViewBox": [
-        120,
-        116,
-        173,
-        192
+        50,
+        15,
+        297,
+        298
       ],
-      "rectangles": 293,
-      "pathLength": 6153,
+      "rectangles": 330,
+      "pathLength": 6615,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -223,19 +223,19 @@
       "svg": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/svg/09-gift.svg",
       "diff": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/diff/09-gift.png",
       "inkBBox": [
-        125,
-        131,
-        293,
-        293
+        46,
+        23,
+        307,
+        298
       ],
       "displayViewBox": [
-        115,
-        121,
-        188,
-        182
+        30,
+        7,
+        293,
+        307
       ],
-      "rectangles": 110,
-      "pathLength": 2310,
+      "rectangles": 267,
+      "pathLength": 4998,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,

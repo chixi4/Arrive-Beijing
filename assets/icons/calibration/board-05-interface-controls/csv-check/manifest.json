@@ -2,6 +2,7 @@
   "source": "assets/icons/calibration/board-05-interface-controls/board-clean.png",
   "out": "assets/icons/calibration/board-05-interface-controls/csv-check",
   "threshold": 0.05,
+  "maxDiffRatio": 0.0,
   "pass": true,
   "icons": [
     {
@@ -13,9 +14,9 @@
       "actual": "assets/icons/calibration/board-05-interface-controls/csv-check/simulated/01-check.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 518,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.002965,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -27,9 +28,9 @@
       "actual": "assets/icons/calibration/board-05-interface-controls/csv-check/simulated/02-more.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 528,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.003022,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -41,9 +42,9 @@
       "actual": "assets/icons/calibration/board-05-interface-controls/csv-check/simulated/03-question.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 1523,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.008717,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -55,9 +56,9 @@
       "actual": "assets/icons/calibration/board-05-interface-controls/csv-check/simulated/04-refresh.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 1043,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.005969,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -69,9 +70,9 @@
       "actual": "assets/icons/calibration/board-05-interface-controls/csv-check/simulated/05-settings.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 1759,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.010067,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -83,9 +84,9 @@
       "actual": "assets/icons/calibration/board-05-interface-controls/csv-check/simulated/06-edit.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 1142,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.006536,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -97,9 +98,9 @@
       "actual": "assets/icons/calibration/board-05-interface-controls/csv-check/simulated/07-scan.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 1120,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.00641,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -111,9 +112,9 @@
       "actual": "assets/icons/calibration/board-05-interface-controls/csv-check/simulated/08-camera.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 1250,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.007154,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -125,9 +126,9 @@
       "actual": "assets/icons/calibration/board-05-interface-controls/csv-check/simulated/09-id.png",
       "width": 418,
       "height": 418,
-      "diffPixels": 1696,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.009707,
+      "diffRatio": 0.0,
       "pass": true
     }
   ]

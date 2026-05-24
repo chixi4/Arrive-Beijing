@@ -2,6 +2,7 @@
   "source": "assets/icons/calibration/board-04-taxi-house/board-clean.png",
   "out": "assets/icons/calibration/board-04-taxi-house/csv-check",
   "threshold": 0.05,
+  "maxDiffRatio": 0.0,
   "pass": true,
   "icons": [
     {

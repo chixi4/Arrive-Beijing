@@ -117,6 +117,7 @@ def extract(args: argparse.Namespace) -> None:
         "source": str(args.input),
         "out": str(out),
         "threshold": 0.05,
+        "maxDiffRatio": max(item["diffRatio"] for item in manifest),
         "pass": all(item["pass"] for item in manifest),
         "icons": manifest,
     }

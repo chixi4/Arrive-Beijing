@@ -5,7 +5,7 @@
   "cropPaddingRatio": 0.06,
   "diffThreshold": 0.05,
   "pass": true,
-  "maxDiffRatio": 0.008316,
+  "maxDiffRatio": 0.0,
   "icons": [
     {
       "name": "pillow",
@@ -15,22 +15,22 @@
       "svg": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/svg/01-pillow.svg",
       "diff": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/diff/01-pillow.png",
       "inkBBox": [
-        117,
-        146,
-        301,
-        272
+        99,
+        128,
+        385,
+        387
       ],
       "displayViewBox": [
-        106,
-        135,
-        206,
-        148
+        82,
+        111,
+        320,
+        293
       ],
-      "rectangles": 94,
-      "pathLength": 1974,
-      "diffPixels": 964,
+      "rectangles": 557,
+      "pathLength": 11695,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.005517,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -41,22 +41,22 @@
       "svg": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/svg/02-plane.svg",
       "diff": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/diff/02-plane.png",
       "inkBBox": [
-        109,
-        142,
-        309,
-        304
+        83,
+        124,
+        343,
+        382
       ],
       "displayViewBox": [
-        97,
-        130,
-        224,
-        186
+        67,
+        108,
+        292,
+        290
       ],
-      "rectangles": 275,
-      "pathLength": 5775,
-      "diffPixels": 797,
+      "rectangles": 540,
+      "pathLength": 11261,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.004561,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -67,22 +67,22 @@
       "svg": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/svg/03-grid.svg",
       "diff": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/diff/03-grid.png",
       "inkBBox": [
-        117,
-        117,
-        301,
-        301
+        58,
+        131,
+        316,
+        387
       ],
       "displayViewBox": [
-        106,
-        106,
-        206,
-        206
+        43,
+        116,
+        288,
+        286
       ],
-      "rectangles": 177,
-      "pathLength": 3717,
-      "diffPixels": 1448,
+      "rectangles": 304,
+      "pathLength": 6133,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.008287,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -93,22 +93,22 @@
       "svg": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/svg/04-handshake.svg",
       "diff": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/diff/04-handshake.png",
       "inkBBox": [
-        110,
-        167,
-        308,
-        297
+        85,
+        113,
+        402,
+        331
       ],
       "displayViewBox": [
-        98,
-        155,
-        222,
-        154
+        66,
+        94,
+        352,
+        256
       ],
-      "rectangles": 302,
-      "pathLength": 6342,
-      "diffPixels": 732,
+      "rectangles": 825,
+      "pathLength": 17249,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.004189,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -119,22 +119,22 @@
       "svg": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/svg/05-qr.svg",
       "diff": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/diff/05-qr.png",
       "inkBBox": [
-        117,
-        117,
-        301,
-        301
+        83,
+        84,
+        340,
+        347
       ],
       "displayViewBox": [
-        106,
-        106,
-        206,
-        206
+        67,
+        68,
+        289,
+        295
       ],
-      "rectangles": 103,
-      "pathLength": 2163,
-      "diffPixels": 1359,
+      "rectangles": 321,
+      "pathLength": 6615,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.007778,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -145,22 +145,22 @@
       "svg": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/svg/06-thumb.svg",
       "diff": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/diff/06-thumb.png",
       "inkBBox": [
-        106,
-        108,
-        316,
-        309
+        53,
+        68,
+        302,
+        318
       ],
       "displayViewBox": [
-        93,
-        95,
-        236,
-        227
+        38,
+        53,
+        279,
+        280
       ],
-      "rectangles": 199,
-      "pathLength": 4179,
-      "diffPixels": 1024,
+      "rectangles": 266,
+      "pathLength": 5429,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.005861,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -171,22 +171,22 @@
       "svg": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/svg/07-grid.svg",
       "diff": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/diff/07-grid.png",
       "inkBBox": [
-        117,
-        117,
-        301,
-        301
+        111,
+        32,
+        369,
+        288
       ],
       "displayViewBox": [
-        106,
-        106,
-        206,
-        206
+        96,
+        17,
+        288,
+        286
       ],
-      "rectangles": 177,
-      "pathLength": 3717,
-      "diffPixels": 1453,
+      "rectangles": 321,
+      "pathLength": 6581,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.008316,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -197,22 +197,22 @@
       "svg": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/svg/08-qr.svg",
       "diff": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/diff/08-qr.png",
       "inkBBox": [
-        117,
-        117,
-        301,
-        301
+        84,
+        30,
+        338,
+        291
       ],
       "displayViewBox": [
-        106,
-        106,
-        206,
-        206
+        68,
+        14,
+        286,
+        293
       ],
-      "rectangles": 103,
-      "pathLength": 2163,
-      "diffPixels": 1359,
+      "rectangles": 292,
+      "pathLength": 5910,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.007778,
+      "diffRatio": 0.0,
       "pass": true
     },
     {
@@ -223,22 +223,22 @@
       "svg": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/svg/09-handshake.svg",
       "diff": "assets/icons/calibration/board-07-remaining-utility/single-svg-replica/diff/09-handshake.png",
       "inkBBox": [
-        110,
-        167,
-        308,
-        297
+        19,
+        57,
+        335,
+        273
       ],
       "displayViewBox": [
-        98,
-        155,
-        222,
-        154
+        0,
+        38,
+        354,
+        254
       ],
-      "rectangles": 302,
-      "pathLength": 6342,
-      "diffPixels": 729,
+      "rectangles": 844,
+      "pathLength": 16740,
+      "diffPixels": 0,
       "totalPixels": 174724,
-      "diffRatio": 0.004172,
+      "diffRatio": 0.0,
       "pass": true
     }
   ]
