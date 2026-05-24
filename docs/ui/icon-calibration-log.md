@@ -32,6 +32,7 @@
 - 清理后校准板：`assets/icons/calibration/board-01-high-frequency/board-clean.png`
 - CSV 与切片结果：`assets/icons/calibration/board-01-high-frequency/csv-check/`
 - 比对报告：`assets/icons/calibration/board-01-high-frequency/csv-check/manifest.json`
+- 单图放大与 SVG mask 复刻：`assets/icons/calibration/board-01-high-frequency/single-svg-replica/`
 
 ### 像素检查
 
@@ -55,9 +56,39 @@ python3 scripts/icon_sheet_tools.py extract \
 
 这里的 `0.0` 表示 CSV alpha 模拟图与清理后的目标图完全一致，满足 `diffRatio <= 5%` 的门槛。
 
+### 单图拆分与页面图标复刻
+
+之前的 CSV 检查只能证明“切出的目标图”和“CSV 模拟图”一致，不能证明页面里正在用的 SVG 也贴近目标。按新的检查口径，已经把 3x3 图标板拆成 9 张独立目标图，并为每张图生成 3 倍放大图，便于看清轮廓：
+
+- 单图目标：`assets/icons/calibration/board-01-high-frequency/single-svg-replica/targets/`
+- 3 倍放大：`assets/icons/calibration/board-01-high-frequency/single-svg-replica/enlarged-3x/`
+- SVG mask：`assets/icons/calibration/board-01-high-frequency/single-svg-replica/svg/`
+- 页面加载脚本：`assets/icons/calibration/board-01-high-frequency/single-svg-replica/icon-replicas-board-01.js`
+- 新比对报告：`assets/icons/calibration/board-01-high-frequency/single-svg-replica/manifest.json`
+
+使用命令：
+
+```bash
+python3 scripts/icon_svg_replica.py \
+  --input assets/icons/calibration/board-01-high-frequency/board-clean.png \
+  --out assets/icons/calibration/board-01-high-frequency/single-svg-replica \
+  --names pin,map,route,megaphone,search,user,taxi,car,transfer
+```
+
+结果：
+
+```json
+{
+  "pass": true,
+  "maxDiffRatio": 0.0
+}
+```
+
+页面里的第一批 9 个高频图标现在优先使用这份单图复刻结果。复刻用完整 cell 做像素 diff，同时用黑色轮廓 bbox 加统一留白生成页面显示用 viewBox。当前显示 `fitRatio = 0.78`，避免把九宫格白边带进实际图标盒子导致图标过小。
+
 ### 进入组件库的结论
 
-当前 `ICON_LIBRARY` 已经包含这 9 个语义，并且页面引用已经改为这些语义名。后续不再让页面临时手写图标；如果某个页面需要新语义，先更新 `ICON_LIBRARY` 和 `docs/ui/icon-inventory.json`。
+当前 `ICON_LIBRARY` 已经包含这 9 个语义，并且页面引用已经改为这些语义名。运行时渲染顺序为：第一批单图复刻 `ICON_REPLICA_LIBRARY` 优先，其次回落到手写 `ICON_LIBRARY`。后续不再让页面临时手写图标；如果某个页面需要新语义，先更新 `ICON_LIBRARY`、`docs/ui/icon-inventory.json`，并按需要生成新的单图复刻批次。
 
 ### 当前可见页面
 

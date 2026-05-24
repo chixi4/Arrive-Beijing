@@ -308,10 +308,15 @@ const ICON_ALIASES = {
   station: "train",
 };
 
+const ICON_REPLICA_LIBRARY =
+  typeof window !== "undefined" && window.ICON_REPLICA_LIBRARY ? window.ICON_REPLICA_LIBRARY : {};
+
 function renderIcon(name, className) {
   const resolvedName = ICON_ALIASES[name] || name;
-  const svgBody = ICON_LIBRARY[resolvedName] || ICON_LIBRARY.grid;
-  return `<svg class="${className}" viewBox="0 0 24 24" aria-hidden="true" data-icon="${resolvedName}">${svgBody}</svg>`;
+  const iconDef = ICON_REPLICA_LIBRARY[resolvedName] || ICON_LIBRARY[resolvedName] || ICON_LIBRARY.grid;
+  const svgBody = typeof iconDef === "string" ? iconDef : iconDef.body;
+  const viewBox = typeof iconDef === "string" ? "0 0 24 24" : iconDef.viewBox || "0 0 24 24";
+  return `<svg class="${className}" viewBox="${viewBox}" aria-hidden="true" data-icon="${resolvedName}">${svgBody}</svg>`;
 }
 
 function iconMarkup(name) {
