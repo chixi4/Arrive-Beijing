@@ -93,7 +93,7 @@
 - 北京南站公告已做站点条件化：首页和 `#/announcements` 独立公告页在当前站点为北京南站时显示 `北京南站北广场...` 与 `地铁4号线...`，其它站点继续保持默认西站公告。
 - 根据用户反馈“字儿又小又粗”，再次对业务页排版密度做了二次校准：业务页主文案从约 `14px/800` 提到约 `15.5px/600`，topbar 提到约 `20px/700`，section 标题提到约 `18px/700`，辅助文案统一约 `13px/400`；只保留首页主标题、天气、积分、排队数值等关键数字为 `800` 强调，并通过截图复查首页、公告、个人中心、短途复载、的士之家和站点选择页。
 - 用户指出站点建筑图与真实站点差异过大后，重新按真实外观特征生成 10 个站点主图，并统一切出 `assets/bitmap/stations-v2/landscape/` 横版首页图和 `assets/bitmap/stations-v2/portrait/` 竖版选择卡片图；首页默认使用横图，站点选择/切换卡片使用竖图。复查时首都机场初稿偏大兴感，已重生为 T3 长条红金屋顶；大兴机场也重生为低空斜视的五指廊/凤凰放射结构。首页公告卡片移除了重复的“点击查看公告详情”副文案，只保留公告标题和右侧进入符号。
-- 继续处理用户要求的站点 icon：新增 `board-08-station-icons-a` 与 `board-09-station-icons-b` 两批 3x3 站点轮廓校准板，覆盖 10 个站点；CSV 模拟和单图 SVG mask 复刻均为 `maxDiffRatio = 0.0`。`#/station/select`、`#/station/switch` 和 `#/design-system` 已加载这两批 `station_*` 图标，不再在页面里直接使用旧站点 PNG。
+- 继续处理用户要求的站点 icon：上一版错误地从站点图直接算法提轮廓，已按用户纠正改为“站点图视觉参考 -> 生图模型重绘 3x3 icon target -> `scripts/icon_clean_board.py` 纯黑白清理 -> CSV 模拟 -> 单图 SVG mask 复刻”。`board-08-station-icons-a` 与 `board-09-station-icons-b` 两批覆盖 10 个站点，CSV 模拟和单图 SVG mask 复刻均为 `maxDiffRatio = 0.0`。`#/station/select`、`#/station/switch` 和 `#/design-system` 已加载这两批 `station_*` 图标，不再在页面里直接使用旧站点 PNG。
 
 ## 设计判断
 
