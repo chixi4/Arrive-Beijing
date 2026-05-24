@@ -59,6 +59,7 @@
 - 第一批 3x3 图标生图校准完成：覆盖 `pin/map/route/megaphone/search/user/taxi/car/transfer`，第二轮生图经阈值化后得到纯黑白校准板，路径为 `assets/icons/calibration/board-01-high-frequency/board-clean.png`。
 - 第一批图标板已用 `scripts/icon_sheet_tools.py extract` 切片并生成 CSV 模拟图，`maxDiffRatio = 0.0`，满足 `diffRatio <= 5%`；记录落在 `docs/ui/icon-calibration-log.md`。
 - 第一批图标已经进入 `#/design-system` 的“图标系统”集中预览区；业务页里最完整的查看入口是 `#/station/home`，能同时看到定位、公告、搜索、导航、交通、接驳、身份、出租车、网约车这些语义图标。
+- 按用户反馈进一步校准图标：新增 `scripts/icon_svg_replica.py`，把九宫格拆成 9 张单独目标图和 3 倍放大图，再生成 `currentColor` SVG mask；第一批 9 个图标的单图复刻 `maxDiffRatio = 0.0`，页面优先从 `ICON_REPLICA_LIBRARY` 取这批图标，手写 `ICON_LIBRARY` 只作为兜底。
 
 ## 设计判断
 

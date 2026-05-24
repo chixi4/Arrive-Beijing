@@ -7,6 +7,10 @@
     "diffRatio": 0.05,
     "note": "3x3 生图板切片后，目标 cell 与 CSV 模拟 PNG 的差异必须小于等于 5%。"
   },
+  "icon_svg_replica": {
+    "diffRatio": 0.05,
+    "note": "把单个图标 cell 复刻成 currentColor SVG mask 后，完整 cell 目标图与复刻 PNG 的差异必须小于等于 5%。页面显示可使用 bbox viewBox 去掉九宫格白边。"
+  },
   "calibration_target_replica": {
     "diffRatio": 0.05,
     "must_extract_to_recipe": true,

@@ -1,0 +1,245 @@
+{
+  "source": "assets/icons/calibration/board-01-high-frequency/board-clean.png",
+  "out": "assets/icons/calibration/board-01-high-frequency/single-svg-replica",
+  "threshold": 128,
+  "fitRatio": 0.78,
+  "diffThreshold": 0.05,
+  "pass": true,
+  "maxDiffRatio": 0.0,
+  "icons": [
+    {
+      "name": "pin",
+      "target": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/targets/01-pin.png",
+      "enlarged": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/enlarged-3x/01-pin@3x.png",
+      "replicaPng": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/replica-png/01-pin.png",
+      "svg": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/svg/01-pin.svg",
+      "diff": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/diff/01-pin.png",
+      "inkBBox": [
+        150,
+        136,
+        317,
+        358
+      ],
+      "displayViewBox": [
+        91,
+        104,
+        285,
+        285
+      ],
+      "rectangles": 391,
+      "pathLength": 8211,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "map",
+      "target": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/targets/02-map.png",
+      "enlarged": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/enlarged-3x/02-map@3x.png",
+      "replicaPng": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/replica-png/02-map.png",
+      "svg": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/svg/02-map.svg",
+      "diff": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/diff/02-map.png",
+      "inkBBox": [
+        106,
+        154,
+        323,
+        352
+      ],
+      "displayViewBox": [
+        76,
+        114,
+        278,
+        278
+      ],
+      "rectangles": 158,
+      "pathLength": 3318,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "route",
+      "target": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/targets/03-route.png",
+      "enlarged": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/enlarged-3x/03-route@3x.png",
+      "replicaPng": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/replica-png/03-route.png",
+      "svg": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/svg/03-route.svg",
+      "diff": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/diff/03-route.png",
+      "inkBBox": [
+        95,
+        151,
+        283,
+        352
+      ],
+      "displayViewBox": [
+        60,
+        122,
+        258,
+        258
+      ],
+      "rectangles": 212,
+      "pathLength": 4414,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "megaphone",
+      "target": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/targets/04-megaphone.png",
+      "enlarged": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/enlarged-3x/04-megaphone@3x.png",
+      "replicaPng": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/replica-png/04-megaphone.png",
+      "svg": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/svg/04-megaphone.svg",
+      "diff": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/diff/04-megaphone.png",
+      "inkBBox": [
+        132,
+        119,
+        358,
+        302
+      ],
+      "displayViewBox": [
+        100,
+        66,
+        290,
+        290
+      ],
+      "rectangles": 239,
+      "pathLength": 5019,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "search",
+      "target": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/targets/05-search.png",
+      "enlarged": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/enlarged-3x/05-search@3x.png",
+      "replicaPng": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/replica-png/05-search.png",
+      "svg": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/svg/05-search.svg",
+      "diff": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/diff/05-search.png",
+      "inkBBox": [
+        110,
+        110,
+        306,
+        296
+      ],
+      "displayViewBox": [
+        82,
+        78,
+        251,
+        251
+      ],
+      "rectangles": 262,
+      "pathLength": 5502,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "user",
+      "target": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/targets/06-user.png",
+      "enlarged": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/enlarged-3x/06-user@3x.png",
+      "replicaPng": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/replica-png/06-user.png",
+      "svg": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/svg/06-user.svg",
+      "diff": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/diff/06-user.png",
+      "inkBBox": [
+        92,
+        113,
+        269,
+        304
+      ],
+      "displayViewBox": [
+        58,
+        86,
+        245,
+        245
+      ],
+      "rectangles": 228,
+      "pathLength": 4750,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "taxi",
+      "target": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/targets/07-taxi.png",
+      "enlarged": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/enlarged-3x/07-taxi@3x.png",
+      "replicaPng": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/replica-png/07-taxi.png",
+      "svg": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/svg/07-taxi.svg",
+      "diff": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/diff/07-taxi.png",
+      "inkBBox": [
+        125,
+        58,
+        334,
+        254
+      ],
+      "displayViewBox": [
+        96,
+        22,
+        268,
+        268
+      ],
+      "rectangles": 293,
+      "pathLength": 6073,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "car",
+      "target": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/targets/08-car.png",
+      "enlarged": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/enlarged-3x/08-car@3x.png",
+      "replicaPng": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/replica-png/08-car.png",
+      "svg": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/svg/08-car.svg",
+      "diff": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/diff/08-car.png",
+      "inkBBox": [
+        86,
+        115,
+        352,
+        238
+      ],
+      "displayViewBox": [
+        48,
+        6,
+        341,
+        341
+      ],
+      "rectangles": 255,
+      "pathLength": 5296,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "transfer",
+      "target": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/targets/09-transfer.png",
+      "enlarged": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/enlarged-3x/09-transfer@3x.png",
+      "replicaPng": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/replica-png/09-transfer.png",
+      "svg": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/svg/09-transfer.svg",
+      "diff": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/diff/09-transfer.png",
+      "inkBBox": [
+        91,
+        62,
+        269,
+        248
+      ],
+      "displayViewBox": [
+        61,
+        36,
+        238,
+        238
+      ],
+      "rectangles": 207,
+      "pathLength": 4194,
+      "diffPixels": 0,
+      "totalPixels": 174724,
+      "diffRatio": 0.0,
+      "pass": true
+    }
+  ]
+}
