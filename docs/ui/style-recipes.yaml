@@ -16,6 +16,9 @@ token_contract:
     compact_cell_icon: 28px
 
 component_contract:
+  page_shell:
+    body_alignment: start
+    note: "ab-page-body lives inside a fixed-height mobile-preview shell, so grid auto tracks must not stretch into vertical slack."
   cell_group:
     component: ab-info-list
     outer: "one white surface with border, light shadow, overflow hidden"
