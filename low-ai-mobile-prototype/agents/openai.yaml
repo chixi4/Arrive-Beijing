@@ -1,0 +1,8 @@
+interface:
+  display_name: "低 AI 感移动端原型工作流"
+  short_description: "从粗糙截图原型到精修可点击移动端静态网页的标准化工作流"
+  brand_color: "#2563EB"
+  default_prompt: "Use $low-ai-mobile-prototype to turn rough mobile UI screenshots into a polished clickable static web prototype."
+
+policy:
+  allow_implicit_invocation: true
