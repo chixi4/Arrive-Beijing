@@ -60,14 +60,9 @@ const stationIconNames = {
 };
 
 const navigationVisualAssets = {
-  map: {
-    B1: "assets/bitmap/navigation/v2/nav-flat-b1.png",
-    F1: "assets/bitmap/navigation/v2/nav-flat-f1.png",
-    F2: "assets/bitmap/navigation/v2/nav-flat-f2.png",
-    F3: "assets/bitmap/navigation/v2/nav-flat-f3.png",
-  },
-  map3d: "assets/bitmap/navigation/v2/nav-3d-overview.png",
-  ar: "assets/bitmap/navigation/v2/nav-ar-guide.png",
+  map: "assets/bitmap/navigation/v3/nav-flat-base.png",
+  map3d: "assets/bitmap/navigation/v3/nav-3d-overview.png",
+  ar: "assets/bitmap/navigation/v3/nav-ar-guide.png",
 };
 
 const splashImageSets = {
@@ -81,6 +76,7 @@ const state = {
   currentSurface: null,
     selected: {
       navFloor: "F1",
+      nav3dLayer: "overview",
       announcementCategory: "全部",
       feedbackType: "投诉",
       feedbackCategory: "出租车",
@@ -1619,6 +1615,7 @@ function renderSelectableGrid(items, { activeValue, selectKey, className = "", c
           const key = typeof item === "string" ? item : item.key;
           const label = typeof item === "string" ? item : item.label || item.key;
           const icon = typeof item === "string" ? "" : item.icon ? iconMarkup(item.icon) : "";
+          const badge = typeof item === "object" && item && item.badge ? `<i class="ab-tab-badge">${item.badge}</i>` : "";
           const to = typeof item === "string" ? "" : item.to || "";
           const toast = typeof item === "string" ? label : item.toast || label;
           const disabled = typeof item === "object" && item && item.disabled;
@@ -1634,6 +1631,7 @@ function renderSelectableGrid(items, { activeValue, selectKey, className = "", c
             <button class="ab-select-chip ${active ? "active" : ""} ${disabled ? "disabled" : ""}" ${attrs}>
               ${icon}
               <span>${label}</span>
+              ${badge}
             </button>
           `;
         })
@@ -2158,7 +2156,7 @@ function stationScopedAnnouncementItems() {
 
 const announcementTabs = [
   { key: "全部", label: "全部" },
-  { key: "紧急", label: "紧急" },
+  { key: "紧急", label: "紧急", badge: "1" },
   { key: "通知", label: "通知" },
   { key: "提示", label: "提示" },
   { key: "活动", label: "活动" },
@@ -2608,8 +2606,9 @@ function renderTaxiHouseReviewCard(item) {
 function renderNavigationPage(mode) {
   const activeRoute = `#/nav/${mode}`;
   const activeModeRoute = mode === "route" ? "#/nav/map" : activeRoute;
-  const visualMode = mode === "route" ? "route" : mode;
+  const visualMode = mode === "route" ? "map" : mode;
   const selectedFloor = state.selected.navFloor || "F1";
+  const selected3dLayer = state.selected.nav3dLayer || "overview";
   const visualCopy = {
     map: {
       title: "地图预览",
@@ -2629,27 +2628,51 @@ function renderNavigationPage(mode) {
     },
   };
   const floorPlans = {
-    B1: { title: "B1 地下层", note: "地铁换乘 / 停车接驳 / 出站通道", value: "步行 6 分钟", target: "地铁换乘厅", turn: "下行后左转" },
-    F1: { title: "F1 地面层", note: "到站大厅 / 站区服务 / 出租车引导", value: "步行 4 分钟", target: "南广场出口", turn: "前方直行" },
-    F2: { title: "F2 连廊层", note: "候车休息 / 站内通道 / 无障碍路线", value: "步行 5 分钟", target: "检票口B8", turn: "前方右转" },
-    F3: { title: "F3 观景层", note: "高位导向 / 服务窗口 / 站区标识", value: "步行 7 分钟", target: "服务窗口", turn: "上行后右转" },
+    B1: { target: "地铁换乘厅", path: "19,68 36,68 36,52 51,52" },
+    F1: { target: "南广场出口", path: "51,78 51,65 58,65 58,46" },
+    F2: { target: "检票口B8", path: "50,76 50,59 42,59 42,36" },
+    F3: { target: "服务窗口", path: "49,78 49,63 62,63 62,31" },
   };
   const currentFloor = floorPlans[selectedFloor] || floorPlans.F1;
   const currentVisual = visualCopy[visualMode] || visualCopy.map;
-  const floorButtons = ["B1", "F1", "F2", "F3"];
-  const flatMapImages = navigationVisualAssets.map;
   const currentImage =
-    visualMode === "map" || visualMode === "route"
-      ? flatMapImages[selectedFloor] || flatMapImages.F1
-      : navigationVisualAssets[visualMode] || flatMapImages.F1;
-  const showRouteOverlay = visualMode === "map" || visualMode === "route";
+    visualMode === "map" ? navigationVisualAssets.map : navigationVisualAssets[visualMode] || navigationVisualAssets.map;
+  const showRouteOverlay = visualMode === "map";
+  const layerControlItems =
+    visualMode === "map3d"
+      ? [
+          { key: "overview", label: "总览" },
+          { key: "B1", label: "B1" },
+          { key: "F1", label: "F1" },
+          { key: "F2", label: "F2" },
+          { key: "F3", label: "F3" },
+        ]
+      : visualMode === "map"
+      ? [
+          { key: "B1", label: "B1" },
+          { key: "F1", label: "F1" },
+          { key: "F2", label: "F2" },
+          { key: "F3", label: "F3" },
+        ]
+      : [];
+  const renderLayerControl = () =>
+    layerControlItems.length
+      ? `<div class="ab-nav-layer-control" aria-label="楼层切换">
+          ${layerControlItems
+            .map((item) => {
+              const activeValue = visualMode === "map3d" ? selected3dLayer : selectedFloor;
+              const selectKey = visualMode === "map3d" ? "nav3dLayer" : "navFloor";
+              return `<button class="${activeValue === item.key ? "active" : ""}" data-select-key="${selectKey}" data-select-value="${item.key}">${item.label}</button>`;
+            })
+            .join("")}
+        </div>`
+      : "";
 
   return renderAppShell({
     className: "ab-navigation-page",
     topbar: renderAppTopbar({
       title: "导航指引",
       backTo: "#/station/home",
-      action: `<button class="ab-topbar-action" data-to="#/nav/route">路线规划</button>`,
     }),
     body: `
       <section class="ab-page-section">
@@ -2658,59 +2681,29 @@ function renderNavigationPage(mode) {
           <span>搜索目的地（出口、检票口等）</span>
           <button data-toast="导航搜索（原型演示）">导航</button>
         </div>
-        ${renderSelectableGrid(navModeTabs, { activeValue: activeModeRoute, cols: 3 })}
+        ${renderSelectableGrid(navModeTabs, { activeValue: activeModeRoute, cols: 3, className: "ab-tab-row" })}
       </section>
 
       <section class="ab-page-section">
         ${renderSectionTitle(currentVisual.title)}
-        <div class="ab-nav-visual" data-floor="${selectedFloor}" data-mode="${visualMode}">
+        <div class="ab-nav-visual" data-floor="${selectedFloor}" data-mode="${visualMode}" data-layer="${selected3dLayer}">
           <img src="${currentImage}" alt="${currentVisual.title}">
           <div class="ab-nav-visual-shade"></div>
           <div class="ab-nav-visual-top">
-            <span>${currentVisual.badge}</span>
+            <span>${visualMode === "map3d" && selected3dLayer !== "overview" ? selected3dLayer : currentVisual.badge}</span>
           </div>
           ${
-            visualMode === "map3d"
-              ? `<div class="ab-nav-layer-legend" aria-label="3D 楼层总览">
-                  <b>总览</b>
-                  ${floorButtons.map((floor) => `<span>${floor}</span>`).join("")}
-                </div>`
-              : ""
-          }
-          ${
             showRouteOverlay
-              ? `<div class="ab-nav-route-overlay">
+              ? `<div class="ab-nav-route-overlay" aria-hidden="true">
+                  <svg class="ab-nav-route-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <polyline points="${currentFloor.path}" />
+                  </svg>
                   <span class="ab-nav-current-dot">您在此</span>
                   <span class="ab-nav-target-dot">${currentFloor.target}</span>
                 </div>`
               : ""
           }
-        </div>
-      </section>
-
-      <section class="ab-page-section">
-        ${renderSectionTitle("路线规划", `<button class="ab-section-link" data-to="#/nav/route">查看详情 ></button>`)}
-        <div class="ab-panel ab-route-panel">
-          ${renderSelectableGrid([
-            { key: "B1", label: "B1" },
-            { key: "F1", label: "F1" },
-            { key: "F2", label: "F2" },
-            { key: "F3", label: "F3" },
-          ], {
-            activeValue: state.selected.navFloor || "F1",
-            selectKey: "navFloor",
-            cols: 4,
-          })}
-          <div class="ab-route-plan-card">
-            <span class="ab-route-plan-main">
-              <strong>${currentFloor.title}</strong>
-              <em>${currentFloor.note}</em>
-            </span>
-            <span class="ab-route-plan-side">
-              <b>${currentFloor.turn}</b>
-              <i>${currentFloor.value}</i>
-            </span>
-          </div>
+          ${renderLayerControl()}
         </div>
       </section>
     `,
@@ -2737,8 +2730,12 @@ function renderAnnouncementsPage(variant = "top") {
       action: `<button class="ab-topbar-action" data-toast="通知中心（原型演示）">通知中心</button>`,
     }),
     body: `
-      <section class="ab-page-section">
-        ${renderSelectableGrid(announcementTabs, { activeValue: state.selected.announcementCategory || "全部", selectKey: "announcementCategory", cols: 5 })}
+      <section class="ab-page-section ab-announcement-filter-section">
+        <div class="ab-nav-search ab-announcement-search" data-toast="搜索公告（原型演示）">
+          ${iconMarkup("search")}
+          <span>搜索公告关键词</span>
+        </div>
+        ${renderSelectableGrid(announcementTabs, { activeValue: state.selected.announcementCategory || "全部", selectKey: "announcementCategory", cols: 5, className: "ab-tab-row ab-tab-row--plain" })}
       </section>
 
       ${showUrgentSummary ? `
@@ -2915,7 +2912,7 @@ function renderTrafficPage(mode) {
     }),
     body: `
       <section class="ab-page-section">
-        ${renderSelectableGrid(trafficTabs, { activeValue: activeRoute, cols: 5 })}
+        ${renderSelectableGrid(trafficTabs, { activeValue: activeRoute, cols: 5, className: "ab-tab-row" })}
       </section>
       <section class="ab-page-section">
         <div class="ab-traffic-meta">
@@ -3004,7 +3001,7 @@ function renderParkingPage(mode) {
     }),
     body: `
       <section class="ab-page-section">
-        ${renderSelectableGrid(parkingTabs, { activeValue: activeRoute, cols: 2 })}
+        ${renderSelectableGrid(parkingTabs, { activeValue: activeRoute, cols: 2, className: "ab-tab-row" })}
       </section>
       ${bodyMap[mode] || bodyMap.list}
     `,
@@ -3051,7 +3048,7 @@ function renderDriverQueuePage(variant = "top") {
       </section>
 
       <section class="ab-page-section">
-        ${renderSelectableGrid(driverQueueFilters, { activeValue: filter, selectKey: "queueFilter", cols: 3, className: "ab-driver-filter-row" })}
+        ${renderSelectableGrid(driverQueueFilters, { activeValue: filter, selectKey: "queueFilter", cols: 3, className: "ab-tab-row ab-driver-filter-row" })}
         <div class="ab-queue-count">10个站点</div>
       </section>
 
@@ -3106,7 +3103,7 @@ function renderDriverStationPage(stationKey, variant = "queue") {
               toast: `${station.title}场区地图（原型演示）`,
             },
           ],
-          { activeValue: variant === "map" ? "map" : "queue", cols: 2 }
+          { activeValue: variant === "map" ? "map" : "queue", cols: 2, className: "ab-tab-row" }
         )}
       </section>
 
@@ -3296,7 +3293,7 @@ function renderShortHaulPage(variant = "booking") {
       </section>
 
       <section class="ab-page-section">
-        ${renderSelectableGrid(shortHaulTabs, { activeValue: activeRoute, cols: 3 })}
+        ${renderSelectableGrid(shortHaulTabs, { activeValue: activeRoute, cols: 3, className: "ab-tab-row" })}
       </section>
 
       ${bodyMap[variant] || bodyMap.booking}
@@ -3400,7 +3397,7 @@ function renderTaxiHousePage(variant = "info") {
       </section>
 
       <section class="ab-page-section">
-        ${renderSelectableGrid(taxiHouseTabs, { activeValue: activeRoute, cols: 3 })}
+        ${renderSelectableGrid(taxiHouseTabs, { activeValue: activeRoute, cols: 3, className: "ab-tab-row" })}
       </section>
 
       ${bodyMap[variant] || bodyMap.info}
