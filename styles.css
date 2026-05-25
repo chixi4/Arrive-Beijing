@@ -370,7 +370,7 @@ body.desktop-preview #app {
 }
 
 .custom-topbar {
-  height: 52px;
+  height: 54px;
   display: grid;
   grid-template-columns: 38px 1fr 38px;
   align-items: center;
@@ -380,6 +380,7 @@ body.desktop-preview #app {
   font-size: 18px;
   font-weight: 800;
   color: var(--text);
+  flex-shrink: 0;
 }
 
 .station-back-button {
@@ -2697,7 +2698,11 @@ body.desktop-preview #app {
   position: sticky;
   top: 0;
   z-index: 22;
-  padding: 12px 14px 16px;
+  height: 54px;
+  padding: 0 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   color: #fff;
   background:
     linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
@@ -2705,12 +2710,14 @@ body.desktop-preview #app {
     #d62b2f;
   background-size: 38px 38px, 38px 38px, auto;
   box-shadow: 0 2px 8px rgba(117, 18, 22, 0.12);
+  flex-shrink: 0;
 }
 
 .services-topline {
   display: flex;
   align-items: center;
   gap: 10px;
+  width: 100%;
 }
 
 .services-back {
@@ -5175,13 +5182,14 @@ body.desktop-preview #app {
   position: sticky;
   top: 0;
   z-index: 50;
-  height: 52px;
+  height: 54px;
   padding: 0 10px;
   display: grid;
   grid-template-columns: 34px minmax(0, 1fr) auto;
   align-items: center;
   background: #fff;
   border-bottom: 1px solid rgba(223, 230, 239, 0.95);
+  flex-shrink: 0;
 }
 
 .ab-topbar-copy {
