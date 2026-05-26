@@ -5732,6 +5732,26 @@ body.desktop-preview #app {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.ab-action-grid.ab-station-service-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.ab-station-service-grid .ab-action-tile {
+  min-height: 98px;
+  align-content: center;
+}
+
+.ab-station-service-grid .ab-action-tile-icon {
+  background: transparent;
+  color: var(--blue);
+}
+
+.ab-station-service-grid .ab-action-tile-icon .icon {
+  width: 28px;
+  height: 28px;
+}
+
 .ab-action-tile {
   min-height: 88px;
   padding: 10px;

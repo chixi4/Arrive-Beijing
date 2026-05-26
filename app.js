@@ -98,35 +98,50 @@ let stationScrollTimer = null;
 
 const travelerBottomNavItems = [
   { key: "home", label: "首页", icon: "home", to: "#/station/home" },
-  { key: "announcements", label: "公告", icon: "notice", to: "#/announcements" },
   { key: "nav", label: "导航", icon: "map", to: "#/nav/map" },
-  { key: "traffic", label: "交通", icon: "route", to: "#/traffic/taxi" },
-  { key: "profile", label: "身份", icon: "user", to: "#/profile" },
+  { key: "traffic", label: "交通", icon: "route", to: "#/traffic/mixed" },
+  { key: "announcements", label: "公告", icon: "notice", to: "#/announcements" },
+  { key: "profile", label: "个人", icon: "user", to: "#/profile" },
 ];
 
 const stationHomeAnnouncements = [
   { tag: "紧急", text: "北京西站南广场施工，请绕行南广场进站", to: "#/announcements" },
-  { tag: "通知", text: "春运期间地铁2号线延时至次日02:00", to: "#/announcements" },
-  { tag: "提醒", text: "12306实名核验通道升级，请提前准备证件", to: "#/announcements" },
+  { tag: "提示", text: "今日有暴雨蓝色预警，出门请注意带伞", to: "#/announcements" },
+  { tag: "通知", text: "今明两日大风橙色预警，出行请注意安全", to: "#/announcements" },
 ];
 
 const stationAnnouncementOverrides = {
   south: [
     { tag: "紧急", text: "北京南站北广场施工，请绕行南广场进站", to: "#/announcements" },
-    { tag: "通知", text: "春运期间地铁4号线延时至次日02:00", to: "#/announcements" },
-    { tag: "提醒", text: "12306实名核验通道升级，请提前准备证件", to: "#/announcements" },
+    { tag: "提示", text: "今日有暴雨蓝色预警，出门请注意带伞", to: "#/announcements" },
+    { tag: "通知", text: "今明两日大风橙色预警，出行请注意安全", to: "#/announcements" },
   ],
 };
 
 const stationHomeServices = [
-  { label: "导航指引", icon: "map", to: "#/nav/map", bg: "#dceeff", fg: "#2e7de1" },
-  { label: "站区公告", icon: "notice", to: "#/announcements", bg: "#ffe8b8", fg: "#f0a423" },
-  { label: "市内交通", icon: "route", to: "#/traffic/taxi", bg: "#efddff", fg: "#a24ac2" },
-  { label: "场站接驳", icon: "transfer", to: "#/traffic/ride", bg: "#e6eb9f", fg: "#8f9f1b" },
-  { label: "投诉建议", icon: "chat", to: "#/feedback/submit", bg: "#f6ddd9", fg: "#e5474d" },
+  { label: "站内导航", icon: "map", to: "#/nav/map", bg: "#dceeff", fg: "#2e7de1" },
+  { label: "交通接驳", icon: "route", to: "#/traffic/mixed", bg: "#efddff", fg: "#a24ac2" },
+  { label: "场站换乘", icon: "transfer", to: "#/station-transfer/select", bg: "#e6eb9f", fg: "#8f9f1b" },
   { label: "自驾停车", icon: "parking", to: "#/parking/list", bg: "#e4f2d6", fg: "#6aa84f" },
-  { label: "个人中心", icon: "user", to: "#/profile", bg: "#fdeacc", fg: "#f08a24" },
+  { label: "站区公告", icon: "notice", to: "#/announcements", bg: "#ffe8b8", fg: "#f0a423" },
+  { label: "站内服务", icon: "grid", to: "#/station/services", bg: "#eef0ff", fg: "#5261d6" },
   { label: "短途复载", icon: "taxi", to: "#/driver/short-haul/booking", bg: "#d7f3f9", fg: "#1fa7c2" },
+  { label: "投诉建议", icon: "feedback", to: "#/feedback/submit", bg: "#f6ddd9", fg: "#e5474d" },
+];
+
+const stationServiceItems = [
+  { label: "站内引导", icon: "map", toast: "站内引导（原型演示）" },
+  { label: "进出站须知", icon: "book", toast: "进出站须知（原型演示）" },
+  { label: "候车室引导", icon: "lounge", toast: "候车室引导（原型演示）" },
+  { label: "售票机自助取票", icon: "paper", toast: "售票机自助取票（原型演示）" },
+  { label: "李包托运、提取、寄存", icon: "gift", toast: "李包托运、提取、寄存（原型演示）" },
+  { label: "志愿服务", icon: "handshake", toast: "志愿服务（原型演示）" },
+  { label: "预约服务", icon: "calendar", toast: "预约服务（原型演示）" },
+  { label: "警务站", icon: "shield", toast: "警务站（原型演示）" },
+  { label: "医疗站", icon: "medical", toast: "医疗站（原型演示）" },
+  { label: "献血站", icon: "medical", toast: "献血站（原型演示）" },
+  { label: "餐饮服务", icon: "dining", toast: "餐饮服务（原型演示）" },
+  { label: "问询服务", icon: "phone", to: "#/station/services/inquiry" },
 ];
 
 const feedbackTypeOptions = [
@@ -419,8 +434,11 @@ const ICON_REPLICA_LIBRARY =
 function renderIcon(name, className) {
   const resolvedName = ICON_ALIASES[name] || name;
   const iconDef = ICON_REPLICA_LIBRARY[resolvedName] || ICON_LIBRARY[resolvedName] || ICON_LIBRARY.grid;
-  const svgBody = typeof iconDef === "string" ? iconDef : iconDef.body;
+  let svgBody = typeof iconDef === "string" ? iconDef : iconDef.body;
   const viewBox = typeof iconDef === "string" ? "0 0 24 24" : iconDef.viewBox || "0 0 24 24";
+  if (typeof iconDef !== "string") {
+    svgBody = svgBody.replaceAll('stroke="none"', 'stroke="currentColor" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"');
+  }
   return `<svg class="${className}" viewBox="${viewBox}" aria-hidden="true" data-icon="${resolvedName}">${svgBody}</svg>`;
 }
 
@@ -462,9 +480,9 @@ function pickSplashImage(kind) {
 
 const travelerNav = [
   { x: 0, y: 90.4, w: 20, h: 9.6, to: "#/station/home" },
-  { x: 20, y: 90.4, w: 20, h: 9.6, to: "#/announcements" },
-  { x: 40, y: 90.4, w: 20, h: 9.6, to: "#/nav/map" },
-  { x: 60, y: 90.4, w: 20, h: 9.6, to: "#/traffic/taxi" },
+  { x: 20, y: 90.4, w: 20, h: 9.6, to: "#/nav/map" },
+  { x: 40, y: 90.4, w: 20, h: 9.6, to: "#/traffic/mixed" },
+  { x: 60, y: 90.4, w: 20, h: 9.6, to: "#/announcements" },
   { x: 80, y: 90.4, w: 20, h: 9.6, to: "#/profile" },
 ];
 
@@ -1555,14 +1573,14 @@ function renderAbFooterNav(kind, activeKey) {
           { key: "home", label: "首页", icon: "home", to: "#/driver/queue" },
           { key: "short", label: "短途复载", icon: "taxi", to: "#/driver/short-haul/booking" },
           { key: "house", label: "的士之家", icon: "lounge", to: "#/driver/taxi-house/info" },
-          { key: "profile", label: "身份", icon: "user", to: "#/driver/profile" },
+          { key: "profile", label: "个人", icon: "user", to: "#/driver/profile" },
         ]
       : [
           { key: "home", label: "首页", icon: "home", to: "#/station/home" },
-          { key: "notice", label: "公告", icon: "notice", to: "#/announcements" },
           { key: "nav", label: "导航", icon: "map", to: "#/nav/map" },
-          { key: "traffic", label: "交通", icon: "route", to: "#/traffic/taxi" },
-          { key: "profile", label: "身份", icon: "user", to: "#/profile" },
+          { key: "traffic", label: "交通", icon: "route", to: "#/traffic/mixed" },
+          { key: "notice", label: "公告", icon: "notice", to: "#/announcements" },
+          { key: "profile", label: "个人", icon: "user", to: "#/profile" },
         ];
 
   return `
@@ -1754,18 +1772,9 @@ function renderStationHome() {
   const trafficCards = [
     { icon: "taxi", label: "出租车", meta: "南广场出口 · 8-12分钟", to: "#/traffic/taxi" },
     { icon: "car", label: "网约车", meta: "推荐上车点 · 200m", to: "#/traffic/ride" },
-    { icon: "train", label: "地铁", meta: "2号线 · 延时至次日02:00", to: "#/traffic/metro" },
+    { icon: "train", label: "地铁", meta: "4号线/14号线 · 站内换乘", to: "#/traffic/metro" },
   ];
-  const serviceTiles = [
-    { label: "导航指引", icon: "map", to: "#/nav/map", bg: "#dceeff", fg: "#2e7de1" },
-    { label: "站区公告", icon: "notice", to: "#/announcements", bg: "#ffe8b8", fg: "#f0a423" },
-    { label: "市内交通", icon: "route", to: "#/traffic/taxi", bg: "#efddff", fg: "#a24ac2" },
-    { label: "场站接驳", icon: "transfer", to: "#/traffic/ride", bg: "#e6eb9f", fg: "#8f9f1b" },
-    { label: "投诉建议", icon: "feedback", to: "#/feedback/submit", bg: "#f6ddd9", fg: "#e5474d" },
-    { label: "自驾停车", icon: "parking", to: "#/parking/list", bg: "#e4f2d6", fg: "#6aa84f" },
-    { label: "个人中心", icon: "user", to: "#/profile", bg: "#fdeacc", fg: "#f08a24" },
-    { label: "短途复载", icon: "taxi", to: "#/driver/short-haul/booking", bg: "#d7f3f9", fg: "#1fa7c2" },
-  ];
+  const serviceTiles = stationHomeServices;
 
   return renderAppShell({
     className: "ab-home-page",
@@ -1841,6 +1850,55 @@ function renderStationHome() {
               `
             )
             .join("")}
+        </div>
+      </section>
+    `,
+    footer: renderAbFooterNav("traveler", "home"),
+  });
+}
+
+function renderStationServicesPage() {
+  return renderAppShell({
+    className: "ab-station-service-page",
+    topbar: renderAppTopbar({
+      title: "站内服务",
+      backTo: "#/station/home",
+    }),
+    body: `
+      <section class="ab-page-section">
+        ${renderSectionTitle("常用服务")}
+        ${renderActionGrid(stationServiceItems, "ab-station-service-grid")}
+      </section>
+    `,
+    footer: renderAbFooterNav("traveler", "home"),
+  });
+}
+
+function renderStationInquiryPage() {
+  return renderAppShell({
+    className: "ab-station-service-page",
+    topbar: renderAppTopbar({
+      title: "问询服务",
+      backTo: "#/station/services",
+    }),
+    body: `
+      <section class="ab-page-section">
+        <div class="ab-panel">
+          <div class="ab-panel-head">
+            <div>
+              <h2>问询服务</h2>
+              <p>站区服务热线与监督联系方式</p>
+            </div>
+          </div>
+          ${renderInfoRows(
+            [
+              { icon: "phone", label: "旅客服务热线", value: "010-51849000", toast: "旅客服务热线" },
+              { icon: "feedback", label: "投诉举报", value: "12306", toast: "投诉举报" },
+              { icon: "phone", label: "指挥中心的电话", value: "51867132", toast: "指挥中心电话" },
+              { icon: "mail", label: "监督邮箱", value: "service@bjstation.com", toast: "监督邮箱" },
+            ],
+            { compact: true }
+          )}
         </div>
       </section>
     `,
@@ -2119,9 +2177,9 @@ function renderDriverProfilePage() {
 const announcementItems = [
   { tag: "紧急", tone: "danger", title: "北京西站北广场临时施工通告", meta: "2025-01-20 10:30" },
   { tag: "通知", tone: "primary", title: "春运期间候车室延时开放公告", meta: "2025-01-19 14:00" },
-  { tag: "提示", tone: "warning", title: "12306实名核验系统升级提醒", meta: "2025-01-18 09:00" },
+  { tag: "提示", tone: "warning", title: "今日有暴雨蓝色预警，出门请注意带伞", meta: "2025-01-18 09:00" },
   { tag: "活动", tone: "primary", title: "春节期间文化展览活动预告", meta: "2025-01-17 16:00" },
-  { tag: "通知", tone: "primary", title: "自助售票机系统维护通知", meta: "2025-01-16 11:20" },
+  { tag: "通知", tone: "primary", title: "今明两日大风橙色预警，出行请注意安全", meta: "2025-01-16 11:20" },
   {
     tag: "提示",
     tone: "warning",
@@ -2136,9 +2194,9 @@ const announcementItemOverrides = {
   south: [
     { tag: "紧急", tone: "danger", title: "北京南站北广场临时施工通告", meta: "2025-01-20 10:30" },
     { tag: "通知", tone: "primary", title: "春运期间地铁4号线延时至次日02:00", meta: "2025-01-19 14:00" },
-    { tag: "提示", tone: "warning", title: "12306实名核验系统升级提醒", meta: "2025-01-18 09:00" },
+    { tag: "提示", tone: "warning", title: "今日有暴雨蓝色预警，出门请注意带伞", meta: "2025-01-18 09:00" },
     { tag: "活动", tone: "primary", title: "春节期间文化展览活动预告", meta: "2025-01-17 16:00" },
-    { tag: "通知", tone: "primary", title: "自助售票机系统维护通知", meta: "2025-01-16 11:20" },
+    { tag: "通知", tone: "primary", title: "今明两日大风橙色预警，出行请注意安全", meta: "2025-01-16 11:20" },
     {
       tag: "提示",
       tone: "warning",
@@ -3414,6 +3472,8 @@ function renderFeatureRoute(current) {
   if (current === "#/nav/route") return renderNavigationPage("route");
   if (current === "#/announcements") return renderAnnouncementsPage("top");
   if (current === "#/announcements/more") return renderAnnouncementsPage("more");
+  if (current === "#/station/services") return renderStationServicesPage();
+  if (current === "#/station/services/inquiry") return renderStationInquiryPage();
   if (current === "#/traffic/taxi") return renderTrafficPage("taxi");
   if (current === "#/traffic/ride") return renderTrafficPage("ride");
   if (current === "#/traffic/metro") return renderTrafficPage("metro");
@@ -3559,14 +3619,14 @@ function renderAnchorBottomNav(kind, activeKey) {
           ["home", "首页", "home"],
           ["short", "短途复载", "taxi"],
           ["house", "的士之家", "handshake"],
-          ["profile", "身份", "user"],
+          ["profile", "个人", "user"],
         ]
       : [
           ["home", "首页", "home"],
-          ["notice", "公告", "megaphone"],
           ["nav", "导航", "map"],
           ["traffic", "交通", "bus"],
-          ["profile", "身份", "user"],
+          ["notice", "公告", "megaphone"],
+          ["profile", "个人", "user"],
         ];
 
   return `
