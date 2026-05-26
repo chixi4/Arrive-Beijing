@@ -7866,6 +7866,11 @@ body.desktop-preview #app {
   align-items: center;
 }
 
+.ab-parking-price-table .ab-table-head,
+.ab-parking-price-table .ab-table-row {
+  grid-template-columns: 1.05fr repeat(5, minmax(0, 0.74fr));
+}
+
 .ab-table-head {
   padding: 12px 14px;
   background: #284fbd;
@@ -7874,11 +7879,21 @@ body.desktop-preview #app {
   font-weight: 800;
 }
 
+.ab-parking-price-table .ab-table-head {
+  padding-inline: 8px;
+  font-size: 11.5px;
+}
+
 .ab-table-row {
   min-height: 50px;
   padding: 0 14px;
   border-bottom: 1px solid var(--line);
   font-size: 14px;
+}
+
+.ab-parking-price-table .ab-table-row {
+  padding-inline: 8px;
+  font-size: 12px;
 }
 
 .ab-table-row:last-child {
@@ -7890,9 +7905,18 @@ body.desktop-preview #app {
   font-weight: 800;
 }
 
+.ab-parking-price-table .ab-table-row strong {
+  font-size: 12px;
+  line-height: 1.25;
+}
+
 .ab-table-row span {
   text-align: center;
   font-weight: 800;
+}
+
+.ab-parking-price-table .ab-table-row span {
+  font-size: 12px;
 }
 
 .ab-table-row span:nth-child(2) {
