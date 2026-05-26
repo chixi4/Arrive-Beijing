@@ -2396,8 +2396,8 @@ const parkingTabs = [
 ];
 
 const parkingStats = [
-  { value: "4个", label: "停车场数量" },
-  { value: "312", label: "总空余车位" },
+  { value: "5个", label: "停车场数量" },
+  { value: "817", label: "总空余车位" },
   { value: "14:35", label: "更新时间" },
 ];
 
@@ -2406,7 +2406,7 @@ const parkingListTop = [
     title: "北京西站北广场停车场",
     tone: "success",
     status: "充裕",
-    use: "87 / 600 空余",
+    use: "516 / 600 空余",
     distance: "步行 3 分钟",
     price: "¥5/小时，封顶¥50/天",
     note: "新能源车位",
@@ -2416,7 +2416,7 @@ const parkingListTop = [
     title: "北京西站南广场地面停车场",
     tone: "warning",
     status: "紧张",
-    use: "15 / 320 空余",
+    use: "16 / 320 空余",
     distance: "步行 1 分钟",
     price: "¥6/小时，封顶¥60/天",
     note: "",
@@ -2429,7 +2429,7 @@ const parkingListMore = [
     title: "莲花池东路配套停车楼",
     tone: "success",
     status: "充裕",
-    use: "210 / 450 空余",
+    use: "212 / 450 空余",
     distance: "步行 8 分钟",
     price: "¥4/小时，封顶¥40/天",
     note: "新能源车位",
@@ -2441,16 +2441,26 @@ const parkingListMore = [
     status: "已满",
     use: "0 / 80 空余",
     distance: "步行 12 分钟",
-    price: "¥3/小时",
+    price: "¥4.5/小时，封顶¥50/天",
     note: "",
     progress: 100,
+  },
+  {
+    title: "立体停车场",
+    tone: "warning",
+    status: "紧张",
+    use: "73 / 260 空余",
+    distance: "步行 6 分钟",
+    price: "¥18/小时，封顶¥100/天",
+    note: "靠近南广场进站口",
+    progress: 72,
   },
 ];
 
 const parkingPriceRows = [
-  { label: "1小时以内", north: "¥5", south: "¥6", lianhua: "¥4" },
-  { label: "3小时", north: "¥15", south: "¥18", lianhua: "¥12" },
-  { label: "全天封顶", north: "¥50", south: "¥60", lianhua: "¥40" },
+  { label: "1小时以内", north: "¥5", south: "¥6", lianhua: "¥4", jinzhou: "¥4.5", vertical: "¥18" },
+  { label: "3小时", north: "¥15", south: "¥18", lianhua: "¥12", jinzhou: "¥13.5", vertical: "¥54" },
+  { label: "全天封顶", north: "¥50", south: "¥60", lianhua: "¥40", jinzhou: "¥50", vertical: "¥100" },
 ];
 
 const parkingNotes = [
@@ -3244,7 +3254,7 @@ function renderParkingPage(mode) {
       <section class="ab-page-section">
         <div class="ab-tip-card ab-tip-card--green">
           <strong>智能推荐</strong>
-          <p>莲花池东路配套停车楼空余210位，价格最低（¥4/时），推荐停车后步行8分钟进站，或乘免费摆渡车。</p>
+          <p>莲花池东路配套停车楼空余212位，价格最低（¥4/时），推荐停车后步行8分钟进站，或乘免费摆渡车。</p>
         </div>
       </section>
 
@@ -3266,12 +3276,14 @@ function renderParkingPage(mode) {
       </section>
 
       <section class="ab-page-section">
-        <div class="ab-table-card">
+        <div class="ab-table-card ab-parking-price-table">
           <div class="ab-table-head">
             <span>停车时长</span>
             <span>北广场</span>
             <span>南广场</span>
             <span>莲花池</span>
+            <span>锦州街</span>
+            <span>立体</span>
           </div>
           ${parkingPriceRows
             .map(
@@ -3281,6 +3293,8 @@ function renderParkingPage(mode) {
                   <span>${row.north}</span>
                   <span>${row.south}</span>
                   <span>${row.lianhua}</span>
+                  <span>${row.jinzhou}</span>
+                  <span>${row.vertical}</span>
                 </div>
               `
             )
