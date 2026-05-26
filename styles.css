@@ -6736,6 +6736,39 @@ body.desktop-preview #app {
   flex: 0 0 auto;
 }
 
+.ab-nav-poi-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.ab-nav-poi-row button {
+  min-height: 42px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--ds-radius-control);
+  background: #fff;
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 800;
+  box-shadow: var(--shadow-soft);
+}
+
+.ab-nav-poi-row button.active {
+  border-color: rgba(32, 111, 216, 0.42);
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+
+.ab-nav-poi-row .icon {
+  width: 19px;
+  height: 19px;
+}
+
 .ab-nav-visual {
   flex: 1 1 auto;
   position: relative;
@@ -6767,6 +6800,7 @@ body.desktop-preview #app {
 
 .ab-nav-visual[data-mode="map"] img {
   object-fit: cover;
+  filter: saturate(0.68) contrast(0.8) brightness(1.1);
 }
 
 .ab-nav-visual[data-mode="map3d"] img {
@@ -6898,8 +6932,57 @@ body.desktop-preview #app {
   box-shadow: 0 5px 12px rgba(9, 13, 20, 0.18);
 }
 
+.ab-nav-current-dot {
+  gap: 4px;
+  background: #d92d20;
+}
+
+.ab-nav-current-dot i {
+  font-size: 14px;
+  line-height: 1;
+  font-style: normal;
+}
+
+.ab-nav-current-dot b,
+.ab-nav-poi-marker b {
+  font-weight: 850;
+}
+
 .ab-nav-target-dot {
   background: var(--blue);
+}
+
+.ab-nav-poi-marker {
+  position: absolute;
+  min-height: 26px;
+  padding: 0 8px 0 6px;
+  border-radius: var(--ds-radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 850;
+  box-shadow: 0 6px 14px rgba(9, 13, 20, 0.18);
+}
+
+.ab-nav-poi-marker .icon {
+  width: 15px;
+  height: 15px;
+}
+
+.ab-nav-poi-marker.restroom {
+  color: #0f9f6e;
+}
+
+.ab-nav-poi-marker.taxi {
+  color: #1f7af0;
+}
+
+.ab-nav-poi-marker.exit {
+  color: #d97706;
 }
 
 .ab-nav-visual[data-floor="B1"] .ab-nav-current-dot {
