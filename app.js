@@ -21,29 +21,29 @@ const stations = [
 ];
 
 const stationHeroAssets = {
-  beijing: "assets/bitmap/stations-v2/landscape/beijing.png",
-  west: "assets/bitmap/stations-v2/landscape/west.png",
-  south: "assets/bitmap/stations-v2/landscape/south.png",
-  north: "assets/bitmap/stations-v2/landscape/north.png",
-  chaoyang: "assets/bitmap/stations-v2/landscape/chaoyang.png",
-  qinghe: "assets/bitmap/stations-v2/landscape/qinghe.png",
-  yizhuang: "assets/bitmap/stations-v2/landscape/yizhuang.png",
-  tongzhou: "assets/bitmap/stations-v2/landscape/tongzhou.png",
-  capital: "assets/bitmap/stations-v2/landscape/capital.png",
-  daxing: "assets/bitmap/stations-v2/landscape/daxing.png",
+  beijing: "assets/bitmap/stations-v3/beijing.webp",
+  west: "assets/bitmap/stations-v3/west.webp",
+  south: "assets/bitmap/stations-v3/south.webp",
+  north: "assets/bitmap/stations-v3/north.webp",
+  chaoyang: "assets/bitmap/stations-v3/chaoyang.webp",
+  qinghe: "assets/bitmap/stations-v3/qinghe.webp",
+  yizhuang: "assets/bitmap/stations-v3/yizhuang.webp",
+  tongzhou: "assets/bitmap/stations-v3/tongzhou.webp",
+  capital: "assets/bitmap/stations-v3/capital.webp",
+  daxing: "assets/bitmap/stations-v3/daxing.webp",
 };
 
 const stationPortraitAssets = {
-  beijing: "assets/bitmap/stations-v2/portrait/beijing.png",
-  west: "assets/bitmap/stations-v2/portrait/west.png",
-  south: "assets/bitmap/stations-v2/portrait/south.png",
-  north: "assets/bitmap/stations-v2/portrait/north.png",
-  chaoyang: "assets/bitmap/stations-v2/portrait/chaoyang.png",
-  qinghe: "assets/bitmap/stations-v2/portrait/qinghe.png",
-  yizhuang: "assets/bitmap/stations-v2/portrait/yizhuang.png",
-  tongzhou: "assets/bitmap/stations-v2/portrait/tongzhou.png",
-  capital: "assets/bitmap/stations-v2/portrait/capital.png",
-  daxing: "assets/bitmap/stations-v2/portrait/daxing.png",
+  beijing: "assets/bitmap/stations-v3/beijing.webp",
+  west: "assets/bitmap/stations-v3/west.webp",
+  south: "assets/bitmap/stations-v3/south.webp",
+  north: "assets/bitmap/stations-v3/north.webp",
+  chaoyang: "assets/bitmap/stations-v3/chaoyang.webp",
+  qinghe: "assets/bitmap/stations-v3/qinghe.webp",
+  yizhuang: "assets/bitmap/stations-v3/yizhuang.webp",
+  tongzhou: "assets/bitmap/stations-v3/tongzhou.webp",
+  capital: "assets/bitmap/stations-v3/capital.webp",
+  daxing: "assets/bitmap/stations-v3/daxing.webp",
 };
 
 const stationIconNames = {
@@ -435,7 +435,7 @@ function anchorIcon(name, className = "") {
 function stationHeroImage(id, variant = "landscape") {
   const assets = variant === "portrait" ? stationPortraitAssets : stationHeroAssets;
   const src = assets[id] || assets.west;
-  return `${src}?v=20260524-30`;
+  return `${src}?v=20260527-1`;
 }
 
 function stationIconMarkup(id) {
@@ -477,7 +477,7 @@ const driverNav = [
 
 const pages = {
   "#/portal": {
-    src: "P02-01_京通首页.png",
+    src: "P02-01_京通首页-clear.webp",
     hotspots: [
       { x: 78, y: 50, w: 17, h: 10, to: "#/services" },
       { x: 0, y: 64, w: 100, h: 18, to: "#/services" },
@@ -3486,6 +3486,7 @@ function renderStationSelect(kind) {
   const title = "选择出行站点";
   const buttonText = isSwitch ? "确认更改" : "确认选择";
   const selected = stationById(state.draftStation);
+  const helperText = isSwitch ? "点选站点后确认更改" : "点选任一站点后直接进入服务首页";
 
   return `
     <div class="source-screen custom-station-screen">
@@ -3497,34 +3498,40 @@ function renderStationSelect(kind) {
       <section class="station-select-intro">
         <p>${isSwitch ? "当前站点" : "首次进入请先选择站点"}</p>
         <h1>${selected[1]}</h1>
-        <span>左右滑动站点卡片，确认后进入对应服务首页</span>
+        <span>${helperText}</span>
       </section>
-      <div class="station-carousel" data-station-carousel aria-label="左右滑动选择站点">
-        ${stations
-          .map(
-            ([id, name]) => `
-              <button class="station-slide ${state.draftStation === id ? "active" : ""}" data-station="${id}">
-                <span class="station-slide-media">
-                  <img class="station-slide-photo" src="${stationHeroImage(id, "portrait")}" alt="${name}">
-                  <span class="station-slide-icon">${stationIconMarkup(id)}</span>
-                </span>
-                <span class="station-slide-copy">
-                  <strong>${name}</strong>
-                  <em>${stationKindLabel(id)} · 到站服务 · 导航指引</em>
-                </span>
-                <span class="station-slide-check">${iconMarkup("check")}</span>
-              </button>`
-          )
-          .join("")}
+      <div class="station-grid-source" aria-label="选择站点">
+        <div class="station-select-grid">
+          ${stations
+            .map(
+              ([id, name]) => `
+                <button class="station-slide ${state.draftStation === id ? "active" : ""}" data-station="${id}" aria-label="选择${name}">
+                  <span class="station-slide-media">
+                    <img class="station-slide-photo" src="${stationHeroImage(id, "portrait")}" alt="${name}">
+                    <span class="station-slide-icon">${stationIconMarkup(id)}</span>
+                  </span>
+                  <span class="station-slide-copy">
+                    <strong>${name}</strong>
+                    <em>${stationKindLabel(id)} · 到站服务</em>
+                  </span>
+                  <span class="station-slide-check">${iconMarkup("check")}</span>
+                </button>`
+            )
+            .join("")}
+        </div>
       </div>
-      <section class="station-selected-summary">
-        <span>已选择</span>
-        <strong data-selected-station-name>${selected[1]}</strong>
-        <em data-selected-station-kind>${stationKindLabel(selected[0])}</em>
-      </section>
-      <div class="confirm-bar">
-        <button class="confirm-button" data-confirm-station>${buttonText}</button>
-      </div>
+      ${
+        isSwitch
+          ? `<section class="station-selected-summary">
+              <span>已选择</span>
+              <strong data-selected-station-name>${selected[1]}</strong>
+              <em data-selected-station-kind>${stationKindLabel(selected[0])}</em>
+            </section>
+            <div class="confirm-bar">
+              <button class="confirm-button" data-confirm-station>${buttonText}</button>
+            </div>`
+          : ""
+      }
     </div>
   `;
 }
@@ -4058,6 +4065,12 @@ document.addEventListener("click", (event) => {
   if (stationButton) {
     event.preventDefault();
     state.draftStation = stationButton.dataset.station;
+    if (route() === "#/station/select") {
+      state.station = state.draftStation;
+      localStorage.setItem("arrive-beijing.station", state.station);
+      go("#/station/home");
+      return;
+    }
     render();
     return;
   }
