@@ -74,8 +74,8 @@
 - `assets/bitmap/navigation/v2/nav-3d-overview.png`：二次生图生成的四层 3D 总览。
 - `assets/bitmap/navigation/v2/nav-ar-guide.png`：二次生图生成的 AR 实景指引。
 - `assets/bitmap/navigation/v3/nav-flat-b1.png`、`nav-flat-f1.png`、`nav-flat-f2.png`、`nav-flat-f3.png`、`nav-3d-overview.png`、`nav-ar-guide.png`：第三轮竖屏导航素材；当前页面优先使用这一组，3D 总览改成更简单的四层分离结构，平面和 AR 统一做浅蓝灰显示。
-- `assets/bitmap/splash/passenger-01.png`、`assets/bitmap/splash/passenger-02.png`：旅客端随机开屏图池。
-- `assets/bitmap/splash/driver-01.png`、`assets/bitmap/splash/driver-02.png`：司机端随机开屏图池。
+- `assets/bitmap/splash/passenger-01.webp`、`assets/bitmap/splash/passenger-02.webp`：旅客端随机开屏图池运行版。
+- `assets/bitmap/splash/driver-01.webp`、`assets/bitmap/splash/driver-02.webp`：司机端随机开屏图池运行版。
 - `assets/bitmap/traffic/taxi-pickup.png`：出租车上车点。
 - `assets/bitmap/traffic/ride-hailing-pickup.png`：网约车上车点。
 - `assets/bitmap/traffic/bus-transfer.png`：公交换乘。
@@ -100,10 +100,10 @@
 - `assets/bitmap/navigation/crops/three-d-map-crop.png`
 - `assets/bitmap/navigation/crops/flat-map-crop.png`
 - `assets/bitmap/navigation/crops/ar-demo-crop.png`
-- `assets/bitmap/splash/passenger-01.png`
-- `assets/bitmap/splash/passenger-02.png`
-- `assets/bitmap/splash/driver-01.png`
-- `assets/bitmap/splash/driver-02.png`
+- `assets/bitmap/splash/passenger-01.webp`
+- `assets/bitmap/splash/passenger-02.webp`
+- `assets/bitmap/splash/driver-01.webp`
+- `assets/bitmap/splash/driver-02.webp`
 - `assets/bitmap/traffic/taxi-pickup.png`
 - `assets/bitmap/traffic/ride-hailing-pickup.png`
 - `assets/bitmap/traffic/bus-transfer.png`

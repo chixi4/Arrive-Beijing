@@ -72,8 +72,8 @@ const navigationVisualAssets = {
 };
 
 const splashImageSets = {
-  traveler: ["assets/bitmap/splash/passenger-01.png", "assets/bitmap/splash/passenger-02.png"],
-  driver: ["assets/bitmap/splash/driver-01.png", "assets/bitmap/splash/driver-02.png"],
+  traveler: ["assets/bitmap/splash/passenger-01.webp", "assets/bitmap/splash/passenger-02.webp"],
+  driver: ["assets/bitmap/splash/driver-01.webp", "assets/bitmap/splash/driver-02.webp"],
 };
 
 const state = {
