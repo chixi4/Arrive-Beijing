@@ -7171,10 +7171,183 @@ body.desktop-preview #app {
   color: var(--green);
 }
 
+.ab-traffic-search-section {
+  margin: -2px 0 0;
+}
+
+.ab-traffic-search {
+  min-height: 58px;
+  padding: 8px 10px 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--ds-radius-card);
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.ab-traffic-search-points {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.ab-traffic-search-points label {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 7px;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.ab-traffic-search-points i,
+.ab-transfer-search-card i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.ab-traffic-search-points i.start,
+.ab-transfer-search-card i.start {
+  background: #18c57a;
+}
+
+.ab-traffic-search-points i.end,
+.ab-transfer-search-card i.end {
+  background: #f04438;
+}
+
+.ab-traffic-search input {
+  min-width: 0;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+}
+
+.ab-traffic-search button {
+  min-width: 58px;
+  height: 34px;
+  border-radius: var(--ds-radius-control);
+  background: var(--blue);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.ab-route-result-card,
+.ab-transfer-route-card {
+  padding: 13px 12px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--ds-radius-card);
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  display: grid;
+  gap: 9px;
+}
+
+.ab-route-result-head,
+.ab-transfer-route-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ab-route-result-head strong {
+  min-width: 0;
+  font-size: 15px;
+  line-height: 1.25;
+  font-weight: 850;
+}
+
+.ab-route-result-time,
+.ab-transfer-route-head div {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.ab-route-result-time b,
+.ab-transfer-route-head strong {
+  color: var(--text);
+  font-size: 22px;
+  line-height: 1.1;
+  font-weight: 850;
+}
+
+.ab-route-result-time span,
+.ab-transfer-route-head span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.ab-route-chip-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ab-route-chip-row span,
+.ab-route-chip-row strong {
+  min-height: 28px;
+  padding: 0 9px;
+  border-radius: var(--ds-radius-control);
+  display: inline-flex;
+  align-items: center;
+  background: #f2f4f7;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.ab-route-chip-row strong {
+  background: #087f8c;
+  color: #fff;
+}
+
+.ab-route-result-card p,
+.ab-transfer-route-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.ab-route-leg {
+  min-height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--ds-radius-control);
+  background: var(--surface-soft);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.ab-route-leg b {
+  color: #0f9f6e;
+  white-space: nowrap;
+}
+
 .ab-traffic-stop-list,
 .ab-traffic-ride-list,
 .ab-traffic-metro-list,
 .ab-traffic-bus-list,
+.ab-transfer-route-list,
 .ab-parking-list,
 .ab-queue-list,
 .ab-station-area-list,
@@ -7380,9 +7553,10 @@ body.desktop-preview #app {
 }
 
 .ab-traffic-metro-foot span {
-  color: var(--red);
-  font-size: 16px;
-  font-weight: 900;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.35;
+  font-weight: 700;
 }
 
 .ab-traffic-metro-foot button {
@@ -7393,6 +7567,37 @@ body.desktop-preview #app {
   color: #fff;
   font-size: 13px;
   font-weight: 800;
+}
+
+.ab-load-people {
+  display: inline-flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.ab-load-people i {
+  width: 14px;
+  height: 14px;
+  display: inline-grid;
+  place-items: center;
+  color: #c7d0dd;
+}
+
+.ab-load-people i .icon {
+  width: 13px;
+  height: 13px;
+}
+
+.ab-load-people.success i.filled {
+  color: var(--green);
+}
+
+.ab-load-people.warning i.filled {
+  color: var(--amber);
+}
+
+.ab-load-people.danger i.filled {
+  color: var(--red);
 }
 
 .ab-traffic-bus-card {
@@ -7443,6 +7648,89 @@ body.desktop-preview #app {
   font-style: normal;
   font-size: 20px;
   line-height: 1;
+}
+
+.ab-transfer-destination-list {
+  display: grid;
+  gap: 8px;
+}
+
+.ab-transfer-destination-card {
+  min-height: 72px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--ds-radius-card);
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+}
+
+.ab-transfer-destination-icon {
+  width: 56px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  color: var(--blue);
+}
+
+.ab-transfer-destination-icon .icon {
+  width: 48px;
+  height: 30px;
+}
+
+.ab-transfer-destination-card strong {
+  display: block;
+  color: var(--text);
+  font-size: 15.5px;
+  line-height: 1.22;
+  font-weight: 850;
+}
+
+.ab-transfer-destination-card em {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.35;
+  font-style: normal;
+}
+
+.ab-transfer-destination-card i {
+  color: var(--subtle);
+  font-size: 20px;
+  font-style: normal;
+}
+
+.ab-transfer-search-card {
+  min-height: 68px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--ds-radius-card);
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  display: grid;
+  gap: 8px;
+}
+
+.ab-transfer-search-card span {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  font-size: 15px;
+}
+
+.ab-transfer-search-card b {
+  font-weight: 850;
+}
+
+.ab-transfer-route-card .ab-route-chip-row strong {
+  background: #1f7af0;
 }
 
 .ab-traffic-compare-list {

@@ -85,6 +85,8 @@ const state = {
       navFocus: "restroom",
       nav3dLayer: "overview",
       announcementCategory: "全部",
+      trafficSearchResult: false,
+      trafficQuery: "北京大学",
       feedbackType: "投诉",
       feedbackCategory: "出租车",
       bookingDate: "今天",
@@ -2228,11 +2230,11 @@ const announcementTabs = [
 ];
 
 const trafficTabs = [
+  { key: "mixed", label: "推荐", to: "#/traffic/mixed" },
   { key: "metro", label: "地铁", to: "#/traffic/metro" },
   { key: "bus", label: "公交", to: "#/traffic/bus" },
   { key: "taxi", label: "出租", to: "#/traffic/taxi" },
   { key: "ride", label: "网约", to: "#/traffic/ride" },
-  { key: "mixed", label: "综合", to: "#/traffic/mixed" },
 ];
 
 const navModeTabs = [
@@ -2255,8 +2257,29 @@ const trafficRideOffers = [
 ];
 
 const trafficMetroLines = [
-  { line: "2号线", tone: "primary", from: "北京西站", to: "东四十条", next: "1:30", trip: "8站约 22 分钟", load: "78%", price: "¥4" },
-  { line: "7号线", tone: "success", recommended: true, from: "北京西站", to: "达仁里东", next: "3:45", trip: "6站约 18 分钟", load: "42%", price: "¥4" },
+  {
+    line: "4号线大兴线",
+    tone: "success",
+    recommended: true,
+    from: "北京南站",
+    to: "安河桥北 / 天宫院",
+    next: "约8分钟/趟",
+    trip: "可直达北京大学东门",
+    load: "42%",
+    loadPeople: 2,
+    firstLast: "首05:09 / 05:42 · 末23:23 / 23:32",
+  },
+  {
+    line: "14号线",
+    tone: "warning",
+    from: "北京南站",
+    to: "善各庄 / 张郭庄",
+    next: "约6分钟/趟",
+    trip: "可换乘 10号线、19号线",
+    load: "63%",
+    loadPeople: 3,
+    firstLast: "首05:27 / 05:47 · 末23:12 / 23:33",
+  },
 ];
 
 const trafficBusRoutes = [
@@ -2267,10 +2290,10 @@ const trafficBusRoutes = [
 ];
 
 const trafficMixedRows = [
-  { label: "地铁 7号线", note: "舒适度：中", value: "18分钟 · ¥4", tone: "primary", tag: "最优选" },
-  { label: "网约车快车", note: "舒适度：高", value: "25分钟 · ¥28-35", tone: "primary" },
-  { label: "出租车", note: "舒适度：中", value: "12-20分钟 · ¥25-40", tone: "warning" },
-  { label: "公共汽车", note: "舒适度：低", value: "35分钟 · ¥2", tone: "primary" },
+  { label: "地铁 4号线大兴线", note: "北京南站 → 北京大学", value: "46分钟 · ¥5", tone: "primary", tag: "推荐" },
+  { label: "出租", note: "上门接送", value: "26分钟 · ¥56", tone: "warning" },
+  { label: "公交 144路/332路", note: "步行 517米", value: "1小时25分 · ¥5", tone: "primary" },
+  { label: "网约车", note: "候车低", value: "约26分钟 · ¥56", tone: "primary" },
 ];
 
 const trafficOtherOptions = [
@@ -2279,6 +2302,93 @@ const trafficOtherOptions = [
   { icon: "plane", label: "机场巴士", toast: "机场巴士（原型演示）" },
   { icon: "car", label: "出租车", toast: "出租车（原型演示）" },
 ];
+
+const stationTransferDestinations = [
+  { key: "beijing", name: "北京站", icon: "station_beijing", meta: "约33分钟 · 地铁4号线换2号线" },
+  { key: "west", name: "北京西站", icon: "station_west", meta: "约28分钟 · 地铁4号线换7号线" },
+  { key: "north", name: "北京北站", icon: "station_north", meta: "约31分钟 · 地铁4号线直达西直门" },
+  { key: "chaoyang", name: "北京朝阳站", icon: "station_chaoyang", meta: "约49分钟 · 地铁14号线换3号线" },
+  { key: "qinghe", name: "清河站", icon: "station_qinghe", meta: "约52分钟 · 地铁4号线换13号线" },
+  { key: "yizhuang", name: "亦庄站", icon: "station_yizhuang", meta: "约54分钟 · 14号线/17号线/亦庄线" },
+  { key: "tongzhou", name: "北京通州站", icon: "station_tongzhou", meta: "约1小时22分 · 地铁14号线换6号线" },
+  { key: "capital", name: "首都国际机场", icon: "station_capital", meta: "约1小时12分 · 地铁换机场线" },
+  { key: "daxing", name: "北京大兴国际机场", icon: "station_daxing", meta: "约43分钟 · 地铁换大兴机场线" },
+];
+
+const stationTransferPlans = {
+  beijing: {
+    title: "北京站",
+    routes: [
+      { tag: "无堵车风险", time: "33分钟", walk: "453米", lines: ["4号线大兴线", "2号线外环"], meta: "7站 · ¥4 · 北京南站(D西入口)进站", headway: "4号线大兴线（安河桥北方向） · 约8分钟/趟" },
+      { tag: "出租", time: "出租 26分钟", lines: ["出租¥23"], meta: "10.7公里 · 上门接送" },
+      { tag: "直达", time: "59分钟", walk: "1.2公里", lines: ["106路"], meta: "13站 · ¥2 · 北京南站上车", headway: "106路（东直门枢纽站方向） · 约12分钟/趟" },
+    ],
+  },
+  west: {
+    title: "北京西站",
+    routes: [
+      { tag: "最快", time: "28分钟", walk: "317米", lines: ["4号线大兴线", "7号线"], meta: "6站 · ¥4 · 北京南站(D西入口)进站", headway: "4号线大兴线（安河桥北方向） · 约8分钟/趟" },
+      { tag: "步行少", time: "34分钟", walk: "171米", lines: ["14号线", "9号线"], meta: "10站 · ¥4 · 北京南站(D西入口)进站", headway: "14号线（张郭庄方向） · 约6分钟/趟" },
+      { tag: "出租", time: "出租 16分钟", lines: ["出租¥22"], meta: "12.0公里 · 上门接送" },
+    ],
+  },
+  north: {
+    title: "北京北站",
+    routes: [
+      { tag: "最快", time: "31分钟", walk: "309米", lines: ["4号线大兴线"], meta: "9站 · ¥4 · 北京南站(D西入口)进站", headway: "4号线大兴线（安河桥北方向） · 约8分钟/趟" },
+      { tag: "出租", time: "出租 21分钟", lines: ["出租¥34"], meta: "14.5公里 · 上门接送" },
+      { tag: "直达", time: "1小时4分", walk: "1.5公里", lines: ["200路内环"], meta: "13站 · ¥3 · 开阳桥西上车", headway: "200路内环（右安门东方向） · 约10分钟/趟" },
+    ],
+  },
+  chaoyang: {
+    title: "北京朝阳站",
+    routes: [
+      { tag: "最快", time: "49分钟", walk: "244米", lines: ["14号线", "3号线"], meta: "13站 · ¥5 · 北京南站(D西入口)进站", headway: "14号线（善各庄方向） · 约6分钟/趟" },
+      { tag: "出租", time: "出租 27分钟", lines: ["出租¥51"], meta: "20.9公里 · 上门接送" },
+      { tag: "直达", time: "1小时32分", walk: "3.8公里", lines: ["14号线"], meta: "12站 · ¥5 · 北京南站(D西入口)进站", headway: "14号线（善各庄方向） · 约6分钟/趟" },
+    ],
+  },
+  qinghe: {
+    title: "清河站",
+    routes: [
+      { tag: "最快", time: "52分钟", walk: "626米", lines: ["4号线大兴线", "13号线"], meta: "14站 · ¥5 · 北京南站(D西入口)进站", headway: "4号线大兴线（安河桥北方向） · 约8分钟/趟" },
+      { tag: "出租", time: "出租 32分钟", lines: ["出租¥74"], meta: "31.2公里 · 上门接送" },
+      { tag: "网约车", time: "网约车31分钟", lines: ["一口价¥34"], meta: "一口价超便宜" },
+    ],
+  },
+  yizhuang: {
+    title: "亦庄站",
+    routes: [
+      { time: "54分钟", walk: "479米", lines: ["14号线", "17号线", "亦庄线"], meta: "11站 · ¥6 · 北京南站(D西入口)进站", headway: "14号线（善各庄方向） · 约6分钟/趟" },
+      { time: "40分钟", walk: "2米", lines: ["C2623 / C2587 / C2119"], meta: "1站 · ¥9.5 · 北京南上车" },
+      { tag: "出租", time: "出租 33分钟", lines: ["出租¥73"], meta: "27.2公里 · 上门接送" },
+    ],
+  },
+  tongzhou: {
+    title: "北京通州站",
+    routes: [
+      { time: "1小时22分", walk: "1公里", lines: ["14号线", "6号线"], meta: "20站 · ¥7 · 北京南站(D西入口)进站", headway: "14号线（善各庄方向） · 约6分钟/趟" },
+      { time: "1小时46分", walk: "1.4公里", lines: ["G7808 / G8902 / G882", "2号线外环", "6号线"], meta: "16站 · ¥14 · 北京南上车" },
+      { tag: "出租", time: "出租 43分钟", lines: ["出租¥103"], meta: "34.3公里 · 上门接送" },
+    ],
+  },
+  capital: {
+    title: "首都国际机场",
+    routes: [
+      { time: "1小时12分", walk: "707米", lines: ["14号线", "10号线外环", "首都机场线"], meta: "16站 · ¥30 · 北京南站(D西入口)进站", headway: "14号线（善各庄方向） · 约6分钟/趟" },
+      { tag: "步行少", time: "1小时23分", walk: "317米", lines: ["首都机场巴士北京南站线"], meta: "7站 · ¥30 · 北京南站上车" },
+      { tag: "出租", time: "出租 36分钟", lines: ["出租¥114"], meta: "37.7公里 · 上门接送" },
+    ],
+  },
+  daxing: {
+    title: "北京大兴国际机场",
+    routes: [
+      { time: "43分钟", walk: "462米", lines: ["14号线", "19号线", "大兴机场线"], meta: "4站 · ¥38 · 北京南站(D西入口)进站", headway: "14号线（张郭庄方向） · 约6分钟/趟" },
+      { time: "59分钟", walk: "1.9公里", lines: ["19号线", "大兴机场线"], meta: "3站 · ¥38 · 景风门(B口)进站", headway: "19号线（新宫方向） · 约7分钟/趟" },
+      { tag: "出租", time: "出租 43分钟", lines: ["出租¥156"], meta: "48.2公里 · 上门接送" },
+    ],
+  },
+};
 
 const parkingTabs = [
   { key: "list", label: "停车场列表", to: "#/parking/list" },
@@ -2507,6 +2617,8 @@ function renderTrafficRideCard(item) {
 }
 
 function renderTrafficMetroCard(item) {
+  const loadCount = item.loadPeople || 1;
+  const loadTone = loadCount <= 2 ? "success" : loadCount <= 4 ? "warning" : "danger";
   return `
     <article class="ab-traffic-metro-card">
       <div class="ab-traffic-metro-head">
@@ -2515,13 +2627,17 @@ function renderTrafficMetroCard(item) {
         ${item.recommended ? renderStatusPill("success", "推荐") : ""}
       </div>
       <div class="ab-traffic-metro-grid">
-        <div><span>下一班</span><strong>${item.next}</strong></div>
+        <div><span>发车间隔</span><strong>${item.next}</strong></div>
         <div><span>行程</span><strong>${item.trip}</strong></div>
-        <div><span>满载率</span><strong>${item.load}</strong></div>
+        <div>
+          <span>当前满载率</span>
+          <strong class="ab-load-people ${loadTone}" aria-label="满载率${item.load}">
+            ${[1, 2, 3, 4, 5].map((slot) => `<i class="${slot <= loadCount ? "filled" : ""}">${iconMarkup("user")}</i>`).join("")}
+          </strong>
+        </div>
       </div>
       <div class="ab-traffic-metro-foot">
-        <span>${item.price}</span>
-        <button data-toast="${item.line}购票（原型演示）">购票</button>
+        <span>${item.firstLast}</span>
       </div>
     </article>
   `;
@@ -2541,6 +2657,114 @@ function renderTrafficBusCard(item) {
       </span>
     </button>
   `;
+}
+
+function renderTrafficSearch() {
+  const query = state.selected.trafficQuery || "北京大学";
+  return `
+    <section class="ab-page-section ab-traffic-search-section">
+      <form class="ab-traffic-search" data-traffic-search-form>
+        <div class="ab-traffic-search-points">
+          <label><i class="start"></i><span>北京南站</span></label>
+          <label><i class="end"></i><input name="trafficQuery" value="${query}" aria-label="目的地"></label>
+        </div>
+        <button type="submit">搜索</button>
+      </form>
+      ${
+        state.selected.trafficSearchResult
+          ? `<article class="ab-route-result-card">
+              <div class="ab-route-result-head">
+                <strong>北京南站 → ${query}</strong>
+                ${renderStatusPill("success", "最快")}
+              </div>
+              <div class="ab-route-result-time"><b>46分钟</b><span>步行202米</span></div>
+              <div class="ab-route-chip-row">
+                <span>步1</span><strong>4号线大兴线</strong><span>步3</span>
+              </div>
+              <p>16站 · ¥5 · 北京南站(D西入口)进站</p>
+              <div class="ab-route-leg">4号线大兴线（安河桥北方向）<b>约8分钟/趟</b></div>
+            </article>`
+          : ""
+      }
+    </section>
+  `;
+}
+
+function renderTransferRouteCard(item) {
+  return `
+    <article class="ab-transfer-route-card">
+      <div class="ab-transfer-route-head">
+        <div>
+          <strong>${item.time}</strong>
+          ${item.walk ? `<span>步行${item.walk}</span>` : ""}
+        </div>
+        ${item.tag ? renderStatusPill(item.tag === "出租" || item.tag === "网约车" ? "primary" : "success", item.tag) : ""}
+      </div>
+      <div class="ab-route-chip-row">
+        ${item.lines.map((line) => `<strong>${line}</strong>`).join("")}
+      </div>
+      <p>${item.meta}</p>
+      ${item.headway ? `<div class="ab-route-leg">${item.headway}</div>` : ""}
+    </article>
+  `;
+}
+
+function renderStationTransferSelectPage() {
+  return renderAppShell({
+    className: "ab-transfer-page",
+    topbar: renderAppTopbar({
+      title: "场站换乘",
+      backTo: "#/station/home",
+    }),
+    body: `
+      <section class="ab-page-section">
+        ${renderSectionTitle("选择目的站")}
+        <div class="ab-transfer-destination-list">
+          ${stationTransferDestinations
+            .map(
+              (item) => `
+                <button class="ab-transfer-destination-card" data-to="#/station-transfer/${item.key}">
+                  <span class="ab-transfer-destination-icon">${iconMarkup(item.icon)}</span>
+                  <span>
+                    <strong>${item.name}</strong>
+                    <em>${item.meta}</em>
+                  </span>
+                  <i>›</i>
+                </button>
+              `
+            )
+            .join("")}
+        </div>
+      </section>
+    `,
+    footer: renderAbFooterNav("traveler", "traffic"),
+  });
+}
+
+function renderStationTransferRoutePage(key) {
+  const plan = stationTransferPlans[key] || stationTransferPlans.beijing;
+  return renderAppShell({
+    className: "ab-transfer-page",
+    topbar: renderAppTopbar({
+      title: "场站换乘",
+      backTo: "#/station-transfer/select",
+    }),
+    body: `
+      <section class="ab-page-section">
+        <div class="ab-transfer-search-card">
+          <span><i class="start"></i><b>北京南站</b></span>
+          <span><i class="end"></i><b>${plan.title}</b></span>
+        </div>
+      </section>
+      <section class="ab-page-section">
+        ${renderSectionTitle("推荐路线")}
+        <div class="ab-transfer-route-list">
+          ${plan.routes.map(renderTransferRouteCard).join("")}
+        </div>
+      </section>
+    `,
+    footer: renderAbFooterNav("traveler", "traffic"),
+  });
 }
 
 function renderParkingCard(item) {
@@ -2858,7 +3082,7 @@ function renderTrafficPage(mode) {
     ride: "市内交通指引",
     metro: "市内交通指引",
     bus: "市内交通指引",
-    mixed: "市内交通指引",
+    mixed: "交通接驳推荐",
     other: "其他交通方式",
   };
   const taxiSummary = `
@@ -2935,8 +3159,8 @@ function renderTrafficPage(mode) {
       <div class="ab-panel">
         <div class="ab-panel-head">
           <div>
-            <h2>交通方式综合对比</h2>
-            <p>北京西站 → 天安门广场</p>
+            <h2>交通方式推荐</h2>
+            <p>北京南站 → 北京大学</p>
           </div>
         </div>
         <div class="ab-traffic-compare-list">
@@ -2962,8 +3186,8 @@ function renderTrafficPage(mode) {
 
     <section class="ab-page-section">
       <div class="ab-tip-card ab-tip-card--green">
-        <strong>AI 推荐方案</strong>
-        <p>当前高峰期，地铁 7 号线满载率仅 42%，行程约 18 分钟，票价低廉。如需省时可选择网约车，预计 25 分钟，费用约 ¥28-35。</p>
+        <strong>推荐方案</strong>
+        <p>当前优先推荐地铁 4号线大兴线，行程约46分钟，票价¥5；如需省时可选择出租或网约车。</p>
       </div>
       ${renderActionGrid([
         { label: "查看路线", icon: "map", toast: "查看路线（原型演示）" },
@@ -2993,6 +3217,7 @@ function renderTrafficPage(mode) {
       action: `<button class="ab-topbar-action" data-toast="数据实时（原型演示）">数据实时</button>`,
     }),
     body: `
+      ${renderTrafficSearch()}
       <section class="ab-page-section">
         ${renderSelectableGrid(trafficTabs, { activeValue: activeRoute, cols: 5, className: "ab-tab-row" })}
       </section>
@@ -3489,6 +3714,7 @@ function renderTaxiHousePage(variant = "info") {
 }
 
 function renderFeatureRoute(current) {
+  const transferMatch = current.match(/^#\/station-transfer\/([^/]+)$/);
   if (current === "#/station/home") return renderStationHome();
   if (current === "#/nav/map") return renderNavigationPage("map");
   if (current === "#/nav/map3d") return renderNavigationPage("map3d");
@@ -3498,6 +3724,8 @@ function renderFeatureRoute(current) {
   if (current === "#/announcements/more") return renderAnnouncementsPage("more");
   if (current === "#/station/services") return renderStationServicesPage();
   if (current === "#/station/services/inquiry") return renderStationInquiryPage();
+  if (current === "#/station-transfer/select") return renderStationTransferSelectPage();
+  if (transferMatch) return renderStationTransferRoutePage(transferMatch[1]);
   if (current === "#/traffic/taxi") return renderTrafficPage("taxi");
   if (current === "#/traffic/ride") return renderTrafficPage("ride");
   if (current === "#/traffic/metro") return renderTrafficPage("metro");
@@ -4101,6 +4329,16 @@ function render() {
   app.innerHTML = renderSourcePage(page);
   syncDesktopPreviewFrame();
 }
+
+document.addEventListener("submit", (event) => {
+  const form = event.target.closest("[data-traffic-search-form]");
+  if (!form) return;
+  event.preventDefault();
+  const input = form.querySelector("[name='trafficQuery']");
+  state.selected.trafficQuery = input && input.value.trim() ? input.value.trim() : "北京大学";
+  state.selected.trafficSearchResult = true;
+  render();
+});
 
 document.addEventListener("click", (event) => {
   const selectionButton = event.target.closest("[data-select-key]");
