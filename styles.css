@@ -366,7 +366,7 @@ body.desktop-preview #app {
 
 .custom-station-screen {
   background: #f2f6fb;
-  padding-bottom: 0;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .custom-topbar {
@@ -444,6 +444,23 @@ body.desktop-preview #app {
 
 .station-carousel::-webkit-scrollbar {
   display: none;
+}
+
+.station-grid-source {
+  padding: 8px 14px 14px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+
+.station-grid-source::-webkit-scrollbar {
+  display: none;
+}
+
+.station-select-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
 }
 
 .station-slide {
@@ -554,6 +571,69 @@ body.desktop-preview #app {
   height: 15px;
 }
 
+.station-select-grid .station-slide {
+  flex: initial;
+  min-width: 0;
+  min-height: 164px;
+  padding: 8px;
+  border-radius: var(--ds-radius-card);
+  grid-template-rows: auto 1fr;
+  gap: 7px;
+  scroll-snap-align: none;
+  box-shadow: 0 8px 20px rgba(29, 39, 51, 0.065);
+}
+
+.station-select-grid .station-slide.active {
+  box-shadow: 0 10px 22px rgba(32, 111, 216, 0.13);
+}
+
+.station-select-grid .station-slide-media {
+  min-height: 0;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+}
+
+.station-select-grid .station-slide-icon {
+  left: 8px;
+  bottom: 8px;
+  width: 48px;
+  height: 30px;
+  border-radius: 8px;
+}
+
+.station-select-grid .station-slide-icon .icon {
+  width: 39px;
+  height: 19px;
+}
+
+.station-select-grid .station-slide-copy {
+  min-height: 0;
+  gap: 1px;
+}
+
+.station-select-grid .station-slide-copy strong {
+  font-size: 16px;
+  line-height: 1.18;
+  font-weight: 800;
+}
+
+.station-select-grid .station-slide-copy em {
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.station-select-grid .station-slide-check {
+  right: 8px;
+  top: 8px;
+  width: 24px;
+  height: 24px;
+}
+
+.station-select-grid .station-slide-check .icon {
+  width: 13px;
+  height: 13px;
+}
+
 .station-selected-summary {
   margin: 0 14px 10px;
   min-height: 52px;
@@ -591,7 +671,7 @@ body.desktop-preview #app {
 }
 
 .confirm-bar {
-  padding: 10px 14px 18px;
+  padding: 10px 14px calc(18px + env(safe-area-inset-bottom));
   background: #f2f6fb;
   border-top: 1px solid rgba(223, 230, 239, 0.7);
 }
