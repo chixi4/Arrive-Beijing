@@ -60,9 +60,15 @@ const stationIconNames = {
 };
 
 const navigationVisualAssets = {
-  map: "assets/bitmap/navigation/v3/nav-flat-base.png",
-  map3d: "assets/bitmap/navigation/v3/nav-3d-overview.png",
-  ar: "assets/bitmap/navigation/v3/nav-ar-guide.png",
+  map: "assets/bitmap/navigation/v4/nav-flat-base.webp",
+  map3d: "assets/bitmap/navigation/v4/nav-3d-overview.webp",
+  ar: "assets/bitmap/navigation/v4/nav-ar-guide.webp",
+  floors: {
+    B1: "assets/bitmap/navigation/v4/nav-flat-b1.webp",
+    F1: "assets/bitmap/navigation/v4/nav-flat-f1.webp",
+    F2: "assets/bitmap/navigation/v4/nav-flat-f2.webp",
+    F3: "assets/bitmap/navigation/v4/nav-flat-f3.webp",
+  },
 };
 
 const splashImageSets = {
@@ -76,6 +82,7 @@ const state = {
   currentSurface: null,
     selected: {
       navFloor: "F1",
+      navFocus: "restroom",
       nav3dLayer: "overview",
       announcementCategory: "全部",
       feedbackType: "投诉",
@@ -2229,9 +2236,9 @@ const trafficTabs = [
 ];
 
 const navModeTabs = [
-  { key: "map3d", label: "3D", to: "#/nav/map3d" },
   { key: "map", label: "平面", to: "#/nav/map" },
-  { key: "ar", label: "AR", to: "#/nav/ar" },
+  { key: "ar", label: "实景", to: "#/nav/ar" },
+  { key: "map3d", label: "3D", to: "#/nav/map3d" },
 ];
 
 const trafficTaxiStops = [
@@ -2666,10 +2673,11 @@ function renderNavigationPage(mode) {
   const activeModeRoute = mode === "route" ? "#/nav/map" : activeRoute;
   const visualMode = mode === "route" ? "map" : mode;
   const selectedFloor = state.selected.navFloor || "F1";
+  const navFocus = state.selected.navFocus || "restroom";
   const selected3dLayer = state.selected.nav3dLayer || "overview";
   const visualCopy = {
     map: {
-      title: "地图预览",
+      title: `${selectedFloor} 平面图`,
       badge: "平面",
     },
     map3d: {
@@ -2677,8 +2685,8 @@ function renderNavigationPage(mode) {
       badge: "总览",
     },
     ar: {
-      title: "AR 指引",
-      badge: "AR",
+      title: "实景指引",
+      badge: "实景",
     },
     route: {
       title: "路线规划",
@@ -2686,26 +2694,27 @@ function renderNavigationPage(mode) {
     },
   };
   const floorPlans = {
-    B1: { target: "地铁换乘厅", path: "19,68 36,68 36,52 51,52" },
-    F1: { target: "南广场出口", path: "51,78 51,65 58,65 58,46" },
+    B1: { target: "出租车上车区", path: "24,70 39,70 39,55 55,55" },
+    F1: { target: "南广场出站口", path: "51,78 51,65 58,65 58,46" },
     F2: { target: "检票口B8", path: "50,76 50,59 42,59 42,36" },
     F3: { target: "服务窗口", path: "49,78 49,63 62,63 62,31" },
   };
+  const navMarkers = {
+    restroom: { label: "卫生间", x: 67, y: 42, tone: "restroom" },
+    taxi: selectedFloor === "B1" ? { label: "上车区", x: 58, y: 54, tone: "taxi" } : { label: "卫生间", x: 67, y: 42, tone: "restroom" },
+    exit: selectedFloor === "F1" ? { label: "出站口", x: 60, y: 45, tone: "exit" } : { label: "卫生间", x: 67, y: 42, tone: "restroom" },
+  };
   const currentFloor = floorPlans[selectedFloor] || floorPlans.F1;
+  const currentMarker = navMarkers[navFocus] || navMarkers.restroom;
   const currentVisual = visualCopy[visualMode] || visualCopy.map;
   const currentImage =
-    visualMode === "map" ? navigationVisualAssets.map : navigationVisualAssets[visualMode] || navigationVisualAssets.map;
+    visualMode === "map"
+      ? navigationVisualAssets.floors[selectedFloor] || navigationVisualAssets.map
+      : navigationVisualAssets[visualMode] || navigationVisualAssets.map;
   const showRouteOverlay = visualMode === "map";
+  const showFocusedRoute = navFocus !== "restroom";
   const layerControlItems =
-    visualMode === "map3d"
-      ? [
-          { key: "overview", label: "总览" },
-          { key: "B1", label: "B1" },
-          { key: "F1", label: "F1" },
-          { key: "F2", label: "F2" },
-          { key: "F3", label: "F3" },
-        ]
-      : visualMode === "map"
+    visualMode === "map"
       ? [
           { key: "B1", label: "B1" },
           { key: "F1", label: "F1" },
@@ -2718,8 +2727,8 @@ function renderNavigationPage(mode) {
       ? `<div class="ab-nav-layer-control" aria-label="楼层切换">
           ${layerControlItems
             .map((item) => {
-              const activeValue = visualMode === "map3d" ? selected3dLayer : selectedFloor;
-              const selectKey = visualMode === "map3d" ? "nav3dLayer" : "navFloor";
+              const activeValue = selectedFloor;
+              const selectKey = "navFloor";
               return `<button class="${activeValue === item.key ? "active" : ""}" data-select-key="${selectKey}" data-select-value="${item.key}">${item.label}</button>`;
             })
             .join("")}
@@ -2744,6 +2753,14 @@ function renderNavigationPage(mode) {
 
       <section class="ab-page-section">
         ${renderSectionTitle(currentVisual.title)}
+        ${
+          visualMode === "map"
+            ? `<div class="ab-nav-poi-row" aria-label="重点地点">
+                <button class="${navFocus === "taxi" ? "active" : ""}" data-nav-poi="taxi">${iconMarkup("taxi")}出租车上车区</button>
+                <button class="${navFocus === "exit" ? "active" : ""}" data-nav-poi="exit">${iconMarkup("pin")}南广场出站口</button>
+              </div>`
+            : ""
+        }
         <div class="ab-nav-visual" data-floor="${selectedFloor}" data-mode="${visualMode}" data-layer="${selected3dLayer}">
           <img src="${currentImage}" alt="${currentVisual.title}">
           <div class="ab-nav-visual-shade"></div>
@@ -2753,11 +2770,18 @@ function renderNavigationPage(mode) {
           ${
             showRouteOverlay
               ? `<div class="ab-nav-route-overlay" aria-hidden="true">
-                  <svg class="ab-nav-route-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <polyline points="${currentFloor.path}" />
-                  </svg>
-                  <span class="ab-nav-current-dot">您在此</span>
-                  <span class="ab-nav-target-dot">${currentFloor.target}</span>
+                  ${
+                    showFocusedRoute
+                      ? `<svg class="ab-nav-route-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                          <polyline points="${currentFloor.path}" />
+                        </svg>
+                        <span class="ab-nav-target-dot">${currentFloor.target}</span>`
+                      : ""
+                  }
+                  <span class="ab-nav-current-dot"><i>★</i><b>我的位置</b></span>
+                  <span class="ab-nav-poi-marker ${currentMarker.tone}" style="left:${currentMarker.x}%;top:${currentMarker.y}%">
+                    ${iconMarkup("pin")}<b>${currentMarker.label}</b>
+                  </span>
                 </div>`
               : ""
           }
@@ -4083,6 +4107,9 @@ document.addEventListener("click", (event) => {
   if (selectionButton) {
     event.preventDefault();
     state.selected[selectionButton.dataset.selectKey] = selectionButton.dataset.selectValue;
+    if (selectionButton.dataset.selectKey === "navFloor") {
+      state.selected.navFocus = "restroom";
+    }
     render();
     return;
   }
@@ -4094,6 +4121,17 @@ document.addEventListener("click", (event) => {
     state.selected.servicesSection = serviceCategoryButton.dataset.serviceSection || "traffic";
     render();
     requestAnimationFrame(() => scrollServicesSection(state.selected.servicesSection || "traffic"));
+    return;
+  }
+
+  const navPoiButton = event.target.closest("[data-nav-poi]");
+  if (navPoiButton) {
+    event.preventDefault();
+    const focus = navPoiButton.dataset.navPoi;
+    state.selected.navFocus = focus;
+    state.selected.navFloor = focus === "taxi" ? "B1" : "F1";
+    go("#/nav/map");
+    render();
     return;
   }
 
