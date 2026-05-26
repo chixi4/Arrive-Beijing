@@ -3341,7 +3341,8 @@ body.desktop-preview #app {
 #app.mobile-preview-app {
   --page-w: 430px;
   width: min(100vw, var(--page-w));
-  height: min(200vw, calc(var(--page-w) + var(--page-w)));
+  height: min(100vh, 200vw, calc(var(--page-w) + var(--page-w)));
+  height: min(100dvh, 200vw, calc(var(--page-w) + var(--page-w)));
   min-height: 0;
   background: var(--ds-color-bg);
   overflow: hidden;
@@ -3351,7 +3352,8 @@ body.desktop-preview #app {
 #app.design-system-app {
   --page-w: 430px;
   width: min(100vw, var(--page-w));
-  height: min(200vw, calc(var(--page-w) + var(--page-w)));
+  height: min(100vh, 200vw, calc(var(--page-w) + var(--page-w)));
+  height: min(100dvh, 200vw, calc(var(--page-w) + var(--page-w)));
   min-height: 0;
   background: var(--ds-color-bg);
   overflow: hidden;
