@@ -18,8 +18,15 @@ This is a workflow skill. Load only the reference file for the current phase.
 - Do not treat generated images as content facts. Generated images can guide style and supply assets, not decide page copy or business logic.
 - Prefer page coverage and click-flow correctness before visual polish.
 - Keep project-specific discoveries in the project's docs, not in this skill.
-- Keep every meaningful implementation step verifiable: local preview, route checks, asset checks, screenshots, or pixel/image checks as appropriate.
+- Keep every meaningful implementation step verifiable with the lightest check that fits the user's requested mode.
 - Use git checkpoints for project changes when the workspace is a git repo.
+
+## Visual Verification Policy
+
+- For real-time UI tuning where the user is already judging the screen, default to code edits plus lightweight static checks.
+- Do not open a browser, capture screenshots, or approve visual changes by your own taste unless the user explicitly asks you to inspect, compare, screenshot, or self-approve the result.
+- Use browser/screenshot verification without prompting only for high-risk visual work: new pages, broad responsive layout changes, generated bitmap assets, 3D/canvas scenes, or other changes likely to break rendering.
+- When skipping visual verification by design, say what lightweight check was run and leave visual judgment to the user.
 
 ## Phase Router
 
@@ -60,7 +67,6 @@ Before considering a phase done:
 
 - The relevant project doc was updated.
 - The relevant route/page/asset/icon checks were run or a reason is recorded.
-- A mobile screenshot or visual check was made for user-facing UI changes.
+- For user-facing UI changes, the lightest appropriate verification was run. Screenshots/browser checks are required only when explicitly requested or when the change has high visual/layout risk.
 - The git status is understood; unrelated user changes were not reverted.
 - The final note states what changed, what was verified, and what remains risky.
-
