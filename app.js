@@ -3025,26 +3025,18 @@ function renderNavigationPage(mode) {
       badge: "路线",
     },
   };
-  const floorPlans = {
-    B1: { target: "出租车上车区", path: "24,70 39,70 39,55 55,55" },
-    F1: { target: "南广场出站口", path: "51,78 51,65 58,65 58,46" },
-    F2: { target: "检票口B8", path: "50,76 50,59 42,59 42,36" },
-    F3: { target: "服务窗口", path: "49,78 49,63 62,63 62,31" },
-  };
   const navMarkers = {
     restroom: { label: "卫生间", x: 67, y: 42, tone: "restroom" },
     taxi: selectedFloor === "B1" ? { label: "上车区", x: 58, y: 54, tone: "taxi" } : { label: "卫生间", x: 67, y: 42, tone: "restroom" },
     exit: selectedFloor === "F1" ? { label: "出站口", x: 60, y: 45, tone: "exit" } : { label: "卫生间", x: 67, y: 42, tone: "restroom" },
   };
-  const currentFloor = floorPlans[selectedFloor] || floorPlans.F1;
   const currentMarker = navMarkers[navFocus] || navMarkers.restroom;
   const currentVisual = visualCopy[visualMode] || visualCopy.map;
   const currentImage =
     visualMode === "map"
       ? navigationVisualAssets.floors[selectedFloor] || navigationVisualAssets.map
       : navigationVisualAssets[visualMode] || navigationVisualAssets.map;
-  const showRouteOverlay = visualMode === "map";
-  const showFocusedRoute = navFocus !== "restroom";
+  const showMapPreviewOverlay = visualMode === "map";
   const layerControlItems =
     visualMode === "map"
       ? [
@@ -3088,21 +3080,17 @@ function renderNavigationPage(mode) {
         <div class="ab-nav-visual" data-floor="${selectedFloor}" data-mode="${visualMode}" data-layer="${selected3dLayer}">
           <img src="${currentImage}" alt="${currentVisual.title}">
           <div class="ab-nav-visual-shade"></div>
-          <div class="ab-nav-visual-top">
-            <span>${visualMode === "map3d" && selected3dLayer !== "overview" ? selected3dLayer : currentVisual.badge}</span>
-          </div>
           ${
-            showRouteOverlay
-              ? `<div class="ab-nav-route-overlay" aria-hidden="true">
-                  ${
-                    showFocusedRoute
-                      ? `<svg class="ab-nav-route-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                          <polyline points="${currentFloor.path}" />
-                        </svg>
-                        <span class="ab-nav-target-dot">${currentFloor.target}</span>`
-                      : ""
-                  }
-                  <span class="ab-nav-current-dot"><i>★</i><b>我的位置</b></span>
+            visualMode === "map"
+              ? ""
+              : `<div class="ab-nav-visual-top">
+                  <span>${visualMode === "map3d" && selected3dLayer !== "overview" ? selected3dLayer : currentVisual.badge}</span>
+                </div>`
+          }
+          ${
+            showMapPreviewOverlay
+              ? `<div class="ab-nav-route-overlay ab-nav-route-overlay--preview" aria-hidden="true">
+                  <span class="ab-nav-current-dot"></span>
                   <span class="ab-nav-poi-marker ${currentMarker.tone}" style="left:${currentMarker.x}%;top:${currentMarker.y}%">
                     ${iconMarkup("pin")}<b>${currentMarker.label}</b>
                   </span>
