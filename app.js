@@ -80,6 +80,8 @@ const state = {
   station: localStorage.getItem("arrive-beijing.station") || "west",
   draftStation: localStorage.getItem("arrive-beijing.station") || "west",
   currentSurface: null,
+  previousRoute: null,
+  shortHaulBackTo: "#/driver/queue",
     selected: {
       navFloor: "F1",
       navFocus: "restroom",
@@ -963,6 +965,15 @@ function route() {
 }
 
 function go(to) {
+  const from = route();
+  if (from !== to) {
+    state.previousRoute = from;
+    if (from === "#/station/home" && to === "#/driver/short-haul/booking") {
+      state.shortHaulBackTo = "#/station/home";
+    } else if (!from.startsWith("#/driver/short-haul/") && !to.startsWith("#/driver/short-haul/")) {
+      state.shortHaulBackTo = "#/driver/queue";
+    }
+  }
   location.hash = to;
 }
 
@@ -1816,6 +1827,7 @@ function scrollToSection(id) {
 function renderStationHome() {
   const [, stationName] = stationById(state.station);
   const stationSrc = stationHeroImage(state.station);
+  const heroPositionY = state.station === "west" ? "64%" : "bottom";
   const announcements = stationAnnouncementOverrides[state.station] || stationHomeAnnouncements;
   const trafficCards = [
     { icon: "taxi", label: "出租车", meta: "南广场出口 · 8-12分钟", to: "#/traffic/taxi" },
@@ -1827,7 +1839,7 @@ function renderStationHome() {
   return renderAppShell({
     className: "ab-home-page",
     body: `
-      <section class="ab-home-hero" style="--ab-home-image:url('${stationSrc}')">
+      <section class="ab-home-hero" style="--ab-home-image:url('${stationSrc}');--ab-home-position-y:${heroPositionY}">
         <div class="ab-home-hero-card">
           <div class="ab-home-hero-cover">
             <div class="ab-home-hero-top">
@@ -3552,6 +3564,9 @@ function renderDriverStationPage(stationKey, variant = "queue") {
 
 function renderShortHaulPage(variant = "booking") {
   const activeRoute = `#/driver/short-haul/${variant}`;
+  const previousShortHaulRoute =
+    state.previousRoute && state.previousRoute.startsWith("#/driver/short-haul/") ? state.previousRoute : "";
+  const shortHaulBackTo = variant === "booking" ? state.shortHaulBackTo || "#/driver/queue" : previousShortHaulRoute || state.shortHaulBackTo || "#/driver/queue";
   const bookingDates = [
     { key: "今天", label: "今天" },
     { key: "明天", label: "明天" },
@@ -3660,7 +3675,7 @@ function renderShortHaulPage(variant = "booking") {
     className: "ab-short-haul-page",
     topbar: renderAppTopbar({
       title: "短途复载",
-      backTo: "#/driver/queue",
+      backTo: shortHaulBackTo,
       action: `<button class="ab-topbar-action" data-toast="规则说明（原型演示）">规则</button>`,
     }),
     body: `
@@ -3869,9 +3884,8 @@ function renderSourcePage(page) {
 function renderStationSelect(kind) {
   const isSwitch = kind === "switch";
   const title = "选择出行站点";
-  const buttonText = isSwitch ? "确认更改" : "确认选择";
   const selected = stationById(state.draftStation);
-  const helperText = isSwitch ? "点选站点后确认更改" : "点选任一站点后直接进入服务首页";
+  const helperText = "点选站点后直接进入服务首页";
 
   return `
     <div class="source-screen custom-station-screen">
@@ -3905,18 +3919,6 @@ function renderStationSelect(kind) {
             .join("")}
         </div>
       </div>
-      ${
-        isSwitch
-          ? `<section class="station-selected-summary">
-              <span>已选择</span>
-              <strong data-selected-station-name>${selected[1]}</strong>
-              <em data-selected-station-kind>${stationKindLabel(selected[0])}</em>
-            </section>
-            <div class="confirm-bar">
-              <button class="confirm-button" data-confirm-station>${buttonText}</button>
-            </div>`
-          : ""
-      }
     </div>
   `;
 }
@@ -4482,7 +4484,7 @@ document.addEventListener("click", (event) => {
   if (stationButton) {
     event.preventDefault();
     state.draftStation = stationButton.dataset.station;
-    if (route() === "#/station/select") {
+    if (route() === "#/station/select" || route() === "#/station/switch") {
       state.station = state.draftStation;
       localStorage.setItem("arrive-beijing.station", state.station);
       go("#/station/home");
