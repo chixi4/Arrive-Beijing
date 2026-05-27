@@ -394,6 +394,7 @@ const ICON_ALIASES = {
   meal: "dining",
   notice: "megaphone",
   redeem: "gift",
+  ride_hailing: "car",
   station: "train",
 };
 
@@ -508,7 +509,7 @@ const driverNav = [
 
 const pages = {
   "#/portal": {
-    src: "P02-01_京通首页-clear.webp",
+    src: "P02-01_京通首页-clear.jpg",
     hotspots: [
       { x: 78, y: 50, w: 17, h: 10, to: "#/services" },
       { x: 0, y: 64, w: 100, h: 18, to: "#/services" },
@@ -1038,9 +1039,8 @@ function syncStationCarousel() {
   if (gridScroller) {
     const active = gridScroller.querySelector(`[data-station="${state.draftStation}"]`);
     if (!active) return;
-    const scrollerBox = gridScroller.getBoundingClientRect();
-    const activeBox = active.getBoundingClientRect();
-    gridScroller.scrollTop += activeBox.top - scrollerBox.top;
+    const targetTop = active.offsetTop - gridScroller.offsetTop - 10;
+    gridScroller.scrollTo({ top: Math.max(0, targetTop), behavior: "auto" });
     return;
   }
   const carousel = document.querySelector("[data-station-carousel]");
@@ -1048,6 +1048,26 @@ function syncStationCarousel() {
   const active = carousel.querySelector(`[data-station="${state.draftStation}"]`);
   if (!active) return;
   active.scrollIntoView({ block: "nearest", inline: "center", behavior: "auto" });
+}
+
+function scheduleStationCarouselSync() {
+  const gridScroller = document.querySelector(".station-grid-source");
+  const reveal = () => {
+    if (gridScroller) gridScroller.classList.remove("is-preparing");
+  };
+  const sync = () => syncStationCarousel();
+  sync();
+  reveal();
+  requestAnimationFrame(() => {
+    sync();
+    reveal();
+    window.setTimeout(sync, 80);
+    window.setTimeout(sync, 260);
+  });
+  document.querySelectorAll(".station-grid-source img").forEach((image) => {
+    if (image.complete) return;
+    image.addEventListener("load", sync, { once: true });
+  });
 }
 
 function boxStyle(box) {
@@ -1428,7 +1448,7 @@ function renderDesignSystem() {
         ["metro", "地铁"],
         ["traffic_bus", "公交"],
         ["traffic_taxi", "出租"],
-        ["ride_hailing", "网约"],
+        ["car", "网约"],
         ["route_swap", "起终点交换"],
         ["filter_sliders", "偏好筛选"],
         ["departure_time", "出发时间"],
@@ -2403,7 +2423,7 @@ const trafficMixedRows = [
   },
   {
     label: "网约车",
-    icon: "ride_hailing",
+    icon: "car",
     note: "候车低",
     value: "约26分钟 · ¥56",
     tone: "primary",
@@ -3937,7 +3957,7 @@ function renderStationSelect(kind) {
         <h1>${selected[1]}</h1>
         <span>${helperText}</span>
       </section>
-      <div class="station-grid-source" aria-label="选择站点">
+      <div class="station-grid-source is-preparing" aria-label="选择站点">
         <div class="station-select-grid">
           ${stations
             .map(
@@ -4422,7 +4442,7 @@ function render() {
     app.className = "app-shell mobile-preview-app";
     app.innerHTML = renderStationSelect("select");
     syncDesktopPreviewFrame();
-    requestAnimationFrame(syncStationCarousel);
+    scheduleStationCarouselSync();
     return;
   }
   if (current === "#/station/switch") {
@@ -4433,7 +4453,7 @@ function render() {
     app.className = "app-shell mobile-preview-app";
     app.innerHTML = renderStationSelect("switch");
     syncDesktopPreviewFrame();
-    requestAnimationFrame(syncStationCarousel);
+    scheduleStationCarouselSync();
     return;
   }
   state.currentSurface = current;

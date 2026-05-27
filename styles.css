@@ -488,6 +488,10 @@ body.desktop-preview #app.anchor-app {
   display: none;
 }
 
+.station-grid-source.is-preparing {
+  visibility: hidden;
+}
+
 .station-select-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -503,7 +507,7 @@ body.desktop-preview #app.anchor-app {
   border-radius: var(--ds-radius-media);
   background: #fff;
   box-shadow: 0 10px 28px rgba(29, 39, 51, 0.075);
-  scroll-snap-align: center;
+  scroll-snap-align: start;
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
   gap: 10px;
