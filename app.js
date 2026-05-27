@@ -3061,6 +3061,17 @@ function renderTaxiHouseReviewCard(item) {
   `;
 }
 
+function renderNavFocusMarker(visualMode, selectedFloor, navFocus) {
+  if (visualMode !== "map") return "";
+  if (navFocus === "taxi" && selectedFloor === "B1") {
+    return `<span class="ab-nav-pulse-marker ab-nav-pulse-marker--taxi" aria-hidden="true"></span>`;
+  }
+  if (navFocus === "exit" && selectedFloor === "F1") {
+    return `<span class="ab-nav-pulse-marker ab-nav-pulse-marker--exit" aria-hidden="true"></span>`;
+  }
+  return "";
+}
+
 function renderNavigationPage(mode) {
   const activeRoute = `#/nav/${mode}`;
   const activeModeRoute = mode === "route" ? "#/nav/map" : activeRoute;
@@ -3141,6 +3152,7 @@ function renderNavigationPage(mode) {
                   <span>${visualMode === "map3d" && selected3dLayer !== "overview" ? selected3dLayer : currentVisual.badge}</span>
                 </div>`
           }
+          ${renderNavFocusMarker(visualMode, selectedFloor, navFocus)}
           ${renderLayerControl()}
         </div>
         ${
