@@ -223,19 +223,19 @@
       "svg": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/svg/09-transfer.svg",
       "diff": "assets/icons/calibration/board-01-high-frequency/single-svg-replica/diff/09-transfer.png",
       "inkBBox": [
-        49,
-        48,
-        333,
-        309
+        46,
+        29,
+        329,
+        321
       ],
       "displayViewBox": [
-        32,
-        31,
-        318,
-        295
+        28,
+        11,
+        319,
+        328
       ],
-      "rectangles": 433,
-      "pathLength": 8596,
+      "rectangles": 466,
+      "pathLength": 9196,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,

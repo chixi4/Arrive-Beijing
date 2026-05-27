@@ -28,12 +28,12 @@
 
 | Token | Value | 用途 |
 | --- | --- | --- |
-| `--ds-icon-xs` | `12px` | 徽标、轻提示 |
-| `--ds-icon-sm` | `16px` | cell 行内 |
-| `--ds-icon-md` | `20px` | 常规按钮、正文旁 |
-| `--ds-icon-lg` | `24px` | 底部导航 |
-| `--ds-icon-xl` | `44px` | 功能入口色块 |
-| `--ds-icon-empty` | `48px` | 空状态中心图标 |
+| `--ds-icon-xs` | `13px` | 徽标、轻提示 |
+| `--ds-icon-sm` | `18px` | cell 行内 |
+| `--ds-icon-md` | `22px` | 常规按钮、正文旁 |
+| `--ds-icon-lg` | `26px` | 底部导航 |
+| `--ds-icon-xl` | `48px` | 功能入口色块 |
+| `--ds-icon-empty` | `52px` | 空状态中心图标 |
 
 ## 3x3 生图校准流程
 

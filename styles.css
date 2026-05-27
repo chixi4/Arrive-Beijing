@@ -69,12 +69,12 @@
   --ds-control-h-md: 44px;
   --ds-control-h-lg: 52px;
   --ds-touch-target: 44px;
-  --ds-icon-xs: 12px;
-  --ds-icon-sm: 16px;
-  --ds-icon-md: 20px;
-  --ds-icon-lg: 24px;
-  --ds-icon-xl: 44px;
-  --ds-icon-empty: 48px;
+  --ds-icon-xs: 13px;
+  --ds-icon-sm: 18px;
+  --ds-icon-md: 22px;
+  --ds-icon-lg: 26px;
+  --ds-icon-xl: 48px;
+  --ds-icon-empty: 52px;
   --ds-icon-stroke: 1.85;
   --ds-page-w: 430px;
   --ds-page-pad: 14px;
@@ -83,8 +83,8 @@
   --ds-cell-h: 52px;
   --ds-cell-h-compact: 48px;
   --ds-cell-pad-x: 12px;
-  --ds-cell-icon: 30px;
-  --ds-cell-icon-compact: 28px;
+  --ds-cell-icon: 32px;
+  --ds-cell-icon-compact: 30px;
   --ds-nav-h: 72px;
   --ds-motion-fast: 120ms;
   --ds-motion-base: 180ms;
@@ -395,8 +395,8 @@ body.desktop-preview #app {
 }
 
 .station-back-button .icon {
-  width: 17px;
-  height: 17px;
+  width: 19px;
+  height: 19px;
 }
 
 .station-select-intro {
@@ -749,8 +749,8 @@ body.desktop-preview #app {
 }
 
 .icon {
-  width: 20px;
-  height: 20px;
+  width: var(--ds-icon-md);
+  height: var(--ds-icon-md);
   stroke: currentColor;
   fill: none;
   stroke-width: var(--ds-icon-stroke, 1.85);
@@ -771,13 +771,13 @@ body.desktop-preview #app {
 }
 
 .icon.sm {
-  width: 16px;
-  height: 16px;
+  width: var(--ds-icon-sm);
+  height: var(--ds-icon-sm);
 }
 
 .icon.lg {
-  width: 24px;
-  height: 24px;
+  width: var(--ds-icon-lg);
+  height: var(--ds-icon-lg);
 }
 
 .section {
@@ -1213,8 +1213,8 @@ body.desktop-preview #app {
 }
 
 .ds-list-row-icon .icon {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
 }
 
 .ds-list-row strong {
@@ -1285,8 +1285,8 @@ body.desktop-preview #app {
 }
 
 .ds-icon-sample .icon {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
 }
 
 .ds-icon-sample .icon[data-icon^="station_"] {
@@ -1405,8 +1405,8 @@ body.desktop-preview #app {
 }
 
 .nav-item .icon {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
 }
 
 .status-line {
@@ -5337,8 +5337,8 @@ body.desktop-preview #app {
 }
 
 .ab-icon-btn .icon {
-  width: 17px;
-  height: 17px;
+  width: 19px;
+  height: 19px;
 }
 
 .ab-home-hero {
@@ -5399,8 +5399,8 @@ body.desktop-preview #app {
 }
 
 .ab-station-chip-pin .icon {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
 }
 
 .ab-home-hero-copy {
@@ -5536,8 +5536,8 @@ body.desktop-preview #app {
 }
 
 .ab-info-icon .icon {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
 }
 
 .ab-info-icon.tag {
@@ -5636,8 +5636,8 @@ body.desktop-preview #app {
 }
 
 .ab-info-list.compact .ab-info-icon .icon {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
 }
 
 .ab-info-list.loose {
@@ -5709,15 +5709,15 @@ body.desktop-preview #app {
 }
 
 .ab-service-card .ab-action-tile-icon {
-  width: 34px;
-  height: 30px;
+  width: 36px;
+  height: 32px;
   background: transparent;
   color: var(--ab-tile-fg, var(--ds-color-primary));
 }
 
 .ab-service-card .ab-action-tile-icon .icon {
-  width: 25px;
-  height: 25px;
+  width: 28px;
+  height: 28px;
 }
 
 .ab-service-card .ab-action-tile strong {
@@ -5750,8 +5750,8 @@ body.desktop-preview #app {
 }
 
 .ab-station-service-grid .ab-action-tile-icon .icon {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
 }
 
 .ab-action-tile {
@@ -5778,8 +5778,8 @@ body.desktop-preview #app {
 }
 
 .ab-action-tile-icon .icon {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
 }
 
 .ab-action-tile strong {
@@ -5853,8 +5853,8 @@ body.desktop-preview #app {
 }
 
 .ab-preview-card-icon .icon {
-  width: 27px;
-  height: 27px;
+  width: 30px;
+  height: 30px;
 }
 
 .ab-preview-card strong {
@@ -6403,8 +6403,8 @@ body.desktop-preview #app {
 }
 
 .ab-bottom-nav-item .icon {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
 }
 
 .ab-select-grid.cols-3 {
@@ -6670,8 +6670,8 @@ body.desktop-preview #app {
 }
 
 .ab-nav-search .icon {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   color: #9aa5b2;
 }
 
@@ -6767,8 +6767,8 @@ body.desktop-preview #app {
 }
 
 .ab-nav-poi-row .icon {
-  width: 19px;
-  height: 19px;
+  width: 21px;
+  height: 21px;
 }
 
 .ab-nav-visual {
@@ -7388,8 +7388,8 @@ body.desktop-preview #app {
 }
 
 .ab-traffic-stop-icon .icon {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
 }
 
 .ab-traffic-stop-left strong {
@@ -7680,8 +7680,8 @@ body.desktop-preview #app {
 }
 
 .ab-transfer-destination-icon .icon {
-  width: 48px;
-  height: 30px;
+  width: 54px;
+  height: 34px;
 }
 
 .ab-transfer-destination-card strong {
@@ -8439,8 +8439,8 @@ body.desktop-preview #app {
 }
 
 .ab-reward-icon .icon {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
 }
 
 .ab-reward-card strong {
@@ -8879,24 +8879,24 @@ body.desktop-preview #app {
 }
 
 .ab-info-icon:not(.tag) {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
 }
 
 .ab-info-icon:not(.tag) .icon,
 .ab-info-list.compact .ab-info-icon:not(.tag) .icon {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
 }
 
 .ab-action-tile-icon {
-  width: 38px;
-  height: 34px;
+  width: 40px;
+  height: 36px;
 }
 
 .ab-action-tile-icon .icon {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
 }
 
 .ab-driver-quick-grid .ab-action-tile {
@@ -8917,8 +8917,8 @@ body.desktop-preview #app {
 
 .ab-traffic-stop-icon .icon,
 .ab-traffic-ride-icon .icon {
-  width: 27px;
-  height: 27px;
+  width: 30px;
+  height: 30px;
 }
 
 .ab-queue-station-top {
@@ -8936,8 +8936,8 @@ body.desktop-preview #app {
 }
 
 .ab-queue-station-icon .icon {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
 }
 
 .ab-station-house {
@@ -8952,8 +8952,8 @@ body.desktop-preview #app {
 
 .ab-station-house-icon .icon,
 .ab-target-icon .icon {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
 }
 
 .ab-target-icon .icon[data-icon^="station_"] {
@@ -8964,8 +8964,8 @@ body.desktop-preview #app {
 }
 
 .ab-select-chip .icon {
-  width: 19px;
-  height: 19px;
+  width: 21px;
+  height: 21px;
 }
 
 .ab-taxi-house-page .ab-info-row-left > span:last-child {
