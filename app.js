@@ -151,7 +151,7 @@ const stationServiceItems = [
   { label: "进出站须知", icon: "book", toast: "进出站须知（原型演示）" },
   { label: "候车室引导", icon: "lounge", toast: "候车室引导（原型演示）" },
   { label: "售票机自助取票", icon: "paper", toast: "售票机自助取票（原型演示）" },
-  { label: "李包托运、提取、寄存", icon: "gift", toast: "李包托运、提取、寄存（原型演示）" },
+  { label: "行包托运、提取、寄存", icon: "gift", toast: "行包托运、提取、寄存（原型演示）" },
   { label: "志愿服务", icon: "handshake", toast: "志愿服务（原型演示）" },
   { label: "预约服务", icon: "calendar", toast: "预约服务（原型演示）" },
   { label: "警务站", icon: "shield", toast: "警务站（原型演示）" },
@@ -200,6 +200,13 @@ const feedbackRecords = [
     meta: "提交时间 2026-05-22 14:02",
     reply: "官方回复：已转交站区服务部门评估安装位置与投放数量。",
   },
+];
+
+const supportContactRows = [
+  { icon: "phone", label: "旅客服务热线", value: "010-51849000", toast: "旅客服务热线" },
+  { icon: "feedback", label: "投诉举报电话", value: "12306", toast: "投诉举报电话" },
+  { icon: "phone", label: "指挥中心电话", value: "51867132", toast: "指挥中心电话" },
+  { icon: "mail", label: "监督投诉邮箱", value: "service@bjstation.com", toast: "监督投诉邮箱" },
 ];
 
 const travelerProfileSections = [
@@ -1877,7 +1884,7 @@ function renderStationHome() {
   const heroPositionY = state.station === "west" ? "64%" : "bottom";
   const announcements = stationAnnouncementOverrides[state.station] || stationHomeAnnouncements;
   const trafficCards = [
-    { icon: "taxi", label: "出租车", meta: "南广场出口 · 8-12分钟", to: "#/traffic/taxi" },
+    { icon: "taxi", label: "出租车", meta: "南广场出口 · 20-30分钟", to: "#/traffic/taxi" },
     { icon: "car", label: "网约车", meta: "推荐上车点 · 200m", to: "#/traffic/ride" },
     { icon: "train", label: "地铁", meta: "4号线/14号线 · 站内换乘", to: "#/traffic/metro" },
   ];
@@ -1990,23 +1997,7 @@ function renderStationInquiryPage() {
     }),
     body: `
       <section class="ab-page-section">
-        <div class="ab-panel">
-          <div class="ab-panel-head">
-            <div>
-              <h2>问询服务</h2>
-              <p>站区服务热线与监督联系方式</p>
-            </div>
-          </div>
-          ${renderInfoRows(
-            [
-              { icon: "phone", label: "旅客服务热线", value: "010-51849000", toast: "旅客服务热线" },
-              { icon: "feedback", label: "投诉举报", value: "12306", toast: "投诉举报" },
-              { icon: "phone", label: "指挥中心的电话", value: "51867132", toast: "指挥中心电话" },
-              { icon: "mail", label: "监督邮箱", value: "service@bjstation.com", toast: "监督邮箱" },
-            ],
-            { compact: true }
-          )}
-        </div>
+        ${renderInfoRows(supportContactRows)}
       </section>
     `,
     footer: renderAbFooterNav("traveler", "home"),
@@ -2074,11 +2065,7 @@ function renderFeedbackSubmitPage(variant = "top") {
     <section class="ab-page-section">
       ${renderSectionTitle("联系信息")}
       <div class="ab-info-list">
-        ${[
-          { icon: "phone", label: "旅客服务热线", value: "12328", toast: "旅客服务热线" },
-          { icon: "phone", label: "投诉举报电话", value: "010-12345", toast: "投诉举报电话" },
-          { icon: "mail", label: "监督投诉邮箱", value: "service@arrive-beijing.cn", toast: "监督投诉邮箱" },
-        ]
+        ${supportContactRows
           .map(
             (row) => `
               <button class="ab-info-row" data-toast="${row.label}">
@@ -2153,11 +2140,7 @@ function renderFeedbackMinePage() {
           <p>如果反馈已处理，页面会显示回复说明与后续建议。</p>
         </div>
         <div class="ab-info-list">
-          ${[
-            { icon: "phone", label: "旅客服务热线", value: "12328", toast: "旅客服务热线" },
-            { icon: "phone", label: "投诉举报电话", value: "010-12345", toast: "投诉举报电话" },
-            { icon: "mail", label: "监督投诉邮箱", value: "service@arrive-beijing.cn", toast: "监督投诉邮箱" },
-          ]
+          ${supportContactRows
             .map(
               (row) => `
                 <button class="ab-info-row" data-toast="${row.label}">
@@ -2344,7 +2327,6 @@ const navModeTabs = [
 const trafficTaxiStops = [
   { name: "南广场出口", note: "排队 85 人", status: "可排队", tone: "success", action: "导航" },
   { name: "北广场出口", note: "排队 42 人", status: "可排队", tone: "success", action: "导航" },
-  { name: "东广场出口", note: "排队 0 人", status: "已关闭", tone: "muted" },
 ];
 
 const trafficRideOffers = [
@@ -2452,7 +2434,7 @@ const stationTransferDestinations = [
   { key: "north", name: "北京北站", icon: "station_north", meta: "约31分钟 · 地铁4号线直达西直门" },
   { key: "qinghe", name: "清河站", icon: "station_qinghe", meta: "约52分钟 · 地铁4号线换13号线" },
   { key: "chaoyang", name: "北京朝阳站", icon: "station_chaoyang", meta: "约49分钟 · 地铁14号线换3号线" },
-  { key: "fengtai", name: "丰台站", icon: "station_fengtai", meta: "约32分钟 · 14号线换10号线" },
+  { key: "fengtai", name: "丰台站", icon: "station_fengtai", meta: "约27分钟 · 14号线换10号线" },
   { key: "tongzhou", name: "北京通州站", icon: "station_tongzhou", meta: "约1小时22分 · 地铁14号线换6号线" },
   { key: "capital", name: "首都国际机场", icon: "station_capital", meta: "约1小时12分 · 地铁换机场线" },
   { key: "daxing", name: "北京大兴国际机场", icon: "station_daxing", meta: "约43分钟 · 地铁换大兴机场线" },
@@ -2502,9 +2484,9 @@ const stationTransferPlans = {
   fengtai: {
     title: "丰台站",
     routes: [
-      { tag: "最快", time: "32分钟", walk: "520米", lines: ["14号线", "10号线"], meta: "8站 · ¥4 · 北京南站(D西入口)进站", headway: "14号线（张郭庄方向） · 约6分钟/趟" },
-      { tag: "出租", time: "出租 21分钟", lines: ["出租¥38"], meta: "13.8公里 · 上门接送" },
-      { tag: "网约车", time: "网约车22分钟", lines: ["一口价¥32"], meta: "以平台预估为准" },
+      { tag: "最快", time: "27分钟", walk: "436米", lines: ["14号线", "10号线"], meta: "7站 · ¥4 · 北京南站(D西入口)进站", headway: "14号线（张郭庄方向） · 约6分钟/趟" },
+      { tag: "出租", time: "出租 19分钟", lines: ["出租¥35"], meta: "12.5公里 · 上门接送" },
+      { tag: "网约车", time: "网约车20分钟", lines: ["一口价¥32"], meta: "以平台预估为准" },
     ],
   },
   tongzhou: {
@@ -2546,22 +2528,22 @@ const parkingStats = [
 
 const parkingListTop = [
   {
-    title: "北京西站北广场停车场",
+    title: "北京南站P1停车场",
     tone: "success",
     status: "充裕",
-    use: "516 / 600 空余",
+    use: "84 / 600 已用",
     distance: "步行 3 分钟",
-    price: "¥5/小时，封顶¥50/天",
+    price: "￥18/小时，封顶￥240/天",
     note: "新能源车位",
     progress: 14,
   },
   {
-    title: "北京西站南广场地面停车场",
+    title: "北京南站P2停车场",
     tone: "warning",
     status: "紧张",
-    use: "16 / 320 空余",
+    use: "304 / 320 已用",
     distance: "步行 1 分钟",
-    price: "¥6/小时，封顶¥60/天",
+    price: "￥18/小时，封顶￥240/天",
     note: "",
     progress: 95,
   },
@@ -2569,41 +2551,41 @@ const parkingListTop = [
 
 const parkingListMore = [
   {
-    title: "莲花池东路配套停车楼",
+    title: "北京南站P3停车场",
     tone: "success",
     status: "充裕",
-    use: "212 / 450 空余",
+    use: "238 / 450 已用",
     distance: "步行 8 分钟",
-    price: "¥4/小时，封顶¥40/天",
+    price: "￥18/小时，封顶￥240/天",
     note: "新能源车位",
     progress: 53,
   },
   {
-    title: "锦州街临时停车区",
+    title: "北京南站P4停车场",
     tone: "danger",
     status: "已满",
-    use: "0 / 80 空余",
+    use: "80 / 80 已用",
     distance: "步行 12 分钟",
-    price: "¥4.5/小时，封顶¥50/天",
+    price: "￥18/小时，封顶￥240/天",
     note: "",
     progress: 100,
   },
   {
-    title: "立体停车场",
+    title: "北京南站立体停车场",
     tone: "warning",
     status: "紧张",
-    use: "73 / 260 空余",
+    use: "187 / 260 已用",
     distance: "步行 6 分钟",
-    price: "¥18/小时，封顶¥100/天",
+    price: "￥18/小时，封顶￥100/天",
     note: "靠近南广场进站口",
     progress: 72,
   },
 ];
 
 const parkingPriceRows = [
-  { label: "1小时以内", north: "¥5", south: "¥6", lianhua: "¥4", jinzhou: "¥4.5", vertical: "¥18" },
-  { label: "3小时", north: "¥15", south: "¥18", lianhua: "¥12", jinzhou: "¥13.5", vertical: "¥54" },
-  { label: "全天封顶", north: "¥50", south: "¥60", lianhua: "¥40", jinzhou: "¥50", vertical: "¥100" },
+  { label: "15分钟", p1: "￥4.5", p2: "￥4.5", p3: "￥4.5", p4: "￥4.5", vertical: "￥4.5" },
+  { label: "1小时", p1: "￥18", p2: "￥18", p3: "￥18", p4: "￥18", vertical: "￥18" },
+  { label: "全天封顶", p1: "￥240", p2: "￥240", p3: "￥240", p4: "￥240", vertical: "￥100" },
 ];
 
 const parkingNotes = [
@@ -3259,29 +3241,25 @@ function renderAnnouncementsPage(variant = "top") {
 function renderTrafficPage(mode) {
   const activeRoute = `#/traffic/${mode}`;
   const titleMap = {
-    taxi: "市内交通指引",
-    ride: "市内交通指引",
-    metro: "市内交通指引",
-    bus: "市内交通指引",
-    mixed: "交通接驳推荐",
-    other: "其他交通方式",
+    taxi: "交通接驳",
+    ride: "交通接驳",
+    metro: "交通接驳",
+    bus: "交通接驳",
+    mixed: "交通接驳",
+    other: "交通接驳",
   };
   const taxiSummary = `
     <div class="ab-panel">
       <div class="ab-panel-head">
         <div>
-          <h2>出租车实时状态</h2>
-          <p>高峰期排队需等候约 10 分钟</p>
+          <h2>南广场出租车实时状态</h2>
         </div>
       </div>
       ${renderStatGrid([
         { value: "85人", label: "排队人数", tone: "danger" },
-        { value: "8-12分钟", label: "等候时间", tone: "warning" },
+        { value: "20-30分钟", label: "等候时间", tone: "danger" },
         { value: "12辆", label: "候车辆数", tone: "success" },
       ])}
-      <div class="ab-tip-card ab-tip-card--warn">
-        <strong>高峰期排队需等候约 10 分钟</strong>
-      </div>
     </div>
   `;
   const taxiBody = `
@@ -3294,13 +3272,6 @@ function renderTrafficPage(mode) {
       </div>
     </section>
 
-    <section class="ab-page-section">
-      ${renderSectionTitle("智能推荐")}
-      <div class="ab-tip-card soft">
-        <strong>推荐前往南广场一号网约车点</strong>
-        <p>距离您 200m · 客流中等 · 接驾 3-5 分钟</p>
-      </div>
-    </section>
   `;
   const rideBody = `
     <section class="ab-page-section">
@@ -3359,7 +3330,7 @@ function renderTrafficPage(mode) {
   return renderAppShell({
     className: "ab-traffic-page",
     topbar: renderAppTopbar({
-      title: titleMap[mode] || "市内交通指引",
+      title: titleMap[mode] || "交通接驳",
       backTo: "#/station/home",
       action: mode === "mixed" ? "" : `<button class="ab-topbar-action" data-toast="数据实时（原型演示）">数据实时</button>`,
     }),
@@ -3390,13 +3361,6 @@ function renderParkingPage(mode) {
       </section>
 
       <section class="ab-page-section">
-        <div class="ab-tip-card ab-tip-card--green">
-          <strong>智能推荐</strong>
-          <p>莲花池东路配套停车楼空余212位，价格最低（¥4/时），推荐停车后步行8分钟进站，或乘免费摆渡车。</p>
-        </div>
-      </section>
-
-      <section class="ab-page-section">
         <div class="ab-parking-list">
           ${parkingListTop.map(renderParkingCard).join("")}
         </div>
@@ -3417,10 +3381,10 @@ function renderParkingPage(mode) {
         <div class="ab-table-card ab-parking-price-table">
           <div class="ab-table-head">
             <span>停车时长</span>
-            <span>北广场</span>
-            <span>南广场</span>
-            <span>莲花池</span>
-            <span>锦州街</span>
+            <span>P1</span>
+            <span>P2</span>
+            <span>P3</span>
+            <span>P4</span>
             <span>立体</span>
           </div>
           ${parkingPriceRows
@@ -3428,10 +3392,10 @@ function renderParkingPage(mode) {
               (row) => `
                 <div class="ab-table-row">
                   <strong>${row.label}</strong>
-                  <span>${row.north}</span>
-                  <span>${row.south}</span>
-                  <span>${row.lianhua}</span>
-                  <span>${row.jinzhou}</span>
+                  <span>${row.p1}</span>
+                  <span>${row.p2}</span>
+                  <span>${row.p3}</span>
+                  <span>${row.p4}</span>
                   <span>${row.vertical}</span>
                 </div>
               `
