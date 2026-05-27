@@ -488,6 +488,10 @@ body.desktop-preview #app.anchor-app {
   display: none;
 }
 
+.station-grid-source.is-preparing {
+  visibility: hidden;
+}
+
 .station-select-grid {
   display: grid;
   grid-template-columns: 1fr;
