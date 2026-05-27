@@ -33,9 +33,9 @@
 - 北京西站
 - 北京南站
 - 北京北站
-- 朝阳站
 - 清河站
-- 亦庄站
+- 朝阳站
+- 丰台站
 - 通州站
 - 首都机场
 - 大兴机场
@@ -48,7 +48,7 @@
 - `assets/bitmap/stations/beijing-north-station.png`
 - `assets/bitmap/stations/chaoyang-station.png`
 - `assets/bitmap/stations/qinghe-station.png`
-- `assets/bitmap/stations/yizhuang-station.png`
+- 当前替代资产：`assets/bitmap/stations-v3/fengtai.webp`
 - `assets/bitmap/stations/tongzhou-station.png`
 - `assets/bitmap/stations/capital-airport.png`
 - `assets/bitmap/stations/daxing-airport.png`
@@ -58,6 +58,7 @@
 - `assets/bitmap/stations-v2/master/*.png`：每个站点的生图主图，保留用于后续重切。
 - `assets/bitmap/stations-v2/landscape/*.png`：`960 × 540` 横版图，供首页头图使用。
 - `assets/bitmap/stations-v2/portrait/*.png`：`720 × 900` 竖版图，供站点选择/切换卡片使用。
+- `assets/bitmap/stations-v3/*.webp`：当前运行版站点照片压缩图；2026-05-27 已从用户提供 zip 中选用 `丰台站1.jpg` 压缩为 `assets/bitmap/stations-v3/fengtai.webp`，替换原运行链路中的旧站点占位。
 
 ### 场景与演示图
 

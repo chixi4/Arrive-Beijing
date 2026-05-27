@@ -12,9 +12,9 @@ const stations = [
   ["west", "北京西站"],
   ["south", "北京南站"],
   ["north", "北京北站"],
-  ["chaoyang", "朝阳站"],
   ["qinghe", "清河站"],
-  ["yizhuang", "亦庄站"],
+  ["chaoyang", "朝阳站"],
+  ["fengtai", "丰台站"],
   ["tongzhou", "通州站"],
   ["capital", "首都机场"],
   ["daxing", "大兴机场"],
@@ -25,9 +25,9 @@ const stationHeroAssets = {
   west: "assets/bitmap/stations-v3/west.webp",
   south: "assets/bitmap/stations-v3/south.webp",
   north: "assets/bitmap/stations-v3/north.webp",
-  chaoyang: "assets/bitmap/stations-v3/chaoyang.webp",
   qinghe: "assets/bitmap/stations-v3/qinghe.webp",
-  yizhuang: "assets/bitmap/stations-v3/yizhuang.webp",
+  chaoyang: "assets/bitmap/stations-v3/chaoyang.webp",
+  fengtai: "assets/bitmap/stations-v3/fengtai.webp",
   tongzhou: "assets/bitmap/stations-v3/tongzhou.webp",
   capital: "assets/bitmap/stations-v3/capital.webp",
   daxing: "assets/bitmap/stations-v3/daxing.webp",
@@ -38,9 +38,9 @@ const stationPortraitAssets = {
   west: "assets/bitmap/stations-v3/west.webp",
   south: "assets/bitmap/stations-v3/south.webp",
   north: "assets/bitmap/stations-v3/north.webp",
-  chaoyang: "assets/bitmap/stations-v3/chaoyang.webp",
   qinghe: "assets/bitmap/stations-v3/qinghe.webp",
-  yizhuang: "assets/bitmap/stations-v3/yizhuang.webp",
+  chaoyang: "assets/bitmap/stations-v3/chaoyang.webp",
+  fengtai: "assets/bitmap/stations-v3/fengtai.webp",
   tongzhou: "assets/bitmap/stations-v3/tongzhou.webp",
   capital: "assets/bitmap/stations-v3/capital.webp",
   daxing: "assets/bitmap/stations-v3/daxing.webp",
@@ -51,13 +51,19 @@ const stationIconNames = {
   west: "station_west",
   south: "station_south",
   north: "station_north",
-  chaoyang: "station_chaoyang",
   qinghe: "station_qinghe",
-  yizhuang: "station_yizhuang",
+  chaoyang: "station_chaoyang",
+  fengtai: "station_fengtai",
   tongzhou: "station_tongzhou",
   capital: "station_capital",
   daxing: "station_daxing",
 };
+
+const storedStation = localStorage.getItem("arrive-beijing.station");
+const initialStation = storedStation === "yizhuang" ? "fengtai" : storedStation || "west";
+if (storedStation === "yizhuang") {
+  localStorage.setItem("arrive-beijing.station", initialStation);
+}
 
 const navigationVisualAssets = {
   map: "assets/bitmap/navigation/v4/nav-flat-base.webp",
@@ -77,8 +83,8 @@ const splashImageSets = {
 };
 
 const state = {
-  station: localStorage.getItem("arrive-beijing.station") || "west",
-  draftStation: localStorage.getItem("arrive-beijing.station") || "west",
+  station: initialStation,
+  draftStation: initialStation,
   currentSurface: null,
   previousRoute: null,
   shortHaulBackTo: "#/driver/queue",
@@ -310,9 +316,9 @@ const anchorQueueStations = [
   { type: "train", name: "北京西站", status: "正常", tone: "amber", passengers: "356 人", vehicles: "4,120 人", wait: "25 分钟" },
   { type: "train", name: "北京南站", status: "正常", tone: "amber", passengers: "482 人", vehicles: "5,630 人", wait: "28 分钟" },
   { type: "train", name: "北京北站", status: "畅通", tone: "green", passengers: "82 人", vehicles: "1,680 人", wait: "8 分钟" },
-  { type: "train", name: "朝阳站", status: "拥挤", tone: "red", passengers: "692 人", vehicles: "6,980 人", wait: "45 分钟" },
   { type: "train", name: "清河站", status: "正常", tone: "amber", passengers: "215 人", vehicles: "3,210 人", wait: "18 分钟" },
-  { type: "train", name: "亦庄站", status: "畅通", tone: "green", passengers: "96 人", vehicles: "1,450 人", wait: "9 分钟" },
+  { type: "train", name: "朝阳站", status: "拥挤", tone: "red", passengers: "692 人", vehicles: "6,980 人", wait: "45 分钟" },
+  { type: "train", name: "丰台站", status: "畅通", tone: "green", passengers: "96 人", vehicles: "1,450 人", wait: "9 分钟" },
   { type: "train", name: "通州站", status: "正常", tone: "amber", passengers: "243 人", vehicles: "2,980 人", wait: "20 分钟" },
   { type: "plane", name: "首都机场", status: "正常", tone: "amber", passengers: "378 人", vehicles: "4,850 人", wait: "30 分钟" },
   { type: "plane", name: "大兴机场", status: "畅通", tone: "green", passengers: "154 人", vehicles: "2,120 人", wait: "15 分钟" },
@@ -396,6 +402,7 @@ const ICON_ALIASES = {
   redeem: "gift",
   ride_hailing: "car",
   station: "train",
+  station_fengtai: "station_yizhuang",
 };
 
 const STATION_ICON_REPLICA_LIBRARY = {
@@ -441,6 +448,8 @@ const STATION_ICON_REPLICA_LIBRARY = {
   }
 };
 
+STATION_ICON_REPLICA_LIBRARY.station_fengtai = STATION_ICON_REPLICA_LIBRARY.station_yizhuang;
+
 if (typeof window !== "undefined") {
   window.ICON_REPLICA_LIBRARY = Object.assign(window.ICON_REPLICA_LIBRARY || {}, STATION_ICON_REPLICA_LIBRARY);
 }
@@ -467,7 +476,7 @@ function anchorIcon(name, className = "") {
 function stationHeroImage(id, variant = "landscape") {
   const assets = variant === "portrait" ? stationPortraitAssets : stationHeroAssets;
   const src = assets[id] || assets.west;
-  return `${src}?v=20260527-1`;
+  return `${src}?v=20260527-2`;
 }
 
 function stationIconMarkup(id) {
@@ -1421,7 +1430,7 @@ function renderDesignSystem() {
         ["station_north", "北京北站"],
         ["station_chaoyang", "朝阳站"],
         ["station_qinghe", "清河站"],
-        ["station_yizhuang", "亦庄站"],
+        ["station_fengtai", "丰台站"],
         ["station_tongzhou", "通州站"],
         ["station_capital", "首都机场"],
       ],
@@ -1436,7 +1445,7 @@ function renderDesignSystem() {
         ["station_north", "北京北站"],
         ["station_chaoyang", "朝阳站"],
         ["station_qinghe", "清河站"],
-        ["station_yizhuang", "亦庄站"],
+        ["station_fengtai", "丰台站"],
         ["station_tongzhou", "通州站"],
       ],
     },
@@ -2441,9 +2450,9 @@ const stationTransferDestinations = [
   { key: "beijing", name: "北京站", icon: "station_beijing", meta: "约33分钟 · 地铁4号线换2号线" },
   { key: "west", name: "北京西站", icon: "station_west", meta: "约28分钟 · 地铁4号线换7号线" },
   { key: "north", name: "北京北站", icon: "station_north", meta: "约31分钟 · 地铁4号线直达西直门" },
-  { key: "chaoyang", name: "北京朝阳站", icon: "station_chaoyang", meta: "约49分钟 · 地铁14号线换3号线" },
   { key: "qinghe", name: "清河站", icon: "station_qinghe", meta: "约52分钟 · 地铁4号线换13号线" },
-  { key: "yizhuang", name: "亦庄站", icon: "station_yizhuang", meta: "约54分钟 · 14号线/17号线/亦庄线" },
+  { key: "chaoyang", name: "北京朝阳站", icon: "station_chaoyang", meta: "约49分钟 · 地铁14号线换3号线" },
+  { key: "fengtai", name: "丰台站", icon: "station_fengtai", meta: "约32分钟 · 14号线换10号线" },
   { key: "tongzhou", name: "北京通州站", icon: "station_tongzhou", meta: "约1小时22分 · 地铁14号线换6号线" },
   { key: "capital", name: "首都国际机场", icon: "station_capital", meta: "约1小时12分 · 地铁换机场线" },
   { key: "daxing", name: "北京大兴国际机场", icon: "station_daxing", meta: "约43分钟 · 地铁换大兴机场线" },
@@ -2490,12 +2499,12 @@ const stationTransferPlans = {
       { tag: "网约车", time: "网约车31分钟", lines: ["一口价¥34"], meta: "一口价超便宜" },
     ],
   },
-  yizhuang: {
-    title: "亦庄站",
+  fengtai: {
+    title: "丰台站",
     routes: [
-      { time: "54分钟", walk: "479米", lines: ["14号线", "17号线", "亦庄线"], meta: "11站 · ¥6 · 北京南站(D西入口)进站", headway: "14号线（善各庄方向） · 约6分钟/趟" },
-      { time: "40分钟", walk: "2米", lines: ["C2623 / C2587 / C2119"], meta: "1站 · ¥9.5 · 北京南上车" },
-      { tag: "出租", time: "出租 33分钟", lines: ["出租¥73"], meta: "27.2公里 · 上门接送" },
+      { tag: "最快", time: "32分钟", walk: "520米", lines: ["14号线", "10号线"], meta: "8站 · ¥4 · 北京南站(D西入口)进站", headway: "14号线（张郭庄方向） · 约6分钟/趟" },
+      { tag: "出租", time: "出租 21分钟", lines: ["出租¥38"], meta: "13.8公里 · 上门接送" },
+      { tag: "网约车", time: "网约车22分钟", lines: ["一口价¥32"], meta: "以平台预估为准" },
     ],
   },
   tongzhou: {
@@ -2615,9 +2624,9 @@ const driverQueueStations = [
   { id: "west", type: "train", name: "北京西站", distance: "5.8km", status: "拥挤", tone: "danger", passengers: "457", vehicles: "147", wait: "28", to: "#/driver/station/west" },
   { id: "south", type: "train", name: "北京南站", distance: "8.1km", status: "拥挤", tone: "danger", passengers: "354", vehicles: "124", wait: "22", to: "#/driver/station/beijing" },
   { id: "north", type: "train", name: "北京北站", distance: "4.5km", status: "畅通", tone: "success", passengers: "42", vehicles: "18", wait: "5", to: "#/driver/station/beijing" },
-  { id: "chaoyang", type: "train", name: "朝阳站", distance: "6.3km", status: "正常", tone: "warning", passengers: "267", vehicles: "98", wait: "18", to: "#/driver/station/west" },
   { id: "qinghe", type: "train", name: "清河站", distance: "12.4km", status: "畅通", tone: "success", passengers: "138", vehicles: "52", wait: "11", to: "#/driver/station/beijing" },
-  { id: "yizhuang", type: "train", name: "亦庄站", distance: "18.6km", status: "畅通", tone: "success", passengers: "96", vehicles: "31", wait: "9", to: "#/driver/station/beijing" },
+  { id: "chaoyang", type: "train", name: "朝阳站", distance: "6.3km", status: "正常", tone: "warning", passengers: "267", vehicles: "98", wait: "18", to: "#/driver/station/west" },
+  { id: "fengtai", type: "train", name: "丰台站", distance: "18.6km", status: "畅通", tone: "success", passengers: "96", vehicles: "31", wait: "9", to: "#/driver/station/beijing" },
   { id: "tongzhou", type: "train", name: "通州站", distance: "20.8km", status: "正常", tone: "warning", passengers: "183", vehicles: "74", wait: "16", to: "#/driver/station/west" },
   { id: "capital", type: "plane", name: "首都机场", distance: "25.6km", status: "拥挤", tone: "danger", passengers: "1000", vehicles: "333", wait: "48", to: "#/driver/station/beijing" },
   { id: "daxing", type: "plane", name: "大兴机场", distance: "42.3km", status: "正常", tone: "warning", passengers: "413", vehicles: "150", wait: "24", to: "#/driver/station/beijing" },
@@ -2930,7 +2939,8 @@ function renderStationTransferSelectPage() {
 }
 
 function renderStationTransferRoutePage(key) {
-  const plan = stationTransferPlans[key] || stationTransferPlans.beijing;
+  const routeKey = key === "yizhuang" ? "fengtai" : key;
+  const plan = stationTransferPlans[routeKey] || stationTransferPlans.beijing;
   return renderAppShell({
     className: "ab-transfer-page",
     topbar: renderAppTopbar({
