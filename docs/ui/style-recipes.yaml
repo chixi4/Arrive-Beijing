@@ -22,7 +22,7 @@ component_contract:
   cell_group:
     component: ab-info-list
     outer: "one white surface with border, light shadow, overflow hidden"
-    rows: "ab-info-row has no individual card border; adjacent rows use 1px divider"
+    rows: "ab-info-row has no individual card border; adjacent rows do not show divider lines; padding and text hierarchy separate rows"
     use_for: [settings_menu, basic_info, contact_info, announcement_summary]
     avoid: [one_card_per_simple_row, nested_card_inside_panel, mismatched_row_heights]
 
@@ -101,7 +101,7 @@ recipes:
         icon_usage: optional_small_line_icon
       info_sections:
         component: ab-info-list
-        divider: true
+        divider: false
         row_height: var(--ds-cell-h)
       map_preview:
         tags: semantic_pills
