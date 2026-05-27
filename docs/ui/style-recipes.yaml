@@ -51,6 +51,7 @@ recipes:
       service_grid:
         columns: 4
         container: grouped_card
+        internal_divider: false
         icon_container: soft_square
         icon_semantics: unique_per_service
     visual_rules:
