@@ -1055,7 +1055,13 @@ function syncStationCarousel() {
   if (gridScroller) {
     const active = gridScroller.querySelector(`[data-station="${state.draftStation}"]`);
     if (!active) return;
-    active.scrollIntoView({ block: "start", inline: "nearest", behavior: "auto" });
+    const anchor = active.previousElementSibling && active.previousElementSibling.matches("[data-station]")
+      ? active.previousElementSibling
+      : active;
+    const scrollerBox = gridScroller.getBoundingClientRect();
+    const anchorBox = anchor.getBoundingClientRect();
+    const top = Math.max(0, gridScroller.scrollTop + anchorBox.top - scrollerBox.top - 10);
+    gridScroller.scrollTo({ top, behavior: "auto" });
     return;
   }
   const carousel = document.querySelector("[data-station-carousel]");
