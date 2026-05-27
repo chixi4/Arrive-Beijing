@@ -9,7 +9,7 @@
 - 已替换的明显误用：`我的积分` 不再用扫码图标，`监督投诉邮箱` 不再用扫码图标，`场站接驳` 不再复用公交图标，`自驾停车` 不再复用小汽车图标，`退出登录` 不再用扫码图标。
 - 已完成单图复刻的高频图标：`pin`、`map`、`route`、`megaphone/notice`、`search`、`user`、`taxi`、`car`、`transfer`、`message`、`globe`、`accessibility`、`shield`、`lock`、`ear`、`feedback`、`phone`、`mail`、`home`、`parking`、`points`、`calendar`、`clock`、`back`、`train/station`、`people`、`history`、`lounge`、`dining`、`charger`、`wifi`、`tea`、`book`、`medical`、`restroom`、`gift/redeem`。
 - 追加的三批覆盖 `check/more/question/refresh/settings/edit/scan/camera/id`、`angry/bike/bus/chat/cup/glove/leaf/logout/paper`、`pillow/plane/grid/handshake/qr/thumb` 等剩余库项，CSV 模拟与 SVG mask 复刻都已通过。
-- 站点轮廓两批覆盖 10 个站点：`station_beijing/station_west/station_south/station_north/station_chaoyang/station_qinghe/station_yizhuang/station_tongzhou/station_capital/station_daxing`，用于站点选择卡片左下角，不再使用旧 PNG。
+- 站点轮廓两批覆盖 10 个站点：`station_beijing/station_west/station_south/station_north/station_qinghe/station_chaoyang/station_fengtai/station_tongzhou/station_capital/station_daxing`，用于站点选择卡片左下角，不再使用旧 PNG。当前 `station_fengtai` 复用旧站点 mask，后续若单独校准丰台站轮廓，应重新走 3x3 图标板流程。
 - 交通接驳补充批覆盖 `walk/metro/traffic_bus/traffic_taxi/ride_hailing/route_swap/filter_sliders/departure_time/route_recommend`，用于综合交通页后续搜索卡、路线方案和高德式步行胶囊重构。
 - 最新视觉口径：基础业务图标 `board-01` 到 `board-07` 已重新从源生图生成粗一档 target，再进入像素复刻链路；`board-08`、`board-09` 站点图标本轮不重生。站点图标不能从站点图片直接算法提轮廓，必须先把站点图片作为视觉参考交给生图模型重绘为 3x3 icon target，再进入同一 CSV 与 SVG mask 复刻链路。所有批次都通过 `diffRatio <= 5%` 门槛。
 - 仍需重点校准的图标：当前使用链路无缺失；下一轮只在新增页面出现新语义，或现有页面视觉检查发现具体图标不协调时再扩批。
@@ -145,7 +145,7 @@
 4. `station_north` 北京北站
 5. `station_chaoyang` 朝阳站
 6. `station_qinghe` 清河站
-7. `station_yizhuang` 亦庄站
+7. `station_fengtai` 丰台站
 8. `station_tongzhou` 通州站
 9. `station_capital` 首都机场
 
@@ -158,7 +158,7 @@
 5. `station_north` 北京北站（复用）
 6. `station_chaoyang` 朝阳站（复用）
 7. `station_qinghe` 清河站（复用）
-8. `station_yizhuang` 亦庄站（复用）
+8. `station_fengtai` 丰台站（复用旧 mask）
 9. `station_tongzhou` 通州站（复用）
 
 第十批覆盖交通接驳补充图标：
