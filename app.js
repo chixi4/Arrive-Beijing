@@ -970,12 +970,35 @@ function syncDesktopPreviewFrame() {
   const isAnchorPreview = app.classList.contains("anchor-app");
   const isMobilePreview = app.classList.contains("mobile-preview-app");
   const isDesignPreview = app.classList.contains("design-system-app");
+  const isPreviewFrame = isAnchorPreview || isMobilePreview || isDesignPreview;
   const isDesktopPreview = (isAnchorPreview || isMobilePreview || isDesignPreview) && window.innerWidth >= 1000;
   const baseWidth = isAnchorPreview ? 864 : 430;
   const baseHeight = isAnchorPreview ? 1728 : 860;
-  const scale = isDesktopPreview ? Math.min((window.innerWidth - 32) / baseWidth, (window.innerHeight - 32) / baseHeight) : 1;
+  const viewportPadding = isDesktopPreview ? 32 : 0;
+  const mobileScreenWidth = window.screen && window.screen.width ? window.screen.width : window.innerWidth;
+  const mobileScreenHeight = window.screen && window.screen.height ? window.screen.height : window.innerHeight;
+  const mobileViewportHeight = window.visualViewport && window.visualViewport.height ? window.visualViewport.height : window.innerHeight;
+  const mobileVisualWidth = Math.min(window.innerWidth, mobileScreenWidth);
+  const mobileVisualHeight = Math.min(window.innerHeight, mobileScreenHeight, mobileViewportHeight);
+  const availableWidth = Math.max(1, (isDesktopPreview ? window.innerWidth : mobileVisualWidth) - viewportPadding);
+  const availableHeight = Math.max(1, (isDesktopPreview ? window.innerHeight : mobileVisualHeight) - viewportPadding);
+  const scale = isDesktopPreview
+    ? Math.min(availableWidth / baseWidth, availableHeight / baseHeight)
+    : isPreviewFrame
+      ? Math.min(availableWidth / baseWidth, 1)
+      : 1;
+  const layoutHeight = isDesktopPreview || !isPreviewFrame ? baseHeight : availableHeight / scale;
+  const visualWidth = baseWidth * scale;
+  const visualHeight = layoutHeight * scale;
+  const visualLeft = isDesktopPreview ? Math.max(0, (window.innerWidth - visualWidth) / 2) : 0;
   app.style.setProperty("--desktop-preview-scale", String(scale));
+  document.documentElement.style.setProperty("--preview-layout-height", `${layoutHeight}px`);
+  document.documentElement.style.setProperty("--desktop-preview-scale", String(scale));
+  document.documentElement.style.setProperty("--preview-frame-width", `${visualWidth}px`);
+  document.documentElement.style.setProperty("--preview-frame-height", `${visualHeight}px`);
+  document.documentElement.style.setProperty("--preview-frame-left", `${visualLeft}px`);
   document.body.classList.toggle("desktop-preview", isDesktopPreview);
+  document.body.classList.toggle("scaled-mobile-preview", isPreviewFrame && !isDesktopPreview);
 }
 
 function updateStationCarouselSelection(carousel) {
@@ -2703,7 +2726,7 @@ function renderTrafficMetroCard(item) {
         <div>
           <span>当前满载率</span>
           <strong class="ab-load-people ${loadTone}" aria-label="满载率${item.load}">
-            ${[1, 2, 3, 4, 5].map((slot) => `<i class="${slot <= loadCount ? "filled" : ""}">${iconMarkup("user")}</i>`).join("")}
+            ${[1, 2, 3, 4, 5].map((slot) => `<i class="${slot <= loadCount ? "filled" : ""}" aria-hidden="true"></i>`).join("")}
           </strong>
         </div>
       </div>
