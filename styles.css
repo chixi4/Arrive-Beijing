@@ -476,7 +476,7 @@ body.desktop-preview #app.anchor-app {
 }
 
 .station-grid-source {
-  padding: 8px 14px 14px;
+  padding: 10px 14px 18px;
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: none;
@@ -488,8 +488,8 @@ body.desktop-preview #app.anchor-app {
 
 .station-select-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+  grid-template-columns: 1fr;
+  gap: 12px;
 }
 
 .station-slide {
@@ -603,11 +603,11 @@ body.desktop-preview #app.anchor-app {
 .station-select-grid .station-slide {
   flex: initial;
   min-width: 0;
-  min-height: 164px;
-  padding: 8px;
-  border-radius: var(--ds-radius-card);
+  min-height: 238px;
+  padding: 10px;
+  border-radius: var(--ds-radius-media);
   grid-template-rows: auto 1fr;
-  gap: 7px;
+  gap: 9px;
   scroll-snap-align: none;
   box-shadow: 0 8px 20px rgba(29, 39, 51, 0.065);
 }
@@ -618,37 +618,38 @@ body.desktop-preview #app.anchor-app {
 
 .station-select-grid .station-slide-media {
   min-height: 0;
-  aspect-ratio: 16 / 9;
-  border-radius: 10px;
+  aspect-ratio: 16 / 8.4;
+  border-radius: var(--ds-radius-card);
 }
 
 .station-select-grid .station-slide-icon {
-  left: 8px;
-  bottom: 8px;
-  width: 48px;
-  height: 30px;
-  border-radius: 8px;
+  left: 12px;
+  bottom: 12px;
+  width: 68px;
+  height: 42px;
+  border-radius: 10px;
 }
 
 .station-select-grid .station-slide-icon .icon {
-  width: 39px;
-  height: 19px;
+  width: 56px;
+  height: 26px;
 }
 
 .station-select-grid .station-slide-copy {
   min-height: 0;
-  gap: 1px;
+  gap: 3px;
+  padding: 0 4px 2px;
 }
 
 .station-select-grid .station-slide-copy strong {
-  font-size: 16px;
-  line-height: 1.18;
-  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 850;
 }
 
 .station-select-grid .station-slide-copy em {
-  font-size: 12px;
-  line-height: 1.25;
+  font-size: 13px;
+  line-height: 1.35;
 }
 
 .station-select-grid .station-slide-check {
@@ -5391,7 +5392,7 @@ body.desktop-preview #app.anchor-app {
   background:
     linear-gradient(90deg, rgba(3, 9, 18, 0.68), rgba(5, 13, 24, 0.48) 34%, rgba(8, 18, 31, 0.12) 68%, rgba(8, 18, 31, 0)),
     linear-gradient(180deg, rgba(30, 83, 157, 0.1), rgba(15, 54, 111, 0.14) 42%, rgba(9, 13, 20, 0.62)),
-    var(--ab-home-image) center bottom / cover no-repeat;
+    var(--ab-home-image) center var(--ab-home-position-y, bottom) / cover no-repeat;
 }
 
 .ab-home-hero-top {
@@ -5662,6 +5663,15 @@ body.desktop-preview #app.anchor-app {
   min-height: 47px;
   padding-top: 7px;
   padding-bottom: 6px;
+}
+
+.ab-home-page .ab-announcement-list.compact .ab-info-icon.tag {
+  min-width: 44px;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  line-height: 1;
 }
 
 .ab-info-list.compact .ab-info-icon {
