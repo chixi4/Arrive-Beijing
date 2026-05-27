@@ -4,7 +4,7 @@
 
 ## 当前结论
 
-- 当前库：60 个手写 SVG 图标，十批共 79 个唯一单图复刻 SVG mask，8 个语义别名。
+- 当前库：62 个手写 SVG 图标，十批共 79 个唯一单图复刻 SVG mask，10 个语义别名。
 - 当前使用：页面和设计系统里所有已用语义均已进入复刻链路，0 个缺失。
 - 已替换的明显误用：`我的积分` 不再用扫码图标，`监督投诉邮箱` 不再用扫码图标，`场站接驳` 不再复用公交图标，`自驾停车` 不再复用小汽车图标，`退出登录` 不再用扫码图标。
 - 已完成单图复刻的高频图标：`pin`、`map`、`route`、`megaphone/notice`、`search`、`user`、`taxi`、`car`、`transfer`、`message`、`globe`、`accessibility`、`shield`、`lock`、`ear`、`feedback`、`phone`、`mail`、`home`、`parking`、`points`、`calendar`、`clock`、`back`、`train/station`、`people`、`history`、`lounge`、`dining`、`charger`、`wifi`、`tea`、`book`、`medical`、`restroom`、`gift/redeem`。

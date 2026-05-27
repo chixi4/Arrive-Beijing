@@ -6,6 +6,18 @@
 
 ## 全局设计系统 Token
 
+### 预览画布
+
+| 项 | Value | 用途 |
+| --- | --- | --- |
+| 业务画布宽度 | `430px` | `mobile-preview-app`、`design-system-app` 和真机缩放的统一设计宽度 |
+| 业务画布基准高度 | `860px` | 桌面预览的固定手机画布高度；页面内容在画布内部滚动 |
+| 锚点画布 | `864px × 1728px` | `anchor-app` 的 18x9 风格锚点复刻尺寸 |
+| 手机端缩放 | `min(可视宽度 / 430, 1)` | 手机不按设备宽度重新排版，只整体缩放到 430px 设计稿 |
+| 桌面端缩放 | `min(可视宽度 / 基准宽度, 可视高度 / 基准高度)` | 桌面保持同一套手机画布比例，不压扁页面 |
+
+所有业务页必须默认进入固定移动画布：不要按 390px、414px 等真机宽度重排字号或列数；通过 `text-size-adjust: 100%` 防止移动浏览器自动放大文字。
+
 ### 颜色
 
 | Token | Value | 用途 |
@@ -61,8 +73,8 @@
 | `--ds-cell-h` | `52px` | 标准 cell 行高 |
 | `--ds-cell-h-compact` | `48px` | 紧凑 cell 行高 |
 | `--ds-cell-pad-x` | `12px` | cell 左右内边距 |
-| `--ds-cell-icon` | `30px` | 标准 cell 图标底尺寸 |
-| `--ds-cell-icon-compact` | `28px` | 紧凑 cell 图标底尺寸 |
+| `--ds-cell-icon` | `32px` | 标准 cell 图标底尺寸 |
+| `--ds-cell-icon-compact` | `30px` | 紧凑 cell 图标底尺寸 |
 
 ### 圆角、阴影、字号
 
@@ -82,10 +94,10 @@
 | `--ds-radius-icon-sm` | `8px` | 小尺寸行内图标底 |
 | `--ds-radius-sheet` | `14px` | 弹层/底部面板 |
 | `--ds-radius-pill` | `999px` | 胶囊按钮/标签 |
-| `--ds-shadow-xs` | `0 1px 2px rgba(29, 39, 51, 0.04)` | 极轻边界 |
-| `--ds-shadow-sm` | `0 4px 12px rgba(29, 39, 51, 0.05)` | 轻卡片 |
-| `--ds-shadow-md` | `0 8px 24px rgba(29, 39, 51, 0.06)` | 默认卡片 |
-| `--ds-shadow-lg` | `0 16px 40px rgba(29, 39, 51, 0.1)` | 悬浮层 |
+| `--ds-shadow-xs` | `0 1px 2px rgba(29, 39, 51, 0.035)` | 极轻边界 |
+| `--ds-shadow-sm` | `0 3px 8px rgba(29, 39, 51, 0.04)` | 轻卡片 |
+| `--ds-shadow-md` | `0 6px 16px rgba(29, 39, 51, 0.055)` | 默认卡片 |
+| `--ds-shadow-lg` | `0 14px 34px rgba(29, 39, 51, 0.09)` | 悬浮层 |
 | `--ds-font-xs` | `12px` | 辅助文字 |
 | `--ds-font-sm` | `14px` | 正文 |
 | `--ds-font-md` | `16px` | 重点正文 |
@@ -95,13 +107,22 @@
 | `--ds-font-3xl` | `28px` | 大标题 |
 | `--ds-font-4xl` | `32px` | 首屏主标题 |
 | `--ds-touch-target` | `44px` | 最小触控目标 |
-| `--ds-icon-xs` | `12px` | 徽标、轻提示图标 |
-| `--ds-icon-sm` | `16px` | cell 行内图标 |
-| `--ds-icon-md` | `20px` | 常规按钮、正文旁图标 |
-| `--ds-icon-lg` | `24px` | 底部导航图标 |
-| `--ds-icon-xl` | `44px` | 功能入口图标容器 |
-| `--ds-icon-empty` | `48px` | 空状态图标 |
+| `--ds-icon-xs` | `13px` | 徽标、轻提示图标 |
+| `--ds-icon-sm` | `18px` | cell 行内图标 |
+| `--ds-icon-md` | `22px` | 常规按钮、正文旁图标 |
+| `--ds-icon-lg` | `26px` | 底部导航图标 |
+| `--ds-icon-xl` | `48px` | 功能入口图标容器 |
+| `--ds-icon-empty` | `52px` | 空状态图标 |
 | `--ds-icon-stroke` | `1.85` | 线性图标统一线宽 |
+
+### 反馈与状态
+
+| 组件 | 标准 |
+| --- | --- |
+| `.ab-status-pill` | `min-height: 24px`、左右 `8px`、`--ds-radius-control`，用于普通状态短标签，不做高胶囊 |
+| `.ab-route-chip-row strong` | `min-height: 28px`、左右 `9px`，用于路线/交通方式值，允许色块强调 |
+| `.toast` | 黑色原型反馈浮层，默认位于底栏上方；有底栏时通过 JS 计算到 `nav.top - 62px`，避免被导航栏遮挡 |
+| `.ab-nav-pulse-marker` | 仅导航 POI 选中态使用，倒水滴形、无辉光、上下轻微跳动 |
 
 圆角已经按锚点页比例重算：18x9 风格锚点是 `864px` 宽，业务原型画布是 `430px` 宽，所以锚点里的 `24px` 卡片圆角在业务组件里约等于 `12px`。后续业务页优先使用语义 token，不再直接写 `16px`、`18px`、`20px`、`26px` 这类未换算旧值。
 
