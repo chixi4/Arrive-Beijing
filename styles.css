@@ -6904,83 +6904,6 @@ body.desktop-preview #app {
   color: #fff;
 }
 
-.ab-nav-route-overlay {
-  position: absolute;
-  z-index: 2;
-  inset: 0;
-  pointer-events: none;
-}
-
-.ab-nav-current-dot {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  padding: 0;
-  border: 3px solid rgba(255, 255, 255, 0.96);
-  border-radius: var(--ds-radius-pill);
-  background: var(--blue);
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 0 2px rgba(31, 122, 240, 0.2), 0 5px 12px rgba(9, 13, 20, 0.14);
-}
-
-.ab-nav-poi-marker b {
-  font-weight: 700;
-}
-
-.ab-nav-poi-marker {
-  position: absolute;
-  min-height: 23px;
-  padding: 0 7px 0 5px;
-  border: 1px solid rgba(223, 230, 239, 0.9);
-  border-radius: var(--ds-radius-pill);
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
-  transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.94);
-  color: var(--blue);
-  font-size: 11.5px;
-  font-weight: 700;
-  box-shadow: 0 4px 10px rgba(9, 13, 20, 0.12);
-}
-
-.ab-nav-poi-marker .icon {
-  width: 13px;
-  height: 13px;
-}
-
-.ab-nav-poi-marker.restroom {
-  color: #0f9f6e;
-}
-
-.ab-nav-poi-marker.taxi {
-  color: #1f7af0;
-}
-
-.ab-nav-poi-marker.exit {
-  color: #d97706;
-}
-
-.ab-nav-visual[data-floor="B1"] .ab-nav-current-dot {
-  left: 15%;
-  top: 66%;
-}
-
-.ab-nav-visual[data-floor="F1"] .ab-nav-current-dot {
-  left: 47%;
-  top: 76%;
-}
-
-.ab-nav-visual[data-floor="F2"] .ab-nav-current-dot {
-  left: 46%;
-  top: 74%;
-}
-
-.ab-nav-visual[data-floor="F3"] .ab-nav-current-dot {
-  left: 45%;
-  top: 76%;
-}
-
 .ab-route-panel {
   gap: 10px;
 }
@@ -7162,7 +7085,7 @@ body.desktop-preview #app {
 }
 
 .ab-traffic-search.is-result {
-  min-height: 64px;
+  min-height: 67px;
   padding: 4px 10px 4px 8px;
   border-radius: var(--ds-radius-card);
   background: #fff;
@@ -7189,8 +7112,8 @@ body.desktop-preview #app {
 }
 
 .ab-traffic-search-back .icon {
-  width: 19px;
-  height: 19px;
+  width: 30px;
+  height: 30px;
 }
 
 .ab-traffic-quick-field {
@@ -8991,7 +8914,6 @@ body.desktop-preview #app {
 .ab-nav-search button,
 .ab-nav-visual-top span,
 .ab-nav-floor-rail button,
-.ab-nav-current-dot,
 .ab-station-map-tag,
 .ab-traffic-ride-action,
 .ab-traffic-metro-foot button,

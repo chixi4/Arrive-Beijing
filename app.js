@@ -3025,18 +3025,11 @@ function renderNavigationPage(mode) {
       badge: "路线",
     },
   };
-  const navMarkers = {
-    restroom: { label: "卫生间", x: 67, y: 42, tone: "restroom" },
-    taxi: selectedFloor === "B1" ? { label: "上车区", x: 58, y: 54, tone: "taxi" } : { label: "卫生间", x: 67, y: 42, tone: "restroom" },
-    exit: selectedFloor === "F1" ? { label: "出站口", x: 60, y: 45, tone: "exit" } : { label: "卫生间", x: 67, y: 42, tone: "restroom" },
-  };
-  const currentMarker = navMarkers[navFocus] || navMarkers.restroom;
   const currentVisual = visualCopy[visualMode] || visualCopy.map;
   const currentImage =
     visualMode === "map"
       ? navigationVisualAssets.floors[selectedFloor] || navigationVisualAssets.map
       : navigationVisualAssets[visualMode] || navigationVisualAssets.map;
-  const showMapPreviewOverlay = visualMode === "map";
   const layerControlItems =
     visualMode === "map"
       ? [
@@ -3086,16 +3079,6 @@ function renderNavigationPage(mode) {
               : `<div class="ab-nav-visual-top">
                   <span>${visualMode === "map3d" && selected3dLayer !== "overview" ? selected3dLayer : currentVisual.badge}</span>
                 </div>`
-          }
-          ${
-            showMapPreviewOverlay
-              ? `<div class="ab-nav-route-overlay ab-nav-route-overlay--preview" aria-hidden="true">
-                  <span class="ab-nav-current-dot"></span>
-                  <span class="ab-nav-poi-marker ${currentMarker.tone}" style="left:${currentMarker.x}%;top:${currentMarker.y}%">
-                    ${iconMarkup("pin")}<b>${currentMarker.label}</b>
-                  </span>
-                </div>`
-              : ""
           }
           ${renderLayerControl()}
         </div>
