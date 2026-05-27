@@ -15,19 +15,19 @@
       "svg": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/svg/01-message.svg",
       "diff": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/diff/01-message.png",
       "inkBBox": [
-        123,
-        144,
-        370,
-        368
+        114,
+        133,
+        374,
+        374
       ],
       "displayViewBox": [
-        108,
-        129,
-        277,
-        254
+        98,
+        117,
+        292,
+        273
       ],
-      "rectangles": 127,
-      "pathLength": 2667,
+      "rectangles": 149,
+      "pathLength": 3129,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -41,19 +41,19 @@
       "svg": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/svg/02-globe.svg",
       "diff": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/diff/02-globe.png",
       "inkBBox": [
-        93,
-        135,
-        324,
-        364
+        85,
+        115,
+        338,
+        369
       ],
       "displayViewBox": [
-        79,
-        121,
-        259,
-        257
+        70,
+        100,
+        283,
+        284
       ],
-      "rectangles": 449,
-      "pathLength": 9373,
+      "rectangles": 479,
+      "pathLength": 9951,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -67,19 +67,19 @@
       "svg": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/svg/03-accessibility.svg",
       "diff": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/diff/03-accessibility.png",
       "inkBBox": [
-        72,
-        135,
-        278,
-        372
+        67,
+        112,
+        305,
+        376
       ],
       "displayViewBox": [
-        58,
-        121,
-        234,
-        265
+        51,
+        96,
+        270,
+        296
       ],
-      "rectangles": 416,
-      "pathLength": 8639,
+      "rectangles": 457,
+      "pathLength": 9478,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -93,19 +93,19 @@
       "svg": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/svg/04-shield.svg",
       "diff": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/diff/04-shield.png",
       "inkBBox": [
-        132,
-        66,
-        351,
-        326
+        116,
+        70,
+        357,
+        360
       ],
       "displayViewBox": [
-        116,
-        50,
-        251,
-        292
+        99,
+        53,
+        275,
+        324
       ],
-      "rectangles": 386,
-      "pathLength": 8008,
+      "rectangles": 434,
+      "pathLength": 9034,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -119,19 +119,19 @@
       "svg": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/svg/05-lock.svg",
       "diff": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/diff/05-lock.png",
       "inkBBox": [
-        109,
-        65,
-        306,
-        321
+        99,
+        69,
+        318,
+        357
       ],
       "displayViewBox": [
-        94,
-        50,
-        227,
-        286
+        82,
+        52,
+        253,
+        322
       ],
-      "rectangles": 248,
-      "pathLength": 5102,
+      "rectangles": 280,
+      "pathLength": 5788,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -145,19 +145,19 @@
       "svg": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/svg/06-ear.svg",
       "diff": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/diff/06-ear.png",
       "inkBBox": [
-        68,
-        63,
-        296,
-        324
+        64,
+        67,
+        318,
+        358
       ],
       "displayViewBox": [
-        52,
         47,
-        260,
-        293
+        50,
+        288,
+        325
       ],
-      "rectangles": 496,
-      "pathLength": 10139,
+      "rectangles": 560,
+      "pathLength": 11490,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -171,19 +171,19 @@
       "svg": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/svg/07-feedback.svg",
       "diff": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/diff/07-feedback.png",
       "inkBBox": [
-        128,
-        34,
-        363,
-        249
+        117,
+        52,
+        367,
+        285
       ],
       "displayViewBox": [
-        114,
-        20,
-        263,
-        243
+        102,
+        37,
+        280,
+        263
       ],
-      "rectangles": 266,
-      "pathLength": 5502,
+      "rectangles": 291,
+      "pathLength": 6021,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -197,19 +197,19 @@
       "svg": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/svg/08-phone.svg",
       "diff": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/diff/08-phone.png",
       "inkBBox": [
-        93,
-        26,
-        318,
-        255
+        78,
+        41,
+        329,
+        297
       ],
       "displayViewBox": [
-        79,
-        12,
-        253,
-        257
+        63,
+        26,
+        281,
+        286
       ],
-      "rectangles": 389,
-      "pathLength": 7927,
+      "rectangles": 434,
+      "pathLength": 8775,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -223,19 +223,19 @@
       "svg": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/svg/09-mail.svg",
       "diff": "assets/icons/calibration/board-02-settings-feedback/single-svg-replica/diff/09-mail.png",
       "inkBBox": [
-        51,
-        49,
-        294,
-        241
+        50,
+        72,
+        313,
+        282
       ],
       "displayViewBox": [
-        36,
         34,
-        273,
-        222
+        56,
+        295,
+        242
       ],
-      "rectangles": 357,
-      "pathLength": 7017,
+      "rectangles": 403,
+      "pathLength": 8034,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,

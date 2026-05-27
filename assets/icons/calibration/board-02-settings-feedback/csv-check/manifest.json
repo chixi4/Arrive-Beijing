@@ -2,6 +2,7 @@
   "source": "assets/icons/calibration/board-02-settings-feedback/board-clean.png",
   "out": "assets/icons/calibration/board-02-settings-feedback/csv-check",
   "threshold": 0.05,
+  "maxDiffRatio": 0.0,
   "pass": true,
   "icons": [
     {

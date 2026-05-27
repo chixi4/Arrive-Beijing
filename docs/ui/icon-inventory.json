@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26T17:20:46.256Z",
+  "generated_at": "2026-05-27T03:10:26.032Z",
   "source_file": "app.js",
   "rules": {
     "text_extraction": "No OCR or bitmap-to-text extraction is used.",
@@ -42,61 +42,61 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 1796,
+          "line": 1793,
           "type": "iconMarkup",
           "text": "<span class=\"ab-station-chip-pin\">${iconMarkup(\"pin\")}</span>"
         },
         {
           "file": "app.js",
-          "line": 2601,
+          "line": 2598,
           "type": "iconMarkup",
           "text": "<span class=\"ab-traffic-stop-icon\">${iconMarkup(\"pin\")}</span>"
         },
         {
           "file": "app.js",
-          "line": 2994,
+          "line": 2991,
           "type": "iconMarkup",
           "text": "<button class=\"${navFocus === \"exit\" ? \"active\" : \"\"}\" data-nav-poi=\"exit\">${iconMarkup(\"pin\")}南广场出站口</button>"
         },
         {
           "file": "app.js",
-          "line": 3017,
+          "line": 3014,
           "type": "iconMarkup",
           "text": "${iconMarkup(\"pin\")}<b>${currentMarker.label}</b>"
         },
         {
           "file": "app.js",
-          "line": 3995,
+          "line": 3992,
           "type": "anchorIcon",
           "text": "<p>${anchorIcon(\"pin\")}<span>东城区毛家湾胡同甲13号</span></p>"
         },
         {
           "file": "app.js",
-          "line": 3997,
+          "line": 3994,
           "type": "anchorIcon",
           "text": "<button class=\"anchor-nav-button\" data-toast=\"导航功能暂未接入\">${anchorIcon(\"pin\")}<span>导航</span></button>"
         },
         {
           "file": "app.js",
-          "line": 4103,
+          "line": 4100,
           "type": "anchorIcon",
           "text": "<button>${anchorIcon(\"pin\")}<span>北京西站</span><i>›</i></button>"
         },
         {
           "file": "app.js",
-          "line": 4204,
+          "line": 4201,
           "type": "anchorIcon",
           "text": "<button>${anchorIcon(\"pin\")}<span>选择地区</span><i>⌄</i></button>"
         },
         {
           "file": "app.js",
-          "line": 3634,
+          "line": 3631,
           "type": "icon-property",
           "text": "{ icon: \"pin\", label: \"地址：北京南站出租车候客区服务楼2F\", toast: \"地址\" },"
         },
         {
           "file": "app.js",
-          "line": 1246,
+          "line": 1243,
           "type": "icon-array",
           "text": "[\"pin\", \"定位\"],"
         }
@@ -123,55 +123,55 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 1119,
+          "line": 1116,
           "type": "iconMarkup",
           "text": "${iconMarkup(\"search\")}"
         },
         {
           "file": "app.js",
-          "line": 1499,
+          "line": 1496,
           "type": "iconMarkup",
           "text": "${iconMarkup(\"search\")}"
         },
         {
           "file": "app.js",
-          "line": 1801,
+          "line": 1798,
           "type": "iconMarkup",
           "text": "<button class=\"ab-icon-btn ab-icon-btn--soft\" data-toast=\"搜索功能暂未接入\" aria-label=\"搜索\">${iconMarkup(\"search\")}</button>"
         },
         {
           "file": "app.js",
-          "line": 2981,
+          "line": 2978,
           "type": "iconMarkup",
           "text": "${iconMarkup(\"search\")}"
         },
         {
           "file": "app.js",
-          "line": 3051,
+          "line": 3048,
           "type": "iconMarkup",
           "text": "${iconMarkup(\"search\")}"
         },
         {
           "file": "app.js",
-          "line": 3357,
+          "line": 3354,
           "type": "iconMarkup",
           "text": "${iconMarkup(\"search\")}"
         },
         {
           "file": "app.js",
-          "line": 3922,
+          "line": 3919,
           "type": "anchorIcon",
           "text": "<section class=\"anchor-search-box\">${anchorIcon(\"search\")}<span>搜索车站名称</span></section>"
         },
         {
           "file": "app.js",
-          "line": 4207,
+          "line": 4204,
           "type": "anchorIcon",
           "text": "<span>${anchorIcon(\"search\")}<em>搜索服务、事项</em></span>"
         },
         {
           "file": "app.js",
-          "line": 1250,
+          "line": 1247,
           "type": "icon-array",
           "text": "[\"search\", \"搜索\"],"
         }
@@ -197,13 +197,13 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 3479,
+          "line": 3476,
           "type": "iconMarkup",
           "text": "<span class=\"ab-station-house-icon\">${iconMarkup(\"home\")}</span>"
         },
         {
           "file": "app.js",
-          "line": 4030,
+          "line": 4027,
           "type": "anchorIcon",
           "text": "<span>${anchorIcon(\"home\")}</span>"
         },
@@ -215,31 +215,31 @@
         },
         {
           "file": "app.js",
-          "line": 1582,
+          "line": 1579,
           "type": "icon-property",
           "text": "{ key: \"home\", label: \"首页\", icon: \"home\", to: \"#/driver/queue\" },"
         },
         {
           "file": "app.js",
-          "line": 1588,
+          "line": 1585,
           "type": "icon-property",
           "text": "{ key: \"home\", label: \"首页\", icon: \"home\", to: \"#/station/home\" },"
         },
         {
           "file": "app.js",
-          "line": 1274,
+          "line": 1271,
           "type": "icon-array",
           "text": "[\"home\", \"首页\"],"
         },
         {
           "file": "app.js",
-          "line": 3885,
+          "line": 3882,
           "type": "icon-array",
           "text": "[\"home\", \"首页\", \"home\"],"
         },
         {
           "file": "app.js",
-          "line": 3891,
+          "line": 3888,
           "type": "icon-array",
           "text": "[\"home\", \"首页\", \"home\"],"
         }
@@ -270,43 +270,43 @@
         },
         {
           "file": "app.js",
-          "line": 1904,
+          "line": 1901,
           "type": "icon-property",
           "text": "{ icon: \"phone\", label: \"旅客服务热线\", value: \"010-51849000\", toast: \"旅客服务热线\" },"
         },
         {
           "file": "app.js",
-          "line": 1906,
+          "line": 1903,
           "type": "icon-property",
           "text": "{ icon: \"phone\", label: \"指挥中心的电话\", value: \"51867132\", toast: \"指挥中心电话\" },"
         },
         {
           "file": "app.js",
-          "line": 1980,
+          "line": 1977,
           "type": "icon-property",
           "text": "{ icon: \"phone\", label: \"旅客服务热线\", value: \"12328\", toast: \"旅客服务热线\" },"
         },
         {
           "file": "app.js",
-          "line": 1981,
+          "line": 1978,
           "type": "icon-property",
           "text": "{ icon: \"phone\", label: \"投诉举报电话\", value: \"010-12345\", toast: \"投诉举报电话\" },"
         },
         {
           "file": "app.js",
-          "line": 2059,
+          "line": 2056,
           "type": "icon-property",
           "text": "{ icon: \"phone\", label: \"旅客服务热线\", value: \"12328\", toast: \"旅客服务热线\" },"
         },
         {
           "file": "app.js",
-          "line": 2060,
+          "line": 2057,
           "type": "icon-property",
           "text": "{ icon: \"phone\", label: \"投诉举报电话\", value: \"010-12345\", toast: \"投诉举报电话\" },"
         },
         {
           "file": "app.js",
-          "line": 1267,
+          "line": 1264,
           "type": "icon-array",
           "text": "[\"phone\", \"电话\"],"
         }
@@ -349,25 +349,25 @@
         },
         {
           "file": "app.js",
-          "line": 1589,
+          "line": 1586,
           "type": "icon-property",
           "text": "{ key: \"nav\", label: \"导航\", icon: \"map\", to: \"#/nav/map\" },"
         },
         {
           "file": "app.js",
-          "line": 3203,
+          "line": 3200,
           "type": "icon-property",
           "text": "{ label: \"查看路线\", icon: \"map\", toast: \"查看路线（原型演示）\" },"
         },
         {
           "file": "app.js",
-          "line": 1238,
+          "line": 1235,
           "type": "icon-array",
           "text": "[\"map\", \"信息条目\", \"可放在设置、反馈、公告页\"],"
         },
         {
           "file": "app.js",
-          "line": 1247,
+          "line": 1244,
           "type": "icon-array",
           "text": "[\"map\", \"导航地图\"],"
         }
@@ -393,13 +393,13 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 1491,
+          "line": 1488,
           "type": "iconMarkup",
           "text": "<span class=\"ds-callout-icon\">${iconMarkup(\"notice\")}</span>"
         },
         {
           "file": "app.js",
-          "line": 1800,
+          "line": 1797,
           "type": "iconMarkup",
           "text": "<button class=\"ab-icon-btn ab-icon-btn--soft\" data-to=\"#/announcements\" aria-label=\"站区公告\">${iconMarkup(\"notice\")}</button>"
         },
@@ -417,19 +417,19 @@
         },
         {
           "file": "app.js",
-          "line": 1591,
+          "line": 1588,
           "type": "icon-property",
           "text": "{ key: \"notice\", label: \"公告\", icon: \"notice\", to: \"#/announcements\" },"
         },
         {
           "file": "app.js",
-          "line": 1249,
+          "line": 1246,
           "type": "icon-array",
           "text": "[\"notice\", \"站区公告\"],"
         },
         {
           "file": "app.js",
-          "line": 3894,
+          "line": 3891,
           "type": "icon-array",
           "text": "[\"notice\", \"公告\", \"megaphone\"],"
         }
@@ -455,13 +455,13 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 2645,
+          "line": 2642,
           "type": "iconMarkup",
           "text": "${[1, 2, 3, 4, 5].map((slot) => `<i class=\"${slot <= loadCount ? \"filled\" : \"\"}\">${iconMarkup(\"user\")}</i>`).join(\"\")}"
         },
         {
           "file": "app.js",
-          "line": 4002,
+          "line": 3999,
           "type": "anchorIcon",
           "text": "<div class=\"anchor-stat-head\">${anchorIcon(\"user\")}<span>候乘旅客</span></div>"
         },
@@ -473,25 +473,25 @@
         },
         {
           "file": "app.js",
-          "line": 1585,
+          "line": 1582,
           "type": "icon-property",
           "text": "{ key: \"profile\", label: \"个人\", icon: \"user\", to: \"#/driver/profile\" },"
         },
         {
           "file": "app.js",
-          "line": 1592,
+          "line": 1589,
           "type": "icon-property",
           "text": "{ key: \"profile\", label: \"个人\", icon: \"user\", to: \"#/profile\" },"
         },
         {
           "file": "app.js",
-          "line": 1239,
+          "line": 1236,
           "type": "icon-array",
           "text": "[\"user\", \"个人资料\", \"支持图标、文字、右箭头\"],"
         },
         {
           "file": "app.js",
-          "line": 1251,
+          "line": 1248,
           "type": "icon-array",
           "text": "[\"user\", \"身份\"],"
         }
@@ -518,37 +518,37 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 1374,
+          "line": 1371,
           "type": "iconMarkup",
           "text": "<button class=\"icon-btn\" data-to=\"#/portal\" aria-label=\"返回\">${iconMarkup(\"back\")}</button>"
         },
         {
           "file": "app.js",
-          "line": 1566,
+          "line": 1563,
           "type": "iconMarkup",
           "text": "<button class=\"ab-icon-btn\" data-to=\"${backTo}\" aria-label=\"返回\">${iconMarkup(\"back\")}</button>"
         },
         {
           "file": "app.js",
-          "line": 3820,
+          "line": 3817,
           "type": "iconMarkup",
           "text": "<button class=\"station-back-button\" data-to=\"${isSwitch ? \"#/station/home\" : \"#/splash\"}\" aria-label=\"返回\">${iconMarkup(\"back\")}</button>"
         },
         {
           "file": "app.js",
-          "line": 3868,
+          "line": 3865,
           "type": "anchorIcon",
           "text": "<button class=\"anchor-back\" data-to=\"${backTo}\" aria-label=\"返回\">${anchorIcon(\"back\")}</button>"
         },
         {
           "file": "app.js",
-          "line": 3992,
+          "line": 3989,
           "type": "anchorIcon",
           "text": "<button class=\"anchor-back detail-back\" data-to=\"#/style-anchor/02-list\" aria-label=\"返回\">${anchorIcon(\"back\")}</button>"
         },
         {
           "file": "app.js",
-          "line": 1279,
+          "line": 1276,
           "type": "icon-array",
           "text": "[\"back\", \"返回\"],"
         }
@@ -574,13 +574,13 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 4024,
+          "line": 4021,
           "type": "anchorIcon",
           "text": "<span class=\"anchor-calendar-badge\">${anchorIcon(\"calendar\")}</span>"
         },
         {
           "file": "app.js",
-          "line": 4104,
+          "line": 4101,
           "type": "anchorIcon",
           "text": "<button>${anchorIcon(\"calendar\")}<span>今天</span><i>›</i></button>"
         },
@@ -598,13 +598,13 @@
         },
         {
           "file": "app.js",
-          "line": 2158,
+          "line": 2155,
           "type": "icon-property",
           "text": "{ label: \"预约记录\", icon: \"calendar\", to: \"#/driver/short-haul/booking\", bg: \"#fdecef\", fg: \"#d92d20\" },"
         },
         {
           "file": "app.js",
-          "line": 1277,
+          "line": 1274,
           "type": "icon-array",
           "text": "[\"calendar\", \"日期\"],"
         }
@@ -630,37 +630,37 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 3980,
+          "line": 3977,
           "type": "anchorIcon",
           "text": "<span>${anchorIcon(\"car\")}</span>"
         },
         {
           "file": "app.js",
-          "line": 4006,
+          "line": 4003,
           "type": "anchorIcon",
           "text": "<div class=\"anchor-stat-head\">${anchorIcon(\"car\")}<span>排队车辆</span></div>"
         },
         {
           "file": "app.js",
-          "line": 1783,
+          "line": 1780,
           "type": "icon-property",
           "text": "{ icon: \"car\", label: \"网约车\", meta: \"推荐上车点 · 200m\", to: \"#/traffic/ride\" },"
         },
         {
           "file": "app.js",
-          "line": 2303,
+          "line": 2300,
           "type": "icon-property",
           "text": "{ icon: \"car\", label: \"出租车\", toast: \"出租车（原型演示）\" },"
         },
         {
           "file": "app.js",
-          "line": 3204,
+          "line": 3201,
           "type": "icon-property",
           "text": "{ label: \"继续比价\", icon: \"car\", toast: \"继续比价（原型演示）\" },"
         },
         {
           "file": "app.js",
-          "line": 1253,
+          "line": 1250,
           "type": "icon-array",
           "text": "[\"car\", \"网约车\"],"
         }
@@ -685,13 +685,13 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 2618,
+          "line": 2615,
           "type": "iconMarkup",
           "text": "<span class=\"ab-traffic-ride-icon\">${iconMarkup(\"taxi\")}</span>"
         },
         {
           "file": "app.js",
-          "line": 2993,
+          "line": 2990,
           "type": "iconMarkup",
           "text": "<button class=\"${navFocus === \"taxi\" ? \"active\" : \"\"}\" data-nav-poi=\"taxi\">${iconMarkup(\"taxi\")}出租车上车区</button>"
         },
@@ -703,19 +703,19 @@
         },
         {
           "file": "app.js",
-          "line": 1583,
+          "line": 1580,
           "type": "icon-property",
           "text": "{ key: \"short\", label: \"短途复载\", icon: \"taxi\", to: \"#/driver/short-haul/booking\" },"
         },
         {
           "file": "app.js",
-          "line": 1782,
+          "line": 1779,
           "type": "icon-property",
           "text": "{ icon: \"taxi\", label: \"出租车\", meta: \"南广场出口 · 8-12分钟\", to: \"#/traffic/taxi\" },"
         },
         {
           "file": "app.js",
-          "line": 1252,
+          "line": 1249,
           "type": "icon-array",
           "text": "[\"taxi\", \"出租车\"],"
         }
@@ -741,31 +741,31 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 3843,
+          "line": 3840,
           "type": "iconMarkup",
           "text": "<span class=\"station-slide-check\">${iconMarkup(\"check\")}</span>"
         },
         {
           "file": "app.js",
-          "line": 4100,
+          "line": 4097,
           "type": "anchorIcon",
           "text": "<span class=\"anchor-success-icon\">${anchorIcon(\"check\")}</span>"
         },
         {
           "file": "app.js",
-          "line": 4107,
+          "line": 4104,
           "type": "anchorIcon",
           "text": "<p class=\"anchor-consume\">${anchorIcon(\"check\")}<span>已消耗10分</span></p>"
         },
         {
           "file": "app.js",
-          "line": 4235,
+          "line": 4232,
           "type": "anchorIcon",
           "text": "${index === 0 ? `<i>${anchorIcon(\"check\")}</i>` : \"\"}"
         },
         {
           "file": "app.js",
-          "line": 1302,
+          "line": 1299,
           "type": "icon-array",
           "text": "[\"check\", \"确认\"],"
         }
@@ -796,25 +796,25 @@
         },
         {
           "file": "app.js",
-          "line": 1584,
+          "line": 1581,
           "type": "icon-property",
           "text": "{ key: \"house\", label: \"的士之家\", icon: \"lounge\", to: \"#/driver/taxi-house/info\" },"
         },
         {
           "file": "app.js",
-          "line": 2554,
+          "line": 2551,
           "type": "icon-property",
           "text": "{ key: \"免费休息区\", label: \"免费休息区\", icon: \"lounge\", toast: \"免费休息区（原型演示）\" },"
         },
         {
           "file": "app.js",
-          "line": 3633,
+          "line": 3630,
           "type": "icon-property",
           "text": "{ icon: \"lounge\", label: \"北京南站的士之家\", note: \"出租车候客区服务楼2层\", toast: \"北京南站的士之家\" },"
         },
         {
           "file": "app.js",
-          "line": 1288,
+          "line": 1285,
           "type": "icon-array",
           "text": "[\"lounge\", \"休息\"],"
         }
@@ -851,19 +851,19 @@
         },
         {
           "file": "app.js",
-          "line": 2155,
+          "line": 2152,
           "type": "icon-property",
           "text": "{ label: \"消息通知\", icon: \"message\", toast: \"消息通知（原型演示）\", bg: \"#eaf2ff\", fg: \"#206fd8\" },"
         },
         {
           "file": "app.js",
-          "line": 1260,
+          "line": 1257,
           "type": "icon-array",
           "text": "[\"message\", \"消息\"],"
         },
         {
           "file": "app.js",
-          "line": 4155,
+          "line": 4152,
           "type": "icon-array",
           "text": "[\"message\", \"消息通知\", \"\"],"
         }
@@ -889,31 +889,31 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 3924,
+          "line": 3921,
           "type": "anchorIcon",
           "text": "<button class=\"anchor-status-filter green\">${anchorIcon(\"people\")}<span>畅通</span></button>"
         },
         {
           "file": "app.js",
-          "line": 3925,
+          "line": 3922,
           "type": "anchorIcon",
           "text": "<button class=\"anchor-status-filter amber\">${anchorIcon(\"people\")}<span>正常</span></button>"
         },
         {
           "file": "app.js",
-          "line": 3926,
+          "line": 3923,
           "type": "anchorIcon",
           "text": "<button class=\"anchor-status-filter red\">${anchorIcon(\"people\")}<span>拥挤</span></button>"
         },
         {
           "file": "app.js",
-          "line": 3636,
+          "line": 3633,
           "type": "icon-property",
           "text": "{ icon: \"people\", label: \"可容纳：约50名司机同时休息\", toast: \"容纳量\" },"
         },
         {
           "file": "app.js",
-          "line": 1281,
+          "line": 1278,
           "type": "icon-array",
           "text": "[\"people\", \"人群\"],"
         }
@@ -939,25 +939,25 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 4010,
+          "line": 4007,
           "type": "anchorIcon",
           "text": "<div class=\"anchor-stat-head\">${anchorIcon(\"clock\")}<span>最长等候</span></div>"
         },
         {
           "file": "app.js",
-          "line": 4105,
+          "line": 4102,
           "type": "anchorIcon",
           "text": "<button>${anchorIcon(\"clock\")}<span>09:00</span><i>›</i></button>"
         },
         {
           "file": "app.js",
-          "line": 3635,
+          "line": 3632,
           "type": "icon-property",
           "text": "{ icon: \"clock\", label: \"开放时间：06:00 - 22:00（全年无休）\", toast: \"开放时间\" },"
         },
         {
           "file": "app.js",
-          "line": 1278,
+          "line": 1275,
           "type": "icon-array",
           "text": "[\"clock\", \"时间\"],"
         }
@@ -982,25 +982,25 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 1907,
+          "line": 1904,
           "type": "icon-property",
           "text": "{ icon: \"mail\", label: \"监督邮箱\", value: \"service@bjstation.com\", toast: \"监督邮箱\" },"
         },
         {
           "file": "app.js",
-          "line": 1982,
+          "line": 1979,
           "type": "icon-property",
           "text": "{ icon: \"mail\", label: \"监督投诉邮箱\", value: \"service@arrive-beijing.cn\", toast: \"监督投诉邮箱\" },"
         },
         {
           "file": "app.js",
-          "line": 2061,
+          "line": 2058,
           "type": "icon-property",
           "text": "{ icon: \"mail\", label: \"监督投诉邮箱\", value: \"service@arrive-beijing.cn\", toast: \"监督投诉邮箱\" },"
         },
         {
           "file": "app.js",
-          "line": 1268,
+          "line": 1265,
           "type": "icon-array",
           "text": "[\"mail\", \"邮箱\"],"
         }
@@ -1037,13 +1037,13 @@
         },
         {
           "file": "app.js",
-          "line": 2560,
+          "line": 2557,
           "type": "icon-property",
           "text": "{ key: \"医疗急救箱\", label: \"医疗急救箱\", icon: \"medical\", toast: \"医疗急救箱（原型演示）\" },"
         },
         {
           "file": "app.js",
-          "line": 1294,
+          "line": 1291,
           "type": "icon-array",
           "text": "[\"medical\", \"急救\"],"
         }
@@ -1069,7 +1069,7 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 3580,
+          "line": 3577,
           "type": "iconMarkup",
           "text": "<span class=\"ab-info-icon\">${iconMarkup(\"points\")}</span>"
         },
@@ -1081,13 +1081,13 @@
         },
         {
           "file": "app.js",
-          "line": 2156,
+          "line": 2153,
           "type": "icon-property",
           "text": "{ label: \"我的积分\", icon: \"points\", to: \"#/driver/short-haul/points\", bg: \"#e5f7ef\", fg: \"#0b7a50\" },"
         },
         {
           "file": "app.js",
-          "line": 1276,
+          "line": 1273,
           "type": "icon-array",
           "text": "[\"points\", \"积分\"],"
         }
@@ -1124,13 +1124,13 @@
         },
         {
           "file": "app.js",
-          "line": 1304,
+          "line": 1301,
           "type": "icon-array",
           "text": "[\"question\", \"问号\"],"
         },
         {
           "file": "app.js",
-          "line": 4045,
+          "line": 4042,
           "type": "icon-array",
           "text": "[\"question\", \"咨询\", \"\"],"
         }
@@ -1167,13 +1167,13 @@
         },
         {
           "file": "app.js",
-          "line": 1590,
+          "line": 1587,
           "type": "icon-property",
           "text": "{ key: \"traffic\", label: \"交通\", icon: \"route\", to: \"#/traffic/mixed\" },"
         },
         {
           "file": "app.js",
-          "line": 1248,
+          "line": 1245,
           "type": "icon-array",
           "text": "[\"route\", \"交通路线\"],"
         }
@@ -1210,13 +1210,13 @@
         },
         {
           "file": "app.js",
-          "line": 1263,
+          "line": 1260,
           "type": "icon-array",
           "text": "[\"shield\", \"账号安全\"],"
         },
         {
           "file": "app.js",
-          "line": 4159,
+          "line": 4156,
           "type": "icon-array",
           "text": "[[\"shield\", \"账号安全\", \"\"]],"
         }
@@ -1242,25 +1242,25 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 3438,
+          "line": 3435,
           "type": "iconMarkup",
           "text": "<span class=\"ab-map-shell-icon\">${iconMarkup(\"train\")}</span>"
         },
         {
           "file": "app.js",
-          "line": 4122,
+          "line": 4119,
           "type": "anchorIcon",
           "text": "<span class=\"anchor-app-logo\">${anchorIcon(\"plane\")}${anchorIcon(\"train\")}</span>"
         },
         {
           "file": "app.js",
-          "line": 1784,
+          "line": 1781,
           "type": "icon-property",
           "text": "{ icon: \"train\", label: \"地铁\", meta: \"4号线/14号线 · 站内换乘\", to: \"#/traffic/metro\" },"
         },
         {
           "file": "app.js",
-          "line": 1280,
+          "line": 1277,
           "type": "icon-array",
           "text": "[\"train\", \"车站\"],"
         }
@@ -1291,13 +1291,13 @@
         },
         {
           "file": "app.js",
-          "line": 1262,
+          "line": 1259,
           "type": "icon-array",
           "text": "[\"accessibility\", \"无障碍\"],"
         },
         {
           "file": "app.js",
-          "line": 4157,
+          "line": 4154,
           "type": "icon-array",
           "text": "[\"accessibility\", \"无障碍模式\", \"\"],"
         }
@@ -1328,13 +1328,13 @@
         },
         {
           "file": "app.js",
-          "line": 1316,
+          "line": 1313,
           "type": "icon-array",
           "text": "[\"angry\", \"情绪\"],"
         },
         {
           "file": "app.js",
-          "line": 4043,
+          "line": 4040,
           "type": "icon-array",
           "text": "[\"angry\", \"投诉\", \"active\"],"
         }
@@ -1365,13 +1365,13 @@
         },
         {
           "file": "app.js",
-          "line": 2559,
+          "line": 2556,
           "type": "icon-property",
           "text": "{ key: \"阅读角\", label: \"阅读角\", icon: \"book\", toast: \"阅读角（原型演示）\" },"
         },
         {
           "file": "app.js",
-          "line": 1293,
+          "line": 1290,
           "type": "icon-array",
           "text": "[\"book\", \"阅读\"],"
         }
@@ -1396,19 +1396,19 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 2300,
+          "line": 2297,
           "type": "icon-property",
           "text": "{ icon: \"bus\", label: \"公共汽车\", toast: \"公共汽车（原型演示）\" },"
         },
         {
           "file": "app.js",
-          "line": 1237,
+          "line": 1234,
           "type": "icon-array",
           "text": "[\"bus\", \"列表行组件\", \"标题 + 说明 + 右侧动作\"],"
         },
         {
           "file": "app.js",
-          "line": 1318,
+          "line": 1315,
           "type": "icon-array",
           "text": "[\"bus\", \"公交\"],"
         }
@@ -1433,19 +1433,19 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 2582,
+          "line": 2579,
           "type": "icon-property",
           "text": "{ icon: \"camera\", name: \"行车记录仪贴纸\", points: \"5积分\", stock: \"库存300件\" },"
         },
         {
           "file": "app.js",
-          "line": 1309,
+          "line": 1306,
           "type": "icon-array",
           "text": "[\"camera\", \"相机\"],"
         },
         {
           "file": "app.js",
-          "line": 1338,
+          "line": 1335,
           "type": "icon-array",
           "text": "[\"camera\", \"相机\"],"
         }
@@ -1476,13 +1476,13 @@
         },
         {
           "file": "app.js",
-          "line": 2555,
+          "line": 2552,
           "type": "icon-property",
           "text": "{ key: \"餐饮服务\", label: \"餐饮服务\", icon: \"dining\", toast: \"餐饮服务（原型演示）\" },"
         },
         {
           "file": "app.js",
-          "line": 1289,
+          "line": 1286,
           "type": "icon-array",
           "text": "[\"dining\", \"餐饮\"],"
         }
@@ -1513,13 +1513,13 @@
         },
         {
           "file": "app.js",
-          "line": 1265,
+          "line": 1262,
           "type": "icon-array",
           "text": "[\"ear\", \"辅助\"],"
         },
         {
           "file": "app.js",
-          "line": 4161,
+          "line": 4158,
           "type": "icon-array",
           "text": "[[\"ear\", \"无障碍辅助\", \"\"]],"
         }
@@ -1550,13 +1550,13 @@
         },
         {
           "file": "app.js",
-          "line": 1307,
+          "line": 1304,
           "type": "icon-array",
           "text": "[\"edit\", \"编辑\"],"
         },
         {
           "file": "app.js",
-          "line": 4044,
+          "line": 4041,
           "type": "icon-array",
           "text": "[\"edit\", \"建议\", \"\"],"
         }
@@ -1587,13 +1587,13 @@
         },
         {
           "file": "app.js",
-          "line": 1905,
+          "line": 1902,
           "type": "icon-property",
           "text": "{ icon: \"feedback\", label: \"投诉举报\", value: \"12306\", toast: \"投诉举报\" },"
         },
         {
           "file": "app.js",
-          "line": 1266,
+          "line": 1263,
           "type": "icon-array",
           "text": "[\"feedback\", \"反馈\"],"
         }
@@ -1624,13 +1624,13 @@
         },
         {
           "file": "app.js",
-          "line": 1296,
+          "line": 1293,
           "type": "icon-array",
           "text": "[\"gift\", \"兑换\"],"
         },
         {
           "file": "app.js",
-          "line": 1336,
+          "line": 1333,
           "type": "icon-array",
           "text": "[\"gift\", \"礼品\"],"
         }
@@ -1661,13 +1661,13 @@
         },
         {
           "file": "app.js",
-          "line": 1261,
+          "line": 1258,
           "type": "icon-array",
           "text": "[\"globe\", \"语言\"],"
         },
         {
           "file": "app.js",
-          "line": 4156,
+          "line": 4153,
           "type": "icon-array",
           "text": "[\"globe\", \"语言 / Language\", \"简体中文\"],"
         }
@@ -1698,13 +1698,13 @@
         },
         {
           "file": "app.js",
-          "line": 1332,
+          "line": 1329,
           "type": "icon-array",
           "text": "[\"grid\", \"九宫格\"],"
         },
         {
           "file": "app.js",
-          "line": 4215,
+          "line": 4212,
           "type": "icon-array",
           "text": "[\"grid\", \"全部服务\"],"
         }
@@ -1735,13 +1735,13 @@
         },
         {
           "file": "app.js",
-          "line": 2157,
+          "line": 2154,
           "type": "icon-property",
           "text": "{ label: \"行程历史\", icon: \"history\", to: \"#/driver/short-haul/history\", bg: \"#fff4d8\", fg: \"#a16207\" },"
         },
         {
           "file": "app.js",
-          "line": 1282,
+          "line": 1279,
           "type": "icon-array",
           "text": "[\"history\", \"历史\"],"
         }
@@ -1772,13 +1772,13 @@
         },
         {
           "file": "app.js",
-          "line": 1310,
+          "line": 1307,
           "type": "icon-array",
           "text": "[\"id\", \"证件\"],"
         },
         {
           "file": "app.js",
-          "line": 4212,
+          "line": 4209,
           "type": "icon-array",
           "text": "[\"id\", \"亮证\"],"
         }
@@ -1809,13 +1809,13 @@
         },
         {
           "file": "app.js",
-          "line": 1264,
+          "line": 1261,
           "type": "icon-array",
           "text": "[\"lock\", \"隐私\"],"
         },
         {
           "file": "app.js",
-          "line": 4160,
+          "line": 4157,
           "type": "icon-array",
           "text": "[[\"lock\", \"隐私设置\", \"\"]],"
         }
@@ -1841,19 +1841,19 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 1124,
+          "line": 1121,
           "type": "iconMarkup",
           "text": "${iconMarkup(\"more\")}"
         },
         {
           "file": "app.js",
-          "line": 1376,
+          "line": 1373,
           "type": "iconMarkup",
           "text": "<button class=\"icon-btn\" data-toast=\"设计系统预览\" aria-label=\"更多\">${iconMarkup(\"more\")}</button>"
         },
         {
           "file": "app.js",
-          "line": 1303,
+          "line": 1300,
           "type": "icon-array",
           "text": "[\"more\", \"更多\"],"
         }
@@ -1884,13 +1884,13 @@
         },
         {
           "file": "app.js",
-          "line": 2578,
+          "line": 2575,
           "type": "icon-property",
           "text": "{ icon: \"paper\", name: \"车用纸巾（3包）\", points: \"10积分\", stock: \"库存200件\" },"
         },
         {
           "file": "app.js",
-          "line": 1324,
+          "line": 1321,
           "type": "icon-array",
           "text": "[\"paper\", \"文档\"],"
         }
@@ -1916,19 +1916,19 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 4122,
+          "line": 4119,
           "type": "anchorIcon",
           "text": "<span class=\"anchor-app-logo\">${anchorIcon(\"plane\")}${anchorIcon(\"train\")}</span>"
         },
         {
           "file": "app.js",
-          "line": 2302,
+          "line": 2299,
           "type": "icon-property",
           "text": "{ icon: \"plane\", label: \"机场巴士\", toast: \"机场巴士（原型演示）\" },"
         },
         {
           "file": "app.js",
-          "line": 1331,
+          "line": 1328,
           "type": "icon-array",
           "text": "[\"plane\", \"飞机\"],"
         }
@@ -1954,19 +1954,19 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 3359,
+          "line": 3356,
           "type": "iconMarkup",
           "text": "<button data-toast=\"刷新（原型演示）\">${iconMarkup(\"refresh\")}</button>"
         },
         {
           "file": "app.js",
-          "line": 3872,
+          "line": 3869,
           "type": "anchorIcon",
           "text": "? `<button class=\"anchor-refresh\" data-toast=\"已刷新\">${anchorIcon(\"refresh\")}<span>刷新</span></button>`"
         },
         {
           "file": "app.js",
-          "line": 1305,
+          "line": 1302,
           "type": "icon-array",
           "text": "[\"refresh\", \"刷新\"],"
         }
@@ -1992,19 +1992,19 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 4208,
+          "line": 4205,
           "type": "anchorIcon",
           "text": "<button>${anchorIcon(\"scan\")}<b>扫一扫</b></button>"
         },
         {
           "file": "app.js",
-          "line": 1308,
+          "line": 1305,
           "type": "icon-array",
           "text": "[\"scan\", \"扫码\"],"
         },
         {
           "file": "app.js",
-          "line": 1337,
+          "line": 1334,
           "type": "icon-array",
           "text": "[\"scan\", \"扫码\"],"
         }
@@ -2029,19 +2029,19 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 2307,
+          "line": 2304,
           "type": "icon-property",
           "text": "{ key: \"beijing\", name: \"北京站\", icon: \"station_beijing\", meta: \"约33分钟 · 地铁4号线换2号线\" },"
         },
         {
           "file": "app.js",
-          "line": 1344,
+          "line": 1341,
           "type": "icon-array",
           "text": "[\"station_beijing\", \"北京站\"],"
         },
         {
           "file": "app.js",
-          "line": 1359,
+          "line": 1356,
           "type": "icon-array",
           "text": "[\"station_beijing\", \"北京站\"],"
         }
@@ -2066,19 +2066,19 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 2310,
+          "line": 2307,
           "type": "icon-property",
           "text": "{ key: \"chaoyang\", name: \"北京朝阳站\", icon: \"station_chaoyang\", meta: \"约49分钟 · 地铁14号线换3号线\" },"
         },
         {
           "file": "app.js",
-          "line": 1348,
+          "line": 1345,
           "type": "icon-array",
           "text": "[\"station_chaoyang\", \"朝阳站\"],"
         },
         {
           "file": "app.js",
-          "line": 1363,
+          "line": 1360,
           "type": "icon-array",
           "text": "[\"station_chaoyang\", \"朝阳站\"],"
         }
@@ -2103,19 +2103,19 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 2309,
+          "line": 2306,
           "type": "icon-property",
           "text": "{ key: \"north\", name: \"北京北站\", icon: \"station_north\", meta: \"约31分钟 · 地铁4号线直达西直门\" },"
         },
         {
           "file": "app.js",
-          "line": 1347,
+          "line": 1344,
           "type": "icon-array",
           "text": "[\"station_north\", \"北京北站\"],"
         },
         {
           "file": "app.js",
-          "line": 1362,
+          "line": 1359,
           "type": "icon-array",
           "text": "[\"station_north\", \"北京北站\"],"
         }
@@ -2140,19 +2140,19 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 2311,
+          "line": 2308,
           "type": "icon-property",
           "text": "{ key: \"qinghe\", name: \"清河站\", icon: \"station_qinghe\", meta: \"约52分钟 · 地铁4号线换13号线\" },"
         },
         {
           "file": "app.js",
-          "line": 1349,
+          "line": 1346,
           "type": "icon-array",
           "text": "[\"station_qinghe\", \"清河站\"],"
         },
         {
           "file": "app.js",
-          "line": 1364,
+          "line": 1361,
           "type": "icon-array",
           "text": "[\"station_qinghe\", \"清河站\"],"
         }
@@ -2177,19 +2177,19 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 3526,
+          "line": 3523,
           "type": "iconMarkup",
           "text": "<span class=\"ab-target-icon\">${iconMarkup(\"station_south\")}</span>"
         },
         {
           "file": "app.js",
-          "line": 1346,
+          "line": 1343,
           "type": "icon-array",
           "text": "[\"station_south\", \"北京南站\"],"
         },
         {
           "file": "app.js",
-          "line": 1361,
+          "line": 1358,
           "type": "icon-array",
           "text": "[\"station_south\", \"北京南站\"],"
         }
@@ -2214,19 +2214,19 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 2313,
+          "line": 2310,
           "type": "icon-property",
           "text": "{ key: \"tongzhou\", name: \"北京通州站\", icon: \"station_tongzhou\", meta: \"约1小时22分 · 地铁14号线换6号线\" },"
         },
         {
           "file": "app.js",
-          "line": 1351,
+          "line": 1348,
           "type": "icon-array",
           "text": "[\"station_tongzhou\", \"通州站\"],"
         },
         {
           "file": "app.js",
-          "line": 1366,
+          "line": 1363,
           "type": "icon-array",
           "text": "[\"station_tongzhou\", \"通州站\"],"
         }
@@ -2251,19 +2251,19 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 2308,
+          "line": 2305,
           "type": "icon-property",
           "text": "{ key: \"west\", name: \"北京西站\", icon: \"station_west\", meta: \"约28分钟 · 地铁4号线换7号线\" },"
         },
         {
           "file": "app.js",
-          "line": 1345,
+          "line": 1342,
           "type": "icon-array",
           "text": "[\"station_west\", \"北京西站\"],"
         },
         {
           "file": "app.js",
-          "line": 1360,
+          "line": 1357,
           "type": "icon-array",
           "text": "[\"station_west\", \"北京西站\"],"
         }
@@ -2288,19 +2288,19 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 2312,
+          "line": 2309,
           "type": "icon-property",
           "text": "{ key: \"yizhuang\", name: \"亦庄站\", icon: \"station_yizhuang\", meta: \"约54分钟 · 14号线/17号线/亦庄线\" },"
         },
         {
           "file": "app.js",
-          "line": 1350,
+          "line": 1347,
           "type": "icon-array",
           "text": "[\"station_yizhuang\", \"亦庄站\"],"
         },
         {
           "file": "app.js",
-          "line": 1365,
+          "line": 1362,
           "type": "icon-array",
           "text": "[\"station_yizhuang\", \"亦庄站\"],"
         }
@@ -2331,13 +2331,13 @@
         },
         {
           "file": "app.js",
-          "line": 1335,
+          "line": 1332,
           "type": "icon-array",
           "text": "[\"thumb\", \"点赞\"],"
         },
         {
           "file": "app.js",
-          "line": 4046,
+          "line": 4043,
           "type": "icon-array",
           "text": "[\"thumb\", \"表扬\", \"\"],"
         }
@@ -2362,13 +2362,13 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 2301,
+          "line": 2298,
           "type": "icon-property",
           "text": "{ icon: \"bike\", label: \"共享单车\", toast: \"共享单车（原型演示）\" },"
         },
         {
           "file": "app.js",
-          "line": 1317,
+          "line": 1314,
           "type": "icon-array",
           "text": "[\"bike\", \"骑行\"],"
         }
@@ -2393,13 +2393,13 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 2556,
+          "line": 2553,
           "type": "icon-property",
           "text": "{ key: \"充电桩\", label: \"充电桩\", icon: \"charger\", toast: \"充电桩（原型演示）\" },"
         },
         {
           "file": "app.js",
-          "line": 1290,
+          "line": 1287,
           "type": "icon-array",
           "text": "[\"charger\", \"充电\"],"
         }
@@ -2424,13 +2424,13 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 1319,
+          "line": 1316,
           "type": "icon-array",
           "text": "[\"chat\", \"沟通\"],"
         },
         {
           "file": "app.js",
-          "line": 4214,
+          "line": 4211,
           "type": "icon-array",
           "text": "[\"chat\", \"消息\"],"
         }
@@ -2455,13 +2455,13 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 2577,
+          "line": 2574,
           "type": "icon-property",
           "text": "{ icon: \"cup\", name: \"保温水杯\", points: \"30积分\", stock: \"库存50件\" },"
         },
         {
           "file": "app.js",
-          "line": 1320,
+          "line": 1317,
           "type": "icon-array",
           "text": "[\"cup\", \"杯子\"],"
         }
@@ -2486,13 +2486,13 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 2579,
+          "line": 2576,
           "type": "icon-property",
           "text": "{ icon: \"glove\", name: \"驾驶员手套\", points: \"20积分\", stock: \"库存80件\" },"
         },
         {
           "file": "app.js",
-          "line": 1321,
+          "line": 1318,
           "type": "icon-array",
           "text": "[\"glove\", \"手套\"],"
         }
@@ -2523,7 +2523,7 @@
         },
         {
           "file": "app.js",
-          "line": 1333,
+          "line": 1330,
           "type": "icon-array",
           "text": "[\"handshake\", \"握手\"],"
         }
@@ -2548,13 +2548,13 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 2580,
+          "line": 2577,
           "type": "icon-property",
           "text": "{ icon: \"leaf\", name: \"车载空气清新剂\", points: \"15积分\", stock: \"库存120件\" },"
         },
         {
           "file": "app.js",
-          "line": 1322,
+          "line": 1319,
           "type": "icon-array",
           "text": "[\"leaf\", \"绿色\"],"
         }
@@ -2580,13 +2580,13 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 4191,
+          "line": 4188,
           "type": "anchorIcon",
           "text": "<button class=\"anchor-logout\" data-toast=\"退出登录（原型演示）\">${anchorIcon(\"logout\")}<span>退出登录</span></button>"
         },
         {
           "file": "app.js",
-          "line": 1323,
+          "line": 1320,
           "type": "icon-array",
           "text": "[\"logout\", \"退出\"],"
         }
@@ -2617,7 +2617,7 @@
         },
         {
           "file": "app.js",
-          "line": 1275,
+          "line": 1272,
           "type": "icon-array",
           "text": "[\"parking\", \"停车\"],"
         }
@@ -2642,13 +2642,13 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 2581,
+          "line": 2578,
           "type": "icon-property",
           "text": "{ icon: \"pillow\", name: \"颈部枕头\", points: \"25积分\", stock: \"库存40件\" },"
         },
         {
           "file": "app.js",
-          "line": 1330,
+          "line": 1327,
           "type": "icon-array",
           "text": "[\"pillow\", \"枕头\"],"
         }
@@ -2673,13 +2673,13 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 1334,
+          "line": 1331,
           "type": "icon-array",
           "text": "[\"qr\", \"二维码\"],"
         },
         {
           "file": "app.js",
-          "line": 4213,
+          "line": 4210,
           "type": "icon-array",
           "text": "[\"qr\", \"京通码\"],"
         }
@@ -2704,13 +2704,13 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 2561,
+          "line": 2558,
           "type": "icon-property",
           "text": "{ key: \"洗手间\", label: \"洗手间\", icon: \"restroom\", toast: \"洗手间（原型演示）\" },"
         },
         {
           "file": "app.js",
-          "line": 1295,
+          "line": 1292,
           "type": "icon-array",
           "text": "[\"restroom\", \"洗手间\"],"
         }
@@ -2736,13 +2736,13 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 3874,
+          "line": 3871,
           "type": "anchorIcon",
           "text": "? `<button class=\"anchor-settings\" data-toast=\"设置功能暂未接入\" aria-label=\"设置\">${anchorIcon(\"settings\")}</button>`"
         },
         {
           "file": "app.js",
-          "line": 1306,
+          "line": 1303,
           "type": "icon-array",
           "text": "[\"settings\", \"设置\"],"
         }
@@ -2767,13 +2767,13 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 2314,
+          "line": 2311,
           "type": "icon-property",
           "text": "{ key: \"capital\", name: \"首都国际机场\", icon: \"station_capital\", meta: \"约1小时12分 · 地铁换机场线\" },"
         },
         {
           "file": "app.js",
-          "line": 1352,
+          "line": 1349,
           "type": "icon-array",
           "text": "[\"station_capital\", \"首都机场\"],"
         }
@@ -2798,13 +2798,13 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 2315,
+          "line": 2312,
           "type": "icon-property",
           "text": "{ key: \"daxing\", name: \"北京大兴国际机场\", icon: \"station_daxing\", meta: \"约43分钟 · 地铁换大兴机场线\" },"
         },
         {
           "file": "app.js",
-          "line": 1358,
+          "line": 1355,
           "type": "icon-array",
           "text": "[\"station_daxing\", \"大兴机场\"],"
         }
@@ -2829,13 +2829,13 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 2558,
+          "line": 2555,
           "type": "icon-property",
           "text": "{ key: \"茶水供应\", label: \"茶水供应\", icon: \"tea\", toast: \"茶水供应（原型演示）\" },"
         },
         {
           "file": "app.js",
-          "line": 1292,
+          "line": 1289,
           "type": "icon-array",
           "text": "[\"tea\", \"茶水\"],"
         }
@@ -2866,7 +2866,7 @@
         },
         {
           "file": "app.js",
-          "line": 1254,
+          "line": 1251,
           "type": "icon-array",
           "text": "[\"transfer\", \"场站接驳\"],"
         }
@@ -2891,13 +2891,13 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 2557,
+          "line": 2554,
           "type": "icon-property",
           "text": "{ key: \"免费WIFI\", label: \"免费WIFI\", icon: \"wifi\", toast: \"免费WIFI（原型演示）\" },"
         },
         {
           "file": "app.js",
-          "line": 1291,
+          "line": 1288,
           "type": "icon-array",
           "text": "[\"wifi\", \"WIFI\"],"
         }
@@ -2922,7 +2922,7 @@
       "usage_locations": [
         {
           "file": "app.js",
-          "line": 3887,
+          "line": 3884,
           "type": "icon-array",
           "text": "[\"house\", \"的士之家\", \"handshake\"],"
         }

@@ -15,19 +15,19 @@
       "svg": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/svg/01-lounge.svg",
       "diff": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/diff/01-lounge.png",
       "inkBBox": [
-        87,
-        115,
-        377,
-        395
+        89,
+        121,
+        387,
+        406
       ],
       "displayViewBox": [
-        70,
-        98,
-        324,
-        314
+        71,
+        103,
+        334,
+        315
       ],
-      "rectangles": 320,
-      "pathLength": 6640,
+      "rectangles": 334,
+      "pathLength": 6936,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -41,19 +41,19 @@
       "svg": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/svg/02-dining.svg",
       "diff": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/diff/02-dining.png",
       "inkBBox": [
-        70,
+        67,
         112,
-        346,
-        399
+        348,
+        406
       ],
       "displayViewBox": [
-        53,
-        95,
-        310,
-        321
+        49,
+        94,
+        317,
+        324
       ],
-      "rectangles": 383,
-      "pathLength": 7904,
+      "rectangles": 388,
+      "pathLength": 8000,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -68,18 +68,18 @@
       "diff": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/diff/03-charger.png",
       "inkBBox": [
         57,
-        116,
-        321,
-        378
+        118,
+        325,
+        392
       ],
       "displayViewBox": [
         41,
-        100,
-        296,
-        294
+        102,
+        300,
+        306
       ],
-      "rectangles": 299,
-      "pathLength": 6136,
+      "rectangles": 304,
+      "pathLength": 6236,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -93,19 +93,19 @@
       "svg": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/svg/04-wifi.svg",
       "diff": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/diff/04-wifi.png",
       "inkBBox": [
-        89,
-        105,
-        372,
-        321
+        90,
+        102,
+        381,
+        323
       ],
       "displayViewBox": [
-        72,
-        88,
-        317,
-        250
+        73,
+        85,
+        325,
+        255
       ],
-      "rectangles": 352,
-      "pathLength": 7346,
+      "rectangles": 367,
+      "pathLength": 7661,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -119,19 +119,19 @@
       "svg": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/svg/05-tea.svg",
       "diff": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/diff/05-tea.png",
       "inkBBox": [
-        64,
-        125,
-        340,
-        324
+        70,
+        118,
+        345,
+        328
       ],
       "displayViewBox": [
-        47,
-        108,
-        310,
-        233
+        54,
+        102,
+        307,
+        242
       ],
-      "rectangles": 259,
-      "pathLength": 5237,
+      "rectangles": 260,
+      "pathLength": 5272,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -145,19 +145,19 @@
       "svg": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/svg/06-book.svg",
       "diff": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/diff/06-book.png",
       "inkBBox": [
-        29,
-        104,
-        330,
-        336
+        23,
+        101,
+        322,
+        339
       ],
       "displayViewBox": [
-        11,
-        86,
-        337,
-        268
+        5,
+        83,
+        335,
+        274
       ],
-      "rectangles": 217,
-      "pathLength": 4375,
+      "rectangles": 223,
+      "pathLength": 4511,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -171,19 +171,19 @@
       "svg": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/svg/07-medical.svg",
       "diff": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/diff/07-medical.png",
       "inkBBox": [
-        93,
-        31,
-        364,
-        296
+        95,
+        22,
+        366,
+        302
       ],
       "displayViewBox": [
-        77,
-        15,
-        303,
-        297
+        78,
+        5,
+        305,
+        314
       ],
-      "rectangles": 260,
-      "pathLength": 5256,
+      "rectangles": 223,
+      "pathLength": 4487,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -197,19 +197,19 @@
       "svg": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/svg/08-restroom.svg",
       "diff": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/diff/08-restroom.png",
       "inkBBox": [
-        66,
-        31,
-        331,
-        297
+        60,
+        26,
+        327,
+        302
       ],
       "displayViewBox": [
-        50,
-        15,
-        297,
-        298
+        43,
+        9,
+        301,
+        310
       ],
-      "rectangles": 330,
-      "pathLength": 6615,
+      "rectangles": 368,
+      "pathLength": 7339,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -223,19 +223,19 @@
       "svg": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/svg/09-gift.svg",
       "diff": "assets/icons/calibration/board-04-taxi-house/single-svg-replica/diff/09-gift.png",
       "inkBBox": [
-        46,
-        23,
-        307,
-        298
+        41,
+        20,
+        300,
+        302
       ],
       "displayViewBox": [
-        30,
-        7,
+        24,
+        3,
         293,
-        307
+        316
       ],
-      "rectangles": 267,
-      "pathLength": 4998,
+      "rectangles": 265,
+      "pathLength": 4938,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,

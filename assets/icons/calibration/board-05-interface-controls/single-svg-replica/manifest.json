@@ -15,19 +15,19 @@
       "svg": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/svg/01-check.svg",
       "diff": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/diff/01-check.png",
       "inkBBox": [
-        113,
-        108,
-        363,
-        361
+        116,
+        110,
+        370,
+        364
       ],
       "displayViewBox": [
-        98,
-        93,
-        280,
-        283
+        101,
+        95,
+        284,
+        284
       ],
-      "rectangles": 442,
-      "pathLength": 9282,
+      "rectangles": 458,
+      "pathLength": 9618,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -41,19 +41,19 @@
       "svg": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/svg/02-more.svg",
       "diff": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/diff/02-more.png",
       "inkBBox": [
-        86,
-        110,
+        84,
+        109,
         335,
-        361
+        363
       ],
       "displayViewBox": [
-        71,
-        95,
-        279,
-        281
+        69,
+        94,
+        281,
+        284
       ],
-      "rectangles": 390,
-      "pathLength": 8094,
+      "rectangles": 399,
+      "pathLength": 8273,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -67,19 +67,19 @@
       "svg": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/svg/03-question.svg",
       "diff": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/diff/03-question.png",
       "inkBBox": [
-        52,
-        108,
+        49,
+        109,
         302,
-        361
+        363
       ],
       "displayViewBox": [
-        37,
-        93,
-        280,
-        283
+        34,
+        94,
+        283,
+        284
       ],
-      "rectangles": 460,
-      "pathLength": 9302,
+      "rectangles": 455,
+      "pathLength": 9207,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -93,19 +93,19 @@
       "svg": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/svg/04-refresh.svg",
       "diff": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/diff/04-refresh.png",
       "inkBBox": [
-        112,
-        80,
-        355,
-        331
+        117,
+        78,
+        363,
+        333
       ],
       "displayViewBox": [
-        97,
-        65,
-        273,
-        281
+        102,
+        63,
+        276,
+        285
       ],
-      "rectangles": 318,
-      "pathLength": 6624,
+      "rectangles": 315,
+      "pathLength": 6558,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -119,19 +119,19 @@
       "svg": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/svg/05-settings.svg",
       "diff": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/diff/05-settings.png",
       "inkBBox": [
-        78,
-        76,
-        336,
-        341
+        74,
+        63,
+        344,
+        343
       ],
       "displayViewBox": [
-        62,
-        60,
-        290,
-        297
+        57,
+        46,
+        304,
+        314
       ],
-      "rectangles": 568,
-      "pathLength": 11749,
+      "rectangles": 608,
+      "pathLength": 12530,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -145,19 +145,19 @@
       "svg": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/svg/06-edit.svg",
       "diff": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/diff/06-edit.png",
       "inkBBox": [
-        49,
-        82,
-        290,
-        327
+        46,
+        75,
+        293,
+        325
       ],
       "displayViewBox": [
-        34,
-        67,
-        271,
-        275
+        31,
+        60,
+        277,
+        280
       ],
-      "rectangles": 432,
-      "pathLength": 8798,
+      "rectangles": 448,
+      "pathLength": 9083,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -171,19 +171,19 @@
       "svg": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/svg/07-scan.svg",
       "diff": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/diff/07-scan.png",
       "inkBBox": [
-        119,
-        57,
-        354,
-        285
+        121,
+        52,
+        360,
+        278
       ],
       "displayViewBox": [
-        105,
-        43,
-        263,
-        256
+        107,
+        38,
+        267,
+        254
       ],
-      "rectangles": 213,
-      "pathLength": 4357,
+      "rectangles": 138,
+      "pathLength": 2794,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -197,19 +197,19 @@
       "svg": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/svg/08-camera.svg",
       "diff": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/diff/08-camera.png",
       "inkBBox": [
-        72,
-        55,
-        343,
-        283
+        68,
+        44,
+        351,
+        282
       ],
       "displayViewBox": [
-        56,
-        39,
-        303,
-        260
+        51,
+        27,
+        317,
+        272
       ],
-      "rectangles": 378,
-      "pathLength": 7670,
+      "rectangles": 379,
+      "pathLength": 7646,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -223,19 +223,19 @@
       "svg": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/svg/09-id.svg",
       "diff": "assets/icons/calibration/board-05-interface-controls/single-svg-replica/diff/09-id.png",
       "inkBBox": [
+        27,
         37,
-        46,
-        305,
+        304,
         280
       ],
       "displayViewBox": [
-        21,
-        30,
-        300,
-        266
+        10,
+        20,
+        311,
+        277
       ],
-      "rectangles": 292,
-      "pathLength": 5713,
+      "rectangles": 288,
+      "pathLength": 5588,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
