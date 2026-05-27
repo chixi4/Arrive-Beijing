@@ -30,7 +30,7 @@ function extractObjectBody(name) {
 
 const libraryBody = extractObjectBody("ICON_LIBRARY");
 const aliasBody = extractObjectBody("ICON_ALIASES");
-const library = [...libraryBody.matchAll(/^\s{2}([a-zA-Z0-9_-]+):\s*`/gm)].map((m) => m[1]).sort();
+const library = [...libraryBody.matchAll(/^\s{2}([a-zA-Z0-9_-]+):\s*(?:`|\{)/gm)].map((m) => m[1]).sort();
 const replicaFiles = fs
   .readdirSync(path.join(ROOT, "assets", "icons", "calibration"), { withFileTypes: true })
   .filter((entry) => entry.isDirectory())

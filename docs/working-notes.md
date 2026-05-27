@@ -125,6 +125,7 @@
 - 按用户反馈继续重做非站点图标：`board-01` 到 `board-07` 全部重新走“生图源 target -> 纯黑白清理 -> CSV 模拟 -> 单图 SVG mask 复刻”链路，站点图标 `board-08/09` 不重生。提示词采用自包含描述，强调 plain/sparse/geometric/low-detail 和 1024px 图板约 26px 粗线；遇到模型漂向复杂风格时优先通过不提及触发词收回，而不是堆叠禁止项。所有七批 CSV 与 SVG mask 检查均为 `maxDiffRatio = 0.0`。
 - 继续按用户反馈放大页面图标：全局 icon token 和首页服务格、信息行、底栏、交通/换乘等主要组件的 SVG 显示尺寸整体放大一档；`board-01` 的第 9 个 `transfer` 图标单独换回 iteration-05 / Image #1 的右下角版本，重新生成 CSV 与单图 SVG mask 后仍为 `maxDiffRatio = 0.0`。
 - 交通接驳页重构前先补齐第十批 3x3 图标板 `board-10-traffic-routing`：一次性生成 `walk/metro/traffic_bus/traffic_taxi/ride_hailing/route_swap/filter_sliders/departure_time/route_recommend`，人工审核后落成 `currentColor` SVG mask；CSV 与 SVG mask 检查均为 `maxDiffRatio = 0.0`，并已接入运行时和设计系统预览。
+- `#/traffic/mixed` 顶部搜索改为未搜索时复用导航页式单行搜索，提交后展开为起终点卡；绿点和红点之间补虚线，左上增加纯 chevron 返回未搜索态。推荐页移除“最后更新 / 数据实时 / 交通方式推荐”正文层级，地铁、出租、公交、网约改成统一路线方案卡，每条都接入语义图标；高德式步行段改为紧裁剪的实心 `walk_solid` 小人图标 + 数字胶囊，不再显示 `步1/步3` 文本。
 - 待人工复核项：地铁拥挤度/发车间隔若要实时准确，需要明确数据源；老师是否要求“重新生图”而不是直接压缩参考照片，需要下一轮视觉反馈确认；真机浏览器仍建议最终走一遍。
 
 ## 设计判断

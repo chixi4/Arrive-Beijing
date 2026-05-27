@@ -328,6 +328,7 @@ const ICON_LIBRARY = {
   car: `<path d="M5.2 13.5h13.6l-1.1-4.3a2.3 2.3 0 0 0-2.2-1.7h-7a2.3 2.3 0 0 0-2.2 1.7z"></path><path d="M4.5 13.5v4.3"></path><path d="M19.5 13.5v4.3"></path><circle cx="8" cy="17.5" r="1.35"></circle><circle cx="16" cy="17.5" r="1.35"></circle>`,
   chat: `<path d="M5 6h14v9.2H9.2L5 19z"></path><path d="M8.2 10.6h.1"></path><path d="M12 10.6h.1"></path><path d="M15.8 10.6h.1"></path>`,
   check: `<path d="m5.8 12.5 4.1 4.1 8.3-8.6"></path>`,
+  chevron_left: `<path d="m14.5 6-6 6 6 6"></path>`,
   charger: `<rect x="7.5" y="3.8" width="9" height="16.4" rx="2.4"></rect><path d="M10.2 7h3.6"></path><path d="m12.8 10-2.2 3.2h2.1l-1.4 3.3 3.4-4.5h-2.3z"></path>`,
   clock: `<circle cx="12" cy="12" r="8"></circle><path d="M12 7.5v4.8l3.2 1.9"></path>`,
   cup: `<path d="M6.2 8.8h9.5v5.4a4.1 4.1 0 0 1-4.1 4.1H10a3.8 3.8 0 0 1-3.8-3.8z"></path><path d="M15.7 10h2a2.1 2.1 0 0 1 0 4.2h-2"></path><path d="M7.5 21h7"></path>`,
@@ -376,6 +377,10 @@ const ICON_LIBRARY = {
   transfer: `<path d="M6 8h10.5"></path><path d="m13.8 5.2 2.8 2.8-2.8 2.8"></path><path d="M18 16H7.5"></path><path d="m10.2 13.2-2.8 2.8 2.8 2.8"></path>`,
   tea: `<path d="M6.3 9.2h9.4v5.1a3.9 3.9 0 0 1-3.9 3.9H10a3.7 3.7 0 0 1-3.7-3.7z"></path><path d="M15.7 10.2h1.8a2 2 0 0 1 0 4h-1.8"></path><path d="M8 20.2h7"></path><path d="M8.2 5.2c-.8.9-.8 1.8 0 2.7"></path><path d="M12 4.6c-.8 1-.8 2 0 3"></path><path d="M15.8 5.2c-.8.9-.8 1.8 0 2.7"></path>`,
   user: `<circle cx="12" cy="8" r="3.5"></circle><path d="M5 20c1.2-4.3 4-6.2 7-6.2s5.8 1.9 7 6.2"></path>`,
+  walk_solid: {
+    viewBox: "5 2 14 21",
+    body: `<circle cx="12" cy="4.5" r="2.1" fill="currentColor" stroke="none"></circle><path fill="currentColor" stroke="none" d="M10.6 7.4c.7-.5 1.6-.4 2.2.2l2.7 2.5c.4.4.5 1.1.1 1.5-.4.5-1.1.5-1.6.1l-1.4-1.2-.6 3 2.3 2.2c.3.3.5.7.5 1.1v4.1c0 .7-.5 1.2-1.2 1.2s-1.2-.5-1.2-1.2v-3.5l-1.9-1.6-1 2.5c-.1.3-.3.6-.5.8l-2.2 2c-.5.4-1.2.4-1.7-.1-.4-.5-.4-1.2.1-1.7l2-1.9 1.1-3.1.8-4.1-1.1.7-.8 2c-.2.6-.9.9-1.5.6-.6-.2-.9-.9-.6-1.5l1-2.5c.1-.3.3-.5.6-.7z"></path>`,
+  },
   wifi: `<path d="M5 10.2c4.4-3.8 9.6-3.8 14 0"></path><path d="M8 13.2c2.5-2.1 5.5-2.1 8 0"></path><path d="M10.8 16.2c.8-.7 1.6-.7 2.4 0"></path><circle cx="12" cy="19" r="1"></circle>`,
 };
 
@@ -2301,10 +2306,55 @@ const trafficBusRoutes = [
 ];
 
 const trafficMixedRows = [
-  { label: "地铁 4号线大兴线", note: "北京南站 → 北京大学", value: "46分钟 · ¥5", tone: "primary", tag: "推荐" },
-  { label: "出租", note: "上门接送", value: "26分钟 · ¥56", tone: "warning" },
-  { label: "公交 144路/332路", note: "步行 517米", value: "1小时25分 · ¥5", tone: "primary" },
-  { label: "网约车", note: "候车低", value: "约26分钟 · ¥56", tone: "primary" },
+  {
+    label: "地铁 4号线大兴线",
+    icon: "metro",
+    note: "route",
+    value: "46分钟 · ¥5",
+    tone: "success",
+    tag: "最快",
+    summary: "步行202米",
+    chips: [
+      { type: "walk", label: "1" },
+      { type: "line", label: "4号线大兴线" },
+      { type: "walk", label: "3" },
+    ],
+    meta: "16站 · ¥5 · 北京南站(D西入口)进站",
+    leg: "4号线大兴线（安河桥北方向）",
+    headway: "约8分钟/趟",
+  },
+  {
+    label: "出租",
+    icon: "traffic_taxi",
+    note: "上门接送",
+    value: "26分钟 · ¥56",
+    tone: "warning",
+    meta: "约19.8公里 · 南广场出租车上车区",
+  },
+  {
+    label: "公交 144路/332路",
+    icon: "traffic_bus",
+    note: "步行 517米",
+    value: "1小时25分 · ¥5",
+    tone: "primary",
+    chips: [
+      { type: "walk", label: "7" },
+      { type: "line", label: "144路" },
+      { type: "line", label: "332路" },
+      { type: "walk", label: "1" },
+    ],
+    meta: "23站 · ¥5 · 开阳桥南上车",
+    leg: "144路（岳家楼桥方向）",
+    headway: "约8分钟/趟",
+  },
+  {
+    label: "网约车",
+    icon: "ride_hailing",
+    note: "候车低",
+    value: "约26分钟 · ¥56",
+    tone: "primary",
+    meta: "推荐南广场一号网约车点 · 接驾3-5分钟",
+  },
 ];
 
 const trafficOtherOptions = [
@@ -2680,33 +2730,70 @@ function renderTrafficBusCard(item) {
   `;
 }
 
-function renderTrafficSearch() {
-  const query = state.selected.trafficQuery || "北京大学";
+function renderRouteChipRow(chips = []) {
+  if (!chips.length) return "";
   return `
-    <section class="ab-page-section ab-traffic-search-section">
-      <form class="ab-traffic-search" data-traffic-search-form>
-        <div class="ab-traffic-search-points">
-          <label><i class="start"></i><span>北京南站</span></label>
-          <label><i class="end"></i><input name="trafficQuery" value="${query}" aria-label="目的地"></label>
-        </div>
-        <button type="submit">搜索</button>
-      </form>
+    <div class="ab-route-chip-row">
+      ${chips
+        .map((chip) =>
+          chip.type === "walk"
+            ? `<span class="ab-route-walk-chip">${iconMarkup("walk_solid")}<b>${chip.label}</b></span>`
+            : `<strong>${chip.label}</strong>`
+        )
+        .join("")}
+    </div>
+  `;
+}
+
+function renderTrafficPlanCard(row, query, index) {
+  const note = row.note === "route" ? `北京南站 → ${query}` : row.note;
+  return `
+    <button class="ab-traffic-plan-card ${index === 0 ? "featured" : ""}" data-toast="${row.label}（原型演示）">
+      <span class="ab-traffic-plan-icon ${row.tone || "primary"}">${iconMarkup(row.icon || "route")}</span>
+      <span class="ab-traffic-plan-main">
+        <span class="ab-traffic-plan-title">
+          <strong>${row.label}</strong>
+          ${row.tag ? `<b class="ab-small-badge">${row.tag}</b>` : ""}
+        </span>
+        <em>${note}</em>
+      </span>
+      <span class="ab-traffic-plan-value">
+        <b>${row.value}</b>
+        ${row.summary ? `<em>${row.summary}</em>` : ""}
+        <i>›</i>
+      </span>
+      ${renderRouteChipRow(row.chips)}
+      ${row.meta ? `<p>${row.meta}</p>` : ""}
       ${
-        state.selected.trafficSearchResult
-          ? `<article class="ab-route-result-card">
-              <div class="ab-route-result-head">
-                <strong>北京南站 → ${query}</strong>
-                ${renderStatusPill("success", "最快")}
-              </div>
-              <div class="ab-route-result-time"><b>46分钟</b><span>步行202米</span></div>
-              <div class="ab-route-chip-row">
-                <span>步1</span><strong>4号线大兴线</strong><span>步3</span>
-              </div>
-              <p>16站 · ¥5 · 北京南站(D西入口)进站</p>
-              <div class="ab-route-leg">4号线大兴线（安河桥北方向）<b>约8分钟/趟</b></div>
-            </article>`
+        row.leg
+          ? `<span class="ab-route-leg">${row.leg}${row.headway ? `<b>${row.headway}</b>` : ""}</span>`
           : ""
       }
+    </button>
+  `;
+}
+
+function renderTrafficSearch(activeRoute) {
+  const query = state.selected.trafficQuery || "北京大学";
+  const hasResult = !!state.selected.trafficSearchResult;
+  return `
+    <section class="ab-page-section ab-traffic-search-section ${hasResult ? "is-result" : ""}">
+      <form class="ab-traffic-search ${hasResult ? "is-result" : "is-quick"}" data-traffic-search-form>
+        ${
+          hasResult
+            ? `<button class="ab-traffic-search-back" type="button" data-traffic-search-back aria-label="返回搜索输入">${iconMarkup("chevron_left")}</button>
+              <div class="ab-traffic-search-points">
+                <label><i class="start"></i><span>北京南站</span></label>
+                <label><i class="end"></i><input name="trafficQuery" value="${query}" aria-label="目的地"></label>
+              </div>`
+            : `<div class="ab-traffic-quick-field">
+                ${iconMarkup("search")}
+                <input name="trafficQuery" value="${query}" aria-label="目的地" placeholder="搜索目的地">
+              </div>`
+        }
+        <button type="submit">${hasResult ? "搜索" : "搜索"}</button>
+      </form>
+      ${renderSelectableGrid(trafficTabs, { activeValue: activeRoute, cols: 5, className: "ab-tab-row" })}
     </section>
   `;
 }
@@ -3177,43 +3264,9 @@ function renderTrafficPage(mode) {
   `;
   const mixedBody = `
     <section class="ab-page-section">
-      <div class="ab-panel">
-        <div class="ab-panel-head">
-          <div>
-            <h2>交通方式推荐</h2>
-            <p>北京南站 → 北京大学</p>
-          </div>
-        </div>
-        <div class="ab-traffic-compare-list">
-          ${trafficMixedRows
-            .map(
-              (row, index) => `
-                <button class="ab-traffic-compare-row ${index === 0 ? "active" : ""}" data-toast="${row.label}（原型演示）">
-                  <span class="ab-traffic-compare-copy">
-                    <strong>${row.label}${row.tag ? `<b class="ab-small-badge">${row.tag}</b>` : ""}</strong>
-                    <em>${row.note}</em>
-                  </span>
-                  <span class="ab-traffic-compare-value">
-                    <b>${row.value}</b>
-                    <i>›</i>
-                  </span>
-                </button>
-              `
-            )
-            .join("")}
-        </div>
+      <div class="ab-traffic-plan-list">
+        ${trafficMixedRows.map((row, index) => renderTrafficPlanCard(row, state.selected.trafficQuery || "北京大学", index)).join("")}
       </div>
-    </section>
-
-    <section class="ab-page-section">
-      <div class="ab-tip-card ab-tip-card--green">
-        <strong>推荐方案</strong>
-        <p>当前优先推荐地铁 4号线大兴线，行程约46分钟，票价¥5；如需省时可选择出租或网约车。</p>
-      </div>
-      ${renderActionGrid([
-        { label: "查看路线", icon: "map", toast: "查看路线（原型演示）" },
-        { label: "继续比价", icon: "car", toast: "继续比价（原型演示）" },
-      ], "ab-traffic-action-grid")}
     </section>
   `;
   const otherBody = `
@@ -3235,19 +3288,20 @@ function renderTrafficPage(mode) {
     topbar: renderAppTopbar({
       title: titleMap[mode] || "市内交通指引",
       backTo: "#/station/home",
-      action: `<button class="ab-topbar-action" data-toast="数据实时（原型演示）">数据实时</button>`,
+      action: mode === "mixed" ? "" : `<button class="ab-topbar-action" data-toast="数据实时（原型演示）">数据实时</button>`,
     }),
     body: `
-      ${renderTrafficSearch()}
-      <section class="ab-page-section">
-        ${renderSelectableGrid(trafficTabs, { activeValue: activeRoute, cols: 5, className: "ab-tab-row" })}
-      </section>
-      <section class="ab-page-section">
-        <div class="ab-traffic-meta">
-          <span>最后更新 14:32:18</span>
-          <b>数据实时</b>
-        </div>
-      </section>
+      ${renderTrafficSearch(activeRoute)}
+      ${
+        mode === "mixed"
+          ? ""
+          : `<section class="ab-page-section">
+              <div class="ab-traffic-meta">
+                <span>最后更新 14:32:18</span>
+                <b>数据实时</b>
+              </div>
+            </section>`
+      }
       ${bodyMap[mode] || taxiBody}
     `,
     footer: renderAbFooterNav("traveler", "traffic"),
@@ -4366,6 +4420,14 @@ document.addEventListener("submit", (event) => {
 });
 
 document.addEventListener("click", (event) => {
+  const trafficSearchBack = event.target.closest("[data-traffic-search-back]");
+  if (trafficSearchBack) {
+    event.preventDefault();
+    state.selected.trafficSearchResult = false;
+    render();
+    return;
+  }
+
   const selectionButton = event.target.closest("[data-select-key]");
   if (selectionButton) {
     event.preventDefault();
