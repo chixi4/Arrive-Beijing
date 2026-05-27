@@ -99,6 +99,9 @@ const state = {
       feedbackCategory: "出租车",
       bookingDate: "今天",
       bookingTime: "09:00",
+      shortHaulStation: "south",
+      shortHaulArea: "",
+      shortHaulDispatch: "",
       queueFilter: "all",
       servicesCategory: "vehicle",
       servicesSection: "traffic",
@@ -2608,51 +2611,189 @@ const driverQueueFilters = [
 ];
 
 const driverQueueStations = [
-  { id: "beijing", type: "train", name: "北京站", distance: "3.2km", status: "正常", tone: "warning", passengers: "209", vehicles: "79", wait: "12", to: "#/driver/station/beijing" },
-  { id: "west", type: "train", name: "北京西站", distance: "5.8km", status: "拥挤", tone: "danger", passengers: "457", vehicles: "147", wait: "28", to: "#/driver/station/west" },
-  { id: "south", type: "train", name: "北京南站", distance: "8.1km", status: "拥挤", tone: "danger", passengers: "354", vehicles: "124", wait: "22", to: "#/driver/station/beijing" },
-  { id: "north", type: "train", name: "北京北站", distance: "4.5km", status: "畅通", tone: "success", passengers: "42", vehicles: "18", wait: "5", to: "#/driver/station/beijing" },
-  { id: "qinghe", type: "train", name: "清河站", distance: "12.4km", status: "畅通", tone: "success", passengers: "138", vehicles: "52", wait: "11", to: "#/driver/station/beijing" },
-  { id: "chaoyang", type: "train", name: "朝阳站", distance: "6.3km", status: "正常", tone: "warning", passengers: "267", vehicles: "98", wait: "18", to: "#/driver/station/west" },
-  { id: "fengtai", type: "train", name: "丰台站", distance: "18.6km", status: "畅通", tone: "success", passengers: "96", vehicles: "31", wait: "9", to: "#/driver/station/beijing" },
-  { id: "tongzhou", type: "train", name: "通州站", distance: "20.8km", status: "正常", tone: "warning", passengers: "183", vehicles: "74", wait: "16", to: "#/driver/station/west" },
-  { id: "capital", type: "plane", name: "首都机场", distance: "25.6km", status: "拥挤", tone: "danger", passengers: "1000", vehicles: "333", wait: "48", to: "#/driver/station/beijing" },
-  { id: "daxing", type: "plane", name: "大兴机场", distance: "42.3km", status: "正常", tone: "warning", passengers: "413", vehicles: "150", wait: "24", to: "#/driver/station/beijing" },
+  { id: "beijing", type: "train", name: "北京站", distance: "3.2km", status: "正常", tone: "warning", passengers: "82", vehicles: "79", wait: "10-20", to: "#/driver/station/beijing" },
+  { id: "west", type: "train", name: "北京西站", distance: "5.8km", status: "拥挤", tone: "danger", passengers: "157", vehicles: "147", wait: "30-40", to: "#/driver/station/west" },
+  { id: "south", type: "train", name: "北京南站", distance: "8.1km", status: "拥挤", tone: "danger", passengers: "130", vehicles: "124", wait: "25-35", to: "#/driver/station/south" },
+  { id: "north", type: "train", name: "北京北站", distance: "4.5km", status: "畅通", tone: "success", passengers: "42", vehicles: "18", wait: "5-15", to: "#/driver/station/north" },
+  { id: "qinghe", type: "train", name: "清河站", distance: "12.4km", status: "畅通", tone: "success", passengers: "46", vehicles: "52", wait: "5-15", to: "#/driver/station/qinghe" },
+  { id: "chaoyang", type: "train", name: "朝阳站", distance: "6.3km", status: "正常", tone: "warning", passengers: "117", vehicles: "98", wait: "20-30", to: "#/driver/station/chaoyang" },
+  { id: "fengtai", type: "train", name: "丰台站", distance: "18.6km", status: "正常", tone: "warning", passengers: "96", vehicles: "31", wait: "10-20", to: "#/driver/station/fengtai" },
+  { id: "tongzhou", type: "train", name: "通州站", distance: "20.8km", status: "正常", tone: "warning", passengers: "83", vehicles: "74", wait: "15-25", to: "#/driver/station/tongzhou" },
+  { id: "capital", type: "plane", name: "首都机场", distance: "25.6km", status: "拥挤", tone: "danger", passengers: "1000", vehicles: "333", wait: "45-55", to: "#/driver/station/capital" },
+  { id: "daxing", type: "plane", name: "大兴机场", distance: "42.3km", status: "正常", tone: "warning", passengers: "413", vehicles: "150", wait: "20-30", to: "#/driver/station/daxing" },
 ];
 
 const driverStationData = {
   beijing: {
     title: "北京站",
     address: "东城区毛家湾胡同甲13号",
-    heroStats: [
-      { value: "209", label: "候乘旅客", tone: "primary" },
-      { value: "79", label: "排队车辆", tone: "success" },
-      { value: "12", label: "最长等候", tone: "warning" },
-    ],
     areas: [
-      { title: "出租车蓄车区A", tone: "warning", status: "正常", passengers: "126", vehicles: "48", wait: "12" },
-      { title: "出租车蓄车区B", tone: "success", status: "畅通", passengers: "83", vehicles: "31", wait: "8" },
+      { title: "北京站东街出租车调度站", tone: "warning", status: "正常", passengers: "49", vehicles: "46", wait: "10-20" },
+      { title: "北京站西街出租车调度站", tone: "success", status: "畅通", passengers: "33", vehicles: "33", wait: "5-15" },
     ],
     mapNote: "点击区域标签可查看详细候车信息，蓝色路线为引导路径",
     mapAreas: [
-      { label: "出租车蓄车区A", tone: "warning", position: "left" },
-      { label: "出租车蓄车区B", tone: "success", position: "right" },
+      { label: "东街调度站", tone: "warning", position: "left" },
+      { label: "西街调度站", tone: "success", position: "right" },
     ],
   },
   west: {
     title: "北京西站",
     address: "丰台区莲花池东路118号",
-    heroStats: [
-      { value: "457", label: "候乘旅客", tone: "primary" },
-      { value: "147", label: "排队车辆", tone: "success" },
-      { value: "28", label: "最长等候", tone: "warning" },
-    ],
     areas: [
-      { title: "南广场出租车区", tone: "danger", status: "拥挤", passengers: "312", vehicles: "95", wait: "28" },
-      { title: "北广场出租车区", tone: "warning", status: "正常", passengers: "145", vehicles: "52", wait: "15" },
+      { title: "北京西站南广场出租车调度站", tone: "danger", status: "拥挤", passengers: "96", vehicles: "89", wait: "30-40" },
+      { title: "北京西站北广场出租车调度站", tone: "warning", status: "正常", passengers: "61", vehicles: "58", wait: "20-30" },
+    ],
+  },
+  south: {
+    title: "北京南站",
+    address: "丰台区永外大街12号",
+    areas: [
+      { title: "北京南站南广场出租车调度站", tone: "danger", status: "拥挤", passengers: "83", vehicles: "78", wait: "25-35" },
+      { title: "北京南站北广场出租车调度站", tone: "warning", status: "正常", passengers: "47", vehicles: "46", wait: "15-25" },
+    ],
+  },
+  north: {
+    title: "北京北站",
+    address: "西城区北滨河路1号",
+    areas: [
+      { title: "北京北站南广场出租车调度站", tone: "success", status: "畅通", passengers: "27", vehicles: "12", wait: "5-15" },
+      { title: "北京北站北落客出租车调度站", tone: "success", status: "畅通", passengers: "15", vehicles: "6", wait: "5-15" },
+    ],
+  },
+  qinghe: {
+    title: "清河站",
+    address: "海淀区安宁庄西路",
+    areas: [
+      { title: "清河站东广场出租车调度站", tone: "success", status: "畅通", passengers: "28", vehicles: "31", wait: "5-15" },
+      { title: "清河站西广场出租车调度站", tone: "success", status: "畅通", passengers: "18", vehicles: "21", wait: "5-15" },
+    ],
+  },
+  chaoyang: {
+    title: "朝阳站",
+    address: "朝阳区姚家园北路",
+    areas: [
+      { title: "北京朝阳站南广场出租车调度站", tone: "warning", status: "正常", passengers: "68", vehicles: "57", wait: "20-30" },
+      { title: "北京朝阳站北广场出租车调度站", tone: "warning", status: "正常", passengers: "49", vehicles: "41", wait: "15-25" },
+    ],
+  },
+  fengtai: {
+    title: "丰台站",
+    address: "丰台区正阳大街4号",
+    areas: [
+      { title: "丰台站南广场出租车调度站", tone: "warning", status: "正常", passengers: "58", vehicles: "19", wait: "10-20" },
+      { title: "丰台站北广场出租车调度站", tone: "success", status: "畅通", passengers: "38", vehicles: "12", wait: "5-15" },
+    ],
+  },
+  tongzhou: {
+    title: "通州站",
+    address: "通州区新华东街",
+    areas: [
+      { title: "北京通州站东广场出租车调度站", tone: "warning", status: "正常", passengers: "50", vehicles: "45", wait: "15-25" },
+      { title: "北京通州站西广场出租车调度站", tone: "success", status: "畅通", passengers: "33", vehicles: "29", wait: "10-20" },
+    ],
+  },
+  capital: {
+    title: "首都机场",
+    address: "顺义区首都机场路",
+    areas: [
+      { title: "首都机场T3出租车调度站", tone: "danger", status: "拥挤", passengers: "610", vehicles: "205", wait: "45-55" },
+      { title: "首都机场T2出租车调度站", tone: "warning", status: "正常", passengers: "390", vehicles: "128", wait: "35-45" },
+    ],
+  },
+  daxing: {
+    title: "大兴机场",
+    address: "大兴区礼贤镇航兴路",
+    areas: [
+      { title: "大兴机场航站楼出租车调度站", tone: "warning", status: "正常", passengers: "248", vehicles: "90", wait: "20-30" },
+      { title: "大兴机场远端出租车蓄车区", tone: "success", status: "畅通", passengers: "165", vehicles: "60", wait: "15-25" },
     ],
   },
 };
+
+const shortHaulDispatchData = {
+  beijing: {
+    name: "北京站",
+    areas: [
+      { key: "east-street", name: "北京站东街出租车调度区", dispatches: ["北京站东街1号出租车调度站", "北京站东街2号出租车调度站"] },
+      { key: "west-street", name: "北京站西街出租车调度区", dispatches: ["北京站西街出租车调度站"] },
+    ],
+  },
+  west: {
+    name: "北京西站",
+    areas: [
+      { key: "south-plaza", name: "北京西站南广场出租车调度区", dispatches: ["北京西站南广场东侧出租车调度站", "北京西站南广场西侧出租车调度站"] },
+      { key: "north-plaza", name: "北京西站北广场出租车调度区", dispatches: ["北京西站北广场出租车调度站"] },
+    ],
+  },
+  south: {
+    name: "北京南站",
+    areas: [
+      { key: "south-plaza", name: "北京南站南广场出租车调度区", dispatches: ["北京南站南广场东侧出租车调度站", "北京南站南广场西侧出租车调度站", "北京南站南广场地下出租车调度站"] },
+      { key: "north-plaza", name: "北京南站北广场出租车调度区", dispatches: ["北京南站北广场东侧出租车调度站", "北京南站北广场西侧出租车调度站"] },
+    ],
+  },
+  north: {
+    name: "北京北站",
+    areas: [
+      { key: "south-plaza", name: "北京北站南广场出租车调度区", dispatches: ["北京北站南广场出租车调度站"] },
+      { key: "north-dropoff", name: "北京北站北落客出租车调度区", dispatches: ["北京北站北落客出租车调度站"] },
+    ],
+  },
+  qinghe: {
+    name: "清河站",
+    areas: [
+      { key: "east-plaza", name: "清河站东广场出租车调度区", dispatches: ["清河站东广场出租车调度站", "清河站东广场备用出租车调度站"] },
+      { key: "west-plaza", name: "清河站西广场出租车调度区", dispatches: ["清河站西广场出租车调度站"] },
+    ],
+  },
+  chaoyang: {
+    name: "朝阳站",
+    areas: [
+      { key: "south-plaza", name: "北京朝阳站南广场出租车调度区", dispatches: ["北京朝阳站南广场主出租车调度站", "北京朝阳站南广场备用出租车调度站"] },
+      { key: "north-plaza", name: "北京朝阳站北广场出租车调度区", dispatches: ["北京朝阳站北广场出租车调度站"] },
+    ],
+  },
+  fengtai: {
+    name: "丰台站",
+    areas: [
+      { key: "south-plaza", name: "丰台站南广场出租车调度区", dispatches: ["丰台站南广场出租车调度站", "丰台站南广场备用出租车调度站"] },
+      { key: "north-plaza", name: "丰台站北广场出租车调度区", dispatches: ["丰台站北广场出租车调度站"] },
+    ],
+  },
+  tongzhou: {
+    name: "通州站",
+    areas: [
+      { key: "east-plaza", name: "北京通州站东广场出租车调度区", dispatches: ["北京通州站东广场出租车调度站", "北京通州站东广场备用出租车调度站"] },
+      { key: "west-plaza", name: "北京通州站西广场出租车调度区", dispatches: ["北京通州站西广场出租车调度站"] },
+    ],
+  },
+};
+
+function queueStationById(id) {
+  return driverQueueStations.find((station) => station.id === id) || driverQueueStations[0];
+}
+
+function dispatchStationCount(station) {
+  return (station && station.areas ? station.areas : []).reduce((total, area) => total + area.dispatches.length, 0);
+}
+
+function shortHaulStationById(id) {
+  return shortHaulDispatchData[id] || shortHaulDispatchData.south;
+}
+
+function shortHaulAreaByKey(stationKey, areaKey) {
+  const station = shortHaulStationById(stationKey);
+  return station.areas.find((area) => area.key === areaKey) || station.areas[0];
+}
+
+function selectedShortHaulSummary() {
+  const stationKey = shortHaulDispatchData[state.selected.shortHaulStation] ? state.selected.shortHaulStation : "south";
+  const station = shortHaulStationById(stationKey);
+  const area = state.selected.shortHaulArea ? shortHaulAreaByKey(stationKey, state.selected.shortHaulArea) : null;
+  const dispatch = area && area.dispatches.includes(state.selected.shortHaulDispatch) ? state.selected.shortHaulDispatch : "";
+  return { stationKey, station, area, dispatch };
+}
 
 const shortHaulTabs = [
   { key: "booking", label: "预约进场", to: "#/driver/short-haul/booking" },
@@ -3505,7 +3646,13 @@ function renderDriverQueuePage(variant = "top") {
 
 function renderDriverStationPage(stationKey, variant = "queue") {
   const station = driverStationData[stationKey] || driverStationData.beijing;
+  const queueStation = queueStationById(stationKey);
   const isBeijing = stationKey === "beijing";
+  const heroStats = [
+    { value: queueStation.passengers, label: "候乘旅客", tone: "primary" },
+    { value: queueStation.vehicles, label: "排队车辆", tone: "success" },
+    { value: `${queueStation.wait}分钟`, label: "最长等候", tone: "warning" },
+  ];
   return renderAppShell({
     className: "ab-driver-station-page",
     topbar: renderAppTopbar({
@@ -3517,7 +3664,7 @@ function renderDriverStationPage(stationKey, variant = "queue") {
       <section class="ab-page-section">
         <div class="ab-station-hero">
           <p>${station.address}</p>
-          ${renderStatGrid(station.heroStats)}
+          ${renderStatGrid(heroStats)}
         </div>
       </section>
 
@@ -3565,7 +3712,7 @@ function renderDriverStationPage(stationKey, variant = "queue") {
           `
           : `
             <section class="ab-page-section">
-              ${renderSectionTitle("候车区列表（2个区域）", `<button class="ab-section-link" data-toast="更新于刚刚">更新于刚刚</button>`)}
+              ${renderSectionTitle(`出租车调度站列表（${station.areas.length}个）`, `<button class="ab-section-link" data-toast="更新于刚刚">更新于刚刚</button>`)}
               <div class="ab-station-area-list">
                 ${station.areas.map(renderStationAreaCard).join("")}
               </div>
@@ -3596,6 +3743,140 @@ function renderDriverStationPage(stationKey, variant = "queue") {
       }
     `,
     footer: renderAbFooterNav("driver", "home"),
+  });
+}
+
+function renderShortHaulTargetCard() {
+  const selection = selectedShortHaulSummary();
+  const areaText = selection.area ? selection.area.name : "未选择站区";
+  const dispatchText = selection.dispatch || "未选择调度站";
+  return `
+    <button class="ab-target-card ab-short-haul-target-card" data-to="#/driver/short-haul/station-select">
+      <span class="ab-target-icon">${stationIconMarkup(selection.stationKey)}</span>
+      <span class="ab-target-copy">
+        <strong>${selection.station.name}</strong>
+        <em>${areaText}</em>
+        <em class="${selection.dispatch ? "selected" : "pending"}">${dispatchText}</em>
+      </span>
+      <i>›</i>
+    </button>
+  `;
+}
+
+function renderShortHaulStationChoiceCard([stationKey, station]) {
+  const queueStation = queueStationById(stationKey);
+  const selected = selectedShortHaulSummary().stationKey === stationKey;
+  return `
+    <button class="ab-short-haul-choice-card ${selected ? "active" : ""}" data-short-haul-station="${stationKey}">
+      <span class="ab-short-haul-choice-icon">${stationIconMarkup(stationKey)}</span>
+      <span class="ab-short-haul-choice-copy">
+        <strong>${station.name}</strong>
+        <em>${station.areas.length}个站区 · ${dispatchStationCount(station)}个出租车调度站</em>
+        <small>当前排队 ${queueStation.passengers}人 · 预计 ${queueStation.wait}分钟</small>
+      </span>
+      ${selected ? `<span class="ab-short-haul-choice-check">${iconMarkup("check")}</span>` : `<i>›</i>`}
+    </button>
+  `;
+}
+
+function renderShortHaulAreaChoiceCard(stationKey, area) {
+  const selected = state.selected.shortHaulStation === stationKey && state.selected.shortHaulArea === area.key;
+  return `
+    <button class="ab-short-haul-choice-card ${selected ? "active" : ""}" data-short-haul-area="${area.key}" data-short-haul-station="${stationKey}">
+      <span class="ab-short-haul-choice-icon">${iconMarkup("pin")}</span>
+      <span class="ab-short-haul-choice-copy">
+        <strong>${area.name}</strong>
+        <em>${area.dispatches.length}个出租车调度站</em>
+        <small>选择后继续选择具体调度站</small>
+      </span>
+      <i>›</i>
+    </button>
+  `;
+}
+
+function renderShortHaulDispatchChoiceCard(stationKey, areaKey, dispatchName) {
+  const selected =
+    state.selected.shortHaulStation === stationKey &&
+    state.selected.shortHaulArea === areaKey &&
+    state.selected.shortHaulDispatch === dispatchName;
+  return `
+    <button class="ab-short-haul-choice-card ${selected ? "active" : ""}" data-short-haul-dispatch="${dispatchName}" data-short-haul-station="${stationKey}" data-short-haul-area="${areaKey}">
+      <span class="ab-short-haul-choice-icon">${iconMarkup("taxi")}</span>
+      <span class="ab-short-haul-choice-copy">
+        <strong>${dispatchName}</strong>
+        <em>点击后返回预约进场页</em>
+      </span>
+      ${selected ? `<span class="ab-short-haul-choice-check">${iconMarkup("check")}</span>` : `<i>›</i>`}
+    </button>
+  `;
+}
+
+function renderShortHaulStationSelectPage() {
+  const stationsForBooking = Object.entries(shortHaulDispatchData);
+  return renderAppShell({
+    className: "ab-short-haul-page ab-short-haul-select-page",
+    topbar: renderAppTopbar({ title: "选择目标车站", backTo: "#/driver/short-haul/booking" }),
+    body: `
+      <section class="ab-page-section">
+        <div class="ab-choice-context">
+          <strong>目标车站</strong>
+          <span>先选择车站，再选择全称站区和具体出租车调度站。</span>
+        </div>
+      </section>
+      <section class="ab-page-section">
+        <div class="ab-short-haul-choice-list">
+          ${stationsForBooking.map(renderShortHaulStationChoiceCard).join("")}
+        </div>
+      </section>
+    `,
+    footer: renderAbFooterNav("driver", "short"),
+  });
+}
+
+function renderShortHaulAreaSelectPage(stationKey) {
+  const station = shortHaulStationById(stationKey);
+  const resolvedStationKey = shortHaulDispatchData[stationKey] ? stationKey : "south";
+  return renderAppShell({
+    className: "ab-short-haul-page ab-short-haul-select-page",
+    topbar: renderAppTopbar({ title: "选择站区", backTo: "#/driver/short-haul/station-select" }),
+    body: `
+      <section class="ab-page-section">
+        <div class="ab-choice-context">
+          <strong>${station.name}</strong>
+          <span>${station.areas.length}个站区 · ${dispatchStationCount(station)}个出租车调度站</span>
+        </div>
+      </section>
+      <section class="ab-page-section">
+        <div class="ab-short-haul-choice-list">
+          ${station.areas.map((area) => renderShortHaulAreaChoiceCard(resolvedStationKey, area)).join("")}
+        </div>
+      </section>
+    `,
+    footer: renderAbFooterNav("driver", "short"),
+  });
+}
+
+function renderShortHaulDispatchSelectPage(stationKey, areaKey) {
+  const resolvedStationKey = shortHaulDispatchData[stationKey] ? stationKey : "south";
+  const station = shortHaulStationById(resolvedStationKey);
+  const area = shortHaulAreaByKey(resolvedStationKey, areaKey);
+  return renderAppShell({
+    className: "ab-short-haul-page ab-short-haul-select-page",
+    topbar: renderAppTopbar({ title: "选择调度站", backTo: `#/driver/short-haul/area-select/${resolvedStationKey}` }),
+    body: `
+      <section class="ab-page-section">
+        <div class="ab-choice-context">
+          <strong>${area.name}</strong>
+          <span>${station.name} · ${area.dispatches.length}个出租车调度站</span>
+        </div>
+      </section>
+      <section class="ab-page-section">
+        <div class="ab-short-haul-choice-list">
+          ${area.dispatches.map((dispatch) => renderShortHaulDispatchChoiceCard(resolvedStationKey, area.key, dispatch)).join("")}
+        </div>
+      </section>
+    `,
+    footer: renderAbFooterNav("driver", "short"),
   });
 }
 
@@ -3633,14 +3914,7 @@ function renderShortHaulPage(variant = "booking") {
     booking: `
       <section class="ab-page-section">
         ${renderSectionTitle("目标车站")}
-        <button class="ab-target-card" data-toast="北京南站（原型演示）">
-          <span class="ab-target-icon">${iconMarkup("station_south")}</span>
-          <span class="ab-target-copy">
-            <strong>北京南站</strong>
-            <em>丰台区永外大街12号</em>
-          </span>
-          <i>›</i>
-        </button>
+        ${renderShortHaulTargetCard()}
       </section>
 
       <section class="ab-page-section">
@@ -3840,6 +4114,10 @@ function renderTaxiHousePage(variant = "info") {
 
 function renderFeatureRoute(current) {
   const transferMatch = current.match(/^#\/station-transfer\/([^/]+)$/);
+  const driverStationMapMatch = current.match(/^#\/driver\/station\/([^/]+)\/map$/);
+  const driverStationMatch = current.match(/^#\/driver\/station\/([^/]+)$/);
+  const shortHaulAreaMatch = current.match(/^#\/driver\/short-haul\/area-select\/([^/]+)$/);
+  const shortHaulDispatchMatch = current.match(/^#\/driver\/short-haul\/dispatch-select\/([^/]+)\/([^/]+)$/);
   if (current === "#/station/home") return renderStationHome();
   if (current === "#/nav/map") return renderNavigationPage("map");
   if (current === "#/nav/map3d") return renderNavigationPage("map3d");
@@ -3863,9 +4141,12 @@ function renderFeatureRoute(current) {
   if (current === "#/driver/queue") return renderDriverQueuePage("top");
   if (current === "#/driver/queue/mid") return renderDriverQueuePage("mid");
   if (current === "#/driver/queue/right") return renderDriverQueuePage("right");
-  if (current === "#/driver/station/beijing") return renderDriverStationPage("beijing", "queue");
   if (current === "#/driver/station/beijing-map") return renderDriverStationPage("beijing", "map");
-  if (current === "#/driver/station/west") return renderDriverStationPage("west", "queue");
+  if (driverStationMapMatch && driverStationData[driverStationMapMatch[1]]) return renderDriverStationPage(driverStationMapMatch[1], "map");
+  if (driverStationMatch && driverStationData[driverStationMatch[1]]) return renderDriverStationPage(driverStationMatch[1], "queue");
+  if (current === "#/driver/short-haul/station-select") return renderShortHaulStationSelectPage();
+  if (shortHaulAreaMatch) return renderShortHaulAreaSelectPage(shortHaulAreaMatch[1]);
+  if (shortHaulDispatchMatch) return renderShortHaulDispatchSelectPage(shortHaulDispatchMatch[1], shortHaulDispatchMatch[2]);
   if (current === "#/driver/short-haul/booking") return renderShortHaulPage("booking");
   if (current === "#/driver/short-haul/booking-more") return renderShortHaulPage("booking");
   if (current === "#/driver/short-haul/history") return renderShortHaulPage("history");
@@ -4507,6 +4788,50 @@ document.addEventListener("click", (event) => {
     const delta = Number(counterButton.dataset.counterDelta);
     state.counters[key] = Math.max(0, Math.min(9, (state.counters[key] || 0) + delta));
     render();
+    return;
+  }
+
+  const shortHaulStationButton = event.target.closest("[data-short-haul-station]");
+  if (shortHaulStationButton && !shortHaulStationButton.dataset.shortHaulArea && !shortHaulStationButton.dataset.shortHaulDispatch) {
+    event.preventDefault();
+    const stationKey = shortHaulDispatchData[shortHaulStationButton.dataset.shortHaulStation]
+      ? shortHaulStationButton.dataset.shortHaulStation
+      : "south";
+    state.selected.shortHaulStation = stationKey;
+    state.selected.shortHaulArea = "";
+    state.selected.shortHaulDispatch = "";
+    go(`#/driver/short-haul/area-select/${stationKey}`);
+    return;
+  }
+
+  const shortHaulAreaButton = event.target.closest("[data-short-haul-area]");
+  if (shortHaulAreaButton && !shortHaulAreaButton.dataset.shortHaulDispatch) {
+    event.preventDefault();
+    const stationKey = shortHaulDispatchData[shortHaulAreaButton.dataset.shortHaulStation]
+      ? shortHaulAreaButton.dataset.shortHaulStation
+      : "south";
+    const areaKey = shortHaulAreaByKey(stationKey, shortHaulAreaButton.dataset.shortHaulArea).key;
+    state.selected.shortHaulStation = stationKey;
+    state.selected.shortHaulArea = areaKey;
+    state.selected.shortHaulDispatch = "";
+    go(`#/driver/short-haul/dispatch-select/${stationKey}/${areaKey}`);
+    return;
+  }
+
+  const shortHaulDispatchButton = event.target.closest("[data-short-haul-dispatch]");
+  if (shortHaulDispatchButton) {
+    event.preventDefault();
+    const stationKey = shortHaulDispatchData[shortHaulDispatchButton.dataset.shortHaulStation]
+      ? shortHaulDispatchButton.dataset.shortHaulStation
+      : "south";
+    const area = shortHaulAreaByKey(stationKey, shortHaulDispatchButton.dataset.shortHaulArea);
+    const dispatchName = area.dispatches.includes(shortHaulDispatchButton.dataset.shortHaulDispatch)
+      ? shortHaulDispatchButton.dataset.shortHaulDispatch
+      : area.dispatches[0];
+    state.selected.shortHaulStation = stationKey;
+    state.selected.shortHaulArea = area.key;
+    state.selected.shortHaulDispatch = dispatchName;
+    go("#/driver/short-haul/booking");
     return;
   }
 
