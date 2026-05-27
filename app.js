@@ -1141,7 +1141,7 @@ function getToastPositionStyle() {
   const rect = nav.getBoundingClientRect();
   const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
   if (!rect.width || rect.top <= 0 || rect.top >= viewportHeight) return "";
-  const top = Math.max(16, Math.round(rect.top - 50));
+  const top = Math.max(16, Math.round(rect.top - 62));
   return ` style="top:${top}px;bottom:auto;"`;
 }
 
