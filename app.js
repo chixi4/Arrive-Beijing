@@ -1135,11 +1135,21 @@ function renderBottomNav(activeKey) {
 
 let toastTimer = null;
 
+function getToastPositionStyle() {
+  const nav = document.querySelector(".ab-bottom-nav, .bottom-nav, .anchor-bottom-nav");
+  if (!nav) return "";
+  const rect = nav.getBoundingClientRect();
+  const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+  if (!rect.width || rect.top <= 0 || rect.top >= viewportHeight) return "";
+  const top = Math.max(16, Math.round(rect.top - 50));
+  return ` style="top:${top}px;bottom:auto;"`;
+}
+
 function showToast(message) {
   if (!modalRoot) return;
   window.clearTimeout(toastTimer);
   modalRoot.classList.remove("open");
-  modalRoot.innerHTML = `<div class="toast">${message}</div>`;
+  modalRoot.innerHTML = `<div class="toast"${getToastPositionStyle()}>${message}</div>`;
   toastTimer = window.setTimeout(() => {
     modalRoot.innerHTML = "";
     modalRoot.classList.remove("open");
@@ -2758,10 +2768,17 @@ function renderTrafficMetroCard(item) {
   `;
 }
 
+function renderTrafficBusLine(line) {
+  if (line === "快速公交1") {
+    return `<span>快速</span><span>公交1</span>`;
+  }
+  return `<span>${line}</span>`;
+}
+
 function renderTrafficBusCard(item) {
   return `
     <button class="ab-traffic-bus-card" data-toast="${item.line}（原型演示）">
-      <span class="ab-traffic-bus-icon">${item.line}</span>
+      <span class="ab-traffic-bus-icon" aria-label="${item.line}">${renderTrafficBusLine(item.line)}</span>
       <span class="ab-traffic-bus-copy">
         <strong>${item.dest}</strong>
         <em>${item.meta}</em>
