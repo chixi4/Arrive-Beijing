@@ -12,19 +12,55 @@ token_contract:
     section_title_gap: 6px
     cell_height: 52px
     compact_cell_height: 48px
-    cell_icon: 30px
-    compact_cell_icon: 28px
+    cell_icon: 32px
+    compact_cell_icon: 30px
+  preview_frame:
+    business_canvas: "430px × 860px"
+    anchor_canvas: "864px × 1728px"
+    mobile_behavior: "scale the 430px canvas down to fit the device; do not reflow typography or columns by phone width"
+    desktop_behavior: "scale the fixed canvas to fit available browser width and height"
 
 component_contract:
   page_shell:
     body_alignment: start
     note: "ab-page-body lives inside a fixed-height mobile-preview shell, so grid auto tracks must not stretch into vertical slack."
+  preview_frame:
+    component: mobile-preview-app
+    width: 430px
+    base_height: 860px
+    scrolling: "page content scrolls inside the frame; browser viewport should not distort the phone canvas"
+    avoid: [device_width_reflow, viewport_scaled_font_size, stretched_canvas]
   cell_group:
     component: ab-info-list
     outer: "one white surface with border, light shadow, overflow hidden"
     rows: "ab-info-row has no individual card border; adjacent rows do not show divider lines; padding and text hierarchy separate rows"
     use_for: [settings_menu, basic_info, contact_info, announcement_summary]
     avoid: [one_card_per_simple_row, nested_card_inside_panel, mismatched_row_heights]
+  station_selector:
+    component: station-grid-source + station-select-grid
+    routes: ["#/station/select", "#/station/switch"]
+    order: [北京站, 北京西站, 北京南站, 北京北站, 清河站, 朝阳站, 丰台站, 通州站, 首都机场, 大兴机场]
+    behavior: "single-column vertical cards; click a card to enter station home; scroll selected station to the first visible card when entering"
+    snap: "y proximity"
+    default_station: 北京南站
+    active_station: "station/switch uses the current stored station; old yizhuang storage migrates to fengtai"
+    image_source: "assets/bitmap/stations-v3/*.webp"
+    avoid: [confirm_button, station_reordering_to_top, horizontal_selector_regression]
+  status_pill:
+    component: ab-status-pill
+    height: 24px
+    radius: var(--ds-radius-control)
+    tones: [primary, success, warning, danger, muted]
+    avoid: [large_capsule_for_minor_status, page_specific_height_override]
+  prototype_toast:
+    component: toast
+    placement: "above bottom navigation when nav exists"
+    avoid: [bottom_nav_overlap, page_specific_z_index]
+  navigation_poi_marker:
+    component: ab-nav-pulse-marker
+    shape: pin_drop
+    motion: vertical_bounce
+    avoid: [glow, route_overlay_restoration, text_label_inside_map]
 
 recipes:
   home_workbench:
@@ -165,6 +201,28 @@ recipes:
         full_width: true
     visual_rules:
       avoid: [membership_poster_header, too_many_colored_icons, decorative_background]
+
+  station_selector:
+    applies_to:
+      routes:
+        - "#/station/select"
+        - "#/station/switch"
+      archetype: station_selector
+    layout:
+      list: single_column
+      card_gap: 12px
+      list_padding: "10px 14px 16px"
+      card_media_ratio: "16 / 8.4"
+    composition:
+      card:
+        image: "station-v3 bitmap"
+        icon: "station_* currentColor mask in a white inset chip"
+        active_state: "blue border + check badge"
+      scroll:
+        snap: y_proximity
+        selected_alignment: start
+    visual_rules:
+      avoid: [bottom_confirm_area, reordering_active_station, duplicated_station_pills]
 
   modal_action:
     applies_to:

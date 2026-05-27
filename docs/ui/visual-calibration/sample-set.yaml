@@ -50,7 +50,7 @@ samples:
 
   - id: station-switch
     route: "#/station/switch"
-    archetype: modal_action
+    archetype: station_selector
     calibration: true
-    anchor_route: "#/style-anchor/08-modal"
-    reason: "站区切换页承担滚动选择和确认更改，是用户特别强调的交互页。"
+    anchor_route: "#/style-anchor/02-list"
+    reason: "站区切换页承担单列大图卡片、竖向吸附滚动和当前站点自动对齐，是用户特别强调的交互页。"
