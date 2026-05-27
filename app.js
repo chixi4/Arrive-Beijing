@@ -1054,11 +1054,33 @@ function updateStationCarouselSelection(carousel) {
 }
 
 function syncStationCarousel() {
+  const gridScroller = document.querySelector(".station-grid-source");
+  if (gridScroller) {
+    const active = gridScroller.querySelector(`[data-station="${state.draftStation}"]`);
+    if (!active) return;
+    const top = Math.max(0, active.offsetTop - gridScroller.offsetTop - 10);
+    gridScroller.scrollTo({ top, behavior: "auto" });
+    return;
+  }
   const carousel = document.querySelector("[data-station-carousel]");
   if (!carousel) return;
   const active = carousel.querySelector(`[data-station="${state.draftStation}"]`);
   if (!active) return;
   active.scrollIntoView({ block: "nearest", inline: "center", behavior: "auto" });
+}
+
+function scheduleStationCarouselSync() {
+  const sync = () => syncStationCarousel();
+  sync();
+  requestAnimationFrame(() => {
+    sync();
+    window.setTimeout(sync, 80);
+    window.setTimeout(sync, 260);
+  });
+  document.querySelectorAll(".station-grid-source img").forEach((image) => {
+    if (image.complete) return;
+    image.addEventListener("load", sync, { once: true });
+  });
 }
 
 function boxStyle(box) {
@@ -4669,6 +4691,7 @@ function render() {
     app.className = "app-shell mobile-preview-app";
     app.innerHTML = renderStationSelect("select");
     syncDesktopPreviewFrame();
+    scheduleStationCarouselSync();
     return;
   }
   if (current === "#/station/switch") {
@@ -4679,6 +4702,7 @@ function render() {
     app.className = "app-shell mobile-preview-app";
     app.innerHTML = renderStationSelect("switch");
     syncDesktopPreviewFrame();
+    scheduleStationCarouselSync();
     return;
   }
   state.currentSurface = current;
