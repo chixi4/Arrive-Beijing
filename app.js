@@ -3084,7 +3084,7 @@ function renderNavigationPage(mode) {
       </section>
 
       <section class="ab-page-section">
-        ${renderSectionTitle(currentVisual.title)}
+        ${visualMode === "map" ? "" : renderSectionTitle(currentVisual.title)}
         <div class="ab-nav-visual" data-floor="${selectedFloor}" data-mode="${visualMode}" data-layer="${selected3dLayer}">
           <img src="${currentImage}" alt="${currentVisual.title}">
           <div class="ab-nav-visual-shade"></div>
