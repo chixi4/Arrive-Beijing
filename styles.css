@@ -6606,6 +6606,7 @@ body.desktop-preview #app.anchor-app {
 .ab-parking-card,
 .ab-queue-station-card,
 .ab-station-area-card,
+.ab-short-haul-choice-card,
 .ab-target-card,
 .ab-meal-card,
 .ab-reward-card,
@@ -8560,6 +8561,128 @@ body.desktop-preview #app.anchor-app {
   font-style: normal;
   font-size: 24px;
   line-height: 1;
+}
+
+.ab-short-haul-target-card {
+  align-items: start;
+}
+
+.ab-short-haul-target-card .ab-target-icon .icon {
+  width: 34px;
+  height: 22px;
+}
+
+.ab-target-copy em.selected {
+  color: var(--text);
+  font-weight: 650;
+}
+
+.ab-target-copy em.pending {
+  color: var(--subtle);
+}
+
+.ab-choice-context {
+  padding: 12px 13px;
+  border: 1px solid rgba(32, 111, 216, 0.14);
+  border-radius: var(--ds-radius-card);
+  background: #f4f8ff;
+  display: grid;
+  gap: 5px;
+}
+
+.ab-choice-context strong {
+  font-size: 17px;
+  line-height: 1.2;
+  font-weight: 850;
+  color: var(--text);
+}
+
+.ab-choice-context span {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.ab-short-haul-choice-list {
+  display: grid;
+  gap: 10px;
+}
+
+.ab-short-haul-choice-card {
+  min-height: 74px;
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  text-align: left;
+}
+
+.ab-short-haul-choice-card.active {
+  border-color: rgba(32, 111, 216, 0.42);
+  box-shadow: 0 10px 24px rgba(32, 111, 216, 0.12);
+}
+
+.ab-short-haul-choice-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--ds-radius-icon);
+  display: grid;
+  place-items: center;
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+
+.ab-short-haul-choice-icon .icon {
+  width: 30px;
+  height: 30px;
+}
+
+.ab-short-haul-choice-copy {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.ab-short-haul-choice-copy strong {
+  color: var(--text);
+  font-size: 15.5px;
+  line-height: 1.22;
+  font-weight: 850;
+}
+
+.ab-short-haul-choice-copy em,
+.ab-short-haul-choice-copy small {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+  font-style: normal;
+}
+
+.ab-short-haul-choice-copy small {
+  color: var(--subtle);
+}
+
+.ab-short-haul-choice-card i {
+  color: var(--subtle);
+  font-size: 24px;
+  line-height: 1;
+  font-style: normal;
+}
+
+.ab-short-haul-choice-check {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--ds-radius-pill);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: var(--blue);
+}
+
+.ab-short-haul-choice-check .icon {
+  width: 13px;
+  height: 13px;
 }
 
 .ab-meal-card {
