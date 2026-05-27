@@ -1034,6 +1034,15 @@ function updateStationCarouselSelection(carousel) {
 }
 
 function syncStationCarousel() {
+  const gridScroller = document.querySelector(".station-grid-source");
+  if (gridScroller) {
+    const active = gridScroller.querySelector(`[data-station="${state.draftStation}"]`);
+    if (!active) return;
+    const scrollerBox = gridScroller.getBoundingClientRect();
+    const activeBox = active.getBoundingClientRect();
+    gridScroller.scrollTop += activeBox.top - scrollerBox.top;
+    return;
+  }
   const carousel = document.querySelector("[data-station-carousel]");
   if (!carousel) return;
   const active = carousel.querySelector(`[data-station="${state.draftStation}"]`);
