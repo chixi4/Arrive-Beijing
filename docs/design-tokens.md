@@ -113,7 +113,7 @@
 - `card`、`soft-card`、`entry-card` 是卡片层。
 - `chip`、`tab`、`pill`、`ds-badge` 是标签/状态层。
 - `topbar`、`bottom-nav` 是全局导航层。
-- `ab-info-list` 是业务页优先使用的 cell-group：多条信息放在同一个白色容器里，中间用 1px 分割线，不再默认“一条一个卡片”。
+- `ab-info-list` 是业务页优先使用的 cell-group：多条信息放在同一个白色容器里，内部不显示横向分割线，靠行高、留白和文字层级区分。
 - `ds-list-row`、`ds-field`、`ds-callout` 是后续页面最常用的复用块。
 
 ## 锚点复刻 Token（保留）

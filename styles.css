@@ -5355,7 +5355,7 @@ body.desktop-preview #app {
 }
 
 .ab-home-hero-cover {
-  min-height: 258px;
+  min-height: 232px;
   padding: 12px 14px 14px;
   display: grid;
   gap: 12px;
@@ -5493,7 +5493,7 @@ body.desktop-preview #app {
 }
 
 .ab-info-row + .ab-info-row {
-  border-top: 1px solid var(--line);
+  border-top: 0;
 }
 
 .ab-info-row,
@@ -5568,11 +5568,12 @@ body.desktop-preview #app {
 }
 
 .ab-announcement-list .ab-info-icon.tag {
-  min-width: 36px;
-  height: 21px;
+  min-width: 34px;
+  height: 18px;
   padding: 0 6px;
-  border-radius: 7px;
-  font-size: 11.5px;
+  border-radius: 6px;
+  font-size: 11px;
+  line-height: 1;
 }
 
 .ab-info-row strong {
