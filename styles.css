@@ -6532,6 +6532,7 @@ body.desktop-preview #app {
 .ab-traffic-ride-card,
 .ab-traffic-metro-card,
 .ab-traffic-bus-card,
+.ab-traffic-plan-card,
 .ab-parking-card,
 .ab-queue-station-card,
 .ab-station-area-card,
@@ -7174,29 +7175,108 @@ body.desktop-preview #app {
 }
 
 .ab-traffic-search-section {
-  margin: -2px 0 0;
+  margin: -10px calc(var(--ds-page-pad) * -1) 0;
+  padding: 10px var(--ds-page-pad) 0;
+  border-bottom: 1px solid rgba(223, 230, 239, 0.92);
+  background: #fff;
+  display: grid;
+  gap: 12px;
+}
+
+.ab-traffic-search-section.is-result {
+  gap: 12px;
+}
+
+.ab-traffic-search-section .ab-tab-row {
+  margin: 0 calc(var(--ds-page-pad) * -1);
+  border-bottom: 0;
 }
 
 .ab-traffic-search {
-  min-height: 58px;
-  padding: 8px 10px 8px 12px;
   border: 1px solid var(--line);
-  border-radius: var(--ds-radius-card);
-  background: #fff;
-  box-shadow: var(--shadow-soft);
+  background: #f8fbff;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 10px;
 }
 
+.ab-traffic-search.is-quick {
+  min-height: 42px;
+  padding: 0 8px 0 12px;
+  border-radius: var(--ds-radius-control);
+  box-shadow: none;
+}
+
+.ab-traffic-search.is-result {
+  min-height: 64px;
+  padding: 4px 10px 4px 8px;
+  border-radius: var(--ds-radius-card);
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 8px;
+}
+
+.ab-traffic-search.is-result button {
+  height: 34px;
+}
+
+.ab-traffic-search-back {
+  width: 30px;
+  min-width: 30px;
+  height: 24px;
+  border-radius: var(--ds-radius-control);
+  display: grid;
+  place-items: center;
+  color: #526071;
+  background: transparent;
+  align-self: start;
+  margin-top: 4px;
+}
+
+.ab-traffic-search-back .icon {
+  width: 19px;
+  height: 19px;
+}
+
+.ab-traffic-quick-field {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 9px;
+}
+
+.ab-traffic-quick-field .icon {
+  width: 20px;
+  height: 20px;
+  color: #9aa5b2;
+}
+
 .ab-traffic-search-points {
+  position: relative;
   display: grid;
   gap: 6px;
   min-width: 0;
 }
 
+.ab-traffic-search.is-result .ab-traffic-search-points {
+  gap: 5px;
+}
+
+.ab-traffic-search-points::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 14px;
+  bottom: 14px;
+  border-left: 2px dashed #b8c2cf;
+}
+
 .ab-traffic-search-points label {
+  position: relative;
+  z-index: 1;
   min-width: 0;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -7205,6 +7285,11 @@ body.desktop-preview #app {
   color: var(--text);
   font-size: 14px;
   font-weight: 800;
+}
+
+.ab-traffic-search.is-result .ab-traffic-search-points label {
+  min-height: 20px;
+  font-size: 15px;
 }
 
 .ab-traffic-search-points i,
@@ -7235,13 +7320,21 @@ body.desktop-preview #app {
 }
 
 .ab-traffic-search button {
-  min-width: 58px;
+  min-width: 62px;
   height: 34px;
   border-radius: var(--ds-radius-control);
   background: var(--blue);
   color: #fff;
-  font-size: 13px;
-  font-weight: 800;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.ab-traffic-search button.ab-traffic-search-back {
+  width: 30px;
+  min-width: 30px;
+  height: 24px;
+  background: transparent;
+  color: #526071;
 }
 
 .ab-route-result-card,
@@ -7317,6 +7410,23 @@ body.desktop-preview #app {
   color: #fff;
 }
 
+.ab-route-chip-row .ab-route-walk-chip {
+  gap: 1px;
+  padding: 0 7px;
+  color: #555f6d;
+}
+
+.ab-route-chip-row .ab-route-walk-chip .icon {
+  width: 10px;
+  height: 18px;
+  margin-left: 0;
+  margin-right: -1px;
+}
+
+.ab-route-chip-row .ab-route-walk-chip b {
+  font: inherit;
+}
+
 .ab-route-result-card p,
 .ab-transfer-route-card p {
   margin: 0;
@@ -7349,6 +7459,7 @@ body.desktop-preview #app {
 .ab-traffic-ride-list,
 .ab-traffic-metro-list,
 .ab-traffic-bus-list,
+.ab-traffic-plan-list,
 .ab-transfer-route-list,
 .ab-parking-list,
 .ab-queue-list,
@@ -7650,6 +7761,119 @@ body.desktop-preview #app {
   font-style: normal;
   font-size: 20px;
   line-height: 1;
+}
+
+.ab-traffic-plan-card {
+  min-height: 76px;
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  gap: 9px 10px;
+  align-items: center;
+  text-align: left;
+}
+
+.ab-traffic-plan-card.featured {
+  border-color: #c8e6dc;
+}
+
+.ab-traffic-plan-icon {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  color: var(--blue);
+}
+
+.ab-traffic-plan-icon .icon {
+  width: 28px;
+  height: 28px;
+}
+
+.ab-traffic-plan-icon.success {
+  color: #087f8c;
+}
+
+.ab-traffic-plan-icon.warning {
+  color: var(--amber);
+}
+
+.ab-traffic-plan-main {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.ab-traffic-plan-title {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.ab-traffic-plan-title strong {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 15.5px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.ab-traffic-plan-main em {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+  font-style: normal;
+}
+
+.ab-traffic-plan-value {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-items: end;
+  align-items: center;
+  gap: 2px 6px;
+  color: var(--subtle);
+}
+
+.ab-traffic-plan-value b {
+  grid-column: 1 / 2;
+  color: var(--text);
+  font-size: 14.5px;
+  line-height: 1.2;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.ab-traffic-plan-value em {
+  grid-column: 1 / 2;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.2;
+  font-style: normal;
+}
+
+.ab-traffic-plan-value i {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  color: var(--subtle);
+  font-size: 20px;
+  line-height: 1;
+  font-style: normal;
+}
+
+.ab-traffic-plan-card .ab-route-chip-row,
+.ab-traffic-plan-card p,
+.ab-traffic-plan-card .ab-route-leg {
+  grid-column: 2 / -1;
+}
+
+.ab-traffic-plan-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
 }
 
 .ab-transfer-destination-list {
