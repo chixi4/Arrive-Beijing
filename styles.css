@@ -204,6 +204,17 @@ body.desktop-preview #app {
   margin: 0;
 }
 
+body.desktop-preview #app.mobile-preview-app,
+body.desktop-preview #app.design-system-app {
+  width: 430px;
+  height: 860px;
+}
+
+body.desktop-preview #app.anchor-app {
+  width: 864px;
+  height: 1728px;
+}
+
 .source-screen {
   width: min(100vw, var(--page-w));
   min-height: 100vh;
