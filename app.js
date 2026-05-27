@@ -1054,44 +1054,11 @@ function updateStationCarouselSelection(carousel) {
 }
 
 function syncStationCarousel() {
-  const gridScroller = document.querySelector(".station-grid-source");
-  if (gridScroller) {
-    const active = gridScroller.querySelector(`[data-station="${state.draftStation}"]`);
-    if (!active) return;
-    const anchor = active.previousElementSibling && active.previousElementSibling.matches("[data-station]")
-      ? active.previousElementSibling
-      : active;
-    const scrollerBox = gridScroller.getBoundingClientRect();
-    const anchorBox = anchor.getBoundingClientRect();
-    const top = Math.max(0, gridScroller.scrollTop + anchorBox.top - scrollerBox.top - 10);
-    gridScroller.scrollTo({ top, behavior: "auto" });
-    return;
-  }
   const carousel = document.querySelector("[data-station-carousel]");
   if (!carousel) return;
   const active = carousel.querySelector(`[data-station="${state.draftStation}"]`);
   if (!active) return;
   active.scrollIntoView({ block: "nearest", inline: "center", behavior: "auto" });
-}
-
-function scheduleStationCarouselSync() {
-  const gridScroller = document.querySelector(".station-grid-source");
-  const reveal = () => {
-    if (gridScroller) gridScroller.classList.remove("is-preparing");
-  };
-  const sync = () => syncStationCarousel();
-  sync();
-  reveal();
-  requestAnimationFrame(() => {
-    sync();
-    reveal();
-    window.setTimeout(sync, 80);
-    window.setTimeout(sync, 260);
-  });
-  document.querySelectorAll(".station-grid-source img").forEach((image) => {
-    if (image.complete) return;
-    image.addEventListener("load", sync, { once: true });
-  });
 }
 
 function boxStyle(box) {
@@ -4217,7 +4184,7 @@ function renderStationSelect(kind) {
         <h1>${selected[1]}</h1>
         <span>${helperText}</span>
       </section>
-      <div class="station-grid-source is-preparing" aria-label="选择站点">
+      <div class="station-grid-source" aria-label="选择站点">
         <div class="station-select-grid">
           ${stations
             .map(
@@ -4702,7 +4669,6 @@ function render() {
     app.className = "app-shell mobile-preview-app";
     app.innerHTML = renderStationSelect("select");
     syncDesktopPreviewFrame();
-    scheduleStationCarouselSync();
     return;
   }
   if (current === "#/station/switch") {
@@ -4713,7 +4679,6 @@ function render() {
     app.className = "app-shell mobile-preview-app";
     app.innerHTML = renderStationSelect("switch");
     syncDesktopPreviewFrame();
-    scheduleStationCarouselSync();
     return;
   }
   state.currentSurface = current;
