@@ -479,6 +479,8 @@ body.desktop-preview #app.anchor-app {
   padding: 10px 14px 18px;
   overflow-y: auto;
   overscroll-behavior: contain;
+  scroll-snap-type: y proximity;
+  scroll-padding-top: 10px;
   scrollbar-width: none;
 }
 
@@ -608,7 +610,8 @@ body.desktop-preview #app.anchor-app {
   border-radius: var(--ds-radius-media);
   grid-template-rows: auto 1fr;
   gap: 9px;
-  scroll-snap-align: none;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
   box-shadow: 0 8px 20px rgba(29, 39, 51, 0.065);
 }
 
@@ -7203,12 +7206,13 @@ body.desktop-preview #app.anchor-app {
   gap: 7px;
   color: var(--text);
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 400;
 }
 
 .ab-traffic-search.is-result .ab-traffic-search-points label {
   min-height: 20px;
   font-size: 15px;
+  font-weight: 400;
 }
 
 .ab-traffic-search-points i,
@@ -7762,6 +7766,7 @@ body.desktop-preview #app.anchor-app {
   color: var(--muted);
   font-size: 13px;
   line-height: 1.35;
+  font-weight: 400;
   font-style: normal;
 }
 
