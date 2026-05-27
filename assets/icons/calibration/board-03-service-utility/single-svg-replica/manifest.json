@@ -15,19 +15,19 @@
       "svg": "assets/icons/calibration/board-03-service-utility/single-svg-replica/svg/01-home.svg",
       "diff": "assets/icons/calibration/board-03-service-utility/single-svg-replica/diff/01-home.png",
       "inkBBox": [
-        119,
-        124,
-        364,
-        363
+        107,
+        116,
+        384,
+        383
       ],
       "displayViewBox": [
-        104,
-        109,
-        275,
-        269
+        90,
+        99,
+        311,
+        301
       ],
-      "rectangles": 303,
-      "pathLength": 6363,
+      "rectangles": 321,
+      "pathLength": 6741,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -41,19 +41,19 @@
       "svg": "assets/icons/calibration/board-03-service-utility/single-svg-replica/svg/02-parking.svg",
       "diff": "assets/icons/calibration/board-03-service-utility/single-svg-replica/diff/02-parking.png",
       "inkBBox": [
-        95,
-        135,
-        323,
-        367
+        87,
+        120,
+        331,
+        374
       ],
       "displayViewBox": [
-        81,
-        121,
-        256,
-        260
+        72,
+        105,
+        274,
+        284
       ],
-      "rectangles": 167,
-      "pathLength": 3463,
+      "rectangles": 178,
+      "pathLength": 3640,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -67,19 +67,19 @@
       "svg": "assets/icons/calibration/board-03-service-utility/single-svg-replica/svg/03-points.svg",
       "diff": "assets/icons/calibration/board-03-service-utility/single-svg-replica/diff/03-points.png",
       "inkBBox": [
-        64,
-        131,
+        38,
+        117,
         305,
-        371
+        384
       ],
       "displayViewBox": [
-        50,
-        117,
-        269,
-        268
+        22,
+        101,
+        299,
+        299
       ],
-      "rectangles": 521,
-      "pathLength": 10678,
+      "rectangles": 607,
+      "pathLength": 12270,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -93,19 +93,19 @@
       "svg": "assets/icons/calibration/board-03-service-utility/single-svg-replica/svg/04-calendar.svg",
       "diff": "assets/icons/calibration/board-03-service-utility/single-svg-replica/diff/04-calendar.png",
       "inkBBox": [
-        115,
-        75,
-        361,
-        322
+        108,
+        62,
+        385,
+        418
       ],
       "displayViewBox": [
-        100,
-        60,
-        276,
-        277
+        87,
+        41,
+        319,
+        377
       ],
-      "rectangles": 184,
-      "pathLength": 3833,
+      "rectangles": 286,
+      "pathLength": 5879,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -119,19 +119,19 @@
       "svg": "assets/icons/calibration/board-03-service-utility/single-svg-replica/svg/05-clock.svg",
       "diff": "assets/icons/calibration/board-03-service-utility/single-svg-replica/diff/05-clock.png",
       "inkBBox": [
-        91,
-        86,
-        324,
-        324
+        79,
+        75,
+        338,
+        335
       ],
       "displayViewBox": [
-        77,
-        72,
-        261,
-        266
+        63,
+        59,
+        291,
+        292
       ],
-      "rectangles": 365,
-      "pathLength": 7574,
+      "rectangles": 412,
+      "pathLength": 8443,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -145,19 +145,19 @@
       "svg": "assets/icons/calibration/board-03-service-utility/single-svg-replica/svg/06-back.svg",
       "diff": "assets/icons/calibration/board-03-service-utility/single-svg-replica/diff/06-back.png",
       "inkBBox": [
-        73,
-        111,
-        291,
-        287
+        53,
+        107,
+        295,
+        296
       ],
       "displayViewBox": [
-        60,
-        98,
-        244,
-        202
+        38,
+        92,
+        272,
+        219
       ],
-      "rectangles": 171,
-      "pathLength": 3469,
+      "rectangles": 184,
+      "pathLength": 3634,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -171,19 +171,19 @@
       "svg": "assets/icons/calibration/board-03-service-utility/single-svg-replica/svg/07-train.svg",
       "diff": "assets/icons/calibration/board-03-service-utility/single-svg-replica/diff/07-train.png",
       "inkBBox": [
-        130,
-        32,
-        337,
-        281
+        124,
+        0,
+        363,
+        295
       ],
       "displayViewBox": [
-        115,
-        17,
-        237,
-        279
+        106,
+        0,
+        275,
+        313
       ],
-      "rectangles": 327,
-      "pathLength": 6661,
+      "rectangles": 435,
+      "pathLength": 8916,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -197,19 +197,19 @@
       "svg": "assets/icons/calibration/board-03-service-utility/single-svg-replica/svg/08-people.svg",
       "diff": "assets/icons/calibration/board-03-service-utility/single-svg-replica/diff/08-people.png",
       "inkBBox": [
-        65,
-        65,
-        351,
-        265
+        39,
+        28,
+        377,
+        288
       ],
       "displayViewBox": [
-        48,
-        48,
-        320,
-        234
+        19,
+        8,
+        378,
+        300
       ],
-      "rectangles": 494,
-      "pathLength": 10045,
+      "rectangles": 546,
+      "pathLength": 10904,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -223,19 +223,19 @@
       "svg": "assets/icons/calibration/board-03-service-utility/single-svg-replica/svg/09-history.svg",
       "diff": "assets/icons/calibration/board-03-service-utility/single-svg-replica/diff/09-history.png",
       "inkBBox": [
-        77,
-        45,
-        299,
-        271
+        49,
+        16,
+        305,
+        277
       ],
       "displayViewBox": [
-        63,
-        31,
-        250,
-        254
+        33,
+        0,
+        288,
+        293
       ],
-      "rectangles": 341,
-      "pathLength": 6794,
+      "rectangles": 389,
+      "pathLength": 7581,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,

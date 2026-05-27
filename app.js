@@ -445,9 +445,6 @@ function renderIcon(name, className) {
   const iconDef = ICON_REPLICA_LIBRARY[resolvedName] || ICON_LIBRARY[resolvedName] || ICON_LIBRARY.grid;
   let svgBody = typeof iconDef === "string" ? iconDef : iconDef.body;
   const viewBox = typeof iconDef === "string" ? "0 0 24 24" : iconDef.viewBox || "0 0 24 24";
-  if (typeof iconDef !== "string") {
-    svgBody = svgBody.replaceAll('stroke="none"', 'stroke="currentColor" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"');
-  }
   return `<svg class="${className}" viewBox="${viewBox}" aria-hidden="true" data-icon="${resolvedName}">${svgBody}</svg>`;
 }
 

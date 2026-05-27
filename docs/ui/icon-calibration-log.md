@@ -2,6 +2,53 @@
 
 本文件记录图标生图、视觉检查、CSV 模拟和像素比对结果。这里只处理图标形状，不处理页面中文文案；页面文字仍遵守“不用 OCR / 不用位图自动识别”的规则。
 
+## 2026-05-27 非站点源图加粗刷新
+
+用户确认以 `board-01` 的 iteration-10 视觉为准后，本轮把非站点图标 `board-01` 到 `board-07` 全部重新写回正式资产。站点图标 `board-08`、`board-09` 不重生。
+
+本轮提示词不依赖对话上下文，核心口径为：
+
+```text
+Create a square 3x3 board of simple black outline icons.
+The board should feel like a plain icon calibration target:
+sparse, geometric, low-detail, and consistent.
+Pure black outline glyphs with white interiors.
+Rounded caps and joins.
+Thick strokes around 26 px on this 1024 px board.
+```
+
+提示词技巧：当模型被某个词带向复杂图形时，优先“不提及”触发复杂联想的词，让它回到 plain/sparse/geometric 的基础图标语言；只有确实需要的语义才写入图标清单。
+
+本轮选择结果：
+
+| 批次 | 处理结果 |
+| --- | --- |
+| `board-01-high-frequency` | 采用 iteration-10；喇叭简化，transfer 回到 05 方向 |
+| `board-02-settings-feedback` | 重生 message/globe/accessibility/shield/lock/ear/feedback/phone/mail |
+| `board-03-service-utility` | 重生 home/parking/points/calendar/clock/back/train/people/history；返回箭头保持单线 |
+| `board-04-taxi-house` | 重生 lounge/dining/charger/wifi/tea/book/medical/restroom/gift |
+| `board-05-interface-controls` | 重生 check/more/question/refresh/settings/edit/scan/camera/id |
+| `board-06-mobility-feedback` | 重生 angry/bike/bus/chat/cup/glove/leaf/logout/paper；退出图标保持单线右箭头 |
+| `board-07-remaining-utility` | 重生 pillow/plane/grid/handshake/qr/thumb/grid/qr/handshake |
+
+七批均重新执行：
+
+```bash
+python3 scripts/icon_sheet_tools.py extract ...
+python3 scripts/icon_svg_replica.py ...
+```
+
+结果均为：
+
+```json
+{
+  "pass": true,
+  "maxDiffRatio": 0.0
+}
+```
+
+`renderIcon()` 已移除运行时同色描边加粗，页面只使用源 target 复刻出的 `currentColor` SVG mask。
+
 ## Board 01 - 高频服务图标
 
 ![board-01](../../assets/icons/calibration/board-01-high-frequency/board-clean.png)
@@ -23,7 +70,7 @@
 ### 生成与修复
 
 - 旧版问题：线条偏细，第二、第三批曾短暂使用旧 SVG target，和第一批生图 target 的气质不一致。
-- 本轮重新提示：三批都使用“bold monoline outline、16-20px stroke、same optical size、pure white background、no text labels、no shadow”的同一套提示词生成。
+- 本轮重新提示：图标板使用自包含的 plain icon calibration target 口径，强调 sparse、geometric、low-detail、1024px 图板约 26px 粗线、纯白背景、无文字、无阴影。
 - 后期修复：保留加粗生图的语义和构图，把背景统一成纯白，把图标线条阈值化成纯黑，得到最终校准板。
 
 ### 文件

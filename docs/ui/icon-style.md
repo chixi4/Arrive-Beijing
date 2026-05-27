@@ -10,7 +10,7 @@
 - 已完成单图复刻的高频图标：`pin`、`map`、`route`、`megaphone/notice`、`search`、`user`、`taxi`、`car`、`transfer`、`message`、`globe`、`accessibility`、`shield`、`lock`、`ear`、`feedback`、`phone`、`mail`、`home`、`parking`、`points`、`calendar`、`clock`、`back`、`train/station`、`people`、`history`、`lounge`、`dining`、`charger`、`wifi`、`tea`、`book`、`medical`、`restroom`、`gift/redeem`。
 - 追加的三批覆盖 `check/more/question/refresh/settings/edit/scan/camera/id`、`angry/bike/bus/chat/cup/glove/leaf/logout/paper`、`pillow/plane/grid/handshake/qr/thumb` 等剩余库项，CSV 模拟与 SVG mask 复刻都已通过。
 - 站点轮廓两批覆盖 10 个站点：`station_beijing/station_west/station_south/station_north/station_chaoyang/station_qinghe/station_yizhuang/station_tongzhou/station_capital/station_daxing`，用于站点选择卡片左下角，不再使用旧 PNG。
-- 最新视觉口径：基础业务图标按粗一档的黑色 monoline 目标进入像素复刻链路；站点图标不能从站点图片直接算法提轮廓，必须先把站点图片作为视觉参考交给生图模型重绘为 3x3 icon target，再进入同一 CSV 与 SVG mask 复刻链路。所有批次都通过 `diffRatio <= 5%` 门槛。
+- 最新视觉口径：基础业务图标 `board-01` 到 `board-07` 已重新从源生图生成粗一档 target，再进入像素复刻链路；`board-08`、`board-09` 站点图标本轮不重生。站点图标不能从站点图片直接算法提轮廓，必须先把站点图片作为视觉参考交给生图模型重绘为 3x3 icon target，再进入同一 CSV 与 SVG mask 复刻链路。所有批次都通过 `diffRatio <= 5%` 门槛。
 - 仍需重点校准的图标：当前使用链路无缺失；下一轮只在新增页面出现新语义，或现有页面视觉检查发现具体图标不协调时再扩批。
 
 ## 视觉规范
@@ -18,7 +18,7 @@
 - 手写图标默认使用 `viewBox="0 0 24 24"`。
 - 手写图标使用 `stroke="currentColor"`，`fill="none"`，`stroke-width: var(--ds-icon-stroke, 1.85)`。
 - 单图复刻图标使用目标图真实黑色线条的 `inkBBox` 加少量 padding 生成自定义 viewBox，并使用 `fill="currentColor"`、`stroke="none"` 的 mask path。
-- 2026-05-27 起，为回应页面图标线条偏细的问题，运行时会在统一 `renderIcon()` 出口对复刻 mask 追加同色描边做光学加粗；不要在具体页面单独改 SVG 尺寸或线宽。
+- 2026-05-27 起，基础业务图标的加粗只在源 target 生成阶段完成，`renderIcon()` 不再对复刻 mask 追加同色描边；不要在具体页面单独改 SVG 尺寸或线宽。
 - 线性图标保持 `stroke-linecap="round"`，`stroke-linejoin="round"`。
 - 允许少量语义级光学校正：例如 `search` 因斜柄导致小尺寸视觉偏左，统一右移 `1px`；`car` 因横向车身在方形盒中显小，统一放大 `1.18`。
 - 默认不要渐变、阴影、3D、彩色填充或装饰性光效。
@@ -37,7 +37,7 @@
 
 ## 3x3 生图校准流程
 
-每次只生成一张 1:1 的 3x3 图标风格板，9 个图标为一组。生成图必须是白底、纯黑线性图标、无文字标签、无手机外框、无阴影、无渐变。当前推荐提示词方向为 `bold monoline outline`，在 1254px 图标板上约束为 `16-20px stroke`，再通过后期阈值化得到纯黑白 target。
+每次只生成一张 1:1 的 3x3 图标风格板，9 个图标为一组。生成图必须是白底、纯黑线性图标、无文字标签、无手机外框、无阴影、无渐变。当前推荐提示词方向为“plain icon calibration target、sparse、geometric、low-detail、thick strokes around 26 px on 1024 px board”，再通过后期阈值化得到纯黑白 target。若模型被某个词带向复杂样式，优先通过不提及该触发词来回到简洁图标，而不是继续堆叠反向约束。
 
 生成后执行三步：
 

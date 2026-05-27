@@ -15,19 +15,19 @@
       "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/01-angry.svg",
       "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/01-angry.png",
       "inkBBox": [
-        99,
-        101,
-        379,
-        382
+        98,
+        108,
+        368,
+        383
       ],
       "displayViewBox": [
         82,
-        84,
-        314,
-        315
+        92,
+        302,
+        307
       ],
       "rectangles": 487,
-      "pathLength": 10221,
+      "pathLength": 10213,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -41,19 +41,19 @@
       "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/02-bike.svg",
       "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/02-bike.png",
       "inkBBox": [
-        54,
-        136,
-        374,
-        347
+        39,
+        135,
+        384,
+        356
       ],
       "displayViewBox": [
-        35,
-        117,
-        358,
-        249
+        18,
+        114,
+        387,
+        263
       ],
-      "rectangles": 564,
-      "pathLength": 11611,
+      "rectangles": 617,
+      "pathLength": 12694,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -67,19 +67,19 @@
       "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/03-bus.svg",
       "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/03-bus.png",
       "inkBBox": [
-        35,
-        105,
-        326,
-        387
+        34,
+        106,
+        329,
+        394
       ],
       "displayViewBox": [
-        18,
+        16,
         88,
-        325,
-        316
+        331,
+        324
       ],
-      "rectangles": 291,
-      "pathLength": 5800,
+      "rectangles": 292,
+      "pathLength": 5835,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -93,19 +93,19 @@
       "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/04-chat.svg",
       "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/04-chat.png",
       "inkBBox": [
-        99,
-        81,
-        376,
-        332
+        102,
+        90,
+        372,
+        338
       ],
       "displayViewBox": [
-        82,
-        64,
-        311,
-        285
+        86,
+        74,
+        302,
+        280
       ],
       "rectangles": 265,
-      "pathLength": 5519,
+      "pathLength": 5546,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -119,19 +119,19 @@
       "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/05-cup.svg",
       "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/05-cup.png",
       "inkBBox": [
-        101,
-        60,
-        313,
-        340
+        100,
+        58,
+        315,
+        355
       ],
       "displayViewBox": [
-        84,
-        43,
-        246,
-        314
+        82,
+        40,
+        251,
+        333
       ],
-      "rectangles": 184,
-      "pathLength": 3791,
+      "rectangles": 223,
+      "pathLength": 4602,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -145,19 +145,19 @@
       "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/06-glove.svg",
       "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/06-glove.png",
       "inkBBox": [
-        80,
-        52,
-        290,
-        341
+        77,
+        53,
+        291,
+        353
       ],
       "displayViewBox": [
-        63,
+        59,
         35,
-        244,
-        323
+        250,
+        336
       ],
-      "rectangles": 325,
-      "pathLength": 6492,
+      "rectangles": 337,
+      "pathLength": 6738,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -171,19 +171,19 @@
       "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/07-leaf.svg",
       "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/07-leaf.png",
       "inkBBox": [
-        134,
+        123,
         29,
-        360,
-        290
+        351,
+        292
       ],
       "displayViewBox": [
-        118,
+        107,
         13,
-        258,
-        293
+        260,
+        295
       ],
-      "rectangles": 411,
-      "pathLength": 8483,
+      "rectangles": 413,
+      "pathLength": 8523,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -197,19 +197,19 @@
       "svg": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/svg/08-logout.svg",
       "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/08-logout.png",
       "inkBBox": [
-        104,
-        34,
-        332,
-        286
+        101,
+        31,
+        340,
+        288
       ],
       "displayViewBox": [
-        89,
-        19,
-        258,
-        282
+        86,
+        16,
+        269,
+        287
       ],
-      "rectangles": 182,
-      "pathLength": 3727,
+      "rectangles": 175,
+      "pathLength": 3591,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
@@ -224,18 +224,18 @@
       "diff": "assets/icons/calibration/board-06-mobility-feedback/single-svg-replica/diff/09-paper.png",
       "inkBBox": [
         66,
-        26,
-        290,
+        27,
+        291,
         296
       ],
       "displayViewBox": [
         50,
-        10,
-        256,
-        302
+        11,
+        257,
+        301
       ],
-      "rectangles": 167,
-      "pathLength": 3211,
+      "rectangles": 153,
+      "pathLength": 2922,
       "diffPixels": 0,
       "totalPixels": 174724,
       "diffRatio": 0.0,
