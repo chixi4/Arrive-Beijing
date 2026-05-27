@@ -1363,6 +1363,20 @@ function renderDesignSystem() {
         ["station_tongzhou", "通州站"],
       ],
     },
+    {
+      title: "交通接驳",
+      icons: [
+        ["walk", "步行"],
+        ["metro", "地铁"],
+        ["traffic_bus", "公交"],
+        ["traffic_taxi", "出租"],
+        ["ride_hailing", "网约"],
+        ["route_swap", "起终点交换"],
+        ["filter_sliders", "偏好筛选"],
+        ["departure_time", "出发时间"],
+        ["route_recommend", "推荐"],
+      ],
+    },
   ];
 
   return `
@@ -1377,7 +1391,7 @@ function renderDesignSystem() {
         <section class="ds-section">
           <div class="ds-section-title">
             <h2>图标系统</h2>
-            <span>九批复刻</span>
+            <span>十批复刻</span>
           </div>
           ${calibrationIconGroups
             .map(

@@ -1,0 +1,245 @@
+{
+  "source": "assets/icons/calibration/board-10-traffic-routing/board-clean.png",
+  "out": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica",
+  "threshold": 128,
+  "cropPaddingRatio": 0.06,
+  "diffThreshold": 0.05,
+  "pass": true,
+  "maxDiffRatio": 0.0,
+  "icons": [
+    {
+      "name": "walk",
+      "target": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/targets/01-walk.png",
+      "enlarged": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/enlarged-3x/01-walk@3x.png",
+      "replicaPng": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/replica-png/01-walk.png",
+      "svg": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/svg/01-walk.svg",
+      "diff": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/diff/01-walk.png",
+      "inkBBox": [
+        139,
+        95,
+        278,
+        321
+      ],
+      "displayViewBox": [
+        125,
+        81,
+        167,
+        254
+      ],
+      "rectangles": 459,
+      "pathLength": 9630,
+      "diffPixels": 0,
+      "totalPixels": 116281,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "metro",
+      "target": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/targets/02-metro.png",
+      "enlarged": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/enlarged-3x/02-metro@3x.png",
+      "replicaPng": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/replica-png/02-metro.png",
+      "svg": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/svg/02-metro.svg",
+      "diff": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/diff/02-metro.png",
+      "inkBBox": [
+        78,
+        97,
+        261,
+        326
+      ],
+      "displayViewBox": [
+        64,
+        83,
+        211,
+        257
+      ],
+      "rectangles": 319,
+      "pathLength": 6510,
+      "diffPixels": 0,
+      "totalPixels": 116622,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "traffic_bus",
+      "target": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/targets/03-traffic_bus.png",
+      "enlarged": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/enlarged-3x/03-traffic_bus@3x.png",
+      "replicaPng": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/replica-png/03-traffic_bus.png",
+      "svg": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/svg/03-traffic_bus.svg",
+      "diff": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/diff/03-traffic_bus.png",
+      "inkBBox": [
+        29,
+        103,
+        251,
+        325
+      ],
+      "displayViewBox": [
+        16,
+        90,
+        248,
+        248
+      ],
+      "rectangles": 271,
+      "pathLength": 5306,
+      "diffPixels": 0,
+      "totalPixels": 116281,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "traffic_taxi",
+      "target": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/targets/04-traffic_taxi.png",
+      "enlarged": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/enlarged-3x/04-traffic_taxi@3x.png",
+      "replicaPng": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/replica-png/04-traffic_taxi.png",
+      "svg": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/svg/04-traffic_taxi.svg",
+      "diff": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/diff/04-traffic_taxi.png",
+      "inkBBox": [
+        84,
+        83,
+        310,
+        279
+      ],
+      "displayViewBox": [
+        70,
+        69,
+        254,
+        224
+      ],
+      "rectangles": 322,
+      "pathLength": 6628,
+      "diffPixels": 0,
+      "totalPixels": 116622,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "ride_hailing",
+      "target": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/targets/05-ride_hailing.png",
+      "enlarged": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/enlarged-3x/05-ride_hailing@3x.png",
+      "replicaPng": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/replica-png/05-ride_hailing.png",
+      "svg": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/svg/05-ride_hailing.svg",
+      "diff": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/diff/05-ride_hailing.png",
+      "inkBBox": [
+        39,
+        89,
+        303,
+        267
+      ],
+      "displayViewBox": [
+        23,
+        73,
+        296,
+        210
+      ],
+      "rectangles": 412,
+      "pathLength": 8383,
+      "diffPixels": 0,
+      "totalPixels": 116964,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "route_swap",
+      "target": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/targets/06-route_swap.png",
+      "enlarged": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/enlarged-3x/06-route_swap@3x.png",
+      "replicaPng": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/replica-png/06-route_swap.png",
+      "svg": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/svg/06-route_swap.svg",
+      "diff": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/diff/06-route_swap.png",
+      "inkBBox": [
+        67,
+        88,
+        196,
+        272
+      ],
+      "displayViewBox": [
+        56,
+        77,
+        151,
+        206
+      ],
+      "rectangles": 174,
+      "pathLength": 3391,
+      "diffPixels": 0,
+      "totalPixels": 116622,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "filter_sliders",
+      "target": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/targets/07-filter_sliders.png",
+      "enlarged": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/enlarged-3x/07-filter_sliders@3x.png",
+      "replicaPng": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/replica-png/07-filter_sliders.png",
+      "svg": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/svg/07-filter_sliders.svg",
+      "diff": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/diff/07-filter_sliders.png",
+      "inkBBox": [
+        96,
+        51,
+        291,
+        223
+      ],
+      "displayViewBox": [
+        84,
+        39,
+        219,
+        196
+      ],
+      "rectangles": 189,
+      "pathLength": 3807,
+      "diffPixels": 0,
+      "totalPixels": 116281,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "departure_time",
+      "target": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/targets/08-departure_time.png",
+      "enlarged": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/enlarged-3x/08-departure_time@3x.png",
+      "replicaPng": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/replica-png/08-departure_time.png",
+      "svg": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/svg/08-departure_time.svg",
+      "diff": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/diff/08-departure_time.png",
+      "inkBBox": [
+        66,
+        28,
+        272,
+        233
+      ],
+      "displayViewBox": [
+        54,
+        16,
+        230,
+        229
+      ],
+      "rectangles": 312,
+      "pathLength": 6067,
+      "diffPixels": 0,
+      "totalPixels": 116622,
+      "diffRatio": 0.0,
+      "pass": true
+    },
+    {
+      "name": "route_recommend",
+      "target": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/targets/09-route_recommend.png",
+      "enlarged": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/enlarged-3x/09-route_recommend@3x.png",
+      "replicaPng": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/replica-png/09-route_recommend.png",
+      "svg": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/svg/09-route_recommend.svg",
+      "diff": "assets/icons/calibration/board-10-traffic-routing/single-svg-replica/diff/09-route_recommend.png",
+      "inkBBox": [
+        44,
+        39,
+        229,
+        223
+      ],
+      "displayViewBox": [
+        33,
+        28,
+        207,
+        206
+      ],
+      "rectangles": 201,
+      "pathLength": 3905,
+      "diffPixels": 0,
+      "totalPixels": 116281,
+      "diffRatio": 0.0,
+      "pass": true
+    }
+  ]
+}
