@@ -5641,6 +5641,14 @@ body.desktop-preview #app {
   height: 18px;
 }
 
+.ab-announcement-list.compact .ab-info-icon.tag {
+  width: auto;
+  min-width: 42px;
+  height: 24px;
+  padding: 0 8px;
+  white-space: nowrap;
+}
+
 .ab-info-list.loose {
   display: grid;
   gap: 10px;
@@ -5659,7 +5667,7 @@ body.desktop-preview #app {
 }
 
 .ab-info-list.loose .ab-info-row + .ab-info-row {
-  border-top: 1px solid var(--line);
+  border-top: 0;
 }
 
 .ab-action-grid {
@@ -5702,11 +5710,11 @@ body.desktop-preview #app {
 }
 
 .ab-service-card .ab-action-tile:nth-child(-n + 4) {
-  border-bottom: 1px solid var(--line);
+  border-bottom: 0;
 }
 
 .ab-service-card .ab-action-tile:not(:nth-child(4n)) {
-  border-right: 1px solid var(--line);
+  border-right: 0;
 }
 
 .ab-service-card .ab-action-tile-icon {
@@ -5825,7 +5833,7 @@ body.desktop-preview #app {
 }
 
 .ab-preview-card + .ab-preview-card {
-  border-top: 1px solid var(--line);
+  border-top: 0;
 }
 
 .ab-preview-card:hover {
@@ -6378,7 +6386,7 @@ body.desktop-preview #app {
   width: min(100vw, var(--page-w));
   height: var(--ds-nav-h);
   background: rgba(255, 255, 255, 0.98);
-  border-top: 1px solid rgba(223, 230, 239, 0.95);
+  border-top: 0;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   z-index: 60;
