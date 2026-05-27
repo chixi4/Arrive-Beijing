@@ -19,7 +19,7 @@ Thick strokes around 26 px on this 1024 px board.
 
 提示词技巧：当模型被某个词带向复杂图形时，优先“不提及”触发复杂联想的词，让它回到 plain/sparse/geometric 的基础图标语言；只有确实需要的语义才写入图标清单。
 
-本轮选择结果：
+本轮选择结果与后续新增：
 
 | 批次 | 处理结果 |
 | --- | --- |
@@ -30,8 +30,9 @@ Thick strokes around 26 px on this 1024 px board.
 | `board-05-interface-controls` | 重生 check/more/question/refresh/settings/edit/scan/camera/id |
 | `board-06-mobility-feedback` | 重生 angry/bike/bus/chat/cup/glove/leaf/logout/paper；退出图标保持单线右箭头 |
 | `board-07-remaining-utility` | 重生 pillow/plane/grid/handshake/qr/thumb/grid/qr/handshake |
+| `board-10-traffic-routing` | 新增 walk/metro/traffic_bus/traffic_taxi/ride_hailing/route_swap/filter_sliders/departure_time/route_recommend |
 
-七批均重新执行：
+其中 `board-01` 到 `board-07` 七批均重新执行：
 
 ```bash
 python3 scripts/icon_sheet_tools.py extract ...
@@ -469,6 +470,40 @@ CSV 模拟与单图 SVG mask 复刻均通过，`maxDiffRatio = 0.0`。这批图�
 
 CSV 模拟与单图 SVG mask 复刻均通过，`maxDiffRatio = 0.0`。`node scripts/icon_inventory.mjs` 已能把 replica-only 的 `station_*` 语义计入清单，当前没有缺失图标。
 
+## Board 10 - 交通接驳补充图标
+
+![board-10](../../assets/icons/calibration/board-10-traffic-routing/board-clean.png)
+
+### 覆盖图标
+
+第十批为综合交通页后续重构补齐高德式路线方案所需的专用语义，避免把 `train`、`car`、`settings` 等已有通用图标继续混用：
+
+1. `walk` 步行胶囊图标
+2. `metro` 地铁
+3. `traffic_bus` 公交
+4. `traffic_taxi` 出租
+5. `ride_hailing` 网约车
+6. `route_swap` 起终点交换
+7. `filter_sliders` 偏好筛选
+8. `departure_time` 出发时间
+9. `route_recommend` 推荐状态
+
+### 生成与修复
+
+这批一次性凑齐 9 个交通接驳语义同板生成，不喂参考图。提示词保持自包含，沿用 plain/sparse/geometric/low-detail 和 1024px 图板约 26px 粗线口径；第 6 个交换箭头明确做成单线条控制图标。生成后人工检查通过，再用 `scripts/icon_clean_board.py` 清成纯黑白校准板。
+
+### 文件
+
+- 原始图标板：`assets/icons/calibration/board-10-traffic-routing/generated-raw.png`
+- 清理后校准板：`assets/icons/calibration/board-10-traffic-routing/board-clean.png`
+- CSV 与切片结果：`assets/icons/calibration/board-10-traffic-routing/csv-check/`
+- 单图放大与 SVG mask 复刻：`assets/icons/calibration/board-10-traffic-routing/single-svg-replica/`
+- 页面加载脚本：`assets/icons/calibration/board-10-traffic-routing/single-svg-replica/icon-replicas-board-10.js`
+
+### 结果
+
+CSV 模拟与单图 SVG mask 复刻均通过，`maxDiffRatio = 0.0`。这批图标已经进入 `#/design-system` 的“图标系统 / 交通接驳”区块，后续交通页可以直接通过 `iconMarkup()` 使用这些语义名。
+
 ## 当前组件库结论
 
-九批合计 70 个唯一复刻图标已经进入统一复刻库，其中 60 个为基础业务图标，10 个为站点轮廓图标。运行 `node scripts/icon_inventory.mjs` 后，当前状态为：60 个基础 SVG、70 个复刻 SVG mask、所有已用语义均已覆盖、0 个缺失、0 个未覆盖库项。后续新增图标必须继续先进入图标清单，再按 3x3 组补充校准，不允许页面局部临时画图标或回退到旧 PNG。
+十批合计 79 个唯一复刻图标已经进入统一复刻库，其中 60 个为基础业务图标，10 个为站点轮廓图标，9 个为交通接驳补充图标。运行 `node scripts/icon_inventory.mjs` 后，当前状态为：60 个基础 SVG、79 个复刻 SVG mask、所有已用语义均已覆盖、0 个缺失、0 个未覆盖库项。后续新增图标必须继续先进入图标清单，再按 3x3 组补充校准，不允许页面局部临时画图标或回退到旧 PNG。
