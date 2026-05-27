@@ -3057,7 +3057,7 @@ body.desktop-preview #app.anchor-app {
 .toast {
   position: fixed;
   left: 50%;
-  bottom: calc(var(--ds-nav-h) + 22px + env(safe-area-inset-bottom));
+  bottom: calc(var(--ds-nav-h) + 34px + env(safe-area-inset-bottom));
   transform: translateX(-50%);
   background: rgba(31, 39, 51, 0.92);
   color: #fff;
@@ -7791,6 +7791,8 @@ body.desktop-preview #app.anchor-app {
 .ab-traffic-plan-icon {
   width: 32px;
   height: 32px;
+  align-self: start;
+  justify-self: start;
   display: grid;
   place-items: center;
   color: var(--blue);
