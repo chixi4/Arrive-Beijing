@@ -1039,8 +1039,7 @@ function syncStationCarousel() {
   if (gridScroller) {
     const active = gridScroller.querySelector(`[data-station="${state.draftStation}"]`);
     if (!active) return;
-    const targetTop = active.offsetTop - gridScroller.offsetTop - 10;
-    gridScroller.scrollTo({ top: Math.max(0, targetTop), behavior: "auto" });
+    active.scrollIntoView({ block: "start", inline: "nearest", behavior: "auto" });
     return;
   }
   const carousel = document.querySelector("[data-station-carousel]");
