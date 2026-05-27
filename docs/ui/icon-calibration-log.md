@@ -49,6 +49,8 @@ python3 scripts/icon_svg_replica.py ...
 
 `renderIcon()` 已移除运行时同色描边加粗，页面只使用源 target 复刻出的 `currentColor` SVG mask。
 
+后续按用户反馈微调：`board-01` 只把第 9 个 `transfer` 单元换回 iteration-05 / Image #1 的右下角版本，保留其余 8 个已选图标；重新跑 CSV 与 SVG mask 复刻后仍为 `maxDiffRatio = 0.0`。页面显示层同时把全局和主要业务组件图标尺寸放大一档。
+
 ## Board 01 - 高频服务图标
 
 ![board-01](../../assets/icons/calibration/board-01-high-frequency/board-clean.png)
