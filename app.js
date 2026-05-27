@@ -1058,8 +1058,7 @@ function syncStationCarousel() {
   if (gridScroller) {
     const active = gridScroller.querySelector(`[data-station="${state.draftStation}"]`);
     if (!active) return;
-    const top = Math.max(0, active.offsetTop - gridScroller.offsetTop - 10);
-    gridScroller.scrollTo({ top, behavior: "auto" });
+    active.scrollIntoView({ block: "start", inline: "nearest", behavior: "auto" });
     return;
   }
   const carousel = document.querySelector("[data-station-carousel]");
@@ -1070,10 +1069,16 @@ function syncStationCarousel() {
 }
 
 function scheduleStationCarouselSync() {
+  const gridScroller = document.querySelector(".station-grid-source");
+  const reveal = () => {
+    if (gridScroller) gridScroller.classList.remove("is-preparing");
+  };
   const sync = () => syncStationCarousel();
   sync();
+  reveal();
   requestAnimationFrame(() => {
     sync();
+    reveal();
     window.setTimeout(sync, 80);
     window.setTimeout(sync, 260);
   });
@@ -4206,7 +4211,7 @@ function renderStationSelect(kind) {
         <h1>${selected[1]}</h1>
         <span>${helperText}</span>
       </section>
-      <div class="station-grid-source" aria-label="选择站点">
+      <div class="station-grid-source is-preparing" aria-label="选择站点">
         <div class="station-select-grid">
           ${stations
             .map(
