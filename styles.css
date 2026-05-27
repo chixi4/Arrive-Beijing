@@ -6932,6 +6932,53 @@ body.desktop-preview #app.anchor-app {
   box-shadow: 0 4px 12px rgba(9, 13, 20, 0.12);
 }
 
+.ab-nav-pulse-marker {
+  --marker-rgb: 246, 181, 42;
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #fff;
+  border-radius: 50% 50% 50% 0;
+  background: rgb(var(--marker-rgb));
+  box-shadow: 0 3px 7px rgba(29, 39, 51, 0.22);
+  transform: translate(-50%, -100%) rotate(-45deg);
+  animation: abNavPinBounce 1.08s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.ab-nav-pulse-marker::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: var(--ds-radius-pill);
+  background: #fff;
+}
+
+.ab-nav-pulse-marker--taxi {
+  --marker-rgb: 246, 181, 42;
+  left: 96.15%;
+  top: 44.5%;
+}
+
+.ab-nav-pulse-marker--exit {
+  --marker-rgb: 23, 154, 97;
+  left: 53.15%;
+  top: 67%;
+}
+
+@keyframes abNavPinBounce {
+  0%,
+  100% {
+    transform: translate(-50%, -100%) rotate(-45deg);
+  }
+  50% {
+    transform: translate(-50%, -118%) rotate(-45deg);
+  }
+}
+
 .ab-nav-layer-control {
   position: absolute;
   z-index: 4;
