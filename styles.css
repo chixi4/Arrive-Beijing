@@ -8614,6 +8614,11 @@ body.desktop-preview #app.anchor-app {
   color: var(--subtle);
 }
 
+.ab-short-haul-target-card .ab-target-copy em.selected {
+  color: var(--subtle);
+  font-weight: 400;
+}
+
 .ab-choice-context {
   padding: 12px 13px;
   border: 1px solid rgba(32, 111, 216, 0.14);
