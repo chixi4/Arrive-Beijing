@@ -3742,14 +3742,12 @@ function renderDriverStationPage(stationKey, variant = "queue") {
 
 function renderShortHaulTargetCard() {
   const selection = selectedShortHaulSummary();
-  const areaText = selection.area ? selection.area.name : "未选择站区";
   const dispatchText = selection.dispatch || "未选择调度站";
   return `
     <button class="ab-target-card ab-short-haul-target-card" data-to="#/driver/short-haul/station-select">
       <span class="ab-target-icon">${stationIconMarkup(selection.stationKey)}</span>
       <span class="ab-target-copy">
         <strong>${selection.station.name}</strong>
-        <em>${areaText}</em>
         <em class="${selection.dispatch ? "selected" : "pending"}">${dispatchText}</em>
       </span>
       <i>›</i>
@@ -3765,7 +3763,7 @@ function renderShortHaulStationChoiceCard([stationKey, station]) {
       <span class="ab-short-haul-choice-icon">${stationIconMarkup(stationKey)}</span>
       <span class="ab-short-haul-choice-copy">
         <strong>${station.name}</strong>
-        <em>${station.areas.length}个站区 · ${dispatchStationCount(station)}个出租车调度站</em>
+        <em class="ab-short-haul-choice-meta">${dispatchStationCount(station)}个出租车调度站</em>
         <small>当前排队 ${queueStation.passengers}人 · 预计 ${queueStation.wait}分钟</small>
       </span>
       ${selected ? `<span class="ab-short-haul-choice-check">${iconMarkup("check")}</span>` : `<i>›</i>`}
@@ -3860,8 +3858,8 @@ function renderShortHaulDispatchSelectPage(stationKey, areaKey) {
     body: `
       <section class="ab-page-section">
         <div class="ab-choice-context">
-          <strong>${area.name}</strong>
-          <span>${station.name} · ${area.dispatches.length}个出租车调度站</span>
+          <strong>${station.name}</strong>
+          <span>${area.dispatches.length}个出租车调度站</span>
         </div>
       </section>
       <section class="ab-page-section">
