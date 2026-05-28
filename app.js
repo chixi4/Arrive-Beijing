@@ -1908,10 +1908,9 @@ function renderStationHome() {
   return renderAppShell({
     className: "ab-home-page",
     body: `
-      <section class="ab-home-hero">
+      <section class="ab-home-hero" style="--ab-home-image:url('${stationSrc}');--ab-home-position-y:${heroPositionY}">
         <div class="ab-home-hero-card">
           <div class="ab-home-hero-cover">
-            <img class="ab-home-hero-image" src="${stationSrc}" alt="" loading="eager" decoding="async" fetchpriority="high" style="object-position:center ${heroPositionY};" onload="this.classList.add('is-loaded')" aria-hidden="true">
             <div class="ab-home-hero-top">
               <button class="ab-station-chip" data-to="#/station/switch">
                 <span class="ab-station-chip-pin">${iconMarkup("pin")}</span>
@@ -4192,11 +4191,10 @@ function renderSplash(kind = "traveler") {
 function renderSourcePage(page) {
   const source = `${IMG}${page.src}`;
   const priorityAttrs = page.src === "P02-01_京通首页-clear.jpg" ? ` fetchpriority="high"` : "";
-  const sizeAttrs = page.src === "P02-01_京通首页-clear.jpg" ? ` width="1260" height="2800"` : "";
   return `
     <div class="source-screen">
       <div class="source-phone">
-        <img class="source-img" src="${source}" alt="${page.src}" loading="eager" decoding="async"${priorityAttrs}${sizeAttrs}>
+        <img class="source-img" src="${source}" alt="${page.src}" loading="eager" decoding="async"${priorityAttrs}>
         ${renderOverlays(page)}
         ${(page.hotspots || []).map(renderHotspot).join("")}
         ${renderSelectionMarkers(page)}
