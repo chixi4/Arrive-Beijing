@@ -1022,7 +1022,7 @@ function routeCriticalImages(current) {
   const images = sourcePage ? [`${IMG}${sourcePage.src}`] : [];
   if (current === "#/splash") images.push(pickSplashImage("traveler"));
   if (current === "#/driver/splash") images.push(pickSplashImage("driver"));
-  if (current === "#/station/select" || current === "#/station/switch") images.push(...stationImageSources());
+  if (current === "#/station/select" || current === "#/station/switch") images.push(stationHeroImage(state.draftStation, "portrait"));
   if (current === "#/station/home") images.push(stationHeroImage(state.station));
   if (current === "#/nav/map" || current === "#/nav/route") {
     images.push(navigationVisualAssets.floors[state.selected.navFloor] || navigationVisualAssets.map);
@@ -1030,10 +1030,6 @@ function routeCriticalImages(current) {
   if (current === "#/nav/map3d") images.push(navigationVisualAssets.map3d);
   if (current === "#/nav/ar") images.push(navigationVisualAssets.ar);
   return uniqueImageSources(images);
-}
-
-function renderedImageSources() {
-  return [...app.querySelectorAll("img[src]")].map((image) => image.getAttribute("src"));
 }
 
 function nextRouteTargets(current) {
@@ -1072,7 +1068,7 @@ function preloadNextRouteImages(current) {
 function finishRouteAssetLoading(current, beforeReveal) {
   const token = ++routeAssetToken;
   app.classList.add("is-loading-assets");
-  const criticalImages = uniqueImageSources([...routeCriticalImages(current), ...renderedImageSources()]);
+  const criticalImages = routeCriticalImages(current);
   preloadNextRouteImages(current);
   const reveal = () => {
     if (token !== routeAssetToken || route() !== current) return;

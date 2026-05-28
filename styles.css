@@ -245,6 +245,36 @@ body.desktop-preview #app.anchor-app {
   visibility: hidden;
 }
 
+#app.is-loading-assets::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  z-index: 30;
+}
+
+#app.is-loading-assets::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 31;
+  width: 22px;
+  height: 22px;
+  margin: -11px 0 0 -11px;
+  border: 2px solid rgba(36, 107, 214, 0.16);
+  border-top-color: var(--blue);
+  border-radius: 999px;
+  animation: routeAssetSpin 0.72s linear infinite;
+}
+
+@keyframes routeAssetSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .source-phone {
   position: relative;
   width: 100%;
