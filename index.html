@@ -4,44 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>到站北京 - 移动端静态原型</title>
-    <script>
-      (function () {
-        var hash = location.hash || "#/portal";
-        var href = "";
-        if (hash === "#/portal") {
-          href = "extracted_screenshots/P02-01_京通首页-clear.jpg";
-        }
-        if (hash === "#/station/home") {
-          var station = "west";
-          try {
-            station = localStorage.getItem("arrive-beijing.station") || station;
-          } catch (error) {}
-          if (station === "yizhuang") station = "fengtai";
-          var assets = {
-            beijing: true,
-            west: true,
-            south: true,
-            north: true,
-            qinghe: true,
-            chaoyang: true,
-            fengtai: true,
-            tongzhou: true,
-            capital: true,
-            daxing: true
-          };
-          if (!assets[station]) station = "west";
-          href = "assets/bitmap/stations-v3/" + station + ".webp?v=20260527-2";
-        }
-        if (!href) return;
-        var preload = document.createElement("link");
-        preload.rel = "preload";
-        preload.as = "image";
-        preload.href = href;
-        preload.setAttribute("fetchpriority", "high");
-        document.head.appendChild(preload);
-      })();
-    </script>
-    <link rel="stylesheet" href="styles.css?v=20260528-09">
+    <link rel="stylesheet" href="styles.css?v=20260528-07">
   </head>
   <body>
     <main id="app" class="app-shell" aria-live="polite"></main>
@@ -56,6 +19,6 @@
     <script src="assets/icons/calibration/board-08-station-icons-a/single-svg-replica/icon-replicas-board-08.js?v=20260524-30"></script>
     <script src="assets/icons/calibration/board-09-station-icons-b/single-svg-replica/icon-replicas-board-09.js?v=20260524-30"></script>
     <script src="assets/icons/calibration/board-10-traffic-routing/single-svg-replica/icon-replicas-board-10.js?v=20260527-10"></script>
-    <script src="app.js?v=20260528-09"></script>
+    <script src="app.js?v=20260528-07"></script>
   </body>
 </html>
