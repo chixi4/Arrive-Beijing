@@ -6653,13 +6653,20 @@ body.desktop-preview #app.anchor-app {
 .ab-map-shell-icon {
   width: 64px;
   height: 64px;
-  border-radius: var(--ds-radius-media);
+  border-radius: 0;
   display: grid;
   place-items: center;
-  background: #fff;
+  background: transparent;
   color: var(--blue);
-  box-shadow: var(--shadow-soft);
+  box-shadow: none;
   font-size: 30px;
+}
+
+.ab-map-shell-icon .icon[data-icon^="station_"] {
+  width: 46px;
+  height: 46px;
+  transform: scale(1.18);
+  transform-origin: center;
 }
 
 .ab-map-shell-main strong {
@@ -8349,9 +8356,31 @@ body.desktop-preview #app.anchor-app {
   gap: 10px;
 }
 
+.ab-station-hero-head {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+}
+
+.ab-station-hero-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+}
+
+.ab-station-hero-icon .icon[data-icon^="station_"] {
+  width: 34px;
+  height: 34px;
+  transform: scale(1.25);
+  transform-origin: center;
+}
+
 .ab-station-hero p {
   margin: 0;
-  text-align: center;
+  text-align: left;
   font-size: 14px;
   font-weight: 800;
 }
@@ -8567,9 +8596,13 @@ body.desktop-preview #app.anchor-app {
   align-items: start;
 }
 
-.ab-short-haul-target-card .ab-target-icon .icon {
-  width: 34px;
-  height: 22px;
+.ab-short-haul-target-card .ab-target-icon {
+  align-self: start;
+}
+
+.ab-short-haul-target-card .ab-target-icon .icon[data-icon^="station_"] {
+  width: 30px;
+  height: 30px;
 }
 
 .ab-target-copy em.selected {
@@ -8626,6 +8659,7 @@ body.desktop-preview #app.anchor-app {
 .ab-short-haul-choice-icon {
   width: 42px;
   height: 42px;
+  align-self: start;
   border-radius: var(--ds-radius-icon);
   display: grid;
   place-items: center;
