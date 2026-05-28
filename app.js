@@ -2633,18 +2633,18 @@ const driverStationData = {
     title: "北京西站",
     address: "丰台区莲花池东路118号",
     areas: [
-      { title: "北京西站南广场出租车调度站", tone: "danger", status: "拥挤", passengers: "39", vehicles: "37", wait: "30-40" },
-      { title: "北广场负二层出租车调度站", tone: "danger", status: "拥挤", passengers: "39", vehicles: "37", wait: "30-40" },
-      { title: "西站北广场负一层东侧出租车调度站", tone: "danger", status: "拥挤", passengers: "40", vehicles: "37", wait: "30-40" },
-      { title: "西站北广场负一层西侧出租车调度站", tone: "danger", status: "拥挤", passengers: "39", vehicles: "36", wait: "30-40" },
+      { title: "北京西站南广场出租车调度站", tone: "danger", status: "拥挤", passengers: "58", vehicles: "49", wait: "30-40" },
+      { title: "北广场负二层出租车调度站", tone: "warning", status: "正常", passengers: "42", vehicles: "38", wait: "25-35" },
+      { title: "西站北广场负一层东侧出租车调度站", tone: "warning", status: "正常", passengers: "33", vehicles: "35", wait: "20-30" },
+      { title: "西站北广场负一层西侧出租车调度站", tone: "success", status: "畅通", passengers: "24", vehicles: "25", wait: "15-25" },
     ],
   },
   south: {
     title: "北京南站",
     address: "丰台区永外大街12号",
     areas: [
-      { title: "北京南站北枢纽出租车调度站", tone: "danger", status: "拥挤", passengers: "65", vehicles: "62", wait: "25-35" },
-      { title: "北京南站南枢纽出租车调度站", tone: "danger", status: "拥挤", passengers: "65", vehicles: "62", wait: "25-35" },
+      { title: "北京南站北枢纽出租车调度站", tone: "danger", status: "拥挤", passengers: "82", vehicles: "73", wait: "25-35" },
+      { title: "北京南站南枢纽出租车调度站", tone: "warning", status: "正常", passengers: "48", vehicles: "51", wait: "15-25" },
     ],
   },
   north: {
@@ -2679,8 +2679,8 @@ const driverStationData = {
     title: "通州站",
     address: "通州区新华东街",
     areas: [
-      { title: "通州站东地下B2出租车调度站", tone: "warning", status: "正常", passengers: "42", vehicles: "37", wait: "15-25" },
-      { title: "通州站西地下B2出租车调度站", tone: "warning", status: "正常", passengers: "41", vehicles: "37", wait: "15-25" },
+      { title: "通州站东地下B2出租车调度站", tone: "warning", status: "正常", passengers: "52", vehicles: "39", wait: "15-25" },
+      { title: "通州站西地下B2出租车调度站", tone: "success", status: "畅通", passengers: "31", vehicles: "35", wait: "10-20" },
     ],
   },
   capital: {
@@ -3814,7 +3814,7 @@ function renderShortHaulStationSelectPage() {
       <section class="ab-page-section">
         <div class="ab-choice-context">
           <strong>目标车站</strong>
-          <span>先选择车站，再选择全称站区和具体出租车调度站。</span>
+          <span>选择车站后直接进入对应出租车调度站列表。</span>
         </div>
       </section>
       <section class="ab-page-section">
@@ -3856,7 +3856,7 @@ function renderShortHaulDispatchSelectPage(stationKey, areaKey) {
   const area = shortHaulAreaByKey(resolvedStationKey, areaKey);
   return renderAppShell({
     className: "ab-short-haul-page ab-short-haul-select-page",
-    topbar: renderAppTopbar({ title: "选择调度站", backTo: `#/driver/short-haul/area-select/${resolvedStationKey}` }),
+    topbar: renderAppTopbar({ title: "选择调度站", backTo: "#/driver/short-haul/station-select" }),
     body: `
       <section class="ab-page-section">
         <div class="ab-choice-context">
@@ -4791,10 +4791,11 @@ document.addEventListener("click", (event) => {
     const stationKey = shortHaulDispatchData[shortHaulStationButton.dataset.shortHaulStation]
       ? shortHaulStationButton.dataset.shortHaulStation
       : "south";
+    const area = shortHaulStationById(stationKey).areas[0];
     state.selected.shortHaulStation = stationKey;
-    state.selected.shortHaulArea = "";
+    state.selected.shortHaulArea = area.key;
     state.selected.shortHaulDispatch = "";
-    go(`#/driver/short-haul/area-select/${stationKey}`);
+    go(`#/driver/short-haul/dispatch-select/${stationKey}/${area.key}`);
     return;
   }
 

@@ -8374,7 +8374,7 @@ body.desktop-preview #app.anchor-app {
 .ab-station-hero-icon .icon[data-icon^="station_"] {
   width: 34px;
   height: 34px;
-  transform: scale(1.25);
+  transform: translateY(-9px) scale(1.25);
   transform-origin: center;
 }
 
@@ -8601,8 +8601,8 @@ body.desktop-preview #app.anchor-app {
 }
 
 .ab-short-haul-target-card .ab-target-icon .icon[data-icon^="station_"] {
-  width: 30px;
-  height: 30px;
+  width: 34px;
+  height: 34px;
 }
 
 .ab-target-copy em.selected {
@@ -8656,6 +8656,10 @@ body.desktop-preview #app.anchor-app {
   box-shadow: 0 10px 24px rgba(32, 111, 216, 0.12);
 }
 
+.ab-short-haul-choice-card[data-short-haul-station]:not([data-short-haul-area]):not([data-short-haul-dispatch]) {
+  grid-template-columns: 46px minmax(0, 1fr) auto;
+}
+
 .ab-short-haul-choice-icon {
   width: 42px;
   height: 42px;
@@ -8673,8 +8677,15 @@ body.desktop-preview #app.anchor-app {
 }
 
 .ab-short-haul-choice-card[data-short-haul-station]:not([data-short-haul-area]):not([data-short-haul-dispatch]) .ab-short-haul-choice-icon {
+  width: 46px;
+  height: 46px;
   background: transparent;
   border-radius: 0;
+}
+
+.ab-short-haul-choice-card[data-short-haul-station]:not([data-short-haul-area]):not([data-short-haul-dispatch]) .ab-short-haul-choice-icon .icon[data-icon^="station_"] {
+  width: 46px;
+  height: 46px;
 }
 
 .ab-short-haul-choice-copy {
