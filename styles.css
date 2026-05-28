@@ -241,6 +241,10 @@ body.desktop-preview #app.anchor-app {
   position: relative;
 }
 
+#app.is-loading-assets > * {
+  visibility: hidden;
+}
+
 .source-phone {
   position: relative;
   width: 100%;
