@@ -8709,6 +8709,11 @@ body.desktop-preview #app.anchor-app {
   font-style: normal;
 }
 
+.ab-short-haul-choice-copy .ab-short-haul-choice-meta {
+  color: var(--subtle);
+  font-weight: 400;
+}
+
 .ab-short-haul-choice-copy small {
   color: var(--subtle);
 }
