@@ -2622,69 +2622,65 @@ const driverStationData = {
     title: "北京站",
     address: "东城区毛家湾胡同甲13号",
     areas: [
-      { title: "北京站东街出租车调度站", tone: "warning", status: "正常", passengers: "49", vehicles: "46", wait: "10-20" },
-      { title: "北京站西街出租车调度站", tone: "success", status: "畅通", passengers: "33", vehicles: "33", wait: "5-15" },
+      { title: "北京站地区出租车调度站", tone: "warning", status: "正常", passengers: "82", vehicles: "79", wait: "10-20" },
     ],
     mapNote: "点击区域标签可查看详细候车信息，蓝色路线为引导路径",
     mapAreas: [
-      { label: "东街调度站", tone: "warning", position: "left" },
-      { label: "西街调度站", tone: "success", position: "right" },
+      { label: "北京站地区出租车调度站", tone: "warning", position: "left" },
     ],
   },
   west: {
     title: "北京西站",
     address: "丰台区莲花池东路118号",
     areas: [
-      { title: "北京西站南广场出租车调度站", tone: "danger", status: "拥挤", passengers: "96", vehicles: "89", wait: "30-40" },
-      { title: "北京西站北广场出租车调度站", tone: "warning", status: "正常", passengers: "61", vehicles: "58", wait: "20-30" },
+      { title: "北京西站南广场出租车调度站", tone: "danger", status: "拥挤", passengers: "39", vehicles: "37", wait: "30-40" },
+      { title: "北广场负二层出租车调度站", tone: "danger", status: "拥挤", passengers: "39", vehicles: "37", wait: "30-40" },
+      { title: "西站北广场负一层东侧出租车调度站", tone: "danger", status: "拥挤", passengers: "40", vehicles: "37", wait: "30-40" },
+      { title: "西站北广场负一层西侧出租车调度站", tone: "danger", status: "拥挤", passengers: "39", vehicles: "36", wait: "30-40" },
     ],
   },
   south: {
     title: "北京南站",
     address: "丰台区永外大街12号",
     areas: [
-      { title: "北京南站南广场出租车调度站", tone: "danger", status: "拥挤", passengers: "83", vehicles: "78", wait: "25-35" },
-      { title: "北京南站北广场出租车调度站", tone: "warning", status: "正常", passengers: "47", vehicles: "46", wait: "15-25" },
+      { title: "北京南站北枢纽出租车调度站", tone: "danger", status: "拥挤", passengers: "65", vehicles: "62", wait: "25-35" },
+      { title: "北京南站南枢纽出租车调度站", tone: "danger", status: "拥挤", passengers: "65", vehicles: "62", wait: "25-35" },
     ],
   },
   north: {
     title: "北京北站",
     address: "西城区北滨河路1号",
     areas: [
-      { title: "北京北站南广场出租车调度站", tone: "success", status: "畅通", passengers: "27", vehicles: "12", wait: "5-15" },
-      { title: "北京北站北落客出租车调度站", tone: "success", status: "畅通", passengers: "15", vehicles: "6", wait: "5-15" },
+      { title: "北京北站出租车调度站", tone: "success", status: "畅通", passengers: "42", vehicles: "18", wait: "5-15" },
     ],
   },
   qinghe: {
     title: "清河站",
     address: "海淀区安宁庄西路",
     areas: [
-      { title: "清河站东广场出租车调度站", tone: "success", status: "畅通", passengers: "28", vehicles: "31", wait: "5-15" },
-      { title: "清河站西广场出租车调度站", tone: "success", status: "畅通", passengers: "18", vehicles: "21", wait: "5-15" },
+      { title: "清河站地区出租车调度站", tone: "success", status: "畅通", passengers: "46", vehicles: "52", wait: "5-15" },
     ],
   },
   chaoyang: {
     title: "朝阳站",
     address: "朝阳区姚家园北路",
     areas: [
-      { title: "北京朝阳站南广场出租车调度站", tone: "warning", status: "正常", passengers: "68", vehicles: "57", wait: "20-30" },
-      { title: "北京朝阳站北广场出租车调度站", tone: "warning", status: "正常", passengers: "49", vehicles: "41", wait: "15-25" },
+      { title: "南1（JK区）出租车调度站", tone: "warning", status: "正常", passengers: "117", vehicles: "98", wait: "20-30" },
     ],
   },
   fengtai: {
     title: "丰台站",
     address: "丰台区正阳大街4号",
     areas: [
-      { title: "丰台站南广场出租车调度站", tone: "warning", status: "正常", passengers: "58", vehicles: "19", wait: "10-20" },
-      { title: "丰台站北广场出租车调度站", tone: "success", status: "畅通", passengers: "38", vehicles: "12", wait: "5-15" },
+      { title: "丰台站西地下出租车调度站", tone: "warning", status: "正常", passengers: "96", vehicles: "31", wait: "10-20" },
     ],
   },
   tongzhou: {
     title: "通州站",
     address: "通州区新华东街",
     areas: [
-      { title: "北京通州站东广场出租车调度站", tone: "warning", status: "正常", passengers: "50", vehicles: "45", wait: "15-25" },
-      { title: "北京通州站西广场出租车调度站", tone: "success", status: "畅通", passengers: "33", vehicles: "29", wait: "10-20" },
+      { title: "通州站东地下B2出租车调度站", tone: "warning", status: "正常", passengers: "42", vehicles: "37", wait: "15-25" },
+      { title: "通州站西地下B2出租车调度站", tone: "warning", status: "正常", passengers: "41", vehicles: "37", wait: "15-25" },
     ],
   },
   capital: {
@@ -2709,57 +2705,58 @@ const shortHaulDispatchData = {
   beijing: {
     name: "北京站",
     areas: [
-      { key: "east-street", name: "北京站东街出租车调度区", dispatches: ["北京站东街1号出租车调度站", "北京站东街2号出租车调度站"] },
-      { key: "west-street", name: "北京站西街出租车调度区", dispatches: ["北京站西街出租车调度站"] },
+      { key: "beijing", name: "北京站", dispatches: ["北京站地区出租车调度站"] },
     ],
   },
   west: {
     name: "北京西站",
     areas: [
-      { key: "south-plaza", name: "北京西站南广场出租车调度区", dispatches: ["北京西站南广场东侧出租车调度站", "北京西站南广场西侧出租车调度站"] },
-      { key: "north-plaza", name: "北京西站北广场出租车调度区", dispatches: ["北京西站北广场出租车调度站"] },
+      {
+        key: "west",
+        name: "西站",
+        dispatches: [
+          "北京西站南广场出租车调度站",
+          "北广场负二层出租车调度站",
+          "西站北广场负一层东侧出租车调度站",
+          "西站北广场负一层西侧出租车调度站",
+        ],
+      },
     ],
   },
   south: {
     name: "北京南站",
     areas: [
-      { key: "south-plaza", name: "北京南站南广场出租车调度区", dispatches: ["北京南站南广场东侧出租车调度站", "北京南站南广场西侧出租车调度站", "北京南站南广场地下出租车调度站"] },
-      { key: "north-plaza", name: "北京南站北广场出租车调度区", dispatches: ["北京南站北广场东侧出租车调度站", "北京南站北广场西侧出租车调度站"] },
+      { key: "south", name: "南站", dispatches: ["北京南站北枢纽出租车调度站", "北京南站南枢纽出租车调度站"] },
     ],
   },
   north: {
     name: "北京北站",
     areas: [
-      { key: "south-plaza", name: "北京北站南广场出租车调度区", dispatches: ["北京北站南广场出租车调度站"] },
-      { key: "north-dropoff", name: "北京北站北落客出租车调度区", dispatches: ["北京北站北落客出租车调度站"] },
+      { key: "north", name: "北站", dispatches: ["北京北站出租车调度站"] },
     ],
   },
   qinghe: {
     name: "清河站",
     areas: [
-      { key: "east-plaza", name: "清河站东广场出租车调度区", dispatches: ["清河站东广场出租车调度站", "清河站东广场备用出租车调度站"] },
-      { key: "west-plaza", name: "清河站西广场出租车调度区", dispatches: ["清河站西广场出租车调度站"] },
+      { key: "qinghe", name: "清河站", dispatches: ["清河站地区出租车调度站"] },
     ],
   },
   chaoyang: {
     name: "朝阳站",
     areas: [
-      { key: "south-plaza", name: "北京朝阳站南广场出租车调度区", dispatches: ["北京朝阳站南广场主出租车调度站", "北京朝阳站南广场备用出租车调度站"] },
-      { key: "north-plaza", name: "北京朝阳站北广场出租车调度区", dispatches: ["北京朝阳站北广场出租车调度站"] },
+      { key: "chaoyang", name: "朝阳站", dispatches: ["南1（JK区）出租车调度站"] },
     ],
   },
   fengtai: {
     name: "丰台站",
     areas: [
-      { key: "south-plaza", name: "丰台站南广场出租车调度区", dispatches: ["丰台站南广场出租车调度站", "丰台站南广场备用出租车调度站"] },
-      { key: "north-plaza", name: "丰台站北广场出租车调度区", dispatches: ["丰台站北广场出租车调度站"] },
+      { key: "fengtai", name: "丰台站", dispatches: ["丰台站西地下出租车调度站"] },
     ],
   },
   tongzhou: {
     name: "通州站",
     areas: [
-      { key: "east-plaza", name: "北京通州站东广场出租车调度区", dispatches: ["北京通州站东广场出租车调度站", "北京通州站东广场备用出租车调度站"] },
-      { key: "west-plaza", name: "北京通州站西广场出租车调度区", dispatches: ["北京通州站西广场出租车调度站"] },
+      { key: "tongzhou", name: "通州站", dispatches: ["通州站东地下B2出租车调度站", "通州站西地下B2出租车调度站"] },
     ],
   },
 };
@@ -3657,7 +3654,10 @@ function renderDriverStationPage(stationKey, variant = "queue") {
     body: `
       <section class="ab-page-section">
         <div class="ab-station-hero">
-          <p>${station.address}</p>
+          <div class="ab-station-hero-head">
+            <span class="ab-station-hero-icon">${stationIconMarkup(stationKey)}</span>
+            <p>${station.address}</p>
+          </div>
           ${renderStatGrid(heroStats)}
         </div>
       </section>
@@ -3684,7 +3684,7 @@ function renderDriverStationPage(stationKey, variant = "queue") {
               <div class="ab-map-shell ab-map-shell--driver">
                 <div class="ab-map-shell-grid" aria-hidden="true"></div>
                 <div class="ab-map-shell-main">
-                  <span class="ab-map-shell-icon">${iconMarkup("train")}</span>
+                  <span class="ab-map-shell-icon">${stationIconMarkup(stationKey)}</span>
                   <strong>${station.title}</strong>
                   <em>${station.mapNote || "点击区域标签可查看详细候车信息，蓝色路线为引导路径"}</em>
                 </div>
