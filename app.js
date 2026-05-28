@@ -489,17 +489,6 @@ function stationHeroImage(id, variant = "landscape") {
   return `${src}?v=20260527-2`;
 }
 
-const preloadedImages = new Set();
-
-function preloadImage(src, priority = "auto") {
-  if (!src || preloadedImages.has(src) || typeof Image === "undefined") return;
-  preloadedImages.add(src);
-  const image = new Image();
-  image.decoding = "async";
-  if ("fetchPriority" in image) image.fetchPriority = priority;
-  image.src = src;
-}
-
 function stationIconMarkup(id) {
   return iconMarkup(stationIconNames[id] || stationIconNames.west);
 }
@@ -1895,7 +1884,6 @@ function scrollToSection(id) {
 function renderStationHome() {
   const [, stationName] = stationById(state.station);
   const stationSrc = stationHeroImage(state.station);
-  preloadImage(stationSrc, "high");
   const heroPositionY = state.station === "west" ? "64%" : "bottom";
   const announcements = stationAnnouncementOverrides[state.station] || stationHomeAnnouncements;
   const trafficCards = [
@@ -4190,11 +4178,10 @@ function renderSplash(kind = "traveler") {
 
 function renderSourcePage(page) {
   const source = `${IMG}${page.src}`;
-  const priorityAttrs = page.src === "P02-01_京通首页-clear.jpg" ? ` fetchpriority="high"` : "";
   return `
     <div class="source-screen">
       <div class="source-phone">
-        <img class="source-img" src="${source}" alt="${page.src}" loading="eager" decoding="async"${priorityAttrs}>
+        <img class="source-img" src="${source}" alt="${page.src}">
         ${renderOverlays(page)}
         ${(page.hotspots || []).map(renderHotspot).join("")}
         ${renderSelectionMarkers(page)}
