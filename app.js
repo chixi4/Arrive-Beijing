@@ -976,6 +976,118 @@ const pages = {
   },
 };
 
+const loadedRouteImages = new Set();
+const loadingRouteImages = new Map();
+let routeAssetToken = 0;
+
+function uniqueImageSources(sources) {
+  return [...new Set(sources.filter(Boolean))];
+}
+
+function loadRouteImage(src) {
+  if (loadedRouteImages.has(src)) return Promise.resolve(true);
+  if (loadingRouteImages.has(src)) return loadingRouteImages.get(src);
+  const promise = new Promise((resolve) => {
+    const image = new Image();
+    image.onload = () => {
+      loadedRouteImages.add(src);
+      loadingRouteImages.delete(src);
+      resolve(true);
+    };
+    image.onerror = () => {
+      loadingRouteImages.delete(src);
+      resolve(false);
+    };
+    image.src = src;
+  });
+  loadingRouteImages.set(src, promise);
+  return promise;
+}
+
+function stationImageSources() {
+  return stations.map(([id]) => stationHeroImage(id, "portrait"));
+}
+
+function navigationImageSources() {
+  return [
+    navigationVisualAssets.map,
+    navigationVisualAssets.map3d,
+    navigationVisualAssets.ar,
+    ...Object.values(navigationVisualAssets.floors),
+  ];
+}
+
+function routeCriticalImages(current) {
+  const sourcePage = pages[current];
+  const images = sourcePage ? [`${IMG}${sourcePage.src}`] : [];
+  if (current === "#/splash") images.push(pickSplashImage("traveler"));
+  if (current === "#/driver/splash") images.push(pickSplashImage("driver"));
+  if (current === "#/station/select" || current === "#/station/switch") images.push(...stationImageSources());
+  if (current === "#/station/home") images.push(stationHeroImage(state.station));
+  if (current === "#/nav/map" || current === "#/nav/route") {
+    images.push(navigationVisualAssets.floors[state.selected.navFloor] || navigationVisualAssets.map);
+  }
+  if (current === "#/nav/map3d") images.push(navigationVisualAssets.map3d);
+  if (current === "#/nav/ar") images.push(navigationVisualAssets.ar);
+  return uniqueImageSources(images);
+}
+
+function renderedImageSources() {
+  return [...app.querySelectorAll("img[src]")].map((image) => image.getAttribute("src"));
+}
+
+function nextRouteTargets(current) {
+  const routes = new Set();
+  const page = pages[current];
+  if (page) {
+    (page.hotspots || []).forEach((hotspot) => {
+      if (hotspot.to) routes.add(hotspot.to);
+    });
+  }
+  app.querySelectorAll("[data-to]").forEach((node) => {
+    if (node.dataset.to) routes.add(node.dataset.to);
+  });
+  if (current === "#/station/select" || current === "#/station/switch") routes.add("#/station/home");
+  if (current.startsWith("#/nav/")) {
+    ["#/nav/map", "#/nav/map3d", "#/nav/ar", "#/nav/route"].forEach((target) => routes.add(target));
+  }
+  return [...routes];
+}
+
+function nextRouteImageSources(current) {
+  const images = [];
+  nextRouteTargets(current).forEach((target) => images.push(...routeCriticalImages(target)));
+  if (current === "#/station/select" || current === "#/station/switch") images.push(...stationImageSources());
+  if (current === "#/station/home") images.push(...stationImageSources());
+  if (current.startsWith("#/nav/")) images.push(...navigationImageSources());
+  return uniqueImageSources(images);
+}
+
+function preloadNextRouteImages(current) {
+  nextRouteImageSources(current).forEach((src) => {
+    loadRouteImage(src);
+  });
+}
+
+function finishRouteAssetLoading(current, beforeReveal) {
+  const token = ++routeAssetToken;
+  app.classList.add("is-loading-assets");
+  const criticalImages = uniqueImageSources([...routeCriticalImages(current), ...renderedImageSources()]);
+  preloadNextRouteImages(current);
+  const reveal = () => {
+    if (token !== routeAssetToken || route() !== current) return;
+    if (beforeReveal) beforeReveal();
+    app.classList.remove("is-loading-assets");
+  };
+  if (!criticalImages.length) {
+    reveal();
+    return;
+  }
+  Promise.all(criticalImages.map(loadRouteImage)).then((results) => {
+    if (results.every(Boolean)) reveal();
+  });
+}
+
 function stationById(id) {
   return stations.find((station) => station[0] === id) || stations[1];
 }
@@ -4631,59 +4743,61 @@ function render() {
   const current = route();
   const styleAnchorKind = styleAnchorRoutes[current];
   app.className = styleAnchorKind
-    ? "app-shell anchor-app"
+    ? "app-shell anchor-app is-loading-assets"
     : current === designSystemRoute
-    ? "app-shell design-system-app"
-    : "app-shell";
+    ? "app-shell design-system-app is-loading-assets"
+    : "app-shell is-loading-assets";
   if (styleAnchorKind) {
     state.currentSurface = current;
     app.innerHTML = renderStyleAnchorPage(styleAnchorKind);
     syncDesktopPreviewFrame();
-    requestAnimationFrame(() => window.scrollTo(0, 0));
+    finishRouteAssetLoading(current, () => requestAnimationFrame(() => window.scrollTo(0, 0)));
     return;
   }
   if (current === designSystemRoute) {
     state.currentSurface = current;
     app.innerHTML = renderDesignSystem();
     syncDesktopPreviewFrame();
-    requestAnimationFrame(() => window.scrollTo(0, 0));
+    finishRouteAssetLoading(current, () => requestAnimationFrame(() => window.scrollTo(0, 0)));
     return;
   }
   const featurePage = renderFeatureRoute(current);
   if (featurePage) {
     state.currentSurface = current;
-    app.className = "app-shell mobile-preview-app";
+    app.className = "app-shell mobile-preview-app is-loading-assets";
     app.innerHTML = featurePage;
     syncDesktopPreviewFrame();
-    requestAnimationFrame(() => {
+    finishRouteAssetLoading(current, () => requestAnimationFrame(() => {
       setTimeout(() => {
         window.scrollTo(0, 0);
         const anchor = routeScrollTargets[current];
         if (anchor) scrollToSection(anchor);
       }, 0);
-    });
+    }));
     return;
   }
   if (current === "#/splash") {
     state.currentSurface = current;
-    app.className = "app-shell mobile-preview-app";
+    app.className = "app-shell mobile-preview-app is-loading-assets";
     app.innerHTML = renderSplash("traveler");
     syncDesktopPreviewFrame();
+    finishRouteAssetLoading(current);
     return;
   }
   if (current === "#/driver/splash") {
     state.currentSurface = current;
-    app.className = "app-shell mobile-preview-app";
+    app.className = "app-shell mobile-preview-app is-loading-assets";
     app.innerHTML = renderSplash("driver");
     syncDesktopPreviewFrame();
+    finishRouteAssetLoading(current);
     return;
   }
   if (current === "#/services") {
     state.currentSurface = current;
-    app.className = "app-shell mobile-preview-app";
+    app.className = "app-shell mobile-preview-app is-loading-assets";
     app.innerHTML = renderServices();
     syncDesktopPreviewFrame();
-    requestAnimationFrame(() => window.scrollTo(0, 0));
+    finishRouteAssetLoading(current, () => requestAnimationFrame(() => window.scrollTo(0, 0)));
     return;
   }
   if (current === "#/station/select") {
@@ -4691,10 +4805,10 @@ function render() {
       state.draftStation = "south";
     }
     state.currentSurface = current;
-    app.className = "app-shell mobile-preview-app";
+    app.className = "app-shell mobile-preview-app is-loading-assets";
     app.innerHTML = renderStationSelect("select");
     syncDesktopPreviewFrame();
-    scheduleStationCarouselSync();
+    finishRouteAssetLoading(current, scheduleStationCarouselSync);
     return;
   }
   if (current === "#/station/switch") {
@@ -4702,17 +4816,18 @@ function render() {
       state.draftStation = state.station;
     }
     state.currentSurface = current;
-    app.className = "app-shell mobile-preview-app";
+    app.className = "app-shell mobile-preview-app is-loading-assets";
     app.innerHTML = renderStationSelect("switch");
     syncDesktopPreviewFrame();
-    scheduleStationCarouselSync();
+    finishRouteAssetLoading(current, scheduleStationCarouselSync);
     return;
   }
   state.currentSurface = current;
-  app.className = "app-shell mobile-preview-app";
+  app.className = "app-shell mobile-preview-app is-loading-assets";
   const page = pages[current] || pages["#/portal"];
   app.innerHTML = renderSourcePage(page);
   syncDesktopPreviewFrame();
+  finishRouteAssetLoading(current);
 }
 
 document.addEventListener("submit", (event) => {
