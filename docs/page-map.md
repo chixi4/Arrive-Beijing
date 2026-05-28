@@ -54,8 +54,8 @@
 | `#/driver/station/beijing-map` | P20-01/P20-02 场站详情页 | 北京站场区地图 | 场区标签、引导路径 |
 | `#/driver/station/west` 等 | P21-01 场站详情页 + 2026-05-27 教师补充需求 | 各火车站/机场场站详情 | 实时排队、调度站列表、预约 |
 | `#/driver/short-haul/booking` | P21-02/P22-01 短途复载页 | 预约进场 | 日期、时段、确认预约；上层司机端开屏也进入这里 |
-| `#/driver/short-haul/station-select` | 2026-05-27 教师补充需求 | 短途复载目标车站选择 | 点车站进入站区选择 |
-| `#/driver/short-haul/area-select/:station` | 2026-05-27 教师补充需求 | 短途复载站区选择 | 显示全称站区与出租车调度站数量 |
+| `#/driver/short-haul/station-select` | 2026-05-27 教师补充需求 | 短途复载目标车站选择 | 点车站直接进入该站调度站选择 |
+| `#/driver/short-haul/area-select/:station` | 2026-05-27 教师补充需求 | 短途复载站区选择兼容页 | 默认流程不再停留此页 |
 | `#/driver/short-haul/dispatch-select/:station/:area` | 2026-05-27 教师补充需求 | 短途复载调度站选择 | 点调度站后返回预约进场页 |
 | `#/driver/short-haul/history` | P22-02 短途复载页 | 行程记录 | 行程卡片 |
 | `#/driver/short-haul/points` | P23-01/P23-02 短途复载页 | 积分明细 | 积分规则、积分记录 |
