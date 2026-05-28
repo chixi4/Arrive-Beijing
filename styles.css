@@ -8672,6 +8672,11 @@ body.desktop-preview #app.anchor-app {
   height: 30px;
 }
 
+.ab-short-haul-choice-card[data-short-haul-station]:not([data-short-haul-area]):not([data-short-haul-dispatch]) .ab-short-haul-choice-icon {
+  background: transparent;
+  border-radius: 0;
+}
+
 .ab-short-haul-choice-copy {
   min-width: 0;
   display: grid;
