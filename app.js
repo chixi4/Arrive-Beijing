@@ -1088,21 +1088,43 @@ function stationById(id) {
   return stations.find((station) => station[0] === id) || stations[1];
 }
 
-function route() {
+function rawRoute() {
   return location.hash || "#/portal";
+}
+
+function routeVersion() {
+  const current = rawRoute();
+  return current === "#/v2" || current.startsWith("#/v2/") ? "v2" : "v1";
+}
+
+function stripVersionPrefix(to) {
+  if (to === "#/v2") return "#/portal";
+  if (to && to.startsWith("#/v2/")) return `#/${to.slice("#/v2/".length)}`;
+  return to || "#/portal";
+}
+
+function route() {
+  return stripVersionPrefix(rawRoute());
+}
+
+function versionedRoute(to) {
+  if (!to || !to.startsWith("#/") || to.startsWith("#/v2")) return to;
+  return routeVersion() === "v2" ? `#/v2${to.slice(1)}` : to;
 }
 
 function go(to) {
   const from = route();
-  if (from !== to) {
+  const target = versionedRoute(to);
+  const normalizedTo = stripVersionPrefix(target);
+  if (from !== normalizedTo) {
     state.previousRoute = from;
-    if (from === "#/station/home" && to === "#/driver/short-haul/booking") {
+    if (from === "#/station/home" && normalizedTo === "#/driver/short-haul/booking") {
       state.shortHaulBackTo = "#/station/home";
-    } else if (!from.startsWith("#/driver/short-haul/") && !to.startsWith("#/driver/short-haul/")) {
+    } else if (!from.startsWith("#/driver/short-haul/") && !normalizedTo.startsWith("#/driver/short-haul/")) {
       state.shortHaulBackTo = "#/driver/queue";
     }
   }
-  location.hash = to;
+  location.hash = target;
 }
 
 function syncDesktopPreviewFrame() {
@@ -2440,6 +2462,11 @@ const trafficTaxiStops = [
   { name: "北广场出口", note: "排队 42 人", status: "可排队", tone: "success", action: "导航" },
 ];
 
+const trafficTaxiStopsV2 = [
+  { name: "南广场出租车候车区", note: "排队 85 人", status: "可排队", tone: "success", action: "导航" },
+  { name: "北广场出租车候车区", note: "排队 42 人", status: "可排队", tone: "success", action: "导航" },
+];
+
 const trafficRideOffers = [
   { name: "滴滴出行 · 快车", eta: "预计到达 4 分钟", demand: "候车低", price: "¥28-35", recommended: true },
   { name: "滴滴出行 · 优享", eta: "预计到达 6 分钟", demand: "候车低", price: "¥45-58" },
@@ -3486,6 +3513,7 @@ function renderAnnouncementsPage(variant = "top") {
 
 function renderTrafficPage(mode) {
   const activeRoute = `#/traffic/${mode}`;
+  const taxiStops = routeVersion() === "v2" ? trafficTaxiStopsV2 : trafficTaxiStops;
   const titleMap = {
     taxi: "交通接驳",
     ride: "交通接驳",
@@ -3514,7 +3542,7 @@ function renderTrafficPage(mode) {
     <section class="ab-page-section">
       ${renderSectionTitle("上车地点")}
       <div class="ab-traffic-stop-list">
-        ${trafficTaxiStops.map(renderTrafficStopCard).join("")}
+        ${taxiStops.map(renderTrafficStopCard).join("")}
       </div>
     </section>
 
@@ -4301,12 +4329,29 @@ function renderSourcePage(page) {
 
 function renderStationSelect(kind) {
   const isSwitch = kind === "switch";
+  const isV2 = routeVersion() === "v2";
   const title = "选择出行站点";
   const selected = stationById(state.draftStation);
-  const helperText = "点选站点后直接进入服务首页";
+  const helperText = isV2 ? "左右滑动浏览，点选站点后进入服务首页" : "点选站点后直接进入服务首页";
+  const stationCards = stations
+    .map(
+      ([id, name]) => `
+        <button class="station-slide ${state.draftStation === id ? "active" : ""}" data-station="${id}" aria-label="选择${name}">
+          <span class="station-slide-media">
+            <img class="station-slide-photo" src="${stationHeroImage(id, "portrait")}" alt="${name}">
+            <span class="station-slide-icon">${stationIconMarkup(id)}</span>
+          </span>
+          <span class="station-slide-copy">
+            <strong>${name}</strong>
+            <em>${stationKindLabel(id)} · 到站服务</em>
+          </span>
+          <span class="station-slide-check">${iconMarkup("check")}</span>
+        </button>`
+    )
+    .join("");
 
   return `
-    <div class="source-screen custom-station-screen">
+    <div class="source-screen custom-station-screen ${isV2 ? "station-horizontal-screen" : ""}">
       <div class="custom-topbar">
         <button class="station-back-button" data-to="${isSwitch ? "#/station/home" : "#/splash"}" aria-label="返回">${iconMarkup("back")}</button>
         <strong>${title}</strong>
@@ -4317,26 +4362,18 @@ function renderStationSelect(kind) {
         <h1>${selected[1]}</h1>
         <span>${helperText}</span>
       </section>
-      <div class="station-grid-source is-preparing" aria-label="选择站点">
-        <div class="station-select-grid">
-          ${stations
-            .map(
-              ([id, name]) => `
-                <button class="station-slide ${state.draftStation === id ? "active" : ""}" data-station="${id}" aria-label="选择${name}">
-                  <span class="station-slide-media">
-                    <img class="station-slide-photo" src="${stationHeroImage(id, "portrait")}" alt="${name}">
-                    <span class="station-slide-icon">${stationIconMarkup(id)}</span>
-                  </span>
-                  <span class="station-slide-copy">
-                    <strong>${name}</strong>
-                    <em>${stationKindLabel(id)} · 到站服务</em>
-                  </span>
-                  <span class="station-slide-check">${iconMarkup("check")}</span>
-                </button>`
-            )
-            .join("")}
-        </div>
-      </div>
+      ${
+        isV2
+          ? `
+            <div class="station-carousel" data-station-carousel aria-label="选择站点">${stationCards}</div>
+            <div class="station-selected-summary" aria-live="polite">
+              <span>已选择</span>
+              <strong data-selected-station-name>${selected[1]}</strong>
+              <em data-selected-station-kind>${stationKindLabel(selected[0])}</em>
+            </div>
+          `
+          : `<div class="station-grid-source is-preparing" aria-label="选择站点"><div class="station-select-grid">${stationCards}</div></div>`
+      }
     </div>
   `;
 }

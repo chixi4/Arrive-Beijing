@@ -705,6 +705,24 @@ body.desktop-preview #app.anchor-app {
   height: 13px;
 }
 
+.station-horizontal-screen .station-carousel {
+  padding-top: 14px;
+  padding-bottom: 22px;
+  scroll-snap-type: x mandatory;
+}
+
+.station-horizontal-screen .station-slide {
+  flex-basis: 78%;
+  max-width: 336px;
+  min-height: 414px;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+.station-horizontal-screen .station-slide-media {
+  min-height: 302px;
+}
+
 .station-selected-summary {
   margin: 0 14px 10px;
   min-height: 52px;
